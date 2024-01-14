@@ -5,9 +5,8 @@
   <meta charset="utf-8" />
   <title>WebGL Demo</title>
   <script src='https://git.io/glm-js.min.js'></script>
-  <!--<script src="src/script.js" type="module"></script>-->
+  <script src="src/script.js" type="module"></script>
   <script src="src/gui.js" type="module"></script>
-  <script src="src/index.js" type="module"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -67,29 +66,29 @@
               <th><b>FOV:</b> </th>
               <td>
                 <div class="range-solo">
-                  <input id="fov-slider" type="range" min="1" max="360" value="90">
+                  <input id="fov-slider" type="range" min="10" max="180" value="60">
                 </div>
               </td>
-              <td><input id="fov-number" class="number-input" type="number" min="1" max="360" step="1" value="90"></td>
+              <td><input id="fov-number" class="number-input" type="number" min="10" max="180" step="1" value="60"></td>
             </tr>
             <tr>
               <th><b>Pitch:</b> </th>
               <td>
                 <div class="range-solo">
-                  <input id="pitch-slider" type="range" min="-90" max="90" value="0">
+                  <input id="pitch-slider" type="range" min="-90" max="90" value="35">
                 </div>
               </td>
-              <td><input id="pitch-number" class="number-input" type="number" min="-90" max="90" step="1" value="0">
+              <td><input id="pitch-number" class="number-input" type="number" min="-90" max="90" step="1" value="35">
               </td>
             </tr>
             <tr>
               <th><b>Yaw:</b> </th>
               <td>
                 <div class="range-solo">
-                  <input id="yaw-slider" type="range" min="-180" max="180" value="0">
+                  <input id="yaw-slider" type="range" min="-180" max="180" value="45">
                 </div>
               </td>
-              <td><input id="yaw-number" class="number-input" type="number" min="-180" max="180" step="1" value="0">
+              <td><input id="yaw-number" class="number-input" type="number" min="-180" max="180" step="1" value="45">
               </td>
             </tr>
             <tr>
@@ -99,16 +98,16 @@
                   <span class="range-selected" id="depth-selected"></span>
                 </div>
                 <div class="range-input">
-                  <input id="depth-min" type="range" min="5" max="1000" value="10" step="1">
-                  <input id="depth-max" type="range" min="5" max="1000" value="100" step="1">
+                  <input id="depth-min" type="range" min="5" max="500" value="10" step="1">
+                  <input id="depth-max" type="range" min="5" max="500" value="300" step="1">
                 </div>
               <td>
                 <div class="minmaxnumber">
                   <label for="min">Min</label>
-                  <input id="depth-min-number" class="number-input" type="number" min="5" max="1000" value="10"
+                  <input id="depth-min-number" class="number-input" type="number" min="5" max="500" value="10"
                     step="1">
                   <label for="max">Max</label>
-                  <input id="depth-max-number" class="number-input" type="number" min="5" max="1000" value="100"
+                  <input id="depth-max-number" class="number-input" type="number" min="5" max="500" value="300"
                     step="1">
                 </div>
               </td>
@@ -120,15 +119,15 @@
                   <span class="range-selected" id="variance-selected"></span>
                 </div>
                 <div class="range-input">
-                  <input id="variance-min" type="range" min="0" max="1000" value="300" step="10">
-                  <input id="variance-max" type="range" min="0" max="1000" value="700" step="10">
+                  <input id="variance-min" type="range" min="0" max="1000" value="10" step="1">
+                  <input id="variance-max" type="range" min="0" max="1000" value="300" step="10">
                 </div>
               <td>
                 <div class="minmaxnumber">
                   <label for="min">Min</label>
-                  <input id="variance-min-number" class="number-input" type="number" min="0" max="1000" value="300">
+                  <input id="variance-min-number" class="number-input" type="number" min="0" max="1000" value="10">
                   <label for="max">Max</label>
-                  <input id="variance-max-number" class="number-input" type="number" min="0" max="1000" value="700">
+                  <input id="variance-max-number" class="number-input" type="number" min="0" max="1000" value="300">
                 </div>
               </td>
             </tr>
@@ -140,15 +139,14 @@
         <div width="500px" height="500px"></div>
       </div>
       <div class="card">
-        <button class="buttons" type="button">Render</button>
+        <button class="buttons" type="button" id="convertButton">Convert</button>
         <button class="buttons" type="button">Download</button>
 
       </div>
 
     </div>
     <div class="card">
-      <canvas id="image">
-
+      <canvas id="preview">
       </canvas>
     </div>
     <div class="card">

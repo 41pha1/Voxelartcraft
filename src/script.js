@@ -10,24 +10,26 @@ const shaderProgram = initWebgl(vertexShaderFile, fragmentShaderFile);
 var texture = null;
 var targetImage = null;
 var pixelData = null;
-var width = 0;
-var height = 0;
 
 // Uniforms
 var depth_uniform = null;
 
 // Settings
-const fov = 60.;
 const camPos = [0.7, 1.62, 0.7];
-const pitch = Math.asin(1 / Math.sqrt(3)) * 180 / Math.PI;
-const yaw = 45.;
+var fov = 60.;
+var pitch = Math.asin(1 / Math.sqrt(3)) * 180 / Math.PI;
+var yaw = 45.;
 
 // QUALITY SETTINGS
-const minDepth = 10;
-const maxDepth = 300;
+var minDepth = 10;
+var maxDepth = 300;
+var startVariance = 5;
+var endVariance = 450;
 const depthStep = 0.41234678;
-const startVariance = 5;
-const endVariance = 450;
+
+// States
+var voxelizing = false;
+var requestStop = false;
 
 function loadShader(shaderFile) {
     var shaderSource;
@@ -96,7 +98,7 @@ function createTexture(w, h) {
     return tex;
 }
 
-function loadTexture(image_url) {
+async function loadTexture(image_url) {
     texture = gl.createTexture();
     gl.bindTexture(gl.TEXTURE_2D, texture);
 
@@ -110,27 +112,16 @@ function loadTexture(image_url) {
 
     const img = new Image();
 
-    img.onload = () => {
-        gl.bindTexture(gl.TEXTURE_2D, texture);
-        gl.texImage2D(gl.TEXTURE_2D, level, internalFormat, srcFormat, srcType, img);
-
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
-
-        const tempCanvas = document.createElement('canvas');
-        const tempCtx = tempCanvas.getContext('2d');
-        tempCanvas.width = img.width;
-        tempCanvas.height = img.height;
-        tempCtx.drawImage(img, 0, 0);
-        targetImage = tempCtx.getImageData(0, 0, img.width, img.height).data;
-        tempCanvas.remove();
-
-        width = img.width;
-        height = img.height;
-    }
     img.src = image_url;
+    await img.decode();
 
+    gl.bindTexture(gl.TEXTURE_2D, texture);
+    gl.texImage2D(gl.TEXTURE_2D, level, internalFormat, srcFormat, srcType, img);
+
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+    
     return img;
 }
 
@@ -221,6 +212,8 @@ function setUniforms(w, h, depthStep, camPos, pitch, yaw, fov) {
     gl.uniformMatrix4fv(viewUniformLocation, false, view);
 
     depth_uniform = gl.getUniformLocation(shaderProgram, "u_depth");
+
+    gl.viewport(0, 0, canvas.width, canvas.height);
 }
 
 function render(depth) {
@@ -307,11 +300,7 @@ function placeBlocks(occlusionMask, output, depth) {
     analyzeBlocks(foundBlocks, pixelData, occlusionMask, allowedVariance, output);
 }
 
-function onDone() {
-    canvas.width = width;
-    canvas.height = height;
-
-    console.log("Creating framebuffer " + canvas.width + " " + canvas.height);
+function setupFramebuffer() {
     const tex1 = createTexture(canvas.width, canvas.height);
 
     const fb = gl.createFramebuffer();
@@ -320,10 +309,37 @@ function onDone() {
 
     gl.drawBuffers([gl.COLOR_ATTACHMENT0]);
     gl.bindTexture(gl.TEXTURE_2D, texture);
+}
 
+function displayOnPreview(img, canvas) {
+    const ctx = canvas.getContext('2d');
+    canvas.width = img.width;
+    canvas.height = img.height;
+    ctx.drawImage(img, 0, 0);
+}
+
+function loadSettingsFromUI() {
+    minDepth = parseFloat(document.querySelector('#depth-min-number').value);
+    maxDepth = parseFloat(document.querySelector('#depth-max-number').value);
+    startVariance = parseFloat(document.querySelector('#variance-min-number').value);
+    endVariance = parseFloat(document.querySelector('#variance-max-number').value);
+    fov = parseFloat(document.querySelector('#fov-number').value);
+    pitch = parseFloat(document.querySelector('#pitch-number').value);
+    yaw = parseFloat(document.querySelector('#yaw-number').value);
+}
+
+function voxelConvert() {
+    if (voxelizing) {
+        requestStop = true;
+        setTimeout(() => { voxelConvert(); }, 100);
+        return;
+    }
+    requestStop = false;
+    voxelizing = true;
+
+    loadSettingsFromUI();
+    setupFramebuffer();
     setUniforms(canvas.width, canvas.height, depthStep, camPos, pitch, yaw, fov);
-
-    gl.viewport(0, 0, canvas.width, canvas.height);
 
     var output = new Uint8Array(canvas.width * canvas.height * 4);
     var occlusionMask = new Int8Array(canvas.width * canvas.height * 1);
@@ -333,10 +349,8 @@ function onDone() {
     var outputCtx = outputCanvas.getContext('2d');
     outputCanvas.width = canvas.width;
     outputCanvas.height = canvas.height;
-    //document.body.appendChild(outputCanvas);
 
     var depth = minDepth;
-    render(depth);
 
     const timer = setInterval(() => {
         placeBlocks(occlusionMask, output, depth);
@@ -349,16 +363,14 @@ function onDone() {
 
         console.log("Depth: " + depth);
 
-        if (depth > maxDepth) {
+        if (depth > maxDepth || requestStop) {
+            voxelizing = false;
             clearInterval(timer);
-            console.log("Done");
         }
     }, 0);
-
-    console.log("Done");
 }
 
-function main() {
+async function main() {
     // Only continue if WebGL is available and working
     if (!gl) {
         alert("need WebGL2");
@@ -369,13 +381,16 @@ function main() {
         alert("need EXT_color_buffer_float");
         return;
     }
-    const img = loadTexture(DEFAULT_TARGET);
 
-    if (img.complete) {
-        onDone();
-    } else {
-        img.addEventListener('load', onDone);
-    }
+    const img = await loadTexture(DEFAULT_TARGET);
+    canvas.width = img.width;
+    canvas.height = img.height;
+
+    const previewCanvas = document.querySelector('#preview');
+    displayOnPreview(img, previewCanvas);
+    targetImage = previewCanvas.getContext('2d').getImageData(0, 0, img.width, img.height).data;
 }
 
 main();
+
+export { voxelConvert };

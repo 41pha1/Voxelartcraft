@@ -1,3 +1,7 @@
+import { voxelConvert } from "./script.js";
+
+document.getElementById ("convertButton").addEventListener ("click", voxelConvert, false);
+
 var brightness_slider = document.querySelector('#brightness-slider');
 var brightness_number = document.querySelector('#brightness-number');
 brightness_slider.addEventListener("input", brightness_updateSlider);
