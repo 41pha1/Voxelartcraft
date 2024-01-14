@@ -1,0 +1,182 @@
+:root {
+    --background: #010210;
+    --text: #e5e5fd;
+    --primary: #7e7af3;
+    --secondary: #9a0e5e;
+    --accent: #ea153a;
+    --div: #0d0e1a;
+    --div2: #1b1b3c;
+}
+
+body {
+    font-family: 'Courier New', monospace;
+    background-color: var(--background);
+    color: var(--text)
+}
+
+table {
+    border: 3px solid var(--div2);
+    border-radius: 1em;
+    margin: 5px;
+    padding: 5px;
+}
+
+.range-highlight {
+    height: 5px;
+    position: relative;
+    background-color: var(--div2);
+    border-radius: 3px;
+}
+
+.range-selected {
+    height: 100%;
+    left: 30%;
+    right: 30%;
+    position: absolute;
+    border-radius: 5px;
+    background-image: linear-gradient(to bottom right, var(--primary), var(--accent));
+
+}
+
+.range-input {
+    position: relative;
+}
+
+.range-input input {
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    top: -7px;
+    background: none;
+    pointer-events: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.range-solo input {
+    background-color: transparent;
+}
+
+.range-input input::-webkit-slider-thumb {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 3px solid var(--primary);
+    pointer-events: auto;
+    -webkit-appearance: none;
+}
+
+.range-input input::-moz-range-thumb {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    border: 3px solid var(--primary);
+    background-color: var(--div2);
+    pointer-events: auto;
+    -moz-appearance: none;
+}
+
+.range-solo input::-moz-range-thumb {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    border: 3px solid var(--primary);
+    background-color: var(--div2);
+    pointer-events: auto;
+    -moz-appearance: none;
+}
+
+
+.range-solo input[type="range"]::-moz-range-progress {
+    height: 5px;
+    border-radius: 3px;
+    background-image: linear-gradient(to bottom right, var(--primary), var(--accent));
+
+}
+
+.range-solo input[type="range"]:disabled::-moz-range-progress {
+    background: var(--div2);
+}
+
+.range-solo input[type="range"]::-moz-range-track {
+    height: 5px;
+    border-radius: 3px;
+    background-color: var(--div2);
+}
+
+.number-input {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.number-input label {
+    margin-right: 5px;
+}
+
+.number-input input {
+    width: 4em;
+    padding: 2px;
+}
+
+.number-input input:first-of-type {
+    margin-right: 15px;
+}
+
+.card {
+    background-color: var(--div);
+    border-radius: 1em;
+    padding: 1em;
+    margin: 1em;
+}
+
+h3 {
+    padding: 0px;
+    margin: 0px;
+}
+
+.elements {
+    display: flex;
+
+}
+
+.settingsGroup {
+    flex: 1;
+    display: inline-block;
+}
+
+.buttons {
+    background-image: linear-gradient(to bottom right, var(--primary), var(--div2));
+    border: none;
+    border-radius: 20px;
+    height: 4rem;
+    font-size: 3em;
+    color: var(--text);
+    padding: 0 0.5em 0 0.5em;
+    font-family: 'Courier New';
+}
+
+.number-input {
+    background-color: var(--div2);
+    color: var(--text);
+    width: 5rem;
+    border: none;
+    border-radius: 1em;
+    padding: 5px;
+    font-family: 'Courier New';
+    font-size: 1.25em;
+    text-align: center;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
