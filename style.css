@@ -2,6 +2,7 @@
     --background: #010210;
     --text: #e5e5fd;
     --primary: #7e7af3;
+    --highlight: #b3b1f0;
     --secondary: #9a0e5e;
     --accent: #ea153a;
     --div: #0d0e1a;
@@ -174,22 +175,23 @@ h3 {
 
 .elements {
     display: flex;
-
+    flex-direction: column;
 }
 
 .settingsGroup {
     flex: 1;
+    flex-grow: 0;
+    flex-basis: 0%;
     display: inline-block;
 }
 
 .buttons {
     background-image: linear-gradient(to bottom right, var(--primary), var(--div2));
     border: none;
-    border-radius: 20px;
-    height: 4rem;
+    border-radius: 0.2em;
     font-size: 3em;
     color: var(--text);
-    padding: 0 0.5em 0 0.5em;
+    width: 100%;
     font-family: 'Courier New';
 }
 
@@ -215,4 +217,77 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
     -moz-appearance: textfield;
+}
+
+.main-conversion {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.images {
+    display: flex;
+    flex-direction: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.image {
+    flex-direction: column;
+    margin: 5px;
+    padding: 5px;
+    display: block;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+canvas {
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+    height: 38vh
+}
+
+.canvas-background {
+    margin: 10px;
+    background: repeating-conic-gradient(#1f1f1f 0% 25%, #141414 0% 50%) 50% / 20px 20px;
+}
+
+.blockList {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    background: var(--div2);
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.blockSelectorCheckbox {
+    display: none;
+}
+
+.blockSelectorLabel {
+    display: block;
+    width: 3em;
+    height: 3em;
+    cursor: pointer;
+    margin: 2px;
+    padding: 1px;
+    border: 6px transparent solid;
+}
+
+.blockSelectorCheckbox:checked+.blockSelectorLabel {
+    border: 6px solid var(--highlight);
+    border-radius: 0.5em;
+}
+
+.blockSelectorImage {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    object-fit: cover;
+    image-rendering: pixelated;
 }

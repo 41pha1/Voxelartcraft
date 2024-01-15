@@ -1,9 +1,16 @@
-const DEFAULT_TARGET = './res/ganyu3_t.png';
-const vertexShaderFile = "./shaders/vertex.glsl";
+const DEFAULT_TARGET = './res/kuki.png';
 const fragmentShaderFile = "./shaders/fragment.glsl";
+const vertexShaderFile = "./shaders/vertex.glsl";
 
 const canvas = document.querySelector("#glcanvas");
 const gl = canvas.getContext("webgl2");
+
+const previewCanvas = document.querySelector('#preview');
+const previewCtx = previewCanvas.getContext('2d');
+
+const outputCanvas = document.querySelector('#canvas');
+const outputCtx = outputCanvas.getContext('2d');
+
 const shaderProgram = initWebgl(vertexShaderFile, fragmentShaderFile);
 
 // Target Image
@@ -345,13 +352,7 @@ function voxelConvert() {
     var occlusionMask = new Int8Array(canvas.width * canvas.height * 1);
     pixelData = new Float32Array(canvas.width * canvas.height * 4);
 
-    var outputCanvas = document.querySelector('#canvas');
-    var outputCtx = outputCanvas.getContext('2d');
-    outputCanvas.width = canvas.width;
-    outputCanvas.height = canvas.height;
-
     var depth = minDepth;
-
     const timer = setInterval(() => {
         placeBlocks(occlusionMask, output, depth);
 
@@ -385,8 +386,9 @@ async function main() {
     const img = await loadTexture(DEFAULT_TARGET);
     canvas.width = img.width;
     canvas.height = img.height;
+    outputCanvas.width = canvas.width;
+    outputCanvas.height = canvas.height;
 
-    const previewCanvas = document.querySelector('#preview');
     displayOnPreview(img, previewCanvas);
     targetImage = previewCanvas.getContext('2d').getImageData(0, 0, img.width, img.height).data;
 }
