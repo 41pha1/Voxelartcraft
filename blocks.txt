@@ -1,241 +1,241 @@
-acacia_planks
-amethyst_block
-andesite
-bamboo_block
-bamboo_mosaic
-bamboo_planks
-birch_planks
-blackstone
-black_concrete
-black_concrete_powder
-black_glazed_terracotta
-black_terracotta
-black_wool
-blue_concrete
-blue_concrete_powder
-blue_glazed_terracotta
-blue_ice
-blue_terracotta
-blue_wool
-bookshelf
-brain_coral_block
-bricks
-brown_concrete
-brown_concrete_powder
-brown_glazed_terracotta
-brown_mushroom_block
-brown_terracotta
-brown_wool
-bubble_coral_block
-budding_amethyst
-calcite
-cherry_planks
-chiseled_deepslate
-chiseled_nether_bricks
-chiseled_polished_blackstone
-chiseled_quartz_block
-chiseled_red_sandstone
-chiseled_sandstone
-chiseled_stone_bricks
-clay
-coal_block
-coal_ore
-coarse_dirt
-cobbled_deepslate
-cobblestone
-copper_block
-copper_ore
-cracked_deepslate_bricks
-cracked_deepslate_tiles
-cracked_nether_bricks
-cracked_polished_blackstone_bricks
-cracked_stone_bricks
-crimson_nylium
-crimson_planks
-crying_obsidian
-cut_copper
-cut_red_sandstone
-cut_sandstone
-cyan_concrete
-cyan_concrete_powder
-cyan_glazed_terracotta
-cyan_terracotta
-cyan_wool
-dark_oak_planks
-dark_prismarine
-dead_brain_coral_block
-dead_bubble_coral_block
-dead_fire_coral_block
-dead_horn_coral_block
-dead_tube_coral_block
-deepslate
-deepslate_bricks
-deepslate_coal_ore
-deepslate_copper_ore
-deepslate_diamond_ore
-deepslate_emerald_ore
-deepslate_gold_ore
-deepslate_iron_ore
-deepslate_lapis_ore
-deepslate_redstone_ore
-deepslate_tiles
-diamond_block
-diamond_ore
-diorite
-dirt
-dripstone_block
-emerald_block
-emerald_ore
-end_stone
-end_stone_bricks
-exposed_copper
-exposed_cut_copper
-farmland
-fire_coral_block
-frosted_ice
-gilded_blackstone
-glowstone
-gold_block
-gold_ore
-granite
-gravel
-gray_concrete
-gray_concrete_powder
-gray_glazed_terracotta
-gray_terracotta
-gray_wool
-green_concrete
-green_concrete_powder
-green_glazed_terracotta
-green_terracotta
-green_wool
-honeycomb_block
-horn_coral_block
-ice
-iron_block
-iron_ore
-jack_o_lantern
-jungle_planks
-lapis_block
-lapis_ore
-light_blue_concrete
-light_blue_concrete_powder
-light_blue_glazed_terracotta
-light_blue_terracotta
-light_blue_wool
-light_gray_concrete
-light_gray_concrete_powder
-light_gray_glazed_terracotta
-light_gray_terracotta
-light_gray_wool
-lime_concrete
-lime_concrete_powder
-lime_glazed_terracotta
-lime_terracotta
-lime_wool
-magenta_concrete
-magenta_concrete_powder
-magenta_glazed_terracotta
-magenta_terracotta
-magenta_wool
-mangrove_planks
-mossy_cobblestone
-mossy_stone_bricks
-moss_block
-mud
-mud_bricks
-mushroom_stem
-netherite_block
-netherrack
-nether_bricks
-nether_gold_ore
-nether_quartz_ore
-nether_wart_block
-note_block
-oak_planks
-obsidian
-orange_concrete
-orange_concrete_powder
-orange_glazed_terracotta
-orange_terracotta
-orange_wool
-oxidized_copper
-oxidized_cut_copper
-packed_ice
-packed_mud
-pink_concrete
-pink_concrete_powder
-pink_glazed_terracotta
-pink_terracotta
-pink_wool
-polished_andesite
-polished_blackstone
-polished_blackstone_bricks
-polished_deepslate
-polished_diorite
-polished_granite
-powder_snow
-prismarine_bricks
-purple_concrete
-purple_concrete_powder
-purple_glazed_terracotta
-purple_terracotta
-purple_wool
-purpur_block
-purpur_pillar
-quartz_bricks
-quartz_pillar
-raw_copper_block
-raw_gold_block
-raw_iron_block
-redstone_block
-redstone_lamp
-redstone_ore
-red_concrete
-red_concrete_powder
-red_glazed_terracotta
-red_mushroom_block
-red_nether_bricks
-red_sand
-red_sandstone
-red_terracotta
-red_wool
-rooted_dirt
-sand
-sandstone
-shroomlight
-slime_block
-smooth_basalt
-smooth_stone
-snow_block
-soul_sand
-soul_soil
-sponge
-spruce_planks
-stone
-stone_bricks
-stripped_bamboo_block
-stripped_crimson_stem
-stripped_warped_stem
-suspicious_gravel
-suspicious_sand
-target
-terracotta
-tube_coral_block
-tuff
-warped_nylium
-warped_planks
-warped_wart_block
-weathered_copper
-weathered_cut_copper
-wet_sponge
-white_concrete
-white_concrete_powder
-white_glazed_terracotta
-white_terracotta
-white_wool
-yellow_concrete
-yellow_concrete_powder
-yellow_glazed_terracotta
-yellow_terracotta
-yellow_wool
+acacia_planks 168 90 50
+amethyst_block 133 97 191
+andesite 136 136 136
+bamboo_block 127 144 57
+bamboo_mosaic 190 170 78
+bamboo_planks 193 173 80
+birch_planks 192 175 121
+blackstone 42 35 40
+black_concrete 8 10 15
+black_concrete_powder 25 26 31
+black_glazed_terracotta 67 30 32
+black_terracotta 37 22 16
+black_wool 20 21 25
+blue_concrete 44 46 143
+blue_concrete_powder 70 73 166
+blue_glazed_terracotta 47 64 139
+blue_ice 116 167 253
+blue_terracotta 74 59 91
+blue_wool 53 57 157
+bookshelf 117 94 59
+brain_coral_block 207 91 159
+bricks 150 97 83
+brown_concrete 96 59 31
+brown_concrete_powder 125 84 53
+brown_glazed_terracotta 119 106 85
+brown_mushroom_block 149 111 81
+brown_terracotta 77 51 35
+brown_wool 114 71 40
+bubble_coral_block 165 26 162
+budding_amethyst 132 96 186
+calcite 223 224 220
+cherry_planks 226 178 172
+chiseled_deepslate 54 54 54
+chiseled_nether_bricks 47 23 28
+chiseled_polished_blackstone 53 48 56
+chiseled_quartz_block 231 226 218
+chiseled_red_sandstone 183 96 27
+chiseled_sandstone 216 202 155
+chiseled_stone_bricks 119 118 119
+clay 160 166 179
+coal_block 16 15 15
+coal_ore 105 105 105
+coarse_dirt 119 85 59
+cobbled_deepslate 77 77 80
+cobblestone 127 127 127
+copper_block 192 107 79
+copper_ore 124 125 120
+cracked_deepslate_bricks 64 64 65
+cracked_deepslate_tiles 52 52 52
+cracked_nether_bricks 40 20 23
+cracked_polished_blackstone_bricks 44 37 43
+cracked_stone_bricks 118 117 118
+crimson_nylium 130 31 31
+crimson_planks 101 48 70
+crying_obsidian 32 10 60
+cut_copper 191 106 80
+cut_red_sandstone 189 101 31
+cut_sandstone 217 206 159
+cyan_concrete 21 119 136
+cyan_concrete_powder 36 147 157
+cyan_glazed_terracotta 52 118 125
+cyan_terracotta 86 91 91
+cyan_wool 21 137 145
+dark_oak_planks 66 43 20
+dark_prismarine 51 91 75
+dead_brain_coral_block 124 117 114
+dead_bubble_coral_block 131 123 119
+dead_fire_coral_block 131 123 119
+dead_horn_coral_block 133 126 122
+dead_tube_coral_block 130 123 119
+deepslate 80 80 82
+deepslate_bricks 70 70 71
+deepslate_coal_ore 74 74 76
+deepslate_copper_ore 92 93 89
+deepslate_diamond_ore 83 106 106
+deepslate_emerald_ore 78 104 87
+deepslate_gold_ore 115 102 78
+deepslate_iron_ore 106 99 94
+deepslate_lapis_ore 79 90 115
+deepslate_redstone_ore 104 73 74
+deepslate_tiles 54 54 55
+diamond_block 98 237 228
+diamond_ore 121 141 140
+diorite 188 188 188
+dirt 134 96 67
+dripstone_block 134 107 92
+emerald_block 42 203 87
+emerald_ore 108 136 115
+end_stone 219 222 158
+end_stone_bricks 218 224 162
+exposed_copper 161 125 103
+exposed_cut_copper 154 121 101
+farmland 143 102 70
+fire_coral_block 163 35 46
+frosted_ice 140 181 252
+gilded_blackstone 55 42 38
+glowstone 171 131 84
+gold_block 246 208 61
+gold_ore 145 133 106
+granite 149 103 85
+gravel 131 127 126
+gray_concrete 54 57 61
+gray_concrete_powder 76 81 84
+gray_glazed_terracotta 83 90 93
+gray_terracotta 57 42 35
+gray_wool 62 68 71
+green_concrete 73 91 36
+green_concrete_powder 97 119 44
+green_glazed_terracotta 117 142 67
+green_terracotta 76 83 42
+green_wool 84 109 27
+honeycomb_block 229 148 29
+horn_coral_block 216 199 66
+ice 145 183 253
+iron_block 220 220 220
+iron_ore 136 129 122
+jack_o_lantern 214 152 52
+jungle_planks 160 115 80
+lapis_block 30 67 140
+lapis_ore 107 117 141
+light_blue_concrete 35 137 198
+light_blue_concrete_powder 74 180 213
+light_blue_glazed_terracotta 94 164 208
+light_blue_terracotta 113 108 137
+light_blue_wool 58 175 217
+light_gray_concrete 125 125 115
+light_gray_concrete_powder 154 154 148
+light_gray_glazed_terracotta 144 166 167
+light_gray_terracotta 135 106 97
+light_gray_wool 142 142 134
+lime_concrete 94 168 24
+lime_concrete_powder 125 189 41
+lime_glazed_terracotta 162 197 55
+lime_terracotta 103 117 52
+lime_wool 112 185 25
+magenta_concrete 169 48 159
+magenta_concrete_powder 192 83 184
+magenta_glazed_terracotta 208 100 191
+magenta_terracotta 149 88 108
+magenta_wool 189 68 179
+mangrove_planks 117 54 48
+mossy_cobblestone 110 118 94
+mossy_stone_bricks 115 121 105
+moss_block 89 109 45
+mud 60 57 60
+mud_bricks 137 103 79
+mushroom_stem 203 196 185
+netherite_block 66 61 63
+netherrack 97 38 38
+nether_bricks 44 21 26
+nether_gold_ore 115 54 42
+nether_quartz_ore 117 65 62
+nether_wart_block 114 2 2
+note_block 88 58 40
+oak_planks 162 130 78
+obsidian 15 10 24
+orange_concrete 224 97 0
+orange_concrete_powder 227 131 31
+orange_glazed_terracotta 154 147 91
+orange_terracotta 161 83 37
+orange_wool 240 118 19
+oxidized_copper 82 162 132
+oxidized_cut_copper 79 153 126
+packed_ice 141 180 250
+packed_mud 142 106 79
+pink_concrete 213 101 142
+pink_concrete_powder 228 153 181
+pink_glazed_terracotta 235 154 181
+pink_terracotta 161 78 78
+pink_wool 237 141 172
+polished_andesite 132 134 133
+polished_blackstone 53 48 56
+polished_blackstone_bricks 48 42 49
+polished_deepslate 72 72 73
+polished_diorite 192 193 194
+polished_granite 154 106 89
+powder_snow 248 253 253
+prismarine_bricks 99 171 158
+purple_concrete 100 31 156
+purple_concrete_powder 131 55 177
+purple_glazed_terracotta 109 47 152
+purple_terracotta 118 70 86
+purple_wool 121 42 172
+purpur_block 169 125 169
+purpur_pillar 171 129 171
+quartz_bricks 234 229 221
+quartz_pillar 235 230 224
+raw_copper_block 154 105 79
+raw_gold_block 221 169 46
+raw_iron_block 166 135 107
+redstone_block 175 24 5
+redstone_lamp 95 54 30
+redstone_ore 140 109 109
+red_concrete 142 32 32
+red_concrete_powder 168 54 50
+red_glazed_terracotta 181 59 53
+red_mushroom_block 200 46 45
+red_nether_bricks 69 7 9
+red_sand 190 102 33
+red_sandstone 186 99 29
+red_terracotta 143 61 46
+red_wool 160 39 34
+rooted_dirt 144 103 76
+sand 219 207 163
+sandstone 216 203 155
+shroomlight 240 146 70
+slime_block 111 192 91
+smooth_basalt 72 72 78
+smooth_stone 158 158 158
+snow_block 249 254 254
+soul_sand 81 62 50
+soul_soil 75 57 46
+sponge 195 192 74
+spruce_planks 114 84 48
+stone 125 125 125
+stone_bricks 122 121 122
+stripped_bamboo_block 193 173 80
+stripped_crimson_stem 137 57 90
+stripped_warped_stem 57 150 147
+suspicious_gravel 129 125 124
+suspicious_sand 217 204 159
+target 226 170 157
+terracotta 152 94 67
+tube_coral_block 49 87 206
+tuff 108 109 102
+warped_nylium 43 114 101
+warped_planks 43 104 99
+warped_wart_block 22 119 121
+weathered_copper 108 153 110
+weathered_cut_copper 109 145 107
+wet_sponge 171 181 70
+white_concrete 207 213 214
+white_concrete_powder 225 227 227
+white_glazed_terracotta 188 212 202
+white_terracotta 209 178 161
+white_wool 233 236 236
+yellow_concrete 240 175 21
+yellow_concrete_powder 232 199 54
+yellow_glazed_terracotta 234 192 88
+yellow_terracotta 186 133 35
+yellow_wool 248 197 39

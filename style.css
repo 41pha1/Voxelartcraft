@@ -249,6 +249,10 @@ canvas {
     height: 38vh
 }
 
+#glcanvas {
+    transform: scaleY(-1);
+}
+
 .canvas-background {
     margin: 10px;
     background: repeating-conic-gradient(#1f1f1f 0% 25%, #141414 0% 50%) 50% / 20px 20px;

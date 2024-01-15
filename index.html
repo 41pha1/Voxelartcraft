@@ -3,16 +3,17 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>WebGL Demo</title>
+  <title>Perspective Art</title>
   <script src='https://git.io/glm-js.min.js'></script>
+  
+  <script src="src/blockPalette.js" type="module"></script>
   <script src="src/script.js" type="module"></script>
   <script src="src/gui.js" type="module"></script>
-  <script src="src/blockPalette.js" type="module"></script>
+  <script src="src/nbt.js" type="module"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <canvas id="glcanvas" width="1" height="1" style="display: none;"></canvas>
   <div class="header">
     <h1>Perspective Art</h1>
   <div class="elements">
@@ -33,31 +34,31 @@
                 <th><b>Brightness:</b> </th>
                 <td>
                   <div class="range-solo">
-                    <input id="brightness-slider" type="range" min="0" max="200" value="100">
+                    <input id="brightness-slider" type="range" min="-100" max="100" value="0">
                   </div>
                 </td>
-                <td><input id="brightness-number" class="number-input" type="number" min="0" max="200" step="1"
-                    value="100"></td>
+                <td><input id="brightness-number" class="number-input" type="number" min="-100" max="100" step="1"
+                    value="0"></td>
               </tr>
               <tr>
                 <th><b>Contrast:</b> </th>
                 <td>
                   <div class="range-solo">
-                    <input id="contrast-slider" type="range" min="0" max="200" value="100">
+                    <input id="contrast-slider" type="range" min="-100" max="100" value="0">
                   </div>
                 </td>
-                <td><input id="contrast-number" class="number-input" type="number" min="0" max="200" step="1" value="100">
+                <td><input id="contrast-number" class="number-input" type="number" min="-100" max="100" step="1" value="0">
                 </td>
               </tr>
               <tr>
                 <th><b>Saturation:</b> </th>
                 <td>
                   <div class="range-solo">
-                    <input id="saturation-slider" type="range" min="0" max="200" value="100">
+                    <input id="saturation-slider" type="range" min="-100" max="100" value="0">
                   </div>
                 </td>
-                <td><input id="saturation-number" class="number-input" type="number" min="0" max="200" step="1"
-                    value="100"></td>
+                <td><input id="saturation-number" class="number-input" type="number" min="-100" max="100" step="1"
+                    value="0"></td>
               </tr>
             </tbody>
           </table>
@@ -142,7 +143,7 @@
       <div class="images">
         <div class="card image preview">
           <div class="canvas-background">
-            <canvas id="preview"></canvas>
+            <canvas id="glcanvas" width="1" height="1"></canvas>
           </div>
           <button class="buttons" type="button" id="convertButton">Convert</button>
         </div>

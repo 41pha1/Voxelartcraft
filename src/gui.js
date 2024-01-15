@@ -1,4 +1,4 @@
-import { voxelConvert } from "./script.js";
+import { voxelConvert, applyProcessing} from "./script.js";
 
 document.getElementById ("convertButton").addEventListener ("click", voxelConvert, false);
 
@@ -8,6 +8,7 @@ brightness_slider.addEventListener("input", brightness_updateSlider);
 function brightness_updateSlider() {
     //copying the slider values to the numbers
     brightness_number.value = brightness_slider.value;
+    applyProcessing();
 }
 brightness_number.addEventListener("change", brightness_updateNumber);
 function brightness_updateNumber() {
@@ -16,6 +17,7 @@ function brightness_updateNumber() {
     brightness_number.value = Math.min(brightness_number.max, Math.max(brightness_number.min, brightness_number.value));
     //copying the number values to the slider
     brightness_slider.value = brightness_number.value;
+    applyProcessing();
 }
 var contrast_slider = document.querySelector('#contrast-slider');
 var contrast_number = document.querySelector('#contrast-number');
@@ -23,6 +25,7 @@ contrast_slider.addEventListener("input", contrast_updateSlider);
 function contrast_updateSlider() {
     //copying the slider values to the numbers
     contrast_number.value = contrast_slider.value;
+    applyProcessing();
 }
 contrast_number.addEventListener("change", contrast_updateNumber);
 function contrast_updateNumber() {
@@ -31,6 +34,7 @@ function contrast_updateNumber() {
     contrast_number.value = Math.min(contrast_number.max, Math.max(contrast_number.min, contrast_number.value));
     //copying the number values to the slider
     contrast_slider.value = contrast_number.value;
+    applyProcessing();
 }
 var saturation_slider = document.querySelector('#saturation-slider');
 var saturation_number = document.querySelector('#saturation-number');
@@ -38,6 +42,7 @@ saturation_slider.addEventListener("input", saturation_updateSlider);
 function saturation_updateSlider() {
     //copying the slider values to the numbers
     saturation_number.value = saturation_slider.value;
+    applyProcessing();
 }
 saturation_number.addEventListener("change", saturation_updateNumber);
 function saturation_updateNumber() {
@@ -46,6 +51,7 @@ function saturation_updateNumber() {
     saturation_number.value = Math.min(saturation_number.max, Math.max(saturation_number.min, saturation_number.value));
     //copying the number values to the slider
     saturation_slider.value = saturation_number.value;
+    applyProcessing();
 }
 
 var preprocessing_checkbox = document.querySelector('#preprocessing-checkbox');
