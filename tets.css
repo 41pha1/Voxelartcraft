@@ -1,0 +1,46 @@
+body {
+  display: grid;
+  padding: 0;
+  margin: 0px;
+  grid-template-areas: "menu main";
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 100%;
+  height: 100vh;
+  width: 100vw;
+}
+
+.settings {
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 1em;
+  background-color: blue;
+  grid-area: "menu";
+}
+
+.body {
+  background-color: red;
+  grid-area: "main";
+  padding: 1em;
+  grid-column: -1;
+}
+
+#setting-button {
+  position: fixed;
+  bottom: 1em;
+  left: 1em;
+}
+
+@media (max-aspect-ratio: 4/3) {
+  .settings {
+    display: none;
+    background-color: green;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  body {
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+  }
+}
