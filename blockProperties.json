@@ -1,0 +1,4932 @@
+{
+    "acacia_planks": {
+        "texture": "acacia_planks.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.659344362745098,
+            0.35439644607843135,
+            0.19696691176470588
+        ],
+        "high_variance": "false"
+    },
+    "acacia_wood": {
+        "texture": "acacia_log.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.40490196078431373,
+            0.3787377450980392,
+            0.34085477941176473
+        ],
+        "high_variance": "false"
+    },
+    "amethyst_block": {
+        "texture": "amethyst_block.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.5246476715686275,
+            0.3842524509803922,
+            0.750015318627451
+        ],
+        "high_variance": "false"
+    },
+    "ancient_debris": {
+        "texture": "ancient_debris_side.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "false",
+        "color": [
+            0.3753829656862745,
+            0.24996936274509804,
+            0.21908700980392157
+        ],
+        "high_variance": "false"
+    },
+    "andesite": {
+        "texture": "andesite.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "true",
+        "color": [
+            0.5339307598039216,
+            0.534359681372549,
+            0.5363817401960784
+        ],
+        "high_variance": "false"
+    },
+    "azalea_leaves": {
+        "texture": "azalea_leaves.png",
+        "column": "false",
+        "transparent": "true",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.2721813725490196,
+            0.3467064950980392,
+            0.13339460784313725
+        ],
+        "high_variance": "false"
+    },
+    "bamboo_block": {
+        "texture": "bamboo_block.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.4988970588235294,
+            0.5647824754901961,
+            0.22565870098039215
+        ],
+        "high_variance": "false"
+    },
+    "bamboo_mosaic": {
+        "texture": "bamboo_mosaic.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.7458946078431372,
+            0.6673713235294118,
+            0.30625
+        ],
+        "high_variance": "false"
+    },
+    "bamboo_planks": {
+        "texture": "bamboo_planks.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.7583180147058823,
+            0.6788296568627451,
+            0.31557904411764703
+        ],
+        "high_variance": "false"
+    },
+    "basalt": {
+        "texture": "basalt_side.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.28708639705882355,
+            0.28442095588235294,
+            0.3055759803921569
+        ],
+        "high_variance": "false"
+    },
+    "bedrock": {
+        "texture": "bedrock.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "false",
+        "renewable": "false",
+        "grayscale": "true",
+        "color": [
+            0.33379289215686275,
+            0.33379289215686275,
+            0.33379289215686275
+        ],
+        "high_variance": "false"
+    },
+    "birch_planks": {
+        "texture": "birch_planks.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.7547794117647059,
+            0.6874234068627451,
+            0.4754595588235294
+        ],
+        "high_variance": "false"
+    },
+    "birch_wood": {
+        "texture": "birch_log.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.849249387254902,
+            0.8431678921568627,
+            0.8246936274509804
+        ],
+        "high_variance": "true"
+    },
+    "blackstone": {
+        "texture": "blackstone.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.1655330882352941,
+            0.1392156862745098,
+            0.15974264705882352
+        ],
+        "high_variance": "false"
+    },
+    "black_concrete": {
+        "texture": "black_concrete.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.032950367647058824,
+            0.040793504901960785,
+            0.06040134803921569
+        ],
+        "high_variance": "false"
+    },
+    "black_concrete_powder": {
+        "texture": "black_concrete_powder.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "true",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.09920343137254901,
+            0.10487132352941177,
+            0.1253982843137255
+        ],
+        "high_variance": "false"
+    },
+    "black_glazed_terracotta": {
+        "texture": "black_glazed_terracotta.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.265625,
+            0.11778492647058823,
+            0.1263174019607843
+        ],
+        "high_variance": "false"
+    },
+    "black_stained_glass": {
+        "texture": "black_stained_glass.png",
+        "column": "false",
+        "transparent": "true",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "true",
+        "color": [
+            0.09803921568627451,
+            0.09803921568627451,
+            0.09803921568627451
+        ],
+        "high_variance": "false"
+    },
+    "black_terracotta": {
+        "texture": "black_terracotta.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.14595588235294119,
+            0.08952205882352941,
+            0.06426164215686274
+        ],
+        "high_variance": "false"
+    },
+    "black_wool": {
+        "texture": "black_wool.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.08079044117647059,
+            0.08351715686274509,
+            0.10052083333333334
+        ],
+        "high_variance": "false"
+    },
+    "blue_concrete": {
+        "texture": "blue_concrete.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.17466299019607842,
+            0.18250612745098038,
+            0.562438725490196
+        ],
+        "high_variance": "false"
+    },
+    "blue_concrete_powder": {
+        "texture": "blue_concrete_powder.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "true",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.27544424019607844,
+            0.2873161764705882,
+            0.6542432598039216
+        ],
+        "high_variance": "false"
+    },
+    "blue_glazed_terracotta": {
+        "texture": "blue_glazed_terracotta.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.1860906862745098,
+            0.2535079656862745,
+            0.5465533088235294
+        ],
+        "high_variance": "false"
+    },
+    "blue_ice": {
+        "texture": "blue_ice.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.4552542892156863,
+            0.6574448529411765,
+            0.9922181372549019
+        ],
+        "high_variance": "false"
+    },
+    "blue_stained_glass": {
+        "texture": "blue_stained_glass.png",
+        "column": "false",
+        "transparent": "true",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.2,
+            0.2980392156862745,
+            0.6980392156862745
+        ],
+        "high_variance": "false"
+    },
+    "blue_terracotta": {
+        "texture": "blue_terracotta.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.29134497549019606,
+            0.2340533088235294,
+            0.3572916666666667
+        ],
+        "high_variance": "false"
+    },
+    "blue_wool": {
+        "texture": "blue_wool.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.2080575980392157,
+            0.2245251225490196,
+            0.6176164215686275
+        ],
+        "high_variance": "false"
+    },
+    "bone_block": {
+        "texture": "bone_block_side.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "true",
+        "color": [
+            0.8998008578431372,
+            0.885922181372549,
+            0.814889705882353
+        ],
+        "high_variance": "false"
+    },
+    "bookshelf": {
+        "texture": "bookshelf.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.46050857843137255,
+            0.3708486519607843,
+            0.23458946078431372
+        ],
+        "high_variance": "true"
+    },
+    "brain_coral_block": {
+        "texture": "brain_coral_block.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "true",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "false",
+        "color": [
+            0.8135569852941177,
+            0.35739889705882355,
+            0.625015318627451
+        ],
+        "high_variance": "false"
+    },
+    "bricks": {
+        "texture": "bricks.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.5919730392156862,
+            0.38261335784313727,
+            0.32573529411764707
+        ],
+        "high_variance": "false"
+    },
+    "brown_concrete": {
+        "texture": "brown_concrete.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.37823223039215687,
+            0.2335171568627451,
+            0.1239123774509804
+        ],
+        "high_variance": "false"
+    },
+    "brown_concrete_powder": {
+        "texture": "brown_concrete_powder.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "true",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.4922947303921569,
+            0.3327359068627451,
+            0.21122855392156864
+        ],
+        "high_variance": "false"
+    },
+    "brown_glazed_terracotta": {
+        "texture": "brown_glazed_terracotta.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.4704656862745098,
+            0.41665134803921566,
+            0.3370404411764706
+        ],
+        "high_variance": "true"
+    },
+    "brown_mushroom_block": {
+        "texture": "brown_mushroom_block.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.5856311274509803,
+            0.4383884803921569,
+            0.31943933823529413
+        ],
+        "high_variance": "false"
+    },
+    "brown_stained_glass": {
+        "texture": "brown_stained_glass.png",
+        "column": "false",
+        "transparent": "true",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.4,
+            0.2980392156862745,
+            0.2
+        ],
+        "high_variance": "false"
+    },
+    "brown_terracotta": {
+        "texture": "brown_terracotta.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.3028799019607843,
+            0.2007046568627451,
+            0.1400122549019608
+        ],
+        "high_variance": "false"
+    },
+    "brown_wool": {
+        "texture": "brown_wool.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.4479779411764706,
+            0.28082107843137255,
+            0.15916053921568626
+        ],
+        "high_variance": "false"
+    },
+    "bubble_coral_block": {
+        "texture": "bubble_coral_block.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "true",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "false",
+        "color": [
+            0.6484068627450981,
+            0.10324754901960784,
+            0.6361060049019608
+        ],
+        "high_variance": "false"
+    },
+    "budding_amethyst": {
+        "texture": "budding_amethyst.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "true",
+        "lightEmitting": "false",
+        "survival": "false",
+        "renewable": "false",
+        "grayscale": "false",
+        "color": [
+            0.5192861519607843,
+            0.37722120098039214,
+            0.7324142156862745
+        ],
+        "high_variance": "false"
+    },
+    "calcite": {
+        "texture": "calcite.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "true",
+        "color": [
+            0.8763633578431372,
+            0.8802542892156863,
+            0.8653492647058824
+        ],
+        "high_variance": "false"
+    },
+    "cherry_planks": {
+        "texture": "cherry_planks.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.88828125,
+            0.7008884803921569,
+            0.6773131127450981
+        ],
+        "high_variance": "false"
+    },
+    "cherry_wood": {
+        "texture": "cherry_log.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.21458333333333332,
+            0.1294577205882353,
+            0.17411151960784313
+        ],
+        "high_variance": "false"
+    },
+    "chiseled_deepslate": {
+        "texture": "chiseled_deepslate.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "true",
+        "color": [
+            0.21292892156862744,
+            0.21302083333333333,
+            0.21522671568627452
+        ],
+        "high_variance": "false"
+    },
+    "chiseled_nether_bricks": {
+        "texture": "chiseled_nether_bricks.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.1860294117647059,
+            0.09295343137254902,
+            0.11058517156862745
+        ],
+        "high_variance": "false"
+    },
+    "chiseled_polished_blackstone": {
+        "texture": "chiseled_polished_blackstone.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.21167279411764706,
+            0.1908394607843137,
+            0.22279411764705884
+        ],
+        "high_variance": "false"
+    },
+    "chiseled_quartz_block": {
+        "texture": "chiseled_quartz_block.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "true",
+        "color": [
+            0.9092677696078432,
+            0.8896599264705882,
+            0.8549172794117647
+        ],
+        "high_variance": "false"
+    },
+    "chiseled_red_sandstone": {
+        "texture": "chiseled_red_sandstone.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.7184895833333333,
+            0.3801623774509804,
+            0.10785845588235295
+        ],
+        "high_variance": "false"
+    },
+    "chiseled_sandstone": {
+        "texture": "chiseled_sandstone.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.8479319852941176,
+            0.7960171568627451,
+            0.6094822303921569
+        ],
+        "high_variance": "false"
+    },
+    "chiseled_stone_bricks": {
+        "texture": "chiseled_stone_bricks.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "true",
+        "color": [
+            0.46973039215686274,
+            0.46629901960784315,
+            0.46973039215686274
+        ],
+        "high_variance": "false"
+    },
+    "clay": {
+        "texture": "clay.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.6301164215686275,
+            0.6527879901960785,
+            0.7037071078431373
+        ],
+        "high_variance": "false"
+    },
+    "coal_block": {
+        "texture": "coal_block.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "true",
+        "color": [
+            0.06283700980392157,
+            0.0624234068627451,
+            0.0624234068627451
+        ],
+        "high_variance": "false"
+    },
+    "coal_ore": {
+        "texture": "coal_ore.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "true",
+        "color": [
+            0.4143995098039216,
+            0.4150122549019608,
+            0.4131740196078431
+        ],
+        "high_variance": "false"
+    },
+    "coarse_dirt": {
+        "texture": "coarse_dirt.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.4684129901960784,
+            0.3356924019607843,
+            0.23293504901960785
+        ],
+        "high_variance": "false"
+    },
+    "cobbled_deepslate": {
+        "texture": "cobbled_deepslate.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "true",
+        "color": [
+            0.3030330882352941,
+            0.3030330882352941,
+            0.31611519607843136
+        ],
+        "high_variance": "false"
+    },
+    "cobblestone": {
+        "texture": "cobblestone.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "true",
+        "color": [
+            0.5011335784313725,
+            0.49923406862745096,
+            0.5003829656862745
+        ],
+        "high_variance": "false"
+    },
+    "copper_block": {
+        "texture": "copper_block.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.7545802696078432,
+            0.4221813725490196,
+            0.31302083333333336
+        ],
+        "high_variance": "false"
+    },
+    "copper_ore": {
+        "texture": "copper_ore.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "false",
+        "color": [
+            0.48909313725490194,
+            0.4928921568627451,
+            0.4707720588235294
+        ],
+        "high_variance": "false"
+    },
+    "cracked_deepslate_bricks": {
+        "texture": "cracked_deepslate_bricks.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "true",
+        "color": [
+            0.2548253676470588,
+            0.25450367647058825,
+            0.25588235294117645
+        ],
+        "high_variance": "false"
+    },
+    "cracked_deepslate_tiles": {
+        "texture": "cracked_deepslate_tiles.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "true",
+        "color": [
+            0.20638786764705883,
+            0.20592830882352942,
+            0.20684742647058824
+        ],
+        "high_variance": "false"
+    },
+    "cracked_nether_bricks": {
+        "texture": "cracked_nether_bricks.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.15831801470588236,
+            0.07856924019607843,
+            0.09394914215686274
+        ],
+        "high_variance": "false"
+    },
+    "cracked_polished_blackstone_bricks": {
+        "texture": "cracked_polished_blackstone_bricks.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.17270220588235294,
+            0.14751838235294118,
+            0.17231924019607844
+        ],
+        "high_variance": "false"
+    },
+    "cracked_stone_bricks": {
+        "texture": "cracked_stone_bricks.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "true",
+        "color": [
+            0.46401654411764703,
+            0.4614123774509804,
+            0.46401654411764703
+        ],
+        "high_variance": "false"
+    },
+    "crimson_hyphae": {
+        "texture": "crimson_stem.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.3639031862745098,
+            0.10030637254901961,
+            0.1170343137254902
+        ],
+        "high_variance": "false"
+    },
+    "crimson_planks": {
+        "texture": "crimson_planks.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.39621629901960786,
+            0.19129901960784312,
+            0.2767310049019608
+        ],
+        "high_variance": "false"
+    },
+    "crying_obsidian": {
+        "texture": "crying_obsidian.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "true",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.12778799019607842,
+            0.03953737745098039,
+            0.23704044117647058
+        ],
+        "high_variance": "true"
+    },
+    "cut_copper": {
+        "texture": "cut_copper.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.7496936274509803,
+            0.41908700980392155,
+            0.31594669117647056
+        ],
+        "high_variance": "false"
+    },
+    "cut_red_sandstone": {
+        "texture": "cut_red_sandstone.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.7423866421568628,
+            0.3990502450980392,
+            0.12455575980392157
+        ],
+        "high_variance": "false"
+    },
+    "cut_sandstone": {
+        "texture": "cut_sandstone.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.8541513480392157,
+            0.8095894607843137,
+            0.6267156862745098
+        ],
+        "high_variance": "false"
+    },
+    "cyan_concrete": {
+        "texture": "cyan_concrete.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.08409926470588236,
+            0.4675245098039216,
+            0.5340686274509804
+        ],
+        "high_variance": "false"
+    },
+    "cyan_concrete_powder": {
+        "texture": "cyan_concrete_powder.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "true",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.14371936274509803,
+            0.5803002450980392,
+            0.6163143382352941
+        ],
+        "high_variance": "false"
+    },
+    "cyan_glazed_terracotta": {
+        "texture": "cyan_glazed_terracotta.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.20490196078431372,
+            0.4655637254901961,
+            0.4914981617647059
+        ],
+        "high_variance": "true"
+    },
+    "cyan_stained_glass": {
+        "texture": "cyan_stained_glass.png",
+        "column": "false",
+        "transparent": "true",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.2980392156862745,
+            0.4980392156862745,
+            0.6
+        ],
+        "high_variance": "false"
+    },
+    "cyan_terracotta": {
+        "texture": "cyan_terracotta.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "true",
+        "color": [
+            0.34005821078431375,
+            0.3569087009803922,
+            0.3568780637254902
+        ],
+        "high_variance": "false"
+    },
+    "cyan_wool": {
+        "texture": "cyan_wool.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.08331801470588235,
+            0.5401041666666667,
+            0.5700061274509803
+        ],
+        "high_variance": "false"
+    },
+    "dark_oak_planks": {
+        "texture": "dark_oak_planks.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.2614123774509804,
+            0.16901041666666666,
+            0.0792892156862745
+        ],
+        "high_variance": "false"
+    },
+    "dark_oak_wood": {
+        "texture": "dark_oak_log.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.23684129901960785,
+            0.1825827205882353,
+            0.1025735294117647
+        ],
+        "high_variance": "false"
+    },
+    "dark_prismarine": {
+        "texture": "dark_prismarine.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.20338541666666668,
+            0.35935968137254903,
+            0.2978400735294118
+        ],
+        "high_variance": "false"
+    },
+    "dead_brain_coral_block": {
+        "texture": "dead_brain_coral_block.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "true",
+        "color": [
+            0.4875765931372549,
+            0.4608609068627451,
+            0.4477481617647059
+        ],
+        "high_variance": "false"
+    },
+    "dead_bubble_coral_block": {
+        "texture": "dead_bubble_coral_block.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "true",
+        "color": [
+            0.5170496323529412,
+            0.4844822303921569,
+            0.46829044117647056
+        ],
+        "high_variance": "false"
+    },
+    "dead_fire_coral_block": {
+        "texture": "dead_fire_coral_block.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "true",
+        "color": [
+            0.5162224264705882,
+            0.48521752450980393,
+            0.469546568627451
+        ],
+        "high_variance": "false"
+    },
+    "dead_horn_coral_block": {
+        "texture": "dead_horn_coral_block.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "true",
+        "color": [
+            0.5239583333333333,
+            0.4949908088235294,
+            0.47956495098039215
+        ],
+        "high_variance": "false"
+    },
+    "dead_tube_coral_block": {
+        "texture": "dead_tube_coral_block.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "true",
+        "color": [
+            0.511734068627451,
+            0.4831188725490196,
+            0.46931678921568626
+        ],
+        "high_variance": "false"
+    },
+    "deepslate": {
+        "texture": "deepslate.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "true",
+        "color": [
+            0.3142463235294118,
+            0.3142463235294118,
+            0.32386642156862744
+        ],
+        "high_variance": "false"
+    },
+    "deepslate_bricks": {
+        "texture": "deepslate_bricks.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "true",
+        "color": [
+            0.2783088235294118,
+            0.27807904411764706,
+            0.2795036764705882
+        ],
+        "high_variance": "false"
+    },
+    "deepslate_coal_ore": {
+        "texture": "deepslate_coal_ore.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "true",
+        "color": [
+            0.2918351715686274,
+            0.29198835784313726,
+            0.2982077205882353
+        ],
+        "high_variance": "false"
+    },
+    "deepslate_copper_ore": {
+        "texture": "deepslate_copper_ore.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "false",
+        "color": [
+            0.36138174019607844,
+            0.36518075980392156,
+            0.3500765931372549
+        ],
+        "high_variance": "false"
+    },
+    "deepslate_diamond_ore": {
+        "texture": "deepslate_diamond_ore.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "false",
+        "color": [
+            0.3268535539215686,
+            0.4173560049019608,
+            0.4193627450980392
+        ],
+        "high_variance": "true"
+    },
+    "deepslate_emerald_ore": {
+        "texture": "deepslate_emerald_ore.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "false",
+        "color": [
+            0.30761335784313726,
+            0.40965073529411766,
+            0.34427083333333336
+        ],
+        "high_variance": "true"
+    },
+    "deepslate_gold_ore": {
+        "texture": "deepslate_gold_ore.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "false",
+        "color": [
+            0.4519301470588235,
+            0.40355392156862746,
+            0.3065410539215686
+        ],
+        "high_variance": "true"
+    },
+    "deepslate_iron_ore": {
+        "texture": "deepslate_iron_ore.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "false",
+        "color": [
+            0.4185508578431373,
+            0.3909313725490196,
+            0.3714001225490196
+        ],
+        "high_variance": "false"
+    },
+    "deepslate_lapis_ore": {
+        "texture": "deepslate_lapis_ore.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "false",
+        "color": [
+            0.31340379901960785,
+            0.35606617647058825,
+            0.4521752450980392
+        ],
+        "high_variance": "false"
+    },
+    "deepslate_redstone_ore": {
+        "texture": "deepslate_redstone_ore.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "false",
+        "color": [
+            0.41064644607843137,
+            0.2874540441176471,
+            0.29342830882352944
+        ],
+        "high_variance": "false"
+    },
+    "deepslate_tiles": {
+        "texture": "deepslate_tiles.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "true",
+        "color": [
+            0.21534926470588237,
+            0.21490502450980392,
+            0.21596200980392158
+        ],
+        "high_variance": "false"
+    },
+    "diamond_block": {
+        "texture": "diamond_block.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "false",
+        "color": [
+            0.38495710784313725,
+            0.9299479166666667,
+            0.894592524509804
+        ],
+        "high_variance": "false"
+    },
+    "diamond_ore": {
+        "texture": "diamond_ore.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "false",
+        "color": [
+            0.47544424019607845,
+            0.553936887254902,
+            0.5516544117647059
+        ],
+        "high_variance": "false"
+    },
+    "diorite": {
+        "texture": "diorite.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "true",
+        "color": [
+            0.7400735294117647,
+            0.739031862745098,
+            0.7410998774509804
+        ],
+        "high_variance": "false"
+    },
+    "dirt": {
+        "texture": "dirt.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.5264705882352941,
+            0.3776348039215686,
+            0.2627450980392157
+        ],
+        "high_variance": "false"
+    },
+    "dripstone_block": {
+        "texture": "dripstone_block.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.5272671568627451,
+            0.4217830882352941,
+            0.3628063725490196
+        ],
+        "high_variance": "false"
+    },
+    "emerald_block": {
+        "texture": "emerald_block.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.16619178921568628,
+            0.7978400735294118,
+            0.34431678921568626
+        ],
+        "high_variance": "false"
+    },
+    "emerald_ore": {
+        "texture": "emerald_ore.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "false",
+        "color": [
+            0.42466299019607845,
+            0.5347426470588236,
+            0.4535692401960784
+        ],
+        "high_variance": "false"
+    },
+    "end_stone": {
+        "texture": "end_stone.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.8607996323529412,
+            0.8742647058823529,
+            0.6209405637254902
+        ],
+        "high_variance": "false"
+    },
+    "end_stone_bricks": {
+        "texture": "end_stone_bricks.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.8566636029411765,
+            0.8785692401960784,
+            0.6361213235294118
+        ],
+        "high_variance": "false"
+    },
+    "exposed_copper": {
+        "texture": "exposed_copper.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.6316789215686275,
+            0.49295343137254904,
+            0.4075827205882353
+        ],
+        "high_variance": "false"
+    },
+    "exposed_cut_copper": {
+        "texture": "exposed_cut_copper.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.6065104166666667,
+            0.47746629901960785,
+            0.39712009803921566
+        ],
+        "high_variance": "false"
+    },
+    "fire_coral_block": {
+        "texture": "fire_coral_block.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "true",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "false",
+        "color": [
+            0.6419883578431372,
+            0.1378982843137255,
+            0.18380821078431372
+        ],
+        "high_variance": "false"
+    },
+    "flowering_azalea_leaves": {
+        "texture": "flowering_azalea_leaves.png",
+        "column": "false",
+        "transparent": "true",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.31268382352941176,
+            0.34886642156862746,
+            0.19113051470588235
+        ],
+        "high_variance": "true"
+    },
+    "gilded_blackstone": {
+        "texture": "gilded_blackstone.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "false",
+        "color": [
+            0.21806066176470587,
+            0.1683670343137255,
+            0.1503216911764706
+        ],
+        "high_variance": "false"
+    },
+    "glass": {
+        "texture": "glass.png",
+        "column": "false",
+        "transparent": "true",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.5495863970588235,
+            0.587515318627451,
+            0.5926011029411765
+        ],
+        "high_variance": "false"
+    },
+    "glowstone": {
+        "texture": "glowstone.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "true",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.6735906862745098,
+            0.5144454656862745,
+            0.3305912990196078
+        ],
+        "high_variance": "true"
+    },
+    "gold_block": {
+        "texture": "gold_block.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.966344975490196,
+            0.8169424019607843,
+            0.24166666666666667
+        ],
+        "high_variance": "false"
+    },
+    "gold_ore": {
+        "texture": "gold_ore.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "false",
+        "color": [
+            0.5691789215686275,
+            0.525030637254902,
+            0.41778492647058824
+        ],
+        "high_variance": "false"
+    },
+    "granite": {
+        "texture": "granite.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.585998774509804,
+            0.40487132352941174,
+            0.33714767156862746
+        ],
+        "high_variance": "false"
+    },
+    "gravel": {
+        "texture": "gravel.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "true",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "true",
+        "color": [
+            0.5173866421568627,
+            0.49984681372549017,
+            0.49609375
+        ],
+        "high_variance": "false"
+    },
+    "gray_concrete": {
+        "texture": "gray_concrete.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "true",
+        "color": [
+            0.21418504901960783,
+            0.2259497549019608,
+            0.2416360294117647
+        ],
+        "high_variance": "false"
+    },
+    "gray_concrete_powder": {
+        "texture": "gray_concrete_powder.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "true",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "true",
+        "color": [
+            0.3017463235294118,
+            0.3180606617647059,
+            0.3329963235294118
+        ],
+        "high_variance": "false"
+    },
+    "gray_glazed_terracotta": {
+        "texture": "gray_glazed_terracotta.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "true",
+        "color": [
+            0.3258731617647059,
+            0.35415134803921566,
+            0.3672487745098039
+        ],
+        "high_variance": "false"
+    },
+    "gray_stained_glass": {
+        "texture": "gray_stained_glass.png",
+        "column": "false",
+        "transparent": "true",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "true",
+        "color": [
+            0.2980392156862745,
+            0.2980392156862745,
+            0.2980392156862745
+        ],
+        "high_variance": "false"
+    },
+    "gray_terracotta": {
+        "texture": "gray_terracotta.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.22660845588235295,
+            0.1663296568627451,
+            0.1394607843137255
+        ],
+        "high_variance": "false"
+    },
+    "gray_wool": {
+        "texture": "gray_wool.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "true",
+        "color": [
+            0.24606311274509804,
+            0.2675857843137255,
+            0.2806066176470588
+        ],
+        "high_variance": "false"
+    },
+    "green_concrete": {
+        "texture": "green_concrete.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.2878676470588235,
+            0.35819546568627453,
+            0.14310661764705881
+        ],
+        "high_variance": "false"
+    },
+    "green_concrete_powder": {
+        "texture": "green_concrete_powder.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "true",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.38112745098039214,
+            0.4671415441176471,
+            0.1747702205882353
+        ],
+        "high_variance": "false"
+    },
+    "green_glazed_terracotta": {
+        "texture": "green_glazed_terracotta.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.4588848039215686,
+            0.5580729166666667,
+            0.2643995098039216
+        ],
+        "high_variance": "true"
+    },
+    "green_stained_glass": {
+        "texture": "green_stained_glass.png",
+        "column": "false",
+        "transparent": "true",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.4,
+            0.4980392156862745,
+            0.2
+        ],
+        "high_variance": "false"
+    },
+    "green_terracotta": {
+        "texture": "green_terracotta.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.2980698529411765,
+            0.3266237745098039,
+            0.16602328431372548
+        ],
+        "high_variance": "false"
+    },
+    "green_wool": {
+        "texture": "green_wool.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.3326746323529412,
+            0.4295496323529412,
+            0.10785845588235295
+        ],
+        "high_variance": "false"
+    },
+    "hay_block": {
+        "texture": "hay_block_side.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.6518229166666667,
+            0.5351102941176471,
+            0.14950980392156862
+        ],
+        "high_variance": "false"
+    },
+    "honeycomb_block": {
+        "texture": "honeycomb_block.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.8994025735294118,
+            0.5820006127450981,
+            0.11583946078431373
+        ],
+        "high_variance": "false"
+    },
+    "horn_coral_block": {
+        "texture": "horn_coral_block.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "true",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "false",
+        "color": [
+            0.8471047794117647,
+            0.7840992647058823,
+            0.25882352941176473
+        ],
+        "high_variance": "false"
+    },
+    "ice": {
+        "texture": "ice.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "true",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.5714460784313725,
+            0.7206341911764705,
+            0.9959712009803922
+        ],
+        "high_variance": "false"
+    },
+    "iron_block": {
+        "texture": "iron_block.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "true",
+        "color": [
+            0.8632046568627451,
+            0.8627757352941177,
+            0.8627757352941177
+        ],
+        "high_variance": "false"
+    },
+    "iron_ore": {
+        "texture": "iron_ore.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "false",
+        "color": [
+            0.5346660539215686,
+            0.507046568627451,
+            0.48144914215686274
+        ],
+        "high_variance": "false"
+    },
+    "jungle_planks": {
+        "texture": "jungle_planks.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.6291819852941176,
+            0.4517310049019608,
+            0.31683517156862745
+        ],
+        "high_variance": "false"
+    },
+    "jungle_wood": {
+        "texture": "jungle_log.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.33417585784313725,
+            0.2665900735294118,
+            0.0987438725490196
+        ],
+        "high_variance": "false"
+    },
+    "lapis_block": {
+        "texture": "lapis_block.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.12018995098039216,
+            0.26420036764705884,
+            0.5494485294117647
+        ],
+        "high_variance": "false"
+    },
+    "lapis_ore": {
+        "texture": "lapis_ore.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "false",
+        "color": [
+            0.41965379901960786,
+            0.46231617647058826,
+            0.5540441176470589
+        ],
+        "high_variance": "false"
+    },
+    "light_blue_concrete": {
+        "texture": "light_blue_concrete.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.1395986519607843,
+            0.5374080882352941,
+            0.7800551470588235
+        ],
+        "high_variance": "false"
+    },
+    "light_blue_concrete_powder": {
+        "texture": "light_blue_concrete_powder.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "true",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.29129901960784316,
+            0.7087469362745098,
+            0.83671875
+        ],
+        "high_variance": "false"
+    },
+    "light_blue_glazed_terracotta": {
+        "texture": "light_blue_glazed_terracotta.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.3707567401960784,
+            0.6455575980392156,
+            0.8193014705882353
+        ],
+        "high_variance": "true"
+    },
+    "light_blue_stained_glass": {
+        "texture": "light_blue_stained_glass.png",
+        "column": "false",
+        "transparent": "true",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.4,
+            0.6,
+            0.8470588235294118
+        ],
+        "high_variance": "false"
+    },
+    "light_blue_terracotta": {
+        "texture": "light_blue_terracotta.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.4450367647058823,
+            0.4256127450980392,
+            0.5411458333333333
+        ],
+        "high_variance": "false"
+    },
+    "light_blue_wool": {
+        "texture": "light_blue_wool.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.2277267156862745,
+            0.6864583333333333,
+            0.8522212009803921
+        ],
+        "high_variance": "false"
+    },
+    "light_gray_concrete": {
+        "texture": "light_gray_concrete.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "true",
+        "color": [
+            0.49031862745098037,
+            0.49031862745098037,
+            0.4511029411764706
+        ],
+        "high_variance": "false"
+    },
+    "light_gray_concrete_powder": {
+        "texture": "light_gray_concrete_powder.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "true",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "true",
+        "color": [
+            0.6074142156862745,
+            0.6076746323529412,
+            0.5811274509803922
+        ],
+        "high_variance": "false"
+    },
+    "light_gray_glazed_terracotta": {
+        "texture": "light_gray_glazed_terracotta.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.5657169117647058,
+            0.6512254901960784,
+            0.658639705882353
+        ],
+        "high_variance": "true"
+    },
+    "light_gray_stained_glass": {
+        "texture": "light_gray_stained_glass.png",
+        "column": "false",
+        "transparent": "true",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "true",
+        "color": [
+            0.6,
+            0.6,
+            0.6
+        ],
+        "high_variance": "false"
+    },
+    "light_gray_terracotta": {
+        "texture": "light_gray_terracotta.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.5304074754901961,
+            0.41914828431372547,
+            0.38235294117647056
+        ],
+        "high_variance": "false"
+    },
+    "light_gray_wool": {
+        "texture": "light_gray_wool.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "true",
+        "color": [
+            0.5569852941176471,
+            0.5575061274509804,
+            0.5278492647058823
+        ],
+        "high_variance": "false"
+    },
+    "lime_concrete": {
+        "texture": "lime_concrete.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.3689797794117647,
+            0.6619791666666667,
+            0.09607843137254903
+        ],
+        "high_variance": "false"
+    },
+    "lime_concrete_powder": {
+        "texture": "lime_concrete_powder.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "true",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.4917126225490196,
+            0.742248774509804,
+            0.16433823529411765
+        ],
+        "high_variance": "false"
+    },
+    "lime_glazed_terracotta": {
+        "texture": "lime_glazed_terracotta.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.6390165441176471,
+            0.7751685049019608,
+            0.21651348039215687
+        ],
+        "high_variance": "true"
+    },
+    "lime_stained_glass": {
+        "texture": "lime_stained_glass.png",
+        "column": "false",
+        "transparent": "true",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.4980392156862745,
+            0.8,
+            0.09803921568627451
+        ],
+        "high_variance": "false"
+    },
+    "lime_terracotta": {
+        "texture": "lime_terracotta.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.4060202205882353,
+            0.4614736519607843,
+            0.207046568627451
+        ],
+        "high_variance": "false"
+    },
+    "lime_wool": {
+        "texture": "lime_wool.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.44004289215686276,
+            0.7262561274509803,
+            0.10116421568627451
+        ],
+        "high_variance": "false"
+    },
+    "lodestone": {
+        "texture": "lodestone_side.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "true",
+        "color": [
+            0.4683363970588235,
+            0.4701439950980392,
+            0.48250612745098037
+        ],
+        "high_variance": "false"
+    },
+    "magenta_concrete": {
+        "texture": "magenta_concrete.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.6635569852941177,
+            0.19010416666666666,
+            0.6243566176470589
+        ],
+        "high_variance": "false"
+    },
+    "magenta_concrete_powder": {
+        "texture": "magenta_concrete_powder.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "true",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.7557904411764705,
+            0.3286611519607843,
+            0.7240655637254902
+        ],
+        "high_variance": "false"
+    },
+    "magenta_glazed_terracotta": {
+        "texture": "magenta_glazed_terracotta.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.8167432598039216,
+            0.39379595588235294,
+            0.7525888480392157
+        ],
+        "high_variance": "false"
+    },
+    "magenta_stained_glass": {
+        "texture": "magenta_stained_glass.png",
+        "column": "false",
+        "transparent": "true",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.6980392156862745,
+            0.2980392156862745,
+            0.8470588235294118
+        ],
+        "high_variance": "false"
+    },
+    "magenta_terracotta": {
+        "texture": "magenta_terracotta.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.5869332107843137,
+            0.3454963235294118,
+            0.4261948529411765
+        ],
+        "high_variance": "false"
+    },
+    "magenta_wool": {
+        "texture": "magenta_wool.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.7433057598039216,
+            0.2696691176470588,
+            0.7055606617647059
+        ],
+        "high_variance": "false"
+    },
+    "magma_block": {
+        "texture": "magma.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "true",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.5597375408496732,
+            0.24896343954248368,
+            0.12389195261437909
+        ],
+        "high_variance": "true"
+    },
+    "mangrove_planks": {
+        "texture": "mangrove_planks.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.46256127450980394,
+            0.21208639705882354,
+            0.1908394607843137
+        ],
+        "high_variance": "false"
+    },
+    "mangrove_wood": {
+        "texture": "mangrove_log.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.3278952205882353,
+            0.261749387254902,
+            0.1613357843137255
+        ],
+        "high_variance": "false"
+    },
+    "melon": {
+        "texture": "melon_side.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.4484375,
+            0.5732996323529411,
+            0.11850490196078431
+        ],
+        "high_variance": "false"
+    },
+    "mossy_cobblestone": {
+        "texture": "mossy_cobblestone.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.4318014705882353,
+            0.4647058823529412,
+            0.37230392156862746
+        ],
+        "high_variance": "false"
+    },
+    "mossy_stone_bricks": {
+        "texture": "mossy_stone_bricks.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.4526807598039216,
+            0.475,
+            0.4123161764705882
+        ],
+        "high_variance": "false"
+    },
+    "moss_block": {
+        "texture": "moss_block.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.34932598039215684,
+            0.4303002450980392,
+            0.17803308823529412
+        ],
+        "high_variance": "false"
+    },
+    "mud": {
+        "texture": "mud.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "true",
+        "color": [
+            0.2356924019607843,
+            0.22544424019607842,
+            0.23776041666666667
+        ],
+        "high_variance": "false"
+    },
+    "muddy_mangrove_roots": {
+        "texture": "muddy_mangrove_roots_side.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.2680912990196078,
+            0.23036151960784312,
+            0.18984375
+        ],
+        "high_variance": "false"
+    },
+    "mud_bricks": {
+        "texture": "mud_bricks.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.5378216911764706,
+            0.4069546568627451,
+            0.3100949754901961
+        ],
+        "high_variance": "false"
+    },
+    "mushroom_stem": {
+        "texture": "mushroom_stem.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "true",
+        "color": [
+            0.796859681372549,
+            0.7711397058823529,
+            0.7278492647058824
+        ],
+        "high_variance": "false"
+    },
+    "netherite_block": {
+        "texture": "netherite_block.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "true",
+        "color": [
+            0.2608609068627451,
+            0.2411611519607843,
+            0.25050551470588234
+        ],
+        "high_variance": "false"
+    },
+    "netherrack": {
+        "texture": "netherrack.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "false",
+        "color": [
+            0.3826746323529412,
+            0.15064338235294117,
+            0.15064338235294117
+        ],
+        "high_variance": "false"
+    },
+    "nether_bricks": {
+        "texture": "nether_bricks.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.17369791666666667,
+            0.08576899509803922,
+            0.10234375
+        ],
+        "high_variance": "false"
+    },
+    "nether_gold_ore": {
+        "texture": "nether_gold_ore.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "false",
+        "color": [
+            0.45245098039215687,
+            0.21553308823529413,
+            0.16490502450980393
+        ],
+        "high_variance": "false"
+    },
+    "nether_quartz_ore": {
+        "texture": "nether_quartz_ore.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "false",
+        "color": [
+            0.4620710784313726,
+            0.2575061274509804,
+            0.24466911764705881
+        ],
+        "high_variance": "true"
+    },
+    "nether_wart_block": {
+        "texture": "nether_wart_block.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.45022977941176473,
+            0.011458333333333333,
+            0.008455882352941176
+        ],
+        "high_variance": "false"
+    },
+    "note_block": {
+        "texture": "note_block.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.3480698529411765,
+            0.2311734068627451,
+            0.15995710784313724
+        ],
+        "high_variance": "false"
+    },
+    "oak_planks": {
+        "texture": "oak_planks.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.6360906862745098,
+            0.5130208333333334,
+            0.3083486519607843
+        ],
+        "high_variance": "false"
+    },
+    "oak_wood": {
+        "texture": "oak_log.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.42781862745098037,
+            0.3338235294117647,
+            0.19877450980392156
+        ],
+        "high_variance": "false"
+    },
+    "obsidian": {
+        "texture": "obsidian.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.05935968137254902,
+            0.041636029411764704,
+            0.09627757352941177
+        ],
+        "high_variance": "false"
+    },
+    "ochre_froglight": {
+        "texture": "ochre_froglight_side.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "true",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.9625612745098039,
+            0.914889705882353,
+            0.71328125
+        ],
+        "high_variance": "false"
+    },
+    "orange_concrete": {
+        "texture": "orange_concrete.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.8797794117647059,
+            0.3809283088235294,
+            0.0024816176470588234
+        ],
+        "high_variance": "false"
+    },
+    "orange_concrete_powder": {
+        "texture": "orange_concrete_powder.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "true",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.8912990196078432,
+            0.5170955882352941,
+            0.12513786764705884
+        ],
+        "high_variance": "false"
+    },
+    "orange_glazed_terracotta": {
+        "texture": "orange_glazed_terracotta.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.606969975490196,
+            0.5783854166666667,
+            0.3606464460784314
+        ],
+        "high_variance": "true"
+    },
+    "orange_stained_glass": {
+        "texture": "orange_stained_glass.png",
+        "column": "false",
+        "transparent": "true",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.8470588235294118,
+            0.4980392156862745,
+            0.2
+        ],
+        "high_variance": "false"
+    },
+    "orange_terracotta": {
+        "texture": "orange_terracotta.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.6337162990196078,
+            0.32890625,
+            0.1477328431372549
+        ],
+        "high_variance": "false"
+    },
+    "orange_wool": {
+        "texture": "orange_wool.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.943734681372549,
+            0.4630514705882353,
+            0.07651654411764706
+        ],
+        "high_variance": "false"
+    },
+    "oxidized_copper": {
+        "texture": "oxidized_copper.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.32323835784313726,
+            0.6379136029411765,
+            0.521047794117647
+        ],
+        "high_variance": "false"
+    },
+    "oxidized_cut_copper": {
+        "texture": "oxidized_cut_copper.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.31262254901960784,
+            0.6024203431372549,
+            0.49580269607843136
+        ],
+        "high_variance": "false"
+    },
+    "packed_ice": {
+        "texture": "packed_ice.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.5551930147058823,
+            0.7059283088235294,
+            0.9823223039215686
+        ],
+        "high_variance": "false"
+    },
+    "packed_mud": {
+        "texture": "packed_mud.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.5587316176470588,
+            0.4185508578431373,
+            0.31328125
+        ],
+        "high_variance": "false"
+    },
+    "pearlescent_froglight": {
+        "texture": "pearlescent_froglight_side.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "true",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.9235294117647059,
+            0.8822763480392157,
+            0.8961397058823529
+        ],
+        "high_variance": "false"
+    },
+    "pink_concrete": {
+        "texture": "pink_concrete.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.8372549019607843,
+            0.39612438725490196,
+            0.5602634803921569
+        ],
+        "high_variance": "false"
+    },
+    "pink_concrete_powder": {
+        "texture": "pink_concrete_powder.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "true",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.8974877450980392,
+            0.6012867647058824,
+            0.7100183823529411
+        ],
+        "high_variance": "false"
+    },
+    "pink_glazed_terracotta": {
+        "texture": "pink_glazed_terracotta.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.9221813725490197,
+            0.607781862745098,
+            0.7120098039215687
+        ],
+        "high_variance": "false"
+    },
+    "pink_stained_glass": {
+        "texture": "pink_stained_glass.png",
+        "column": "false",
+        "transparent": "true",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.9490196078431372,
+            0.4980392156862745,
+            0.6470588235294118
+        ],
+        "high_variance": "false"
+    },
+    "pink_terracotta": {
+        "texture": "pink_terracotta.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.6350030637254902,
+            0.30696997549019606,
+            0.3085018382352941
+        ],
+        "high_variance": "false"
+    },
+    "pink_wool": {
+        "texture": "pink_wool.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.9329963235294118,
+            0.5544270833333333,
+            0.6758884803921569
+        ],
+        "high_variance": "false"
+    },
+    "polished_andesite": {
+        "texture": "polished_andesite.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "true",
+        "color": [
+            0.5186580882352941,
+            0.5284466911764706,
+            0.5254748774509804
+        ],
+        "high_variance": "false"
+    },
+    "polished_basalt": {
+        "texture": "polished_basalt_side.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.34713541666666664,
+            0.34606311274509804,
+            0.3589001225490196
+        ],
+        "high_variance": "false"
+    },
+    "polished_blackstone": {
+        "texture": "polished_blackstone.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.20873161764705883,
+            0.19071691176470587,
+            0.22253370098039216
+        ],
+        "high_variance": "false"
+    },
+    "polished_blackstone_bricks": {
+        "texture": "polished_blackstone_bricks.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.1892922794117647,
+            0.16677389705882353,
+            0.19518995098039216
+        ],
+        "high_variance": "false"
+    },
+    "polished_deepslate": {
+        "texture": "polished_deepslate.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "true",
+        "color": [
+            0.2841605392156863,
+            0.2846200980392157,
+            0.28682598039215684
+        ],
+        "high_variance": "false"
+    },
+    "polished_diorite": {
+        "texture": "polished_diorite.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "true",
+        "color": [
+            0.7567861519607844,
+            0.7571691176470589,
+            0.7629442401960784
+        ],
+        "high_variance": "false"
+    },
+    "polished_granite": {
+        "texture": "polished_granite.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.6043198529411765,
+            0.41901041666666666,
+            0.3499080882352941
+        ],
+        "high_variance": "false"
+    },
+    "prismarine": {
+        "texture": "prismarine.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.38995863970588235,
+            0.6125076593137255,
+            0.5924517463235294
+        ],
+        "high_variance": "false"
+    },
+    "prismarine_bricks": {
+        "texture": "prismarine_bricks.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.3892156862745098,
+            0.6730392156862746,
+            0.6212928921568628
+        ],
+        "high_variance": "false"
+    },
+    "purple_concrete": {
+        "texture": "purple_concrete.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.393780637254902,
+            0.12400428921568628,
+            0.613265931372549
+        ],
+        "high_variance": "false"
+    },
+    "purple_concrete_powder": {
+        "texture": "purple_concrete_powder.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "true",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.5173406862745098,
+            0.21833639705882352,
+            0.6964613970588235
+        ],
+        "high_variance": "false"
+    },
+    "purple_glazed_terracotta": {
+        "texture": "purple_glazed_terracotta.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.4306525735294118,
+            0.18771446078431372,
+            0.5974877450980393
+        ],
+        "high_variance": "true"
+    },
+    "purple_stained_glass": {
+        "texture": "purple_stained_glass.png",
+        "column": "false",
+        "transparent": "true",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.4980392156862745,
+            0.24705882352941178,
+            0.6980392156862745
+        ],
+        "high_variance": "false"
+    },
+    "purple_terracotta": {
+        "texture": "purple_terracotta.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.46449142156862744,
+            0.2755667892156863,
+            0.33760723039215684
+        ],
+        "high_variance": "false"
+    },
+    "purple_wool": {
+        "texture": "purple_wool.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.47794117647058826,
+            0.1655330882352941,
+            0.6765012254901961
+        ],
+        "high_variance": "false"
+    },
+    "purpur_block": {
+        "texture": "purpur_block.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.6663449754901961,
+            0.4937959558823529,
+            0.6654105392156863
+        ],
+        "high_variance": "false"
+    },
+    "purpur_pillar": {
+        "texture": "purpur_pillar.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.6736060049019608,
+            0.5078431372549019,
+            0.6728553921568627
+        ],
+        "high_variance": "false"
+    },
+    "quartz_block": {
+        "texture": "quartz_block_side.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "true",
+        "color": [
+            0.9246323529411765,
+            0.901577818627451,
+            0.8743412990196079
+        ],
+        "high_variance": "false"
+    },
+    "quartz_bricks": {
+        "texture": "quartz_bricks.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "true",
+        "color": [
+            0.9204350490196078,
+            0.8987285539215686,
+            0.8696537990196078
+        ],
+        "high_variance": "false"
+    },
+    "quartz_pillar": {
+        "texture": "quartz_pillar.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "true",
+        "color": [
+            0.9235294117647059,
+            0.904656862745098,
+            0.8784313725490196
+        ],
+        "high_variance": "false"
+    },
+    "raw_copper_block": {
+        "texture": "raw_copper_block.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "false",
+        "color": [
+            0.6053155637254902,
+            0.4153952205882353,
+            0.310140931372549
+        ],
+        "high_variance": "false"
+    },
+    "raw_gold_block": {
+        "texture": "raw_gold_block.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "false",
+        "color": [
+            0.8694087009803921,
+            0.6638633578431372,
+            0.18377757352941176
+        ],
+        "high_variance": "false"
+    },
+    "raw_iron_block": {
+        "texture": "raw_iron_block.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "false",
+        "color": [
+            0.6520833333333333,
+            0.5322457107843137,
+            0.4211703431372549
+        ],
+        "high_variance": "false"
+    },
+    "redstone_block": {
+        "texture": "redstone_block.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.6884957107843137,
+            0.09718137254901961,
+            0.020098039215686276
+        ],
+        "high_variance": "false"
+    },
+    "redstone_lamp": {
+        "texture": "redstone_lamp.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.3733915441176471,
+            0.21416973039215687,
+            0.1178921568627451
+        ],
+        "high_variance": "false"
+    },
+    "redstone_ore": {
+        "texture": "redstone_ore.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "false",
+        "color": [
+            0.55078125,
+            0.4297794117647059,
+            0.4297794117647059
+        ],
+        "high_variance": "false"
+    },
+    "red_concrete": {
+        "texture": "red_concrete.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.5583639705882353,
+            0.12867647058823528,
+            0.12867647058823528
+        ],
+        "high_variance": "false"
+    },
+    "red_concrete_powder": {
+        "texture": "red_concrete_powder.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "true",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.6596047794117647,
+            0.21230085784313726,
+            0.19852941176470587
+        ],
+        "high_variance": "false"
+    },
+    "red_glazed_terracotta": {
+        "texture": "red_glazed_terracotta.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.7137101715686275,
+            0.2336550245098039,
+            0.2079044117647059
+        ],
+        "high_variance": "false"
+    },
+    "red_mushroom_block": {
+        "texture": "red_mushroom_block.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.7850643382352941,
+            0.18402267156862745,
+            0.17654718137254902
+        ],
+        "high_variance": "false"
+    },
+    "red_nether_bricks": {
+        "texture": "red_nether_bricks.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.2727328431372549,
+            0.027604166666666666,
+            0.035324754901960784
+        ],
+        "high_variance": "false"
+    },
+    "red_sand": {
+        "texture": "red_sand.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "true",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.7477481617647059,
+            0.4037530637254902,
+            0.13010110294117647
+        ],
+        "high_variance": "false"
+    },
+    "red_stained_glass": {
+        "texture": "red_stained_glass.png",
+        "column": "false",
+        "transparent": "true",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.6,
+            0.2,
+            0.2
+        ],
+        "high_variance": "false"
+    },
+    "red_terracotta": {
+        "texture": "red_terracotta.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.5612132352941176,
+            0.2392922794117647,
+            0.18394607843137256
+        ],
+        "high_variance": "false"
+    },
+    "red_wool": {
+        "texture": "red_wool.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.63125,
+            0.15419730392156863,
+            0.1358455882352941
+        ],
+        "high_variance": "false"
+    },
+    "rooted_dirt": {
+        "texture": "rooted_dirt.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.5647824754901961,
+            0.406219362745098,
+            0.3000765931372549
+        ],
+        "high_variance": "false"
+    },
+    "sand": {
+        "texture": "sand.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "true",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.859436274509804,
+            0.8126378676470588,
+            0.6395986519607844
+        ],
+        "high_variance": "false"
+    },
+    "sculk": {
+        "texture": "sculk.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.050463388480392155,
+            0.11746323529411765,
+            0.1414139093137255
+        ],
+        "high_variance": "false"
+    },
+    "sea_lantern": {
+        "texture": "sea_lantern.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "true",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.6755208333333333,
+            0.7838970588235294,
+            0.7454503676470589
+        ],
+        "high_variance": "true"
+    },
+    "shroomlight": {
+        "texture": "shroomlight.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "true",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.94453125,
+            0.5746629901960785,
+            0.2779718137254902
+        ],
+        "high_variance": "true"
+    },
+    "smooth_basalt": {
+        "texture": "smooth_basalt.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.28500306372549017,
+            0.2835018382352941,
+            0.30669424019607844
+        ],
+        "high_variance": "false"
+    },
+    "smooth_quartz": {
+        "texture": "quartz_block_bottom.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "true",
+        "color": [
+            0.9287990196078432,
+            0.9034313725490196,
+            0.8780637254901961
+        ],
+        "high_variance": "false"
+    },
+    "smooth_red_sandstone": {
+        "texture": "red_sandstone_top.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.7110140931372549,
+            0.383563112745098,
+            0.12337622549019608
+        ],
+        "high_variance": "false"
+    },
+    "smooth_sandstone": {
+        "texture": "sandstone_top.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.8778033088235294,
+            0.8399969362745098,
+            0.667984068627451
+        ],
+        "high_variance": "false"
+    },
+    "smooth_stone": {
+        "texture": "smooth_stone.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "true",
+        "color": [
+            0.6222732843137255,
+            0.6222732843137255,
+            0.6222732843137255
+        ],
+        "high_variance": "false"
+    },
+    "snow_block": {
+        "texture": "snow.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "true",
+        "color": [
+            0.976547181372549,
+            0.9969515931372549,
+            0.9969515931372549
+        ],
+        "high_variance": "false"
+    },
+    "soul_sand": {
+        "texture": "soul_sand.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.31916360294117646,
+            0.243765318627451,
+            0.19883578431372548
+        ],
+        "high_variance": "false"
+    },
+    "soul_soil": {
+        "texture": "soul_soil.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.29716605392156864,
+            0.22562806372549019,
+            0.18290441176470587
+        ],
+        "high_variance": "false"
+    },
+    "spawner": {
+        "texture": "spawner.png",
+        "column": "false",
+        "transparent": "true",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "false",
+        "renewable": "false",
+        "grayscale": "false",
+        "color": [
+            0.09816176470588235,
+            0.12496936274509804,
+            0.16934742647058823
+        ],
+        "high_variance": "false"
+    },
+    "sponge": {
+        "texture": "sponge.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "false",
+        "color": [
+            0.7680453431372549,
+            0.7535079656862745,
+            0.2925857843137255
+        ],
+        "high_variance": "false"
+    },
+    "spruce_planks": {
+        "texture": "spruce_planks.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.4506587009803922,
+            0.3327205882352941,
+            0.19042585784313726
+        ],
+        "high_variance": "false"
+    },
+    "spruce_wood": {
+        "texture": "spruce_log.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.23071384803921569,
+            0.14770220588235294,
+            0.06631433823529412
+        ],
+        "high_variance": "false"
+    },
+    "stone": {
+        "texture": "stone.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "true",
+        "color": [
+            0.49234068627450983,
+            0.49234068627450983,
+            0.49234068627450983
+        ],
+        "high_variance": "false"
+    },
+    "stone_bricks": {
+        "texture": "stone_bricks.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "true",
+        "color": [
+            0.4802236519607843,
+            0.47771139705882354,
+            0.4802236519607843
+        ],
+        "high_variance": "false"
+    },
+    "stripped_acacia_wood": {
+        "texture": "stripped_acacia_log.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.6852634803921569,
+            0.3644454656862745,
+            0.23442095588235295
+        ],
+        "high_variance": "false"
+    },
+    "stripped_bamboo_block": {
+        "texture": "stripped_bamboo_block.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.7583180147058823,
+            0.6788296568627451,
+            0.31557904411764703
+        ],
+        "high_variance": "false"
+    },
+    "stripped_birch_wood": {
+        "texture": "stripped_birch_log.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.7725183823529411,
+            0.6902573529411765,
+            0.4642003676470588
+        ],
+        "high_variance": "false"
+    },
+    "stripped_cherry_wood": {
+        "texture": "stripped_cherry_log.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.8434436274509803,
+            0.5692555147058823,
+            0.5840992647058824
+        ],
+        "high_variance": "false"
+    },
+    "stripped_crimson_hyphae": {
+        "texture": "stripped_crimson_stem.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.5385110294117647,
+            0.22478553921568628,
+            0.353140318627451
+        ],
+        "high_variance": "false"
+    },
+    "stripped_dark_oak_wood": {
+        "texture": "stripped_dark_oak_log.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.28561580882352944,
+            0.22310049019607844,
+            0.14131433823529413
+        ],
+        "high_variance": "false"
+    },
+    "stripped_jungle_wood": {
+        "texture": "stripped_jungle_log.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.6725030637254902,
+            0.5209252450980392,
+            0.3316942401960784
+        ],
+        "high_variance": "false"
+    },
+    "stripped_mangrove_wood": {
+        "texture": "stripped_mangrove_log.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.46879595588235295,
+            0.21344975490196078,
+            0.1882046568627451
+        ],
+        "high_variance": "false"
+    },
+    "stripped_oak_wood": {
+        "texture": "stripped_oak_log.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.6959099264705882,
+            0.5651041666666666,
+            0.33745404411764707
+        ],
+        "high_variance": "false"
+    },
+    "stripped_spruce_wood": {
+        "texture": "stripped_spruce_log.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.4535232843137255,
+            0.3528033088235294,
+            0.20565257352941177
+        ],
+        "high_variance": "false"
+    },
+    "stripped_warped_hyphae": {
+        "texture": "stripped_warped_stem.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.22576593137254902,
+            0.5918658088235295,
+            0.5795189950980392
+        ],
+        "high_variance": "false"
+    },
+    "structure_block": {
+        "texture": "structure_block.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "false",
+        "renewable": "false",
+        "grayscale": "false",
+        "color": [
+            0.34856004901960785,
+            0.29162071078431373,
+            0.3532169117647059
+        ],
+        "high_variance": "true"
+    },
+    "target": {
+        "texture": "target_side.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.8988664215686275,
+            0.6910845588235294,
+            0.6590686274509804
+        ],
+        "high_variance": "true"
+    },
+    "terracotta": {
+        "texture": "terracotta.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.5965992647058823,
+            0.3686887254901961,
+            0.2655637254901961
+        ],
+        "high_variance": "false"
+    },
+    "tinted_glass": {
+        "texture": "tinted_glass.png",
+        "column": "false",
+        "transparent": "true",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.17060355392156862,
+            0.15269607843137256,
+            0.17873774509803922
+        ],
+        "high_variance": "false"
+    },
+    "tube_coral_block": {
+        "texture": "tube_coral_block.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "true",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "false",
+        "color": [
+            0.19264705882352942,
+            0.3416666666666667,
+            0.8103553921568627
+        ],
+        "high_variance": "false"
+    },
+    "tuff": {
+        "texture": "tuff.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "true",
+        "color": [
+            0.4237591911764706,
+            0.42800245098039214,
+            0.4024816176470588
+        ],
+        "high_variance": "false"
+    },
+    "verdant_froglight": {
+        "texture": "verdant_froglight_side.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "true",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.8282781862745098,
+            0.9201746323529412,
+            0.8166666666666667
+        ],
+        "high_variance": "false"
+    },
+    "warped_hyphae": {
+        "texture": "warped_stem.png",
+        "column": "true",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.22778492647058823,
+            0.23073835784313726,
+            0.30401960784313725
+        ],
+        "high_variance": "false"
+    },
+    "warped_planks": {
+        "texture": "warped_planks.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.1688265931372549,
+            0.4112591911764706,
+            0.38878676470588236
+        ],
+        "high_variance": "false"
+    },
+    "warped_wart_block": {
+        "texture": "warped_wart_block.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.08941482843137255,
+            0.47037377450980394,
+            0.4749234068627451
+        ],
+        "high_variance": "false"
+    },
+    "weathered_copper": {
+        "texture": "weathered_copper.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.4246936274509804,
+            0.6000153186274509,
+            0.43278186274509806
+        ],
+        "high_variance": "false"
+    },
+    "weathered_cut_copper": {
+        "texture": "weathered_cut_copper.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.42890625,
+            0.5700674019607843,
+            0.42169117647058824
+        ],
+        "high_variance": "false"
+    },
+    "wet_sponge": {
+        "texture": "wet_sponge.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "false",
+        "grayscale": "false",
+        "color": [
+            0.6709558823529411,
+            0.7106311274509803,
+            0.27622549019607845
+        ],
+        "high_variance": "false"
+    },
+    "white_concrete": {
+        "texture": "white_concrete.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "true",
+        "color": [
+            0.8121936274509803,
+            0.8356004901960784,
+            0.8395067401960784
+        ],
+        "high_variance": "false"
+    },
+    "white_concrete_powder": {
+        "texture": "white_concrete_powder.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "true",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "true",
+        "color": [
+            0.885202205882353,
+            0.892126225490196,
+            0.8934895833333333
+        ],
+        "high_variance": "false"
+    },
+    "white_glazed_terracotta": {
+        "texture": "white_glazed_terracotta.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.7392156862745098,
+            0.8333180147058824,
+            0.7956648284313725
+        ],
+        "high_variance": "true"
+    },
+    "white_stained_glass": {
+        "texture": "white_stained_glass.png",
+        "column": "false",
+        "transparent": "true",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "true",
+        "color": [
+            1.0,
+            1.0,
+            1.0
+        ],
+        "high_variance": "false"
+    },
+    "white_terracotta": {
+        "texture": "white_terracotta.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.8221047794117647,
+            0.6981770833333333,
+            0.6327359068627451
+        ],
+        "high_variance": "false"
+    },
+    "white_wool": {
+        "texture": "white_wool.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "true",
+        "color": [
+            0.9160386029411764,
+            0.9266544117647059,
+            0.9285232843137254
+        ],
+        "high_variance": "false"
+    },
+    "yellow_concrete": {
+        "texture": "yellow_concrete.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.9450520833333333,
+            0.6878829656862745,
+            0.08411458333333334
+        ],
+        "high_variance": "false"
+    },
+    "yellow_concrete_powder": {
+        "texture": "yellow_concrete_powder.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "true",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.91328125,
+            0.7810814950980393,
+            0.21478247549019608
+        ],
+        "high_variance": "false"
+    },
+    "yellow_glazed_terracotta": {
+        "texture": "yellow_glazed_terracotta.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.9190104166666667,
+            0.7541973039215686,
+            0.3478860294117647
+        ],
+        "high_variance": "true"
+    },
+    "yellow_stained_glass": {
+        "texture": "yellow_stained_glass.png",
+        "column": "false",
+        "transparent": "true",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.8980392156862745,
+            0.8980392156862745,
+            0.2
+        ],
+        "high_variance": "false"
+    },
+    "yellow_terracotta": {
+        "texture": "yellow_terracotta.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.73046875,
+            0.5221200980392157,
+            0.13867953431372548
+        ],
+        "high_variance": "false"
+    },
+    "yellow_wool": {
+        "texture": "yellow_wool.png",
+        "column": "false",
+        "transparent": "false",
+        "gravity": "false",
+        "randomTickAffected": "false",
+        "lightEmitting": "false",
+        "survival": "true",
+        "renewable": "true",
+        "grayscale": "false",
+        "color": [
+            0.9756127450980392,
+            0.7763174019607844,
+            0.15542279411764706
+        ],
+        "high_variance": "false"
+    }
+}

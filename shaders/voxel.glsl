@@ -61,6 +61,7 @@ vec2 worldToUV(vec3 worldPos, mat4 viewProjection)
 {
     vec4 pos = viewProjection * vec4(worldPos, 1.);
     pos /= pos.w;
+    pos.y *= -1.;
     return pos.xy * 0.5 + 0.5;
 
 }

@@ -5,15 +5,23 @@
   <meta charset="utf-8" />
   <title>Perspective Art</title>
   <script src='https://git.io/glm-js.min.js'></script>
-  
-  <script src="src/blockPalette.js" type="module"></script>
+
   <script src="src/script.js" type="module"></script>
+    
+  <script src="src/blockPalette.js" type="module"></script>
+  <script src="src/schematic.js" type="module"></script>
   <script src="src/gui.js" type="module"></script>
-  <script src="src/nbt.js" type="module"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+  <!--[if lt IE 8]>
+    <p class="browserupgrade">
+      You are using an <strong>outdated</strong> browser. Please
+      <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+      your experience.
+    </p>
+  <![endif]-->
   <div class="header">
     <h1>Perspective Art</h1>
   <div class="elements">
@@ -24,10 +32,10 @@
           <table width=100%>
             <tbody>
               <tr>
-                <th><label for="preprocessing-checkbox">
-                    <b>Enable:</b>
+                <th><label for="discretize-checkbox">
+                    <b>Discretize </b>
                   </label></th>
-                <td> <input id="preprocessing-checkbox" type="checkbox" checked></td>
+                <td> <input id="discretize-checkbox" type="checkbox" checked></td>
                 <td></td>
               </tr>
               <tr>
@@ -108,10 +116,10 @@
                   </div>
                 <td>
                   <div class="minmaxnumber">
-                    <label for="min">Min</label>
+                    <label for="depth-min-number">Min</label>
                     <input id="depth-min-number" class="number-input" type="number" min="5" max="500" value="10"
                       step="1">
-                    <label for="max">Max</label>
+                    <label for="depth-max-number">Max</label>
                     <input id="depth-max-number" class="number-input" type="number" min="5" max="500" value="300"
                       step="1">
                   </div>
@@ -129,9 +137,9 @@
                   </div>
                 <td>
                   <div class="minmaxnumber">
-                    <label for="min">Min</label>
+                    <label for="variance-min-number">Min</label>
                     <input id="variance-min-number" class="number-input" type="number" min="0" max="1000" value="10">
-                    <label for="max">Max</label>
+                    <label for="variance-max-number">Max</label>
                     <input id="variance-max-number" class="number-input" type="number" min="0" max="1000" value="300">
                   </div>
                 </td>
@@ -142,22 +150,28 @@
       </div>
       <div class="images">
         <div class="card image preview">
-          <div class="canvas-background">
-            <canvas id="glcanvas" width="1" height="1"></canvas>
-          </div>
+          <input type="file" id="image-input" accept="image/*">
+          <label class="image-input-label" for="image-input">
+            <div class="canvas-background">
+              <canvas id="glcanvas" width="1" height="1"></canvas>
+            </div>
+          </label>
           <button class="buttons" type="button" id="convertButton">Convert</button>
         </div>
         <div class="card image voxel">
           <div class="canvas-background">
-            <canvas id="canvas"></canvas>
+            <canvas id="canvas" class = "voxel-preview" width="1" height="1"></canvas>
           </div>
-          <button class="buttons" type="button">Download</button>
+          <button class="buttons" id="downloadButton" type="button">Download</button>
         </div>
       </div>
     </div>
     <div class = "palette">
-      <div class="card">
-        <h3>Block Pallete</h3>
+      <div class="card palette-card">
+        <div class="palette-header">
+          <div class = "palette-name"><h3>Block Palette</h3></div>
+          <span class = "material-total-count"></span>
+        </div>
         <div class = "blockList"></div>
       </div>
     </div>

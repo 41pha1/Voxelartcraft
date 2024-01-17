@@ -1,6 +1,41 @@
-import { voxelConvert, applyProcessing} from "./script.js";
+import { voxelConvert, applyProcessing, downloadNBT, updateTargetImage, stopVoxelization, updatePreviewTooltip} from "./script.js";
+
+const voxel_preview = document.querySelector('.voxel-preview');
+voxel_preview.addEventListener("mousemove", voxel_preview_mousemove);
+
+function voxel_preview_mousemove(e) {
+    var rect = e.target.getBoundingClientRect();
+    var x = e.clientX - rect.left;
+    var y = e.clientY - rect.top;
+    x /= rect.width;
+    y /= rect.height;
+    
+   updatePreviewTooltip(x, y);
+}
 
 document.getElementById ("convertButton").addEventListener ("click", voxelConvert, false);
+document.getElementById ("downloadButton").addEventListener ("click", downloadNBT, false);
+
+const image_input = document.querySelector('#image-input');
+image_input.addEventListener("change", image_update);
+
+function image_update() {
+    stopVoxelization();
+    const img = document.querySelector('#image-input').files[0];
+
+    const image = new Image();
+    image.src = URL.createObjectURL(img);
+
+
+    updateTargetImage(image);
+}
+
+const discretize_checkbox = document.querySelector('#discretize-checkbox');
+discretize_checkbox.addEventListener("change", discretize_update);
+
+function discretize_update() {
+    applyProcessing();
+}
 
 var brightness_slider = document.querySelector('#brightness-slider');
 var brightness_number = document.querySelector('#brightness-number');
@@ -13,7 +48,7 @@ function brightness_updateSlider() {
 brightness_number.addEventListener("change", brightness_updateNumber);
 function brightness_updateNumber() {
     //change the user text to a number
-    brightness_number.value = parseInt(brightness_number.value) || brightness_number.min;
+    brightness_number.value = parseInt(brightness_number.value) || 0;
     brightness_number.value = Math.min(brightness_number.max, Math.max(brightness_number.min, brightness_number.value));
     //copying the number values to the slider
     brightness_slider.value = brightness_number.value;
@@ -30,7 +65,7 @@ function contrast_updateSlider() {
 contrast_number.addEventListener("change", contrast_updateNumber);
 function contrast_updateNumber() {
     //change the user text to a number
-    contrast_number.value = parseInt(contrast_number.value) || contrast_number.min;
+    contrast_number.value = parseInt(contrast_number.value) || 0;
     contrast_number.value = Math.min(contrast_number.max, Math.max(contrast_number.min, contrast_number.value));
     //copying the number values to the slider
     contrast_slider.value = contrast_number.value;
@@ -47,24 +82,24 @@ function saturation_updateSlider() {
 saturation_number.addEventListener("change", saturation_updateNumber);
 function saturation_updateNumber() {
     //change the user text to a number
-    saturation_number.value = parseInt(saturation_number.value) || saturation_number.min;
+    saturation_number.value = parseInt(saturation_number.value) || 0;
     saturation_number.value = Math.min(saturation_number.max, Math.max(saturation_number.min, saturation_number.value));
     //copying the number values to the slider
     saturation_slider.value = saturation_number.value;
     applyProcessing();
 }
 
-var preprocessing_checkbox = document.querySelector('#preprocessing-checkbox');
-preprocessing_checkbox.addEventListener("change", preprocessing_update);
-function preprocessing_update() {
-    brightness_slider.disabled = !preprocessing_checkbox.checked;
-    brightness_number.disabled = !preprocessing_checkbox.checked;
-    contrast_slider.disabled = !preprocessing_checkbox.checked;
-    contrast_number.disabled = !preprocessing_checkbox.checked;
-    saturation_slider.disabled = !preprocessing_checkbox.checked;
-    saturation_number.disabled = !preprocessing_checkbox.checked;
+// var preprocessing_checkbox = document.querySelector('#preprocessing-checkbox');
+// preprocessing_checkbox.addEventListener("change", preprocessing_update);
+// function preprocessing_update() {
+//     brightness_slider.disabled = !preprocessing_checkbox.checked;
+//     brightness_number.disabled = !preprocessing_checkbox.checked;
+//     contrast_slider.disabled = !preprocessing_checkbox.checked;
+//     contrast_number.disabled = !preprocessing_checkbox.checked;
+//     saturation_slider.disabled = !preprocessing_checkbox.checked;
+//     saturation_number.disabled = !preprocessing_checkbox.checked;
 
-}
+// }
 
 var fov_slider = document.querySelector('#fov-slider');
 var fov_number = document.querySelector('#fov-number');
@@ -91,7 +126,7 @@ function pitch_updateSlider() {
 pitch_number.addEventListener("change", pitch_updateNumber);
 function pitch_updateNumber() {
     //change the user text to a number
-    pitch_number.value = parseInt(pitch_number.value) || pitch_number.min;
+    pitch_number.value = parseInt(pitch_number.value) || 0;
     pitch_number.value = Math.min(pitch_number.max, Math.max(pitch_number.min, pitch_number.value));
     //copying the number values to the slider
     pitch_slider.value = pitch_number.value;
@@ -106,7 +141,7 @@ function yaw_updateSlider() {
 yaw_number.addEventListener("change", yaw_updateNumber);
 function yaw_updateNumber() {
     //change the user text to a number
-    yaw_number.value = parseInt(yaw_number.value) || yaw_number.min;
+    yaw_number.value = parseInt(yaw_number.value) || 0;
     yaw_number.value = Math.min(yaw_number.max, Math.max(yaw_number.min, yaw_number.value));
     //copying the number values to the slider
     yaw_slider.value = yaw_number.value;

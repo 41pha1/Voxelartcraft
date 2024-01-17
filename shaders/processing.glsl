@@ -1,15 +1,17 @@
 precision mediump float;
 
 uniform sampler2D u_targetImage;
+uniform sampler2D u_palette;
+uniform float u_paletteSize;
 
 uniform float u_brightness;
 uniform float u_contrast;
 uniform float u_saturation;
+uniform int u_discretize;
 
 varying vec2 v_texcoord;
 
-vec3 rgb2hsv(vec3 c)
-{
+vec3 rgb2hsv(vec3 c) {
     vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
     vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));
     vec4 q = mix(vec4(p.xyw, c.r), vec4(c.r, p.yzx), step(p.x, c.r));
@@ -19,17 +21,37 @@ vec3 rgb2hsv(vec3 c)
     return vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
 }
 
-vec3 hsv2rgb(vec3 c)
-{
+vec3 hsv2rgb(vec3 c) {
     vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
     vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
     return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
 }
 
+vec3 discretize(vec3 c) {
+    float minDist = 1000000.0;
+    vec3 minCol = vec3(0.0);
 
-void main()
-{
+    const float MAX_ITER = 1000.;
+
+    for(float i = 0.; i < MAX_ITER; i++) {
+        if(i >= u_paletteSize)
+            break;
+
+        vec4 col = texture2D(u_palette, vec2(i / u_paletteSize, 0.5));
+        float dist = distance(c, col.rgb);
+
+        if(dist < minDist) {
+            minDist = dist;
+            minCol = col.rgb;
+        }
+    }
+
+    return minCol;
+}
+
+void main() {
     vec2 uv = v_texcoord * 0.5 + 0.5;
+    uv.y = 1.0 - uv.y;
     vec4 col = texture2D(u_targetImage, uv); 
 
     if (col.a < 0.5) {
@@ -54,8 +76,10 @@ void main()
     col.y = clamp(col.y * saturation, 0., 1.);
     col.rgb = hsv2rgb(col.rgb);
 
-    col.rgb = (col.rgb - 0.5) * contrast + 0.5; 
-    col.rgb = col.rgb * (u_brightness + 1.0);
+    col.rgb = (col.rgb - 0.5) * contrast + u_brightness + 0.5;
+
+    if(u_discretize == 1)
+        col.rgb = discretize(col.rgb);
 
     gl_FragColor = vec4(col);
 }

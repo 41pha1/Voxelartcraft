@@ -249,13 +249,18 @@ canvas {
     height: 38vh
 }
 
-#glcanvas {
+.image {
+    max-width: fit-content;
+}
+
+.voxel-preview {
     transform: scaleY(-1);
 }
 
 .canvas-background {
     margin: 10px;
     background: repeating-conic-gradient(#1f1f1f 0% 25%, #141414 0% 50%) 50% / 20px 20px;
+    max-width: fit-content;
 }
 
 .blockList {
@@ -269,6 +274,60 @@ canvas {
     border-radius: 5px;
 }
 
+.palette-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.palette-header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;	
+}
+
+.categories {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-left: 2em;
+    margin-top: -0.5em;
+}
+
+.categoryButton {
+    border: none;
+    border-radius: 0.5em;
+    font-size: 1em;
+    color: var(--text);
+    font-family: 'Courier New';
+    font-size: 1.25em;
+    text-align: center;
+    padding: 5px;
+    margin: 5px;
+}
+
+.categoryButton.positive {
+    background: var(--primary);
+    color: var(--text);
+}
+
+.categoryButton.negative {
+    background: var(--secondary);
+    color: var(--text);
+}
+
+.categoryButton.neutral {
+    background: var(--div2);
+    color: var(--text);
+}
+
+.material-total-count {
+    align-self: right;
+    margin-left: auto;
+}
+
 .blockSelectorCheckbox {
     display: none;
 }
@@ -279,13 +338,29 @@ canvas {
     height: 3em;
     cursor: pointer;
     margin: 2px;
+    margin-bottom: 1.2em;
     padding: 1px;
     border: 6px transparent solid;
+}
+
+.blockCounter
+{
+    margin: 2px;
+    text-align: center;
 }
 
 .blockSelectorCheckbox:checked+.blockSelectorLabel {
     border: 6px solid var(--highlight);
     border-radius: 0.5em;
+}
+
+.activeMaterial .blockSelectorCheckbox:checked+.blockSelectorLabel{
+    border: 6px solid var(--secondary) !important;
+    border-radius: 0.5em;
+}
+
+.activeMaterial .blockCounter{
+    display: block !important;
 }
 
 .blockSelectorImage {
@@ -294,4 +369,12 @@ canvas {
     padding: 0px;
     object-fit: cover;
     image-rendering: pixelated;
+}
+
+#image-input {
+    display: none;
+}
+
+.image-input-label {
+    cursor: pointer;
 }
