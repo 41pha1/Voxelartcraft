@@ -1,6 +1,6 @@
 import { updatePalette } from "./script.js";
 
-const categories = ["column", "gravity", "randomTickAffected", "lightEmitting", "survival", "renewable", "grayscale", "high_variance"];
+const categories = ["any", "survival", "renewable", "expensive", "gravity", "randomTickAffected", "lightEmitting", "dyed", "grayscale", "column", "high_variance"];
 
 const blockSelectorDiv = document.querySelector(".blockList");
 const blocks = readFile("./blockProperties.json")
