@@ -62,7 +62,7 @@ function updateSelection()
     updatePalette();
 }
 
-function selectoHTML(blockID, r, g, b){
+function selectoHTML(blockID, r, g, b, index){
     var title = blockID.replace(/_/g, " ");
     
     title = title.replace(/\w\S*/g, (txt) => {
@@ -81,6 +81,7 @@ function selectoHTML(blockID, r, g, b){
         <input type="checkbox" id = "${blockID}" class="${classes}" checked>
         <label for="${blockID}" class="blockSelectorLabel">
             <label class = "rgb" style="display:none;"> ${r}, ${g}, ${b} </label>
+            <label class = "index" style="display:none;">${index}</label>
             <image class="blockSelectorImage" src="./blocks/${blockID}.png" title="${title}"></image>
             <div class= "blockCounter" id = "${blockID}_counter" style="display:none;">
                 x0
@@ -110,7 +111,8 @@ for (var block in blocks) {
     const r = Math.floor(color[0] * 255);
     const g = Math.floor(color[1] * 255);
     const b = Math.floor(color[2] * 255);
-    paletteHTML += selectoHTML(block, r, g, b);
+    const index = blocks[block]["index"];
+    paletteHTML += selectoHTML(block, r, g, b, index);
 }
 blockSelectorDiv.innerHTML += paletteHTML;
 

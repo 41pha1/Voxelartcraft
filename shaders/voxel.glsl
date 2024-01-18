@@ -16,45 +16,47 @@ uniform sampler2D u_alphaMask;
 
 varying vec2 v_texcoord;
 
+
 const float PI = 3.1415926535897932384626433832795;
 
 vec3 checkAlphaOffsets[15];
 
-bool correctDistance(vec3 blockPos, vec3 cameraPos, float depth, float depthStep)
+vec3 planeIntersect(vec3 p0, vec3 pn, vec3 r0, vec3 ray)
 {
-    float d = distance(blockPos, cameraPos);
-    return d > depth && d < depth + depthStep;
+    float denom = dot(pn, ray);
+    
+    vec3 p0l0 = p0 - r0;
+    float t = dot(p0l0, pn) / denom; 
+    return r0 + t * ray;
 }
 
-bool isOccluded(vec3 currentBlock, vec3 cameraPos, float d, float depth, float depthStep)
+vec2 blockUV(vec3 cube, vec3 origin, vec3 dir, vec3 face)
 {
-    if(d > depth + depthStep)
-        return true;
+    dir = normalize(dir);
+    face = normalize(face);
+    vec3 faceMiddle = cube + face * 0.5;
+    vec3 intersect = planeIntersect(faceMiddle, face, origin, dir);
 
-    vec3 up = vec3(0., 1., 0.);
-    vec3 right = vec3(1., 0., 0.);
-    vec3 forward = vec3(0., 0., 1.);
+    intersect = fract(intersect);
+    
+    if(abs(face.x) > 0.5)
+        return vec2(intersect.y, intersect.z);
+    
+    if(abs(face.y) > 0.5)
+        return vec2(intersect.x, intersect.z);
+        
+    if(abs(face.z) > 0.5)
+        return vec2(intersect.y, intersect.x);
+}
 
-    if(correctDistance(currentBlock + up, cameraPos, depth, depthStep))
-        if (distance(currentBlock + up, cameraPos) < d)
-            return true;
-    if(correctDistance(currentBlock - up, cameraPos, depth, depthStep))
-        if (distance(currentBlock - up, cameraPos) < d)
-            return true;
-    if(correctDistance(currentBlock + right, cameraPos, depth, depthStep))
-        if (distance(currentBlock + right, cameraPos) < d)
-            return true;
-    if(correctDistance(currentBlock - right, cameraPos, depth, depthStep))
-        if (distance(currentBlock - right, cameraPos) < d)
-            return true;
-    if(correctDistance(currentBlock + forward, cameraPos, depth, depthStep))
-        if (distance(currentBlock + forward, cameraPos) < d)
-            return true;
-    if(correctDistance(currentBlock - forward, cameraPos, depth, depthStep))
-        if (distance(currentBlock - forward, cameraPos) < d)
-            return true;
+float manhatten(vec3 pos1, vec3 pos2)
+{
+    return abs(pos1.x - pos2.x) + abs(pos1.y - pos2.y) + abs(pos1.z - pos2.z);
+}
 
-    return false;
+float dist(vec3 pos1, vec3 pos2) 
+{
+    return manhatten(pos1, pos2);
 }
 
 vec2 worldToUV(vec3 worldPos, mat4 viewProjection)
@@ -75,7 +77,7 @@ bool blockOverlapsAlpha(vec3 currentBlock, mat4 viewProjection)
 
         if (uv.x < 0. || uv.x > 1. || uv.y < 0. || uv.y > 1.)
             return true;
-
+        
         vec4 alpha = texture2D(u_alphaMask, uv);
         if(alpha.a < 0.5)
             return true;
@@ -84,12 +86,123 @@ bool blockOverlapsAlpha(vec3 currentBlock, mat4 viewProjection)
     return false;
 }
 
-float disToPlane(vec3 normal, vec3 pos)
-{
-    return abs(normal.x * pos.x + normal.y * pos.y + normal.z * pos.z);
+float intbound(float s, float ds) {
+  // Find the smallest positive t such that s+t*ds is an integer.
+  if (ds < 0.) {
+    s = mod(-s, 1.);
+    return (1.-s)/(-ds);
+  } else {
+    s = mod(s, 1.);
+    return (1.-s)/ds;
+  }
 }
 
-void main()
+float startingEstimate(vec3 dir, float depth)
+{
+    vec3 p0 = vec3(0., 0., depth * sign(dir.z));
+    vec3 pn = sign(dir); 
+    vec3 inter = planeIntersect(p0, pn, vec3(0.), dir);
+    
+    return length(inter) - 2.0;
+}
+
+
+vec4 raycast(vec3 origin, vec3 direction, mat4 viewProjection, float depth) {
+  // From "A Fast Voxel Traversal Algorithm for Ray Tracing"
+  // by John Amanatides and Andrew Woo, 1987
+  // <http://www.cse.yorku.ca/~amana/research/grid.pdf>
+  // <http://citeseer.ist.psu.edu/viewdoc/summary?doi=10.1.1.42.3443>
+  // Extensions to the described algorithm:
+  //   • Imposed a distance limit.
+  //   • The face passed through to reach the current cube is provided to
+  //     the callback.
+
+  // The foundation of this algorithm is a parameterized representation of
+  // the provided ray,
+  //                    origin + t * direction,
+  // except that t is not actually stored; rather, at any given point in the
+  // traversal, we keep track of the *greater* t values which we would have
+  // if we took a step sufficient to cross a cube boundary along that axis
+  // (i.e. change the integer part of the coordinate) in the variables
+  // tMaxX, tMaxY, and tMaxZ.
+
+  vec4 col = vec4(0.);
+  // Cube containing origin point.
+  vec3 estimOrig = origin + startingEstimate(direction, depth) * direction;
+  vec3 cube = floor(estimOrig);
+  // Direction to increment x,y,z when stepping.
+  vec3 rayStep = sign(direction);
+  // See description above. The initial values depend on the fractional
+  // part of the origin.
+  float tMaxX = intbound(estimOrig.x, direction.x);
+  float tMaxY = intbound(estimOrig.y, direction.y);
+  float tMaxZ = intbound(estimOrig.z, direction.z);
+  // The change in t when taking a step (always positive).
+  vec3 tDelta = rayStep / direction;
+  // Buffer for reporting faces to the callback.
+  vec3 face = vec3(0.);
+
+  // Rescale from units of 1 cube-edge to units of 'direction' so we can
+  // compare with 't'.
+
+  for(float i = 0.; i < 5.; i += 1.) {
+    // Invoke the callback, unless we are not *yet* within the bounds of the
+    // world.
+    vec3 block = cube + vec3(0.5);   
+    float d = dist(block, origin); 
+
+    if(d > depth){
+        if (!blockOverlapsAlpha(cube, viewProjection))
+        {
+            float normalCompress = abs(face.x) * 0.8 + abs(face.y) * 0.6 + abs(face.z) * 1.0;
+            
+            vec2 uv = blockUV(block, origin, direction, face);
+            
+            float pixel = floor(uv.x * 16.) * 16. + floor(uv.y * 16.);
+            float px = mod(pixel, 16.);
+            float py = floor(pixel / 16.);
+        
+            return vec4(cube , pixel);
+        }
+        else {
+            return vec4(0.);
+        }
+    }
+
+    // tMaxX stores the t-value at which we cross a cube boundary along the
+    // X axis, and similarly for Y and Z. Therefore, choosing the least tMax
+    // chooses the closest cube boundary. Only the first case of the four
+    // has been commented in detail.
+    if (tMaxX < tMaxY) {
+      if (tMaxX < tMaxZ) {
+        // Update which cube we are now in.
+        cube.x += rayStep.x;
+        // Adjust tMaxX to the next X-oriented boundary crossing.
+        tMaxX += tDelta.x;
+        // Record the normal vector of the cube face we entered.
+        face = vec3(-rayStep.x, 0., 0.);
+      } else {
+        cube.z += rayStep.z;
+        tMaxZ += tDelta.z;
+        face = vec3(0., 0., -rayStep.z);
+      }
+    } else {
+      if (tMaxY < tMaxZ) {
+        cube.y += rayStep.y;
+        tMaxY += tDelta.y;
+        face = vec3(0., -rayStep.y, 0.);
+      } else {
+        // Identical to the second case, repeated for simplicity in
+        // the conditionals.
+        cube.z += rayStep.z;
+        tMaxZ += tDelta.z;
+        face = vec3(0., 0., -rayStep.z);
+      }
+    }
+  }
+}
+
+void main( )
 {
     // offsets
     checkAlphaOffsets[0] = vec3(0., 0., 0.);
@@ -115,7 +228,14 @@ void main()
     // camera
     vec2 uv = v_texcoord;
     uv.x *= u_aspect;
-    uv.y *= -1.;
+    //uv.y *= -1.;
+
+    // vec4 alpha = texture2D(u_alphaMask, uv);
+
+    // if(alpha.a < 0.5){
+    //     gl_FragColor = vec4(0.);
+    //     return;
+    // }
 
     float fov = u_fov * PI / 180.;
     float pitch = u_pitch * PI / 180.;
@@ -137,47 +257,9 @@ void main()
     vec3 up = normalize(cross(forward, right));
 
     vec3 rayDirection = normalize(uv.x * right + uv.y * up + forward * zoom);
-    vec3 rayOrigin = cameraPos + rayDirection * (depth - 3.0);
+    vec3 rayOrigin = cameraPos;// + rayDirection * (depth - 3.0);
 
-    //raytracing
-    vec3 currentBlock = floor(rayOrigin);
-    vec3 faceNormal = vec3(0.0);
-    vec4 col = vec4(0.);
+    vec4 col = raycast(rayOrigin, rayDirection, viewProjection, depth);
 
-    for (float i = 0.; i < 10.; i++){
-        vec3 posInCube = fract(abs(rayOrigin));
-        vec3 ttb = (1.-posInCube) / abs(rayDirection);
-
-        if(ttb.x < ttb.y && ttb.x < ttb.z){
-            rayOrigin += rayDirection * ttb.x;
-            faceNormal = vec3(-sign(rayDirection.x), 0., 0.);
-
-        }else if(ttb.y < ttb.z){
-            rayOrigin += rayDirection * ttb.y;
-            faceNormal = vec3(0., -sign(rayDirection.y), 0.);
-
-        }else {
-            rayOrigin += rayDirection * ttb.z;
-            faceNormal = vec3(0., 0., -sign(rayDirection.z));
-        }
-
-        currentBlock = floor(rayOrigin + 0.5 * faceNormal);
-        
-        float d = distance(currentBlock, cameraPos);
-        if(d > depth){
-            if(isOccluded(currentBlock, cameraPos, d, depth, depthStep))
-                break;
-            
-            if (blockOverlapsAlpha(currentBlock, viewProjection))
-                break;
-
-            float normalCompress = abs(faceNormal.x) * 1. + abs(faceNormal.y) * 0.8 + abs(faceNormal.z) * 0.9;
-
-            col = vec4(currentBlock, normalCompress);
-            break;
-        }
-    }
-
-    // Output to screen
     gl_FragColor = vec4(col);
 }

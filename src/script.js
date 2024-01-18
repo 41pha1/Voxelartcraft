@@ -1,8 +1,11 @@
 import { createStructureNBT } from "./schematic.js";
 
 const DEFAULT_TARGET = './res/test.svg';
+const textureAtlas = './atlas.png';
+
 const voxelShaderFile = "./shaders/voxel.glsl";
 const processingShaderFile = "./shaders/processing.glsl";
+const discretizeShaderFile = "./shaders/discretize.glsl";
 const vertexShaderFile = "./shaders/vertex.glsl";
 
 const canvas = document.querySelector("#glcanvas");
@@ -11,6 +14,7 @@ const gl = canvas.getContext("webgl2");
 const outputCanvas = document.querySelector('#canvas');
 const outputCtx = outputCanvas.getContext('2d');
 
+const discretizeShader = createShaderProgram(vertexShaderFile, discretizeShaderFile);
 const voxelShader = createShaderProgram(vertexShaderFile, voxelShaderFile);
 const processingShader = createShaderProgram(vertexShaderFile, processingShaderFile);
 
@@ -21,6 +25,7 @@ var pixelData = null;
 var processedImage = null;
 var framebuffer = null;
 var output = null;
+var voxel_preview = null;
 
 // Palette
 var palette = null;
@@ -30,6 +35,10 @@ var brightness = 1.0;
 var contrast = 1.0;
 var saturation = 1.0;
 var discretize = false;
+var processingFrameBuffer = null;
+var discreteVoxelizedFrameBuffer = null;
+var processingTexture = null;
+var voxelizedTexture = null;
 
 // Uniforms
 var depth_uniform = null;
@@ -46,7 +55,7 @@ var maxDepth = 300;
 var startVariance = 5;
 var endVariance = 450;
 var minVisibility = 0.01;
-const depthStep = 0.41234678;
+const depthStep = 1.;
 
 // States
 var voxelizing = false;
@@ -55,6 +64,7 @@ var voxelized = false;
 
 // Voxelization
 var blocks = null;
+var materials = null;
 
 function loadShader(shaderFile) {
     var shaderSource;
@@ -102,19 +112,27 @@ const readPixelsAsync = function (type, width, height, buffer) {
     });
 };
 
-function createTexture(w, h, dat = null) {
+function createTexture(w, h, type = gl.FLOAT, data = null) {
     const tex = gl.createTexture();
     gl.bindTexture(gl.TEXTURE_2D, tex);
 
     const level = 0;
-    const internalFormat = gl.RGBA16F;
     const width = w;
     const height = h;
     const border = 0;
     const format = gl.RGBA;
-    const type = gl.FLOAT;
-    const data = dat || new Float32Array(w * h * 4);
+    var internalFormat = null;
+    
+    if (type == gl.FLOAT){
+        data = data ||new Float32Array(w * h * 4);
+        internalFormat = gl.RGBA16F;
+    } else if (type == gl.UNSIGNED_BYTE) {
+        data = data ||new Uint8Array(w * h * 4);
+        internalFormat = gl.RGBA8;
 
+    } else 
+        throw "Invalid framebuffer type";
+    
     gl.texImage2D(gl.TEXTURE_2D, level, internalFormat, width, height, border,
         format, type, data);
 
@@ -124,9 +142,9 @@ function createTexture(w, h, dat = null) {
     return tex;
 }
 
-async function loadTexture(image_obj) {
+async function loadTexture(image_obj, activeTexture = gl.TEXTURE0, interp = gl.NEAREST) {
     texture = gl.createTexture();
-    gl.activeTexture(gl.TEXTURE0);
+    gl.activeTexture(activeTexture);
     gl.bindTexture(gl.TEXTURE_2D, texture);
 
     const level = 0;
@@ -144,7 +162,7 @@ async function loadTexture(image_obj) {
 
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, interp);
     
     return image_obj;
 }
@@ -165,6 +183,16 @@ function createShaderProgram(vertexShaderFile, voxelShaderFile) {
 
     gl.attachShader(voxelShader, vertexShader);
     gl.attachShader(voxelShader, fragmentShader);
+
+    if (!gl.getShaderParameter(vertexShader, gl.COMPILE_STATUS)) {
+        console.error('ERROR compiling vertex shader!', gl.getShaderInfoLog(vertexShader));
+        return;
+    }
+
+    if (!gl.getShaderParameter(fragmentShader, gl.COMPILE_STATUS)) {
+        console.error('ERROR compiling fragment shader!', gl.getShaderInfoLog(fragmentShader));
+        return;
+    }
 
     gl.linkProgram(voxelShader);
     gl.useProgram(voxelShader);
@@ -240,6 +268,8 @@ function setUniforms(w, h, depthStep, camPos, pitch, yaw, fov) {
 
 function render(depth) {
     gl.useProgram(voxelShader);
+    gl.activeTexture(gl.TEXTURE0);
+    gl.bindTexture(gl.TEXTURE_2D, texture);
     gl.bindFramebuffer(gl.FRAMEBUFFER, framebuffer);
     gl.uniform1f(depth_uniform, depth);
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
@@ -248,10 +278,9 @@ function render(depth) {
 function applyProcessing() {
     loadSettingsFromUI();
 
+    gl.useProgram(processingShader);
     gl.viewport(0, 0, canvas.width, canvas.height);
     gl.bindTexture(gl.TEXTURE_2D, texture);
-    gl.bindFramebuffer(gl.FRAMEBUFFER, null);
-    gl.useProgram(processingShader);
 
     const brightnessUniform = gl.getUniformLocation(processingShader, "u_brightness");
     gl.uniform1f(brightnessUniform, brightness / 100);
@@ -262,12 +291,14 @@ function applyProcessing() {
     const saturationUniform = gl.getUniformLocation(processingShader, "u_saturation");
     gl.uniform1f(saturationUniform, saturation / 100);
 
-    const discretizeUniform = gl.getUniformLocation(processingShader, "u_discretize");
-    gl.uniform1i(discretizeUniform, discretize);
-
+    gl.bindFramebuffer(gl.FRAMEBUFFER, processingFrameBuffer);
+    gl.drawBuffers([gl.COLOR_ATTACHMENT0]);
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-    
+
     readPixelsAsync(gl.UNSIGNED_BYTE, canvas.width, canvas.height, processedImage);
+    gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+
+    applyPreviewDiscretization();
 
     if (voxelizing) {
         voxelConvert();
@@ -320,12 +351,17 @@ function hashPixels(pixels, occlusionMask) {
 }
 
 function updateMaterialList() {
+    materials = [];
+
+    for (const block of blocks) {
+        const blockID = selectBlockFromPalette(block);
+        materials.push(blockID);
+    }
 
     const materialList = {};
 
-    for (var i = 0; i < blocks.length; i++) {
-        const block = blocks[i];
-        const blockIndex = block[0];
+    for (var i = 0; i < materials.length; i++) {
+        const blockIndex = materials[i];
         const blockID = palette[blockIndex][0];
         if (materialList[blockID] == undefined)
             materialList[blockID] = 0;
@@ -352,7 +388,7 @@ function updateMaterialList() {
         else
             toSort[i].classList.remove("activeMaterial");
         
-        toSort[i].children[1].children[2].innerHTML = "x" + (materialList[toSort[i].children[0].id] || 0);
+        toSort[i].children[1].children[3].innerHTML = "x" + (materialList[toSort[i].children[0].id] || 0);
         blockList.appendChild(toSort[i]);
     }
     const totalAmountDiv = document.querySelector(".material-total-count");
@@ -400,6 +436,45 @@ function updatePreviewTooltip(x, y) {
     console.log(blockID);
 }
 
+function applyPreviewDiscretization() {
+    gl.useProgram(discretizeShader);
+    gl.viewport(0, 0, canvas.width, canvas.height);
+
+    const discretizeUniform = gl.getUniformLocation(discretizeShader, "u_discretize");
+    gl.uniform1i(discretizeUniform, discretize);
+
+    const applyTextureUniform = gl.getUniformLocation(discretizeShader, "u_applyTexture");
+    gl.uniform1i(applyTextureUniform, 0);
+
+    // Preview discretization
+    gl.activeTexture(gl.TEXTURE0);
+    gl.bindTexture(gl.TEXTURE_2D, processingTexture);
+    gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+
+    // Voxelization discretization
+    if (! voxelized)
+        return;
+
+    gl.uniform1i(applyTextureUniform, 1);
+
+    gl.activeTexture(gl.TEXTURE0);
+    gl.bindTexture(gl.TEXTURE_2D, voxelizedTexture);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA8, canvas.width, canvas.height, 0, gl.RGBA, gl.UNSIGNED_BYTE, output);
+
+    gl.bindFramebuffer(gl.FRAMEBUFFER, discreteVoxelizedFrameBuffer);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+
+    const promise = readPixelsAsync(gl.UNSIGNED_BYTE, canvas.width, canvas.height, voxel_preview);
+    gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+
+    promise.then(() => {
+        var UAC = new Uint8ClampedArray(voxel_preview, canvas.width, canvas.height);
+        var imageData = new ImageData(UAC, canvas.width, canvas.height);
+        outputCtx.putImageData(imageData, 0, 0);
+    });
+}
+
 function updatePalette() {
     const blockSelectorDiv = document.querySelector(".blockList");
 
@@ -410,7 +485,8 @@ function updatePalette() {
         if (blockSelector.children[0].checked) {
             const blockID = blockSelector.children[0].id;
             const rgb = blockSelector.children[1].children[0].innerHTML.split(", ");
-            palette.push([blockID, parseInt(rgb[0]), parseInt(rgb[1]), parseInt(rgb[2]), index++]);
+            const blockIndex = blockSelector.children[1].children[1].innerHTML;
+            palette.push([blockID, parseInt(rgb[0]), parseInt(rgb[1]), parseInt(rgb[2]), index++, blockIndex]);
         }
     }
 
@@ -420,21 +496,26 @@ function updatePalette() {
         paletteTexture[block[4] * 4 + 0] = block[1] / 255.0;
         paletteTexture[block[4] * 4 + 1] = block[2] / 255.0;
         paletteTexture[block[4] * 4 + 2] = block[3] / 255.0;
-        paletteTexture[block[4] * 4 + 3] = 1.0;
+        paletteTexture[block[4] * 4 + 3] = block[5];
     }
 
     // Create palette texture
-    gl.useProgram(processingShader);
+    gl.useProgram(discretizeShader);
+    gl.activeTexture(gl.TEXTURE0);
+    const discretizeTargetImageUniform = gl.getUniformLocation(discretizeShader, "u_targetImage");
+    gl.uniform1i(discretizeTargetImageUniform, 0);
+
     gl.activeTexture(gl.TEXTURE1);
-    const texture = createTexture(palette.length, 1, paletteTexture);
-    const paletteTextureUniform = gl.getUniformLocation(processingShader, "u_palette");
+    const texture = createTexture(palette.length, 1, gl.FLOAT, paletteTexture);
+    const paletteTextureUniform = gl.getUniformLocation(discretizeShader, "u_palette");
     gl.uniform1i(paletteTextureUniform, 1);
     gl.activeTexture(gl.TEXTURE0);
 
-    const palleteSizeUniform = gl.getUniformLocation(processingShader, "u_paletteSize");
+    const palleteSizeUniform = gl.getUniformLocation(discretizeShader, "u_paletteSize");
     gl.uniform1f(palleteSizeUniform, palette.length);
 
-    applyProcessing();
+    applyPreviewDiscretization();
+    updateMaterialList();
 }
 
 function selectBlockFromPalette(meanColor) {
@@ -466,26 +547,21 @@ function analyzeBlocks(foundBlocks, pixels, occlusionMask, allowedVariance, outp
         if (variance > allowedVariance)
             continue;
 
-        const blockID = selectBlockFromPalette(meanColor);
-
         const maxBlock = 1000;
         const x = key % (2 * maxBlock) - maxBlock;
         const y = Math.floor(key / (2 * maxBlock)) % (2 * maxBlock) - maxBlock;
         const z = Math.floor(key / (4 * maxBlock * maxBlock)) % (2 * maxBlock) - maxBlock;
 
-        const blockColor = palette[blockID];
-        meanColor = [blockColor[1], blockColor[2], blockColor[3]];
-
         for (const pixel of blockPixels) {
             occlusionMask[pixel / 4] = 1;
             const shade = pixels[pixel + 3];
-            output[pixel] = Math.floor(meanColor[0]) * shade;
-            output[pixel + 1] = Math.floor(meanColor[1]) * shade;
-            output[pixel + 2] = Math.floor(meanColor[2]) * shade;
-            output[pixel + 3] = 255;
+            output[pixel] = Math.floor(meanColor[0]);
+            output[pixel + 1] = Math.floor(meanColor[1]);
+            output[pixel + 2] = Math.floor(meanColor[2]);
+            output[pixel + 3] = shade;
         }
 
-        blocks.push([blockID, x, y, z]);
+        blocks.push([meanColor[0], meanColor[1], meanColor[2], x, y, z]);
     }
 }
 
@@ -499,16 +575,18 @@ function placeBlocks(occlusionMask, output, depth, blocks) {
     analyzeBlocks(foundBlocks, pixelData, occlusionMask, allowedVariance, output, blocks);
 }
 
-function setupFramebuffer() {
+function setupFramebuffer(type = gl.FLOAT) {
     gl.viewport(0, 0, canvas.width, canvas.height);
-    const tex1 = createTexture(canvas.width, canvas.height);
+    const tex1 = createTexture(canvas.width, canvas.height, type);
 
-    framebuffer = gl.createFramebuffer();
-    gl.bindFramebuffer(gl.FRAMEBUFFER, framebuffer);
+    const fb = gl.createFramebuffer();
+    gl.bindFramebuffer(gl.FRAMEBUFFER, fb);
     gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, tex1, 0);
 
     gl.drawBuffers([gl.COLOR_ATTACHMENT0]);
     gl.bindTexture(gl.TEXTURE_2D, texture);
+
+    return [fb, tex1];
 }
 
 function loadSettingsFromUI() {
@@ -539,23 +617,25 @@ function voxelConvert() {
     updateMaterialList();
     loadSettingsFromUI();
     gl.useProgram(voxelShader);
-    setupFramebuffer();
+    var tex = null;
+    [framebuffer, tex] = setupFramebuffer();
     setUniforms(canvas.width, canvas.height, depthStep, camPos, pitch, yaw, fov);
 
     output = new Uint8Array(canvas.width * canvas.height * 4);
     var occlusionMask = new Int8Array(canvas.width * canvas.height * 1);
     pixelData = new Float32Array(canvas.width * canvas.height * 4);
+    voxel_preview = new Uint8Array(canvas.width * canvas.height * 4);
 
     var depth = minDepth;
     const timer = setInterval(() => {
         placeBlocks(occlusionMask, output, depth, blocks);
 
-        depth += depthStep;
-
         var UAC = new Uint8ClampedArray(output, canvas.width, canvas.height);
         var imageData = new ImageData(UAC, canvas.width, canvas.height);
         outputCtx.putImageData(imageData, 0, 0);
+
         console.log("Depth: " + depth);
+        depth += depthStep;
 
         if (depth > maxDepth || requestStop) {
             voxelizing = false;
@@ -564,7 +644,10 @@ function voxelConvert() {
             if (!requestStop) {
                 voxelized = true;
                 updateMaterialList();
+                applyPreviewDiscretization();
                 console.log("Finished voxelizing: " + blocks.length);
+            } else {
+                blocks = [];
             }
         }
     }, 0);
@@ -576,7 +659,7 @@ async function downloadNBT() {
         return;
     }
 
-    const nbtFile = await createStructureNBT(blocks, palette);
+    const nbtFile = await createStructureNBT(blocks, palette, materials);
 
     const url = URL.createObjectURL(nbtFile);
     const link = document.createElement('a');
@@ -594,7 +677,7 @@ async function updateTargetImage(image_obj) {
     canvas.height = img.height;
     outputCanvas.width = canvas.width;
     outputCanvas.height = canvas.height;
-    processedImage = new Uint8Array(canvas.width * canvas.height * 4);
+    processedImage = new Uint8ClampedArray(canvas.width * canvas.height * 4);
     
     // Get pixels from image
     var temp = document.createElement('canvas');
@@ -603,11 +686,21 @@ async function updateTargetImage(image_obj) {
     temp.height = img.height;
     tempCTX.drawImage(img, 0, 0);
 
+    gl.useProgram(processingShader);
     const targetImageUniform = gl.getUniformLocation(processingShader, "u_targetImage");
     gl.uniform1i(targetImageUniform, 0);
     gl.viewport(0, 0, canvas.width, canvas.height);
 
+    // Setup processing framebuffer
+    [processingFrameBuffer, processingTexture] = setupFramebuffer(gl.UNSIGNED_BYTE);
+    voxelizedTexture = createTexture(canvas.width, canvas.height, gl.UNSIGNED_BYTE);
+
+    var temp = null;
+    [discreteVoxelizedFrameBuffer, temp] = setupFramebuffer(gl.UNSIGNED_BYTE);
+
     blocks = [];
+    
+    applyProcessing();
     updateMaterialList();
     updatePalette();
     voxelized = false;
@@ -629,6 +722,21 @@ async function main() {
         return;
     }
 
+    // load texture atlas into descritize shader
+    gl.useProgram(discretizeShader);
+    const textureAtlasImage = new Image();
+    textureAtlasImage.src = textureAtlas;
+    await loadTexture(textureAtlasImage, gl.TEXTURE2, gl.NEAREST);
+    const textureAtlasUniform = gl.getUniformLocation(discretizeShader, "u_textureAtlas");
+    gl.uniform1i(textureAtlasUniform, 2);
+    const textureAtlasSizeUniform = gl.getUniformLocation(discretizeShader, "u_textureAtlasSize");
+    const width = textureAtlasImage.width;
+    const height = textureAtlasImage.height;
+    gl.uniform2f(textureAtlasSizeUniform, width, height);
+    gl.activeTexture(gl.TEXTURE0);
+    gl.useProgram(voxelShader);
+
+    // load default target image
     const img = new Image();
     img.src = DEFAULT_TARGET;
     await updateTargetImage(img);
@@ -642,15 +750,19 @@ export { voxelConvert, updateTargetImage, updatePalette, applyProcessing, downlo
 //TODO: 
 
 // FEATURES:
-// - Discretize voxelization in the shader even after the fact
+// - Scale target image to appropriate size
 // - Add crosshair to preview
 // - Add filters to image processing, add more processing options
 // - Add minimum visibility requirement for voxelization
 // - Custom variance function
-// - Scale target image to appropriate size
-// - Use non discrete image for voxelization and discretize afterwards (this allows for changing the palette without revoxelizing)
-// - Additional categories: "Cheap", "Dyed", (Fix "grayscale", "high_variance")
 // - Add option to support gravity blocks by placing a block below them
+// - Add back shading to the voxel preview
+// - Force conversion at final depth
+// - Better gui presets
+
+// OPTIMIZATION:
+// - Bake textures into atlas
+// - Use web assembly for hashing the pixels
 
 // DESIGN:
 // - Add progress bar
@@ -658,4 +770,4 @@ export { voxelConvert, updateTargetImage, updatePalette, applyProcessing, downlo
 
 // REFACTOR:
 // - Split css into multiple files
-
+// - Split js into multiple files

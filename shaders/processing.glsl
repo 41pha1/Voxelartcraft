@@ -7,7 +7,6 @@ uniform float u_paletteSize;
 uniform float u_brightness;
 uniform float u_contrast;
 uniform float u_saturation;
-uniform int u_discretize;
 
 varying vec2 v_texcoord;
 
@@ -27,31 +26,9 @@ vec3 hsv2rgb(vec3 c) {
     return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
 }
 
-vec3 discretize(vec3 c) {
-    float minDist = 1000000.0;
-    vec3 minCol = vec3(0.0);
-
-    const float MAX_ITER = 1000.;
-
-    for(float i = 0.; i < MAX_ITER; i++) {
-        if(i >= u_paletteSize)
-            break;
-
-        vec4 col = texture2D(u_palette, vec2(i / u_paletteSize, 0.5));
-        float dist = distance(c, col.rgb);
-
-        if(dist < minDist) {
-            minDist = dist;
-            minCol = col.rgb;
-        }
-    }
-
-    return minCol;
-}
-
 void main() {
     vec2 uv = v_texcoord * 0.5 + 0.5;
-    uv.y = 1.0 - uv.y;
+    //uv.y = 1.0 - uv.y;
     vec4 col = texture2D(u_targetImage, uv); 
 
     if (col.a < 0.5) {
@@ -77,9 +54,6 @@ void main() {
     col.rgb = hsv2rgb(col.rgb);
 
     col.rgb = (col.rgb - 0.5) * contrast + u_brightness + 0.5;
-
-    if(u_discretize == 1)
-        col.rgb = discretize(col.rgb);
 
     gl_FragColor = vec4(col);
 }

@@ -253,7 +253,7 @@ canvas {
     max-width: fit-content;
 }
 
-.voxel-preview {
+#glcanvas {
     transform: scaleY(-1);
 }
 
