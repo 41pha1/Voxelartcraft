@@ -76,19 +76,34 @@ function selectoHTML(blockID, r, g, b, index){
             classes += " " + categories[i];
     }
 
+    const texAtlasURL = './atlas.png';
+    const texAtlasX = index % 16;
+    const texAtlasY = Math.floor(index / 16);
+
     return `
     <div class="blockSelector">
         <input type="checkbox" id = "${blockID}" class="${classes}" checked>
         <label for="${blockID}" class="blockSelectorLabel">
             <label class = "rgb" style="display:none;"> ${r}, ${g}, ${b} </label>
             <label class = "index" style="display:none;">${index}</label>
-            <image class="blockSelectorImage" src="./blocks/${blockID}.png" title="${title}"></image>
-            <div class= "blockCounter" id = "${blockID}_counter" style="display:none;">
-                x0
+            <div class= "blockSelectorImage" title="${title}" id="${blockID}_image" 
+                style="
+                    background-image: url(${texAtlasURL}); 
+                    background-position: ${-texAtlasX * 16}.1px ${-texAtlasY * 16}.1px; 
+                    background-repeat: no-repeat;
+                    width: 15.8px;
+                    height: 15.8px;
+                    transform: scale(3.23);
+                    transform-origin: 0.1px 0.1px;
+                    ">
             </div>
         </label>
+        <div class= "blockCounter" id = "${blockID}_counter" style="display:none;">
+        x0
+        </div>
     </div>
     `;
+    // <image class="blockSelectorImage" src="./blocks/${blockID}.png" title="${title}"></image>
 }
 
 function readFile(filePath) {

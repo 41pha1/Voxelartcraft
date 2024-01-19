@@ -334,12 +334,10 @@ canvas {
 
 .blockSelectorLabel {
     display: block;
-    width: 3em;
-    height: 3em;
+    width: 50px;
+    height: 50px;
     cursor: pointer;
     margin: 2px;
-    margin-bottom: 1.2em;
-    padding: 1px;
     border: 6px transparent solid;
 }
 

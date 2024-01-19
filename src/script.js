@@ -390,7 +390,7 @@ function updateMaterialList() {
         else
             toSort[i].classList.remove("activeMaterial");
         
-        toSort[i].children[1].children[3].innerHTML = "x" + (materialList[toSort[i].children[0].id] || 0);
+        toSort[i].children[2].innerHTML = "x" + (materialList[toSort[i].children[0].id] || 0);
         blockList.appendChild(toSort[i]);
     }
     const totalAmountDiv = document.querySelector(".material-total-count");
@@ -752,7 +752,7 @@ export { voxelConvert, updateTargetImage, updatePalette, applyProcessing, downlo
 
 //TODO: 
 // FEATURES:
-// - Add more processing options
+// - Add more processing options (color temp, shadows, highlights, hue shift)
 // - Custom variance function
 // - Progress bar
 // - Fix jagged outlines caused by minVisibility
@@ -767,6 +767,7 @@ export { voxelConvert, updateTargetImage, updatePalette, applyProcessing, downlo
 // - Fix chrome sliders
 // - Add tooltips
 // - Better gui presets
+// - Fix previre image scaling
 
 // REFACTOR:
 // - Split css into multiple files
