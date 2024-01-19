@@ -54,7 +54,7 @@ var minDepth = 10;
 var maxDepth = 300;
 var startVariance = 5;
 var endVariance = 450;
-var minVisibility = 0.5;
+var minVisibility = 0.1;
 const depthStep = 1.;
 
 // States
@@ -226,6 +226,9 @@ function setUniforms(w, h, depthStep, camPos, pitch, yaw, fov) {
 
     var resolutionUniformLocation = gl.getUniformLocation(voxelShader, "u_aspect");
     gl.uniform1f(resolutionUniformLocation, w / h);
+
+    var resolutionUniformLocation = gl.getUniformLocation(voxelShader, "u_resolution");
+    gl.uniform2f(resolutionUniformLocation, w, h);
 
     var depthStepUniformLocation = gl.getUniformLocation(voxelShader, "u_depthStep");
     gl.uniform1f(depthStepUniformLocation, depthStep);
@@ -422,6 +425,7 @@ function applyPreviewDiscretization() {
         return;
 
     gl.uniform1i(applyTextureUniform, 1);
+    gl.uniform1i(discretizeUniform, 1);
 
     gl.activeTexture(gl.TEXTURE0);
     gl.bindTexture(gl.TEXTURE_2D, voxelizedTexture);
@@ -748,10 +752,11 @@ export { voxelConvert, updateTargetImage, updatePalette, applyProcessing, downlo
 
 //TODO: 
 // FEATURES:
-// - Add crosshair to preview
-// - Add filters to image processing, add more processing options
+// - Add more processing options
 // - Custom variance function
-// - Add option to support gravity blocks by placing a block below them
+// - Progress bar
+// - Fix jagged outlines caused by minVisibility
+// - Custom max depth cutoff metric
 
 // OPTIMIZATION:
 // - Bake textures into atlas
@@ -766,3 +771,12 @@ export { voxelConvert, updateTargetImage, updatePalette, applyProcessing, downlo
 // REFACTOR:
 // - Split css into multiple files
 // - Split js into multiple files
+
+// PUBLICATION:
+// - Show case youtube video
+// - Reddit post
+// - buy domain
+
+// NICE TO HAVE:
+// - Add option to support gravity blocks by placing a block below them
+// - Add crosshair to preview

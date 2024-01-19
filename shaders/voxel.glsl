@@ -4,6 +4,7 @@ uniform float u_depth;
 uniform float u_depthStep;
 uniform float u_aspect;
 
+uniform vec2 u_resolution;
 uniform vec3 u_camPos;
 uniform float u_fov;
 uniform float u_pitch;
@@ -20,6 +21,7 @@ varying vec2 v_texcoord;
 const float PI = 3.1415926535897932384626433832795;
 
 vec3 checkAlphaOffsets[15];
+vec2 pixelOffsets[4];
 
 vec3 planeIntersect(vec3 p0, vec3 pn, vec3 r0, vec3 ray)
 {
@@ -107,7 +109,7 @@ float startingEstimate(vec3 dir, float depth)
 }
 
 
-vec4 raycast(vec3 origin, vec3 direction, mat4 viewProjection, float depth) {
+mat3 raycast(vec3 origin, vec3 direction, mat4 viewProjection, float depth) {
   // From "A Fast Voxel Traversal Algorithm for Ray Tracing"
   // by John Amanatides and Andrew Woo, 1987
   // <http://www.cse.yorku.ca/~amana/research/grid.pdf>
@@ -126,7 +128,6 @@ vec4 raycast(vec3 origin, vec3 direction, mat4 viewProjection, float depth) {
   // (i.e. change the integer part of the coordinate) in the variables
   // tMaxX, tMaxY, and tMaxZ.
 
-  vec4 col = vec4(0.);
   // Cube containing origin point.
   vec3 estimOrig = origin + startingEstimate(direction, depth) * direction;
   vec3 cube = floor(estimOrig);
@@ -152,30 +153,7 @@ vec4 raycast(vec3 origin, vec3 direction, mat4 viewProjection, float depth) {
     float d = dist(block, origin); 
 
     if(d > depth){
-        if (!blockOverlapsAlpha(cube, viewProjection))
-        {
-            float shade = 1.;
-
-            if (sign(face.x) < 0.)
-                shade = 2.;
-            else if (sign(face.y) > 0.)
-                shade = 4.;
-            else if (sign(face.y) < 0.)
-                shade = 1.;
-            else if (sign(face.z) > 0.)
-                shade = 3.;
-            else if (sign(face.z) < 0.)
-                shade = 3.;
-            
-            vec2 uv = blockUV(block, origin, direction, face);      
-            float pixel = floor(uv.x * 16.) * 16. + floor(uv.y * 16.);
-            float alpha = 1. + pixel + shade * 256.;
-
-            return vec4(cube , alpha);
-        }
-        else {
-            return vec4(0.);
-        }
+       return mat3(block, cube, face);
     }
 
     // tMaxX stores the t-value at which we cross a cube boundary along the
@@ -230,6 +208,11 @@ void main( )
     checkAlphaOffsets[13] = vec3(0.5, 1., 0.5);
     checkAlphaOffsets[14] = vec3(1., 0.5, 0.5);
     
+    pixelOffsets[0] = vec2(-0.55, -0.55);
+    pixelOffsets[1] = vec2(-0.55, 0.55);
+    pixelOffsets[2] = vec2(0.55, -0.55);
+    pixelOffsets[3] = vec2(0.55, 0.55);
+    
     //settings
     float depth = u_depth;
     float depthStep = u_depthStep;
@@ -259,16 +242,54 @@ void main( )
     );
 
     mat4 viewProjection = u_projection * u_view;
-    
     vec3 globalup = vec3(0., 1., 0.);
     vec3 forward = normalize(lookingAt - cameraPos);
     vec3 right = normalize(cross(forward, globalup));
     vec3 up = normalize(cross(forward, right));
-
-    vec3 rayDirection = normalize(uv.x * right + uv.y * up + forward * zoom);
     vec3 rayOrigin = cameraPos;// + rayDirection * (depth - 3.0);
+    vec3 rayDirection = vec3(0.);
+    
+    mat3 result = mat3(0.);
+    for (int i = 0; i < 4; i ++) {
+        vec2 pixelUV = uv + pixelOffsets[i] / u_resolution.xy;
+        rayDirection = normalize(pixelUV.x * right + pixelUV.y * up + forward * zoom);
 
-    vec4 col = raycast(rayOrigin, rayDirection, viewProjection, depth);
+        mat3 nextResult = raycast(rayOrigin, rayDirection, viewProjection, depth);
+        
+        if (i > 0 && nextResult[0] != result[0])
+        {
+            gl_FragColor = vec4(0.);
+            return;
+        }
+        result = nextResult;
+    }
+    
+    vec3 block = result[0];
+    vec3 cube = result[1];
+    vec3 face = result[2];
 
-    gl_FragColor = vec4(col);
+    if (!blockOverlapsAlpha(cube, viewProjection))
+    {
+        float shade = 1.;
+
+        if (sign(face.x) < 0.)
+            shade = 2.;
+        else if (sign(face.y) > 0.)
+            shade = 4.;
+        else if (sign(face.y) < 0.)
+            shade = 1.;
+        else if (sign(face.z) > 0.)
+            shade = 3.;
+        else if (sign(face.z) < 0.)
+            shade = 3.;
+        
+        vec2 uv = blockUV(block, rayOrigin, rayDirection, face);      
+        float pixel = floor(uv.x * 16.) * 16. + floor(uv.y * 16.);
+        float alpha = 1. + pixel + shade * 256.;
+
+        gl_FragColor = vec4(cube , alpha);
+    }
+    else {
+        gl_FragColor =  vec4(0.);
+    }
 }
