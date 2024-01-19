@@ -145,7 +145,7 @@ vec4 raycast(vec3 origin, vec3 direction, mat4 viewProjection, float depth) {
   // Rescale from units of 1 cube-edge to units of 'direction' so we can
   // compare with 't'.
 
-  for(float i = 0.; i < 5.; i += 1.) {
+  for(float i = 0.; i < 10.; i += 1.) {
     // Invoke the callback, unless we are not *yet* within the bounds of the
     // world.
     vec3 block = cube + vec3(0.5);   
@@ -154,15 +154,24 @@ vec4 raycast(vec3 origin, vec3 direction, mat4 viewProjection, float depth) {
     if(d > depth){
         if (!blockOverlapsAlpha(cube, viewProjection))
         {
-            float normalCompress = abs(face.x) * 0.8 + abs(face.y) * 0.6 + abs(face.z) * 1.0;
+            float shade = 1.;
+
+            if (sign(face.x) < 0.)
+                shade = 2.;
+            else if (sign(face.y) > 0.)
+                shade = 4.;
+            else if (sign(face.y) < 0.)
+                shade = 1.;
+            else if (sign(face.z) > 0.)
+                shade = 3.;
+            else if (sign(face.z) < 0.)
+                shade = 3.;
             
-            vec2 uv = blockUV(block, origin, direction, face);
-            
+            vec2 uv = blockUV(block, origin, direction, face);      
             float pixel = floor(uv.x * 16.) * 16. + floor(uv.y * 16.);
-            float px = mod(pixel, 16.);
-            float py = floor(pixel / 16.);
-        
-            return vec4(cube , pixel);
+            float alpha = 1. + pixel + shade * 256.;
+
+            return vec4(cube , alpha);
         }
         else {
             return vec4(0.);

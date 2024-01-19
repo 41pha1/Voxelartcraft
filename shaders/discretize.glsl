@@ -51,20 +51,25 @@ void main() {
         vec4 result = discretize(col.rgb);
         col.rgb = result.rgb;
 
-        float textureIndex = floor(result.a);
-        float row = floor(mod(textureIndex, 16.0));
-        float column = floor(textureIndex / 16.0);
 
-        float pixelIndex = floor(col.a * 255.0);
-        float pixelX = floor(mod(pixelIndex, 16.0));
-        float pixelY = floor(pixelIndex / 16.0);
+        if (u_applyTexture > 0) {
+            float textureIndex = floor(result.a);
+            float row = floor(mod(textureIndex, 16.0));
+            float column = floor(textureIndex / 16.0);
 
-        if (u_applyTexture > 0 && col.a > 0.0) {
+            float pixelIndex = floor(mod(col.a, 256.));
+            float pixelX = floor(mod(pixelIndex, 16.0));
+            float pixelY = floor(pixelIndex / 16.0);
+
             vec4 texCol = texture2D(u_textureAtlas, vec2((0.5 + row * 16. + pixelX) / u_textureAtlasSize.x, (0.5 + column * 16. + pixelY) / u_textureAtlasSize.y));
-
-
             col.rgb = texCol.rgb;
+
+            float shade = (floor(col.a / 256.) + 6.) * 0.1;
+
+            col.rgb *= shade;
         }
+
+
         //col.rgb *= col.a;
 
         if (col.a > 0.0)

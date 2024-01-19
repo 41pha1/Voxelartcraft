@@ -1,17 +1,4 @@
-import { voxelConvert, applyProcessing, downloadNBT, updateTargetImage, stopVoxelization, updatePreviewTooltip} from "./script.js";
-
-const voxel_preview = document.querySelector('.voxel-preview');
-voxel_preview.addEventListener("mousemove", voxel_preview_mousemove);
-
-function voxel_preview_mousemove(e) {
-    var rect = e.target.getBoundingClientRect();
-    var x = e.clientX - rect.left;
-    var y = e.clientY - rect.top;
-    x /= rect.width;
-    y /= rect.height;
-    
-   updatePreviewTooltip(x, y);
-}
+import { voxelConvert, applyProcessing, downloadNBT, updateTargetImage, stopVoxelization } from "./script.js";
 
 document.getElementById ("convertButton").addEventListener ("click", voxelConvert, false);
 document.getElementById ("downloadButton").addEventListener ("click", downloadNBT, false);
@@ -24,10 +11,32 @@ function image_update() {
     const img = document.querySelector('#image-input').files[0];
 
     const image = new Image();
+    const resolution = parseInt(resolution_number.value);
+
+    image.onload = function() {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+
+        const aspect = image.width / image.height;
+        console.log(aspect);
+
+        if (aspect > 1) {
+            canvas.width = resolution;
+            canvas.height = resolution / aspect;
+        } else {
+            canvas.width = resolution * aspect;
+            canvas.height = resolution;
+        }
+
+        ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+        const dataURL = canvas.toDataURL();
+
+        const scaled = new Image();
+        scaled.onload = function() { updateTargetImage(scaled); }
+        scaled.src = dataURL;
+    }
+
     image.src = URL.createObjectURL(img);
-
-
-    updateTargetImage(image);
 }
 
 const discretize_checkbox = document.querySelector('#discretize-checkbox');
@@ -35,6 +44,24 @@ discretize_checkbox.addEventListener("change", discretize_update);
 
 function discretize_update() {
     applyProcessing();
+}
+
+var resolution_slider = document.querySelector('#resolution-slider');
+var resolution_number = document.querySelector('#resolution-number');
+resolution_slider.addEventListener("input", resolution_updateSlider);
+function resolution_updateSlider() {
+    //copying the slider values to the numbers
+    resolution_number.value = Math.floor(Math.pow(2, resolution_slider.value));
+    image_update();
+}
+resolution_number.addEventListener("change", resolution_updateNumber);
+function resolution_updateNumber() {
+    //change the user text to a number
+    resolution_number.value = parseInt(resolution_number.value) || resolution_number.min;
+    resolution_number.value = Math.min(resolution_number.max, Math.max(resolution_number.min, resolution_number.value));
+    //copying the number values to the slider
+    resolution_slider.value = Math.floor(Math.log2(resolution_number.value));
+    image_update();
 }
 
 var brightness_slider = document.querySelector('#brightness-slider');

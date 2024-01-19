@@ -54,7 +54,7 @@ var minDepth = 10;
 var maxDepth = 300;
 var startVariance = 5;
 var endVariance = 450;
-var minVisibility = 0.01;
+var minVisibility = 0.5;
 const depthStep = 1.;
 
 // States
@@ -330,21 +330,20 @@ function meanAndVariance(pixels) {
 }
 
 function hashPixels(pixels, occlusionMask) {
-    const foundBlocks = {};
+    const foundBlocks = new Map();
+    const maxBlock = 1000;
 
     for (var i = 0; i < canvas.width * canvas.height * 4; i += 4) {
-        if (occlusionMask[i / 4] == 1 || pixels[i + 3] < 0.01)
+        if (occlusionMask[i / 4] == 1 || pixels[i + 3] == 0.)
             continue;
 
-        const maxBlock = 1000;
         const key = (pixels[i] + maxBlock) +
             (pixels[i + 1] + maxBlock) * 2 * maxBlock +
             (pixels[i + 2] + maxBlock) * 4 * maxBlock * maxBlock;
 
-        if (foundBlocks[key] == undefined)
-            foundBlocks[key] = [];
-
-        foundBlocks[key].push(i);
+        var list = foundBlocks.get(key) || [];
+        list.push(i);
+        foundBlocks.set(key, list);
     }
 
     return foundBlocks;
@@ -402,40 +401,6 @@ function updateMaterialList() {
     totalAmountDiv.style.display = totalAmount > 0 ? "block" : "none";
 }
 
-function updatePreviewTooltip(x, y) {
-    return;
-    const preview_canvas = document.querySelector(".voxel-preview");
-
-    const index = Math.floor(y * canvas.width * canvas.height + x * canvas.width) * 4;
-    
-    if (processedImage == null || processedImage[index] == undefined)
-        return;
-
-    const red = processedImage[index];
-    const green = processedImage[index + 1];
-    const blue = processedImage[index + 2];
-
-    var minDistance = 10000000;
-    var blockIndex = 0;
-
-    for (const block of palette) {
-        const rdis = Math.pow(block[1] - red, 2);
-        const gdis = Math.pow(block[2] - green, 2);
-        const bdis = Math.pow(block[3] - blue, 2);
-
-        const distance = rdis + gdis + bdis;
-
-        if (distance < minDistance) {
-            blockIndex = block[4];
-            minDistance = distance;
-        }
-    }
-
-    const blockID = palette[blockIndex][0];
-
-    console.log(blockID);
-}
-
 function applyPreviewDiscretization() {
     gl.useProgram(discretizeShader);
     gl.viewport(0, 0, canvas.width, canvas.height);
@@ -460,7 +425,7 @@ function applyPreviewDiscretization() {
 
     gl.activeTexture(gl.TEXTURE0);
     gl.bindTexture(gl.TEXTURE_2D, voxelizedTexture);
-    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA8, canvas.width, canvas.height, 0, gl.RGBA, gl.UNSIGNED_BYTE, output);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA16F, canvas.width, canvas.height, 0, gl.RGBA, gl.FLOAT, output);
 
     gl.bindFramebuffer(gl.FRAMEBUFFER, discreteVoxelizedFrameBuffer);
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
@@ -538,10 +503,23 @@ function selectBlockFromPalette(meanColor) {
     return closestBlock;
 }
 
-function analyzeBlocks(foundBlocks, pixels, occlusionMask, allowedVariance, output, blocks) {
-    for (const key in foundBlocks) {
+function estimatePixelsPerBlock(x, y, z) {
+    const dx = x - camPos[0];
+    const dy = y - camPos[1];
+    const dz = z - camPos[2];
+    const distance = Math.sqrt(dx * dx + dy * dy + dz * dz);
+    const beta = glm.radians(fov);
+    const k = 0.5 / distance;
 
-        const blockPixels = foundBlocks[key];
+    const alpha = k - k*k*k/3.0; // Taylor series approximation of atan(x)
+    const widthPerBlock = ((2 * alpha) / beta) * canvas.width;
+
+    return widthPerBlock * widthPerBlock;
+}
+
+function analyzeBlocks(foundBlocks, pixels, occlusionMask, allowedVariance, output, blocks, outputCtx) {
+    for (const key of foundBlocks.keys()) {
+        const blockPixels = foundBlocks.get(key);
         var [meanColor, variance] = meanAndVariance(blockPixels);
 
         if (variance > allowedVariance)
@@ -552,27 +530,49 @@ function analyzeBlocks(foundBlocks, pixels, occlusionMask, allowedVariance, outp
         const y = Math.floor(key / (2 * maxBlock)) % (2 * maxBlock) - maxBlock;
         const z = Math.floor(key / (4 * maxBlock * maxBlock)) % (2 * maxBlock) - maxBlock;
 
+        const foundPixels = foundBlocks.get(key).length;
+        const estimatedPixels = estimatePixelsPerBlock(x, y, z);
+
+        if (allowedVariance != Infinity && foundPixels < estimatedPixels * minVisibility)
+            continue;
+        
+        const r = meanColor[0] / 255.0;
+        const g = meanColor[1] / 255.0;
+        const b = meanColor[2] / 255.0;
+
         for (const pixel of blockPixels) {
+            const shade = (Math.floor((pixels[pixel + 3] - 1.0) / 256.0) + 6) * 0.1;
+            const texelUV = Math.floor((pixels[pixel + 3] - 1.0) % 256);
+
             occlusionMask[pixel / 4] = 1;
-            const shade = pixels[pixel + 3];
-            output[pixel] = Math.floor(meanColor[0]);
-            output[pixel + 1] = Math.floor(meanColor[1]);
-            output[pixel + 2] = Math.floor(meanColor[2]);
-            output[pixel + 3] = shade;
+            output[pixel] = r;
+            output[pixel + 1] = g;
+            output[pixel + 2] = b;
+            output[pixel + 3] = pixels[pixel + 3] - 1.0;
+
+            // Draw voxel preview
+            outputCtx.fillStyle = "rgb(" + meanColor[0] * shade + ", " + meanColor[1] * shade+ ", " + meanColor[2] * shade+ ")";
+            outputCtx.fillRect(pixel / 4 % canvas.width, Math.floor(pixel / 4 / canvas.width), 1, 1);
         }
 
         blocks.push([meanColor[0], meanColor[1], meanColor[2], x, y, z]);
     }
 }
 
-function placeBlocks(occlusionMask, output, depth, blocks) {
+function placeBlocks(occlusionMask, output, depth, blocks, outputCtx) {
     render(depth);
     readPixelsAsync(gl.FLOAT, canvas.width, canvas.height, pixelData);
 
-    const foundBlocks = hashPixels(pixelData, occlusionMask);
-    const allowedVariance = (endVariance - startVariance) * Math.pow((depth - minDepth) / (maxDepth - minDepth), 2.0) + startVariance;
+    // //write pixel data to canvas
+    // const UAC = new Uint8ClampedArray(pixelData, canvas.width, canvas.height);
+    // const imageData = new ImageData(UAC, canvas.width, canvas.height);
+    // outputCtx.putImageData(imageData, 0, 0);
 
-    analyzeBlocks(foundBlocks, pixelData, occlusionMask, allowedVariance, output, blocks);
+    const foundBlocks = hashPixels(pixelData, occlusionMask);
+    var allowedVariance = (endVariance - startVariance) * Math.pow((depth - minDepth) / (maxDepth - minDepth), 2.0) + startVariance;
+    if (depth == maxDepth) allowedVariance = Infinity
+
+    analyzeBlocks(foundBlocks, pixelData, occlusionMask, allowedVariance, output, blocks, outputCtx);
 }
 
 function setupFramebuffer(type = gl.FLOAT) {
@@ -621,18 +621,15 @@ function voxelConvert() {
     [framebuffer, tex] = setupFramebuffer();
     setUniforms(canvas.width, canvas.height, depthStep, camPos, pitch, yaw, fov);
 
-    output = new Uint8Array(canvas.width * canvas.height * 4);
+    output = new Float32Array(canvas.width * canvas.height * 4);
     var occlusionMask = new Int8Array(canvas.width * canvas.height * 1);
     pixelData = new Float32Array(canvas.width * canvas.height * 4);
     voxel_preview = new Uint8Array(canvas.width * canvas.height * 4);
+    outputCtx.clearRect(0, 0, canvas.width, canvas.height);
 
     var depth = minDepth;
     const timer = setInterval(() => {
-        placeBlocks(occlusionMask, output, depth, blocks);
-
-        var UAC = new Uint8ClampedArray(output, canvas.width, canvas.height);
-        var imageData = new ImageData(UAC, canvas.width, canvas.height);
-        outputCtx.putImageData(imageData, 0, 0);
+        placeBlocks(occlusionMask, output, depth, blocks, outputCtx);
 
         console.log("Depth: " + depth);
         depth += depthStep;
@@ -673,6 +670,8 @@ async function downloadNBT() {
 
 async function updateTargetImage(image_obj) {
     const img = await loadTexture(image_obj);
+    console.log("Loaded image: " + img.width + "x" + img.height);
+
     canvas.width = img.width;
     canvas.height = img.height;
     outputCanvas.width = canvas.width;
@@ -693,7 +692,7 @@ async function updateTargetImage(image_obj) {
 
     // Setup processing framebuffer
     [processingFrameBuffer, processingTexture] = setupFramebuffer(gl.UNSIGNED_BYTE);
-    voxelizedTexture = createTexture(canvas.width, canvas.height, gl.UNSIGNED_BYTE);
+    voxelizedTexture = createTexture(canvas.width, canvas.height, gl.FLOAT);
 
     var temp = null;
     [discreteVoxelizedFrameBuffer, temp] = setupFramebuffer(gl.UNSIGNED_BYTE);
@@ -744,21 +743,15 @@ async function main() {
 
 main();
 
-export { voxelConvert, updateTargetImage, updatePalette, applyProcessing, downloadNBT, stopVoxelization, updatePreviewTooltip };
+export { voxelConvert, updateTargetImage, updatePalette, applyProcessing, downloadNBT, stopVoxelization };
 
 
 //TODO: 
-
 // FEATURES:
-// - Scale target image to appropriate size
 // - Add crosshair to preview
 // - Add filters to image processing, add more processing options
-// - Add minimum visibility requirement for voxelization
 // - Custom variance function
 // - Add option to support gravity blocks by placing a block below them
-// - Add back shading to the voxel preview
-// - Force conversion at final depth
-// - Better gui presets
 
 // OPTIMIZATION:
 // - Bake textures into atlas
@@ -767,6 +760,8 @@ export { voxelConvert, updateTargetImage, updatePalette, applyProcessing, downlo
 // DESIGN:
 // - Add progress bar
 // - Fix chrome sliders
+// - Add tooltips
+// - Better gui presets
 
 // REFACTOR:
 // - Split css into multiple files
