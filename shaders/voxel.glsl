@@ -208,10 +208,10 @@ void main( )
     checkAlphaOffsets[13] = vec3(0.5, 1., 0.5);
     checkAlphaOffsets[14] = vec3(1., 0.5, 0.5);
     
-    pixelOffsets[0] = vec2(-0.55, -0.55);
-    pixelOffsets[1] = vec2(-0.55, 0.55);
-    pixelOffsets[2] = vec2(0.55, -0.55);
-    pixelOffsets[3] = vec2(0.55, 0.55);
+    pixelOffsets[0] = vec2(-0.6, -0.6);
+    pixelOffsets[1] = vec2(-0.6, 0.6);
+    pixelOffsets[2] = vec2(0.6, -0.6);
+    pixelOffsets[3] = vec2(0.6, 0.6);
     
     //settings
     float depth = u_depth;

@@ -757,6 +757,8 @@ export { voxelConvert, updateTargetImage, updatePalette, applyProcessing, downlo
 // - Progress bar
 // - Fix jagged outlines caused by minVisibility
 // - Custom max depth cutoff metric
+// - Test Image with transparency
+// - Low variance property
 
 // OPTIMIZATION:
 // - Bake textures into atlas
