@@ -1,7 +1,7 @@
 import { voxelConvert, applyProcessing, downloadNBT, updateTargetImage, stopVoxelization } from "./script.js";
 
-document.getElementById ("convertButton").addEventListener ("click", voxelConvert, false);
-document.getElementById ("downloadButton").addEventListener ("click", downloadNBT, false);
+document.getElementById("convertButton").addEventListener("click", voxelConvert, false);
+document.getElementById("downloadButton").addEventListener("click", downloadNBT, false);
 
 const image_input = document.querySelector('#image-input');
 image_input.addEventListener("change", image_update);
@@ -13,7 +13,7 @@ function image_update() {
     const image = new Image();
     const resolution = parseInt(resolution_number.value);
 
-    image.onload = function() {
+    image.onload = function () {
         const canvas = document.createElement('canvas');
         const ctx = canvas.getContext('2d');
 
@@ -32,7 +32,7 @@ function image_update() {
         const dataURL = canvas.toDataURL();
 
         const scaled = new Image();
-        scaled.onload = function() { updateTargetImage(scaled); }
+        scaled.onload = function () { updateTargetImage(scaled); }
         scaled.src = dataURL;
     }
 
@@ -199,6 +199,17 @@ function tint_updateNumber() {
 //     saturation_number.disabled = !preprocessing_checkbox.checked;
 
 // }
+
+const pixelart_checkbox = document.querySelector('#pixelart-checkbox');
+pixelart_checkbox.addEventListener("change", pixelart_update);
+function pixelart_update() {
+    var pixelart_hide = document.getElementsByClassName('pixelart-disabled-settings');
+    const display = pixelart_checkbox.checked ? 'none' : '';
+    for (var i = 0; i < pixelart_hide.length; i++) {
+        pixelart_hide[i].style.display = display;
+    }
+}
+
 
 var fov_slider = document.querySelector('#fov-slider');
 var fov_number = document.querySelector('#fov-number');

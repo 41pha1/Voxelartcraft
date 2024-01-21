@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>Perspective Art</title>    
+  <title>Perspective Art</title>
   <script src="src/blockPalette.js" type="module"></script>
   <script src='https://git.io/glm-js.min.js'></script>
   <script src="src/script.js" type="module"></script>
@@ -22,206 +22,232 @@
   <![endif]-->
   <div class="header">
     <h1>Perspective Art</h1>
-  <div class="elements">
-    <div class="main-conversion">
-      <div class="settingsGroup">
-        <div class="card">
-          <h3>Image Preprocessing</h3>
-          <table width=100%>
-            <tbody>
-              <tr>
-                <th><label for="discretize-checkbox"><b>Discretize </b></label></th>
-                <td><input id="discretize-checkbox" type="checkbox" checked></td>
-                <td><svg class = "refresh-button" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" transform="matrix(0 1 1 0 2.5 2.5)"> <path d="m3.98652376 1.07807068c-2.38377179 1.38514556-3.98652376 3.96636605-3.98652376 6.92192932 0 4.418278 3.581722 8 8 8s8-3.581722 8-8-3.581722-8-8-8"></path> <path d="m4 1v4h-4" transform="matrix(1 0 0 -1 0 6)"></path> </g> </g></svg>
-                </td>
+    <div class="elements">
+      <div class="main-conversion">
+        <div class="settingsGroup">
+          <div class="card">
+            <h3>Image Preprocessing</h3>
+            <table width=100%>
+              <tbody>
+                <tr>
+                  <th><label for="discretize-checkbox"><b>Discretize </b></label></th>
+                  <td><input id="discretize-checkbox" type="checkbox" checked></td>
+                  <td><svg class="refresh-button" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                      <g id="SVGRepo_iconCarrier">
+                        <g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"
+                          transform="matrix(0 1 1 0 2.5 2.5)">
+                          <path
+                            d="m3.98652376 1.07807068c-2.38377179 1.38514556-3.98652376 3.96636605-3.98652376 6.92192932 0 4.418278 3.581722 8 8 8s8-3.581722 8-8-3.581722-8-8-8">
+                          </path>
+                          <path d="m4 1v4h-4" transform="matrix(1 0 0 -1 0 6)"></path>
+                        </g>
+                      </g>
+                    </svg>
+                  </td>
                 </tr>
-              <tr>
-                <th><b>Resolution:</b> </th>
-                <td>
-                  <div class="range-solo">
-                    <input id="resolution-slider" type="range" min="6" max="11" value="9" step = "0.5">
-                  </div>
-                </td>
-                <td><input id="resolution-number" class="number-input" type="number" min="64" max="2048" step="1"
-                    value="512"></td>
-              </tr>
-              <tr>
-                <th><b>Brightness:</b> </th>
-                <td>
-                  <div class="range-solo">
-                    <input id="brightness-slider" type="range" min="-100" max="100" value="0">
-                  </div>
-                </td>
-                <td><input id="brightness-number" class="number-input" type="number" min="-100" max="100" step="1"
-                    value="0"></td>
-              </tr>
-              <tr>
-                <th><b>Highlights:</b> </th>
-                <td>
-                  <div class="range-solo">
-                    <input id="highlights-slider" type="range" min="-100" max="100" value="0">
-                  </div>
-                </td>
-                <td><input id="highlights-number" class="number-input" type="number" min="-100" max="100" step="1"
-                    value="0"></td>
-              </tr>
-              <tr>
-                <th><b>Shadows:</b> </th>
-                <td>
-                  <div class="range-solo">
-                    <input id="shadows-slider" type="range" min="-100" max="100" value="0">
-                  </div>
-                </td>
-                <td><input id="shadows-number" class="number-input" type="number" min="-100" max="100" step="1"
-                    value="0"></td>
-              </tr>
-              <tr>
-                <th><b>Contrast:</b> </th>
-                <td>
-                  <div class="range-solo">
-                    <input id="contrast-slider" type="range" min="-100" max="100" value="0">
-                  </div>
-                </td>
-                <td><input id="contrast-number" class="number-input" type="number" min="-100" max="100" step="1" value="0">
-                </td>
-              </tr>
-              <tr>
-                <th><b>Saturation:</b> </th>
-                <td>
-                  <div class="range-solo">
-                    <input id="saturation-slider" type="range" min="-100" max="100" value="0">
-                  </div>
-                </td>
-                <td><input id="saturation-number" class="number-input" type="number" min="-100" max="100" step="1"
-                    value="0"></td>
-              </tr>
-              <tr>
-                <th><b>Temperature:</b> </th>
-                <td>
-                  <div class="range-solo">
-                    <input id="temperature-slider" type="range" min="-100" max="100" value="0">
-                  </div>
-                </td>
-                <td><input id="temperature-number" class="number-input" type="number" min="-100" max="100" step="1"
-                    value="0"></td>
-              </tr>
-              <tr>
-                <th><b>Tint:</b> </th>
-                <td>
-                  <div class="range-solo">
-                    <input id="tint-slider" type="range" min="-100" max="100" value="0">
-                  </div>
-                </td>
-                <td><input id="tint-number" class="number-input" type="number" min="-100" max="100" step="1"
-                    value="0"></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="card">
-          <h3>3D Settings</h3>
-          <table width=100%>
-            <tbody>
-              <tr>
-                <th><b>FOV:</b> </th>
-                <td>
-                  <div class="range-solo">
-                    <input id="fov-slider" type="range" min="10" max="120" value="60">
-                  </div>
-                </td>
-                <td><input id="fov-number" class="number-input" type="number" min="10" max="120" step="1" value="60"></td>
-              </tr>
-              <tr>
-                <th><b>Pitch:</b> </th>
-                <td>
-                  <div class="range-solo">
-                    <input id="pitch-slider" type="range" min="-90" max="90" value="35">
-                  </div>
-                </td>
-                <td><input id="pitch-number" class="number-input" type="number" min="-90" max="90" step="1" value="35">
-                </td>
-              </tr>
-              <tr>
-                <th><b>Yaw:</b> </th>
-                <td>
-                  <div class="range-solo">
-                    <input id="yaw-slider" type="range" min="-180" max="180" value="45">
-                  </div>
-                </td>
-                <td><input id="yaw-number" class="number-input" type="number" min="-180" max="180" step="1" value="45">
-                </td>
-              </tr>
-              <tr>
-                <th height="30px"><b>Depth:</b> </th>
-                <td width="100px" height="3pt">
-                  <div class="range-highlight">
-                    <span class="range-selected" id="depth-selected"></span>
-                  </div>
-                  <div class="range-input">
-                    <input id="depth-min" type="range" min="5" max="500" value="10" step="1">
-                    <input id="depth-max" type="range" min="5" max="500" value="300" step="1">
-                  </div>
-                <td>
-                  <div class="minmaxnumber">
-                    <label for="depth-min-number">Min</label>
-                    <input id="depth-min-number" class="number-input" type="number" min="5" max="500" value="10"
-                      step="1">
-                    <label for="depth-max-number">Max</label>
-                    <input id="depth-max-number" class="number-input" type="number" min="5" max="500" value="300"
-                      step="1">
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <th height="30px"><b>Variance:</b> </th>
-                <td width="100px" height="3pt">
-                  <div class="range-highlight">
-                    <span class="range-selected" id="variance-selected"></span>
-                  </div>
-                  <div class="range-input">
-                    <input id="variance-min" type="range" min="0" max="1000" value="10" step="1">
-                    <input id="variance-max" type="range" min="0" max="1000" value="300" step="10">
-                  </div>
-                <td>
-                  <div class="minmaxnumber">
-                    <label for="variance-min-number">Min</label>
-                    <input id="variance-min-number" class="number-input" type="number" min="0" max="1000" value="10">
-                    <label for="variance-max-number">Max</label>
-                    <input id="variance-max-number" class="number-input" type="number" min="0" max="1000" value="300">
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="images">
-        <div class="card image preview">
-          <input type="file" id="image-input" accept="image/*">
-          <label class="image-input-label" for="image-input">
-            <div class="canvas-background">
-              <canvas id="glcanvas" width="1" height="1"></canvas>
-            </div>
-          </label>
-          <button class="buttons" type="button" id="convertButton">Convert</button>
-        </div>
-        <div class="card image voxel">
-          <div class="canvas-background">
-            <canvas id="canvas" class = "voxel-preview" width="1" height="1"></canvas>
+                <tr>
+                  <th><b>Resolution:</b> </th>
+                  <td>
+                    <div class="range-solo">
+                      <input id="resolution-slider" type="range" min="6" max="11" value="9" step="0.5">
+                    </div>
+                  </td>
+                  <td><input id="resolution-number" class="number-input" type="number" min="64" max="2048" step="1"
+                      value="512"></td>
+                </tr>
+                <tr>
+                  <th><b>Brightness:</b> </th>
+                  <td>
+                    <div class="range-solo">
+                      <input id="brightness-slider" type="range" min="-100" max="100" value="0">
+                    </div>
+                  </td>
+                  <td><input id="brightness-number" class="number-input" type="number" min="-100" max="100" step="1"
+                      value="0"></td>
+                </tr>
+                <tr>
+                  <th><b>Highlights:</b> </th>
+                  <td>
+                    <div class="range-solo">
+                      <input id="highlights-slider" type="range" min="-100" max="100" value="0">
+                    </div>
+                  </td>
+                  <td><input id="highlights-number" class="number-input" type="number" min="-100" max="100" step="1"
+                      value="0"></td>
+                </tr>
+                <tr>
+                  <th><b>Shadows:</b> </th>
+                  <td>
+                    <div class="range-solo">
+                      <input id="shadows-slider" type="range" min="-100" max="100" value="0">
+                    </div>
+                  </td>
+                  <td><input id="shadows-number" class="number-input" type="number" min="-100" max="100" step="1"
+                      value="0"></td>
+                </tr>
+                <tr>
+                  <th><b>Contrast:</b> </th>
+                  <td>
+                    <div class="range-solo">
+                      <input id="contrast-slider" type="range" min="-100" max="100" value="0">
+                    </div>
+                  </td>
+                  <td><input id="contrast-number" class="number-input" type="number" min="-100" max="100" step="1"
+                      value="0">
+                  </td>
+                </tr>
+                <tr>
+                  <th><b>Saturation:</b> </th>
+                  <td>
+                    <div class="range-solo">
+                      <input id="saturation-slider" type="range" min="-100" max="100" value="0">
+                    </div>
+                  </td>
+                  <td><input id="saturation-number" class="number-input" type="number" min="-100" max="100" step="1"
+                      value="0"></td>
+                </tr>
+                <tr>
+                  <th><b>Temperature:</b> </th>
+                  <td>
+                    <div class="range-solo">
+                      <input id="temperature-slider" type="range" min="-100" max="100" value="0">
+                    </div>
+                  </td>
+                  <td><input id="temperature-number" class="number-input" type="number" min="-100" max="100" step="1"
+                      value="0"></td>
+                </tr>
+                <tr>
+                  <th><b>Tint:</b> </th>
+                  <td>
+                    <div class="range-solo">
+                      <input id="tint-slider" type="range" min="-100" max="100" value="0">
+                    </div>
+                  </td>
+                  <td><input id="tint-number" class="number-input" type="number" min="-100" max="100" step="1"
+                      value="0"></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <button class="buttons" id="downloadButton" type="button">Download</button>
+          <div class="card">
+            <h3>3D Settings</h3>
+            <table width=100%>
+              <tbody>
+                <tr>
+                  <th><label for="pixelart-checkbox"><b>2D Pixelart</b></label></th>
+                  <td><input id="pixelart-checkbox" type="checkbox"></td>
+                  </td>
+                </tr>
+                <tr>
+                <tr>
+                  <th><b tooltip="Field of View">FOV:</b></th>
+                  <td>
+                    <div class="range-solo">
+                      <input id="fov-slider" type="range" min="10" max="120" value="60">
+                    </div>
+                  </td>
+                  <td><input id="fov-number" class="number-input" type="number" min="10" max="120" step="1" value="60">
+                  </td>
+                </tr>
+                <tr>
+                  <th><b tooltip="Looking Up/Down">Pitch:</b> </th>
+                  <td>
+                    <div class="range-solo">
+                      <input id="pitch-slider" type="range" min="-90" max="90" value="35">
+                    </div>
+                  </td>
+                  <td><input id="pitch-number" class="number-input" type="number" min="-90" max="90" step="1"
+                      value="35">
+                  </td>
+                </tr>
+                <tr>
+                  <th><b tooltip="Looking Left/Right">Yaw:</b> </th>
+                  <td>
+                    <div class="range-solo">
+                      <input id="yaw-slider" type="range" min="-180" max="180" value="45">
+                    </div>
+                  </td>
+                  <td><input id="yaw-number" class="number-input" type="number" min="-180" max="180" step="1"
+                      value="45">
+                  </td>
+                </tr>
+                <tr>
+                  <th height="30px"><b>Depth:</b> </th>
+                  <td width="100px" height="3pt">
+                    <div class="range-highlight">
+                      <span class="range-selected" id="depth-selected"></span>
+                    </div>
+                    <div class="range-input">
+                      <input id="depth-min" type="range" min="5" max="500" value="10" step="1">
+                      <input id="depth-max" type="range" min="5" max="500" value="300" step="1"
+                        class="pixelart-disabled-settings">
+                    </div>
+                  <td>
+                    <div class="minmaxnumber">
+                      <label for="depth-min-number" class="pixelart-disabled-settings">Min</label>
+                      <input id="depth-min-number" class="number-input" type="number" min="5" max="500" value="10"
+                        step="1">
+                      <label for="depth-max-number" class="pixelart-disabled-settings">Max</label>
+                      <input id="depth-max-number" class="number-input pixelart-disabled-settings" type="number" min="5"
+                        max="500" value="300" step="1">
+                    </div>
+                  </td>
+                </tr>
+                <tr class="pixelart-disabled-settings">
+                  <th height="30px"><b>Variance:</b> </th>
+                  <td width="100px" height="3pt">
+                    <div class="range-highlight">
+                      <span class="range-selected" id="variance-selected"></span>
+                    </div>
+                    <div class="range-input">
+                      <input id="variance-min" type="range" min="0" max="1000" value="10" step="1">
+                      <input id="variance-max" type="range" min="0" max="1000" value="300" step="10">
+                    </div>
+                  <td>
+                    <div class="minmaxnumber">
+                      <label for="variance-min-number">Min</label>
+                      <input id="variance-min-number" class="number-input" type="number" min="0" max="1000" value="10">
+                      <label for="variance-max-number">Max</label>
+                      <input id="variance-max-number" class="number-input" type="number" min="0" max="1000" value="300">
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="images">
+          <div class="card image preview">
+            <input type="file" id="image-input" accept="image/*">
+            <label class="image-input-label" for="image-input">
+              <div class="canvas-background">
+                <canvas id="glcanvas" width="1" height="1"></canvas>
+              </div>
+            </label>
+            <button class="buttons" type="button" id="convertButton">Convert</button>
+          </div>
+          <div class="card image voxel">
+            <div class="canvas-background">
+              <canvas id="canvas" class="voxel-preview" width="1" height="1"></canvas>
+            </div>
+            <button class="buttons" id="downloadButton" type="button">Download</button>
+          </div>
+        </div>
+      </div>
+      <div class="palette">
+        <div class="card palette-card">
+          <div class="palette-header">
+            <div class="palette-name">
+              <h3>Block Palette</h3>
+            </div>
+            <span class="material-total-count"></span>
+          </div>
+          <div class="blockList"></div>
         </div>
       </div>
     </div>
-    <div class = "palette">
-      <div class="card palette-card">
-        <div class="palette-header">
-          <div class = "palette-name"><h3>Block Palette</h3></div>
-          <span class = "material-total-count"></span>
-        </div>
-        <div class = "blockList"></div>
-      </div>
-    </div>
-  </div>
 </body>
+
 </html>

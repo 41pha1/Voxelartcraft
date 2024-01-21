@@ -59,7 +59,7 @@ var maxDepth = 300;
 var startVariance = 5;
 var endVariance = 450;
 var minVisibility = 0.1;
-var pixelArtMode = 1.0;
+var pixelArtMode = 0.0;
 const depthStep = 1.;
 
 // States
@@ -127,17 +127,17 @@ function createTexture(w, h, type = gl.FLOAT, data = null) {
     const border = 0;
     const format = gl.RGBA;
     var internalFormat = null;
-    
-    if (type == gl.FLOAT){
-        data = data ||new Float32Array(w * h * 4);
+
+    if (type == gl.FLOAT) {
+        data = data || new Float32Array(w * h * 4);
         internalFormat = gl.RGBA16F;
     } else if (type == gl.UNSIGNED_BYTE) {
-        data = data ||new Uint8Array(w * h * 4);
+        data = data || new Uint8Array(w * h * 4);
         internalFormat = gl.RGBA8;
 
-    } else 
+    } else
         throw "Invalid framebuffer type";
-    
+
     gl.texImage2D(gl.TEXTURE_2D, level, internalFormat, width, height, border,
         format, type, data);
 
@@ -168,7 +168,7 @@ async function loadTexture(image_obj, activeTexture = gl.TEXTURE0, interp = gl.N
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, interp);
-    
+
     return image_obj;
 }
 
@@ -206,7 +206,7 @@ function createShaderProgram(vertexShaderFile, voxelShaderFile) {
     gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
 
     var vertices = [-1.0, 1.0, 0.0,
-        -1.0, -1.0, 0.0,
+    -1.0, -1.0, 0.0,
         1.0, 1.0, 0.0,
         1.0, -1.0, 0.0];
 
@@ -288,6 +288,7 @@ function render(depth) {
     gl.uniform1f(depth_uniform, depth);
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 }
+
 
 function applyProcessing() {
     loadSettingsFromUI();
@@ -408,12 +409,12 @@ function updateMaterialList() {
     });
 
     blockList.innerHTML = "";
-    for(var i = 0, l = toSort.length; i < l; i++) {
+    for (var i = 0, l = toSort.length; i < l; i++) {
         if (materialList[toSort[i].children[0].id])
             toSort[i].classList.add("activeMaterial");
         else
             toSort[i].classList.remove("activeMaterial");
-        
+
         toSort[i].children[2].innerHTML = "x" + (materialList[toSort[i].children[0].id] || 0);
         blockList.appendChild(toSort[i]);
     }
@@ -445,7 +446,7 @@ function applyPreviewDiscretization() {
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 
     // Voxelization discretization
-    if (! voxelized)
+    if (!voxelized)
         return;
 
     gl.uniform1i(applyTextureUniform, 1);
@@ -540,7 +541,7 @@ function estimatePixelsPerBlock(x, y, z) {
     const beta = glm.radians(fov);
     const k = 0.5 / distance;
 
-    const alpha = k - k*k*k/3.0; // Taylor series approximation of atan(x)
+    const alpha = k - k * k * k / 3.0; // Taylor series approximation of atan(x)
     const widthPerBlock = ((2 * alpha) / beta) * canvas.width;
 
     return widthPerBlock * widthPerBlock;
@@ -581,7 +582,7 @@ function analyzeBlocks(foundBlocks, pixels, occlusionMask, allowedVariance, outp
         var [meanColor, variance] = meanAndVariance(blockPixels);
         if (!forcePlace && variance > allowedVariance)
             continue;
-        
+
         const r = meanColor[0] / 255.0;
         const g = meanColor[1] / 255.0;
         const b = meanColor[2] / 255.0;
@@ -597,7 +598,7 @@ function analyzeBlocks(foundBlocks, pixels, occlusionMask, allowedVariance, outp
             output[pixel + 3] = pixels[pixel + 3] - 1.0;
 
             // Draw voxel preview
-            outputCtx.fillStyle = "rgb(" + meanColor[0] * shade + ", " + meanColor[1] * shade+ ", " + meanColor[2] * shade+ ")";
+            outputCtx.fillStyle = "rgb(" + meanColor[0] * shade + ", " + meanColor[1] * shade + ", " + meanColor[2] * shade + ")";
             outputCtx.fillRect(pixel / 4 % canvas.width, Math.floor(pixel / 4 / canvas.width), 1, 1);
         }
 
@@ -612,7 +613,7 @@ async function placeBlocks(occlusionMask, output, depth, blocks, outputCtx) {
         gl.readPixels(0, 0, canvas.width, canvas.height, gl.RGBA, gl.FLOAT, pixelData);
     else
         readPixelsAsync(gl.FLOAT, canvas.width, canvas.height, pixelData)
-    
+
     // // write pixel data to canvas
     // const UAC = new Uint8ClampedArray(pixelData, canvas.width, canvas.height);
     // const imageData = new ImageData(UAC, canvas.width, canvas.height);
@@ -654,6 +655,7 @@ function loadSettingsFromUI() {
     shadows = parseFloat(document.querySelector('#shadows-number').value);
     temperature = parseFloat(document.querySelector('#temperature-number').value);
     tint = parseFloat(document.querySelector('#tint-number').value);
+    pixelArtMode = document.querySelector('#pixelart-checkbox').checked;
 }
 
 function voxelConvert() {
@@ -689,14 +691,14 @@ function voxelConvert() {
         updateMaterialList();
         applyPreviewDiscretization();
         console.log("Finished voxelizing: " + blocks.length);
-    }else {
+    } else {
         var timer = setInterval(() => {
             placeBlocks(occlusionMask, output, depth, blocks, outputCtx);
 
             console.log("Depth: " + depth);
             depth += depthStep;
 
-            if (depth > maxDepth * 1.75  + 2 || requestStop) {
+            if (depth > maxDepth * 1.75 + 2 || requestStop) {
                 voxelizing = false;
                 clearInterval(timer);
 
@@ -740,7 +742,7 @@ async function updateTargetImage(image_obj) {
     outputCanvas.width = canvas.width;
     outputCanvas.height = canvas.height;
     processedImage = new Uint8ClampedArray(canvas.width * canvas.height * 4);
-    
+
     // Get pixels from image
     var temp = document.createElement('canvas');
     var tempCTX = temp.getContext('2d');
@@ -761,7 +763,7 @@ async function updateTargetImage(image_obj) {
     [discreteVoxelizedFrameBuffer, temp] = setupFramebuffer(gl.UNSIGNED_BYTE);
 
     blocks = [];
-    
+
     applyProcessing();
     updateMaterialList();
     updatePalette();
@@ -809,7 +811,7 @@ main();
 export { voxelConvert, updateTargetImage, updatePalette, applyProcessing, downloadNBT, stopVoxelization };
 
 
-//TODO: 
+//TODO:
 // FEATURES:
 // - Custom variance function
 // - Fix jagged outlines caused by minVisibility
