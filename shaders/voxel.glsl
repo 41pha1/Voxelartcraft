@@ -3,6 +3,7 @@ precision mediump float;
 uniform float u_depth;
 uniform float u_depthStep;
 uniform float u_aspect;
+uniform float u_maxDepth;
 
 uniform vec2 u_resolution;
 uniform vec3 u_camPos;
@@ -12,6 +13,8 @@ uniform float u_yaw;
 
 uniform mat4 u_projection;
 uniform mat4 u_view;
+
+uniform float u_pixelArtMode;
 
 uniform sampler2D u_alphaMask;
 
@@ -56,9 +59,20 @@ float manhatten(vec3 pos1, vec3 pos2)
     return abs(pos1.x - pos2.x) + abs(pos1.y - pos2.y) + abs(pos1.z - pos2.z);
 }
 
-float dist(vec3 pos1, vec3 pos2) 
+float cameraPlaneDist(vec3 pos, vec3 cameraPos, vec3 cameraForward)
+{   
+    vec3 a = pos - cameraPos;
+    float b = distance(dot(a, cameraForward) * cameraForward, vec3(0.));
+
+    return b;
+}
+
+float dist(vec3 pos1, vec3 pos2, vec3 cameraForward)
 {
-    return manhatten(pos1, pos2);
+  if (u_pixelArtMode > 0.5)
+      return cameraPlaneDist(pos1, pos2, cameraForward);
+  else
+      return manhatten(pos1, pos2);
 }
 
 vec2 worldToUV(vec3 worldPos, mat4 viewProjection)
@@ -109,7 +123,7 @@ float startingEstimate(vec3 dir, float depth)
 }
 
 
-mat3 raycast(vec3 origin, vec3 direction, mat4 viewProjection, float depth) {
+mat3 raycast(vec3 origin, vec3 direction, mat4 viewProjection, float depth, vec3 forward) {
   // From "A Fast Voxel Traversal Algorithm for Ray Tracing"
   // by John Amanatides and Andrew Woo, 1987
   // <http://www.cse.yorku.ca/~amana/research/grid.pdf>
@@ -145,12 +159,11 @@ mat3 raycast(vec3 origin, vec3 direction, mat4 viewProjection, float depth) {
 
   // Rescale from units of 1 cube-edge to units of 'direction' so we can
   // compare with 't'.
-
-  for(float i = 0.; i < 10.; i += 1.) {
+  for(float i = 0.; i < 1000.; i += 1.) {
     // Invoke the callback, unless we are not *yet* within the bounds of the
     // world.
     vec3 block = cube + vec3(0.5);   
-    float d = dist(block, origin); 
+    float d = dist(block, origin, forward);
 
     if(d > depth){
        return mat3(block, cube, face);
@@ -208,10 +221,11 @@ void main( )
     checkAlphaOffsets[13] = vec3(0.5, 1., 0.5);
     checkAlphaOffsets[14] = vec3(1., 0.5, 0.5);
     
-    pixelOffsets[0] = vec2(-0.6, -0.6);
-    pixelOffsets[1] = vec2(-0.6, 0.6);
-    pixelOffsets[2] = vec2(0.6, -0.6);
-    pixelOffsets[3] = vec2(0.6, 0.6);
+    float pixelScale = 0.;
+    pixelOffsets[0] = vec2(-0.5 * pixelScale, -0.5 * pixelScale);
+    pixelOffsets[1] = vec2(-0.5 * pixelScale, 0.5 * pixelScale);
+    pixelOffsets[2] = vec2(0.5 * pixelScale, -0.5 * pixelScale);
+    pixelOffsets[3] = vec2(0.5 * pixelScale, 0.5 * pixelScale);
     
     //settings
     float depth = u_depth;
@@ -219,6 +233,10 @@ void main( )
     
     // camera
     vec2 uv = v_texcoord;
+    uv = uv * 0.5 + 0.5;
+    uv *= (u_resolution.xy - 1.) / (u_resolution.xy);
+    uv = uv * 2. - 1.;
+    uv += 0.5 / u_resolution.xy;
     uv.x *= u_aspect;
     //uv.y *= -1.;
 
@@ -250,11 +268,20 @@ void main( )
     vec3 rayDirection = vec3(0.);
     
     mat3 result = mat3(0.);
-    for (int i = 0; i < 4; i ++) {
+
+    if (u_pixelArtMode > 0.5)
+    {
+        vec2 pixelUV = uv + pixelOffsets[0] / u_resolution.xy;
+        rayDirection = normalize(pixelUV.x * right + pixelUV.y * up + forward * zoom);
+
+        result = raycast(rayOrigin, rayDirection, viewProjection, depth, forward);
+
+    }else {
+      for (int i = 0; i < 4; i ++) {
         vec2 pixelUV = uv + pixelOffsets[i] / u_resolution.xy;
         rayDirection = normalize(pixelUV.x * right + pixelUV.y * up + forward * zoom);
 
-        mat3 nextResult = raycast(rayOrigin, rayDirection, viewProjection, depth);
+        mat3 nextResult = raycast(rayOrigin, rayDirection, viewProjection, depth, forward);
         
         if (i > 0 && nextResult[0] != result[0])
         {
@@ -262,12 +289,20 @@ void main( )
             return;
         }
         result = nextResult;
+      }
     }
+   
     
     vec3 block = result[0];
     vec3 cube = result[1];
     vec3 face = result[2];
 
+    // sphere cut off
+    if (distance(block, cameraPos) > u_maxDepth + 2. && u_pixelArtMode < 0.5)
+    {
+        gl_FragColor = vec4(0.);
+        return;
+    }
     if (!blockOverlapsAlpha(cube, viewProjection))
     {
         float shade = 1.;

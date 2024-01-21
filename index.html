@@ -30,12 +30,11 @@
           <table width=100%>
             <tbody>
               <tr>
-                <th><label for="discretize-checkbox">
-                    <b>Discretize </b>
-                  </label></th>
-                <td> <input id="discretize-checkbox" type="checkbox" checked></td>
-                <td></td>
-              </tr>
+                <th><label for="discretize-checkbox"><b>Discretize </b></label></th>
+                <td><input id="discretize-checkbox" type="checkbox" checked></td>
+                <td><svg class = "refresh-button" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" transform="matrix(0 1 1 0 2.5 2.5)"> <path d="m3.98652376 1.07807068c-2.38377179 1.38514556-3.98652376 3.96636605-3.98652376 6.92192932 0 4.418278 3.581722 8 8 8s8-3.581722 8-8-3.581722-8-8-8"></path> <path d="m4 1v4h-4" transform="matrix(1 0 0 -1 0 6)"></path> </g> </g></svg>
+                </td>
+                </tr>
               <tr>
                 <th><b>Resolution:</b> </th>
                 <td>
@@ -54,6 +53,26 @@
                   </div>
                 </td>
                 <td><input id="brightness-number" class="number-input" type="number" min="-100" max="100" step="1"
+                    value="0"></td>
+              </tr>
+              <tr>
+                <th><b>Highlights:</b> </th>
+                <td>
+                  <div class="range-solo">
+                    <input id="highlights-slider" type="range" min="-100" max="100" value="0">
+                  </div>
+                </td>
+                <td><input id="highlights-number" class="number-input" type="number" min="-100" max="100" step="1"
+                    value="0"></td>
+              </tr>
+              <tr>
+                <th><b>Shadows:</b> </th>
+                <td>
+                  <div class="range-solo">
+                    <input id="shadows-slider" type="range" min="-100" max="100" value="0">
+                  </div>
+                </td>
+                <td><input id="shadows-number" class="number-input" type="number" min="-100" max="100" step="1"
                     value="0"></td>
               </tr>
               <tr>
@@ -76,6 +95,26 @@
                 <td><input id="saturation-number" class="number-input" type="number" min="-100" max="100" step="1"
                     value="0"></td>
               </tr>
+              <tr>
+                <th><b>Temperature:</b> </th>
+                <td>
+                  <div class="range-solo">
+                    <input id="temperature-slider" type="range" min="-100" max="100" value="0">
+                  </div>
+                </td>
+                <td><input id="temperature-number" class="number-input" type="number" min="-100" max="100" step="1"
+                    value="0"></td>
+              </tr>
+              <tr>
+                <th><b>Tint:</b> </th>
+                <td>
+                  <div class="range-solo">
+                    <input id="tint-slider" type="range" min="-100" max="100" value="0">
+                  </div>
+                </td>
+                <td><input id="tint-number" class="number-input" type="number" min="-100" max="100" step="1"
+                    value="0"></td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -87,10 +126,10 @@
                 <th><b>FOV:</b> </th>
                 <td>
                   <div class="range-solo">
-                    <input id="fov-slider" type="range" min="10" max="180" value="60">
+                    <input id="fov-slider" type="range" min="10" max="120" value="60">
                   </div>
                 </td>
-                <td><input id="fov-number" class="number-input" type="number" min="10" max="180" step="1" value="60"></td>
+                <td><input id="fov-number" class="number-input" type="number" min="10" max="120" step="1" value="60"></td>
               </tr>
               <tr>
                 <th><b>Pitch:</b> </th>

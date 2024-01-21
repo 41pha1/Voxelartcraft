@@ -34,6 +34,10 @@ var palette = null;
 var brightness = 1.0;
 var contrast = 1.0;
 var saturation = 1.0;
+var highlights = 0.0;
+var shadows = 0.0;
+var temperature = 0.0;
+var tint = 0.0;
 var discretize = false;
 var processingFrameBuffer = null;
 var discreteVoxelizedFrameBuffer = null;
@@ -55,6 +59,7 @@ var maxDepth = 300;
 var startVariance = 5;
 var endVariance = 450;
 var minVisibility = 0.1;
+var pixelArtMode = 1.0;
 const depthStep = 1.;
 
 // States
@@ -222,7 +227,13 @@ function createShaderProgram(vertexShaderFile, voxelShaderFile) {
     return voxelShader;
 }
 
-function setUniforms(w, h, depthStep, camPos, pitch, yaw, fov) {
+function setUniforms(w, h, depthStep, camPos, pitch, yaw, fov, maxDepth) {
+
+    var maxDepthUniformLocation = gl.getUniformLocation(voxelShader, "u_maxDepth");
+    gl.uniform1f(maxDepthUniformLocation, maxDepth);
+
+    var doPixelArtUniformLocation = gl.getUniformLocation(voxelShader, "u_pixelArtMode");
+    gl.uniform1f(doPixelArtUniformLocation, pixelArtMode);
 
     var resolutionUniformLocation = gl.getUniformLocation(voxelShader, "u_aspect");
     gl.uniform1f(resolutionUniformLocation, w / h);
@@ -293,6 +304,19 @@ function applyProcessing() {
 
     const saturationUniform = gl.getUniformLocation(processingShader, "u_saturation");
     gl.uniform1f(saturationUniform, saturation / 100);
+
+    const highlightsUniform = gl.getUniformLocation(processingShader, "u_highlights");
+    gl.uniform1f(highlightsUniform, highlights / 100);
+
+    const shadowsUniform = gl.getUniformLocation(processingShader, "u_shadows");
+    gl.uniform1f(shadowsUniform, shadows / 100);
+
+    const colorTempUniform = gl.getUniformLocation(processingShader, "u_temperature");
+    gl.uniform1f(colorTempUniform, temperature / 100);
+
+    const colorTintUniform = gl.getUniformLocation(processingShader, "u_tint");
+    gl.uniform1f(colorTintUniform, tint / 100);
+
 
     gl.bindFramebuffer(gl.FRAMEBUFFER, processingFrameBuffer);
     gl.drawBuffers([gl.COLOR_ATTACHMENT0]);
@@ -455,7 +479,8 @@ function updatePalette() {
             const blockID = blockSelector.children[0].id;
             const rgb = blockSelector.children[1].children[0].innerHTML.split(", ");
             const blockIndex = blockSelector.children[1].children[1].innerHTML;
-            palette.push([blockID, parseInt(rgb[0]), parseInt(rgb[1]), parseInt(rgb[2]), index++, blockIndex]);
+            const gravity = blockSelector.children[0].classList.contains("gravity");
+            palette.push([blockID, parseInt(rgb[0]), parseInt(rgb[1]), parseInt(rgb[2]), index++, blockIndex, gravity]);
         }
     }
 
@@ -522,22 +547,39 @@ function estimatePixelsPerBlock(x, y, z) {
 }
 
 function analyzeBlocks(foundBlocks, pixels, occlusionMask, allowedVariance, output, blocks, outputCtx) {
-    for (const key of foundBlocks.keys()) {
-        const blockPixels = foundBlocks.get(key);
-        var [meanColor, variance] = meanAndVariance(blockPixels);
+    const cutoff = maxDepth - 2.5;
 
-        if (variance > allowedVariance)
-            continue;
+    for (const key of foundBlocks.keys()) {
+        var forcePlace = allowedVariance == Infinity || pixelArtMode == 1.0;
+        const blockPixels = foundBlocks.get(key);
 
         const maxBlock = 1000;
         const x = key % (2 * maxBlock) - maxBlock;
         const y = Math.floor(key / (2 * maxBlock)) % (2 * maxBlock) - maxBlock;
         const z = Math.floor(key / (4 * maxBlock * maxBlock)) % (2 * maxBlock) - maxBlock;
 
-        const foundPixels = foundBlocks.get(key).length;
-        const estimatedPixels = estimatePixelsPerBlock(x, y, z);
+        const dx = x - camPos[0];
+        const dy = y - camPos[1];
+        const dz = z - camPos[2];
+        const distance2 = Math.sqrt(dx * dx + dy * dy + dz * dz);
 
-        if (allowedVariance != Infinity && foundPixels < estimatedPixels * minVisibility)
+        // Force place blocks on the edge of the render distance
+        if (distance2 > cutoff)
+            forcePlace = true;
+
+        // Skip some columns so that light can shine through
+        if (!forcePlace && (x + z * 5) % 13 == 0) // (x + z * 2) % 5 == 0)
+            continue;
+
+        // Skip blocks that are too occluded
+        const foundPixels = blockPixels.length;
+        const estimatedPixels = estimatePixelsPerBlock(x, y, z);
+        if (!forcePlace && foundPixels < estimatedPixels * minVisibility)
+            continue;
+
+        // Only place blocks that match the target image 
+        var [meanColor, variance] = meanAndVariance(blockPixels);
+        if (!forcePlace && variance > allowedVariance)
             continue;
         
         const r = meanColor[0] / 255.0;
@@ -563,18 +605,21 @@ function analyzeBlocks(foundBlocks, pixels, occlusionMask, allowedVariance, outp
     }
 }
 
-function placeBlocks(occlusionMask, output, depth, blocks, outputCtx) {
+async function placeBlocks(occlusionMask, output, depth, blocks, outputCtx) {
     render(depth);
-    readPixelsAsync(gl.FLOAT, canvas.width, canvas.height, pixelData);
 
-    // //write pixel data to canvas
+    if (pixelArtMode == 1)
+        gl.readPixels(0, 0, canvas.width, canvas.height, gl.RGBA, gl.FLOAT, pixelData);
+    else
+        readPixelsAsync(gl.FLOAT, canvas.width, canvas.height, pixelData)
+    
+    // // write pixel data to canvas
     // const UAC = new Uint8ClampedArray(pixelData, canvas.width, canvas.height);
     // const imageData = new ImageData(UAC, canvas.width, canvas.height);
     // outputCtx.putImageData(imageData, 0, 0);
 
     const foundBlocks = hashPixels(pixelData, occlusionMask);
     var allowedVariance = (endVariance - startVariance) * Math.pow((depth - minDepth) / (maxDepth - minDepth), 2.0) + startVariance;
-    if (depth == maxDepth) allowedVariance = Infinity
 
     analyzeBlocks(foundBlocks, pixelData, occlusionMask, allowedVariance, output, blocks, outputCtx);
 }
@@ -605,6 +650,10 @@ function loadSettingsFromUI() {
     contrast = parseFloat(document.querySelector('#contrast-number').value);
     saturation = parseFloat(document.querySelector('#saturation-number').value);
     discretize = document.querySelector('#discretize-checkbox').checked;
+    highlights = parseFloat(document.querySelector('#highlights-number').value);
+    shadows = parseFloat(document.querySelector('#shadows-number').value);
+    temperature = parseFloat(document.querySelector('#temperature-number').value);
+    tint = parseFloat(document.querySelector('#tint-number').value);
 }
 
 function voxelConvert() {
@@ -623,7 +672,7 @@ function voxelConvert() {
     gl.useProgram(voxelShader);
     var tex = null;
     [framebuffer, tex] = setupFramebuffer();
-    setUniforms(canvas.width, canvas.height, depthStep, camPos, pitch, yaw, fov);
+    setUniforms(canvas.width, canvas.height, depthStep, camPos, pitch, yaw, fov, maxDepth);
 
     output = new Float32Array(canvas.width * canvas.height * 4);
     var occlusionMask = new Int8Array(canvas.width * canvas.height * 1);
@@ -632,26 +681,36 @@ function voxelConvert() {
     outputCtx.clearRect(0, 0, canvas.width, canvas.height);
 
     var depth = minDepth;
-    const timer = setInterval(() => {
+
+    if (pixelArtMode == 1) {
         placeBlocks(occlusionMask, output, depth, blocks, outputCtx);
+        voxelizing = false;
+        voxelized = true;
+        updateMaterialList();
+        applyPreviewDiscretization();
+        console.log("Finished voxelizing: " + blocks.length);
+    }else {
+        var timer = setInterval(() => {
+            placeBlocks(occlusionMask, output, depth, blocks, outputCtx);
 
-        console.log("Depth: " + depth);
-        depth += depthStep;
+            console.log("Depth: " + depth);
+            depth += depthStep;
 
-        if (depth > maxDepth || requestStop) {
-            voxelizing = false;
-            clearInterval(timer);
+            if (depth > maxDepth * 1.75  + 2 || requestStop) {
+                voxelizing = false;
+                clearInterval(timer);
 
-            if (!requestStop) {
-                voxelized = true;
-                updateMaterialList();
-                applyPreviewDiscretization();
-                console.log("Finished voxelizing: " + blocks.length);
-            } else {
-                blocks = [];
+                if (!requestStop) {
+                    voxelized = true;
+                    updateMaterialList();
+                    applyPreviewDiscretization();
+                    console.log("Finished voxelizing: " + blocks.length);
+                } else {
+                    blocks = [];
+                }
             }
-        }
-    }, 0);
+        }, 0);
+    }
 }
 
 async function downloadNBT() {
@@ -752,28 +811,17 @@ export { voxelConvert, updateTargetImage, updatePalette, applyProcessing, downlo
 
 //TODO: 
 // FEATURES:
-// - Add more processing options (color temp, shadows, highlights, hue shift)
 // - Custom variance function
-// - Progress bar
 // - Fix jagged outlines caused by minVisibility
 // - Custom max depth cutoff metric
-// - Test Image with transparency
-// - Low variance property
-
-// OPTIMIZATION:
-// - Bake textures into atlas
-// - Use web assembly for hashing the pixels
+// - Pixel art mode
 
 // DESIGN:
 // - Add progress bar
 // - Fix chrome sliders
 // - Add tooltips
 // - Better gui presets
-// - Fix previre image scaling
-
-// REFACTOR:
-// - Split css into multiple files
-// - Split js into multiple files
+// - Fix preview image scaling
 
 // PUBLICATION:
 // - Show case youtube video
@@ -781,5 +829,4 @@ export { voxelConvert, updateTargetImage, updatePalette, applyProcessing, downlo
 // - buy domain
 
 // NICE TO HAVE:
-// - Add option to support gravity blocks by placing a block below them
 // - Add crosshair to preview

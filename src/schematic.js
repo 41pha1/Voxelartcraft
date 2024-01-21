@@ -15,7 +15,7 @@ function addAlignmentBlocks(blocks, palette, materials){
 
     // add alignment block to palette if not already present
     if (alignmentBlockIndex == -1) {
-        palette.push([alignementBlockType, 0, 0, 0, alignmentBlockIndex]);
+        palette.push([alignementBlockType, 0, 0, 0, alignmentBlockIndex, false]);
         alignmentBlockIndex = palette.length - 1;
     }
 
@@ -29,10 +29,42 @@ function addAlignmentBlocks(blocks, palette, materials){
     materials.push(alignmentBlockIndex);
 }
 
+function addSupportingBlocks(blocks, palette, materials) {
+    const supportingBlockType = "glass_pane";
+
+    palette.push([supportingBlockType, 0, 0, 0, palette.length, false]);
+    const supportingBlockIndex = palette.length - 1;
+
+    const blockSet = new Set();
+    for (var i = 0; i < blocks.length; i++) {
+        const block = blocks[i];
+        blockSet.add(block[3] + " " + block[4] + " " + block[5]);
+    }
+
+    // add supporting blocks
+   for (var i = 0; i < blocks.length; i++) {
+        const gravity = palette[materials[i]][6];
+
+        if (!gravity) 
+            continue;
+
+        const block = blocks[i];
+        const x = block[3];
+        const y = block[4];
+        const z = block[5];
+
+        if (!blockSet.has(x + " " + (y - 1) + " " + z)) {
+            blocks.push([0, 0, 0, x, y - 1, z]);
+            materials.push(supportingBlockIndex);
+        }
+    }
+}
+
 async function createStructureNBT(blocks, palette, materials){
     console.log("Creating NBT file...");
     
     addAlignmentBlocks(blocks, palette, materials);
+    addSupportingBlocks(blocks, palette, materials);
 
     const DataVersion = new Int32(3105);
 
@@ -65,8 +97,9 @@ async function createStructureNBT(blocks, palette, materials){
             zmax = block[5];
         }
     }
-
-    console.log(xmin + " " + xmax + " " + ymin + " " + ymax + " " + zmin + " " + zmax)
+    const height = ymax - ymin;
+    if (height > 256 && height < 380) alert("Carefull! The height of the structure exceeds 256 blocks.");
+    if (height >= 380) alert("Carefull! The height of the structure exceeds 380 blocks. (Not buildable without mods)");
 
     const size = [new Int32(xmax - xmin + 1), new Int32(ymax - ymin + 1), new Int32(zmax - zmin + 1)];
 

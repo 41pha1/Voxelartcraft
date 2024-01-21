@@ -20,7 +20,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 0
+        "index": 0,
+        "low_variance": "false"
     },
     "acacia_wood": {
         "texture": "acacia_log.png",
@@ -43,7 +44,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 1
+        "index": 1,
+        "low_variance": "false"
     },
     "amethyst_block": {
         "texture": "amethyst_block.png",
@@ -66,7 +68,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 2
+        "index": 2,
+        "low_variance": "false"
     },
     "ancient_debris": {
         "texture": "ancient_debris_side.png",
@@ -89,7 +92,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 3
+        "index": 3,
+        "low_variance": "false"
     },
     "andesite": {
         "texture": "andesite.png",
@@ -112,7 +116,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 4
+        "index": 4,
+        "low_variance": "false"
     },
     "azalea_leaves": {
         "texture": "azalea_leaves.png",
@@ -135,7 +140,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 5
+        "index": 5,
+        "low_variance": "false"
     },
     "bamboo_block": {
         "texture": "bamboo_block.png",
@@ -158,7 +164,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 6
+        "index": 6,
+        "low_variance": "false"
     },
     "bamboo_mosaic": {
         "texture": "bamboo_mosaic.png",
@@ -181,7 +188,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 7
+        "index": 7,
+        "low_variance": "false"
     },
     "bamboo_planks": {
         "texture": "bamboo_planks.png",
@@ -204,7 +212,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 8
+        "index": 8,
+        "low_variance": "false"
     },
     "basalt": {
         "texture": "basalt_side.png",
@@ -227,7 +236,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 9
+        "index": 9,
+        "low_variance": "false"
     },
     "bedrock": {
         "texture": "bedrock.png",
@@ -250,7 +260,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 10
+        "index": 10,
+        "low_variance": "false"
     },
     "birch_planks": {
         "texture": "birch_planks.png",
@@ -273,7 +284,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 11
+        "index": 11,
+        "low_variance": "false"
     },
     "birch_wood": {
         "texture": "birch_log.png",
@@ -296,7 +308,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 12
+        "index": 12,
+        "low_variance": "false"
     },
     "blackstone": {
         "texture": "blackstone.png",
@@ -319,7 +332,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 13
+        "index": 13,
+        "low_variance": "false"
     },
     "black_concrete": {
         "texture": "black_concrete.png",
@@ -342,7 +356,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 14
+        "index": 14,
+        "low_variance": "true"
     },
     "black_concrete_powder": {
         "texture": "black_concrete_powder.png",
@@ -365,7 +380,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 15
+        "index": 15,
+        "low_variance": "true"
     },
     "black_glazed_terracotta": {
         "texture": "black_glazed_terracotta.png",
@@ -388,7 +404,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 16
+        "index": 16,
+        "low_variance": "false"
     },
     "black_stained_glass": {
         "texture": "black_stained_glass.png",
@@ -411,7 +428,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 17
+        "index": 17,
+        "low_variance": "true"
     },
     "black_terracotta": {
         "texture": "black_terracotta.png",
@@ -434,7 +452,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 18
+        "index": 18,
+        "low_variance": "true"
     },
     "black_wool": {
         "texture": "black_wool.png",
@@ -457,7 +476,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 19
+        "index": 19,
+        "low_variance": "true"
     },
     "blue_concrete": {
         "texture": "blue_concrete.png",
@@ -480,7 +500,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 20
+        "index": 20,
+        "low_variance": "true"
     },
     "blue_concrete_powder": {
         "texture": "blue_concrete_powder.png",
@@ -503,7 +524,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 21
+        "index": 21,
+        "low_variance": "true"
     },
     "blue_glazed_terracotta": {
         "texture": "blue_glazed_terracotta.png",
@@ -526,7 +548,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 22
+        "index": 22,
+        "low_variance": "false"
     },
     "blue_ice": {
         "texture": "blue_ice.png",
@@ -549,7 +572,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 23
+        "index": 23,
+        "low_variance": "true"
     },
     "blue_stained_glass": {
         "texture": "blue_stained_glass.png",
@@ -572,7 +596,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 24
+        "index": 24,
+        "low_variance": "true"
     },
     "blue_terracotta": {
         "texture": "blue_terracotta.png",
@@ -595,7 +620,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 25
+        "index": 25,
+        "low_variance": "true"
     },
     "blue_wool": {
         "texture": "blue_wool.png",
@@ -618,7 +644,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 26
+        "index": 26,
+        "low_variance": "true"
     },
     "bone_block": {
         "texture": "bone_block_side.png",
@@ -641,7 +668,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 27
+        "index": 27,
+        "low_variance": "true"
     },
     "bookshelf": {
         "texture": "bookshelf.png",
@@ -664,7 +692,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 28
+        "index": 28,
+        "low_variance": "false"
     },
     "brain_coral_block": {
         "texture": "brain_coral_block.png",
@@ -687,7 +716,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 29
+        "index": 29,
+        "low_variance": "false"
     },
     "bricks": {
         "texture": "bricks.png",
@@ -710,7 +740,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 30
+        "index": 30,
+        "low_variance": "false"
     },
     "brown_concrete": {
         "texture": "brown_concrete.png",
@@ -733,7 +764,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 31
+        "index": 31,
+        "low_variance": "true"
     },
     "brown_concrete_powder": {
         "texture": "brown_concrete_powder.png",
@@ -756,7 +788,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 32
+        "index": 32,
+        "low_variance": "true"
     },
     "brown_glazed_terracotta": {
         "texture": "brown_glazed_terracotta.png",
@@ -779,7 +812,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 33
+        "index": 33,
+        "low_variance": "false"
     },
     "brown_mushroom_block": {
         "texture": "brown_mushroom_block.png",
@@ -802,7 +836,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 34
+        "index": 34,
+        "low_variance": "true"
     },
     "brown_stained_glass": {
         "texture": "brown_stained_glass.png",
@@ -825,7 +860,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 35
+        "index": 35,
+        "low_variance": "true"
     },
     "brown_terracotta": {
         "texture": "brown_terracotta.png",
@@ -848,7 +884,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 36
+        "index": 36,
+        "low_variance": "true"
     },
     "brown_wool": {
         "texture": "brown_wool.png",
@@ -871,7 +908,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 37
+        "index": 37,
+        "low_variance": "true"
     },
     "bubble_coral_block": {
         "texture": "bubble_coral_block.png",
@@ -894,7 +932,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 38
+        "index": 38,
+        "low_variance": "false"
     },
     "budding_amethyst": {
         "texture": "budding_amethyst.png",
@@ -917,7 +956,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 39
+        "index": 39,
+        "low_variance": "false"
     },
     "calcite": {
         "texture": "calcite.png",
@@ -940,7 +980,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 40
+        "index": 40,
+        "low_variance": "false"
     },
     "cherry_planks": {
         "texture": "cherry_planks.png",
@@ -963,7 +1004,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 41
+        "index": 41,
+        "low_variance": "false"
     },
     "cherry_wood": {
         "texture": "cherry_log.png",
@@ -986,7 +1028,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 42
+        "index": 42,
+        "low_variance": "true"
     },
     "chiseled_deepslate": {
         "texture": "chiseled_deepslate.png",
@@ -1009,7 +1052,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 43
+        "index": 43,
+        "low_variance": "false"
     },
     "chiseled_nether_bricks": {
         "texture": "chiseled_nether_bricks.png",
@@ -1032,7 +1076,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 44
+        "index": 44,
+        "low_variance": "false"
     },
     "chiseled_polished_blackstone": {
         "texture": "chiseled_polished_blackstone.png",
@@ -1055,7 +1100,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 45
+        "index": 45,
+        "low_variance": "false"
     },
     "chiseled_quartz_block": {
         "texture": "chiseled_quartz_block.png",
@@ -1078,7 +1124,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 46
+        "index": 46,
+        "low_variance": "true"
     },
     "chiseled_red_sandstone": {
         "texture": "chiseled_red_sandstone.png",
@@ -1101,7 +1148,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 47
+        "index": 47,
+        "low_variance": "false"
     },
     "chiseled_sandstone": {
         "texture": "chiseled_sandstone.png",
@@ -1124,7 +1172,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 48
+        "index": 48,
+        "low_variance": "false"
     },
     "chiseled_stone_bricks": {
         "texture": "chiseled_stone_bricks.png",
@@ -1147,7 +1196,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 49
+        "index": 49,
+        "low_variance": "false"
     },
     "clay": {
         "texture": "clay.png",
@@ -1170,7 +1220,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 50
+        "index": 50,
+        "low_variance": "true"
     },
     "coal_block": {
         "texture": "coal_block.png",
@@ -1193,7 +1244,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 51
+        "index": 51,
+        "low_variance": "true"
     },
     "coal_ore": {
         "texture": "coal_ore.png",
@@ -1216,7 +1268,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 52
+        "index": 52,
+        "low_variance": "false"
     },
     "coarse_dirt": {
         "texture": "coarse_dirt.png",
@@ -1239,7 +1292,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 53
+        "index": 53,
+        "low_variance": "false"
     },
     "cobbled_deepslate": {
         "texture": "cobbled_deepslate.png",
@@ -1262,7 +1316,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 54
+        "index": 54,
+        "low_variance": "false"
     },
     "cobblestone": {
         "texture": "cobblestone.png",
@@ -1285,7 +1340,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 55
+        "index": 55,
+        "low_variance": "false"
     },
     "copper_block": {
         "texture": "copper_block.png",
@@ -1308,7 +1364,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 56
+        "index": 56,
+        "low_variance": "false"
     },
     "copper_ore": {
         "texture": "copper_ore.png",
@@ -1331,7 +1388,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 57
+        "index": 57,
+        "low_variance": "false"
     },
     "cracked_deepslate_bricks": {
         "texture": "cracked_deepslate_bricks.png",
@@ -1354,7 +1412,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 58
+        "index": 58,
+        "low_variance": "false"
     },
     "cracked_deepslate_tiles": {
         "texture": "cracked_deepslate_tiles.png",
@@ -1377,7 +1436,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 59
+        "index": 59,
+        "low_variance": "false"
     },
     "cracked_nether_bricks": {
         "texture": "cracked_nether_bricks.png",
@@ -1400,7 +1460,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 60
+        "index": 60,
+        "low_variance": "false"
     },
     "cracked_polished_blackstone_bricks": {
         "texture": "cracked_polished_blackstone_bricks.png",
@@ -1423,7 +1484,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 61
+        "index": 61,
+        "low_variance": "false"
     },
     "cracked_stone_bricks": {
         "texture": "cracked_stone_bricks.png",
@@ -1446,7 +1508,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 62
+        "index": 62,
+        "low_variance": "false"
     },
     "crimson_hyphae": {
         "texture": "crimson_stem.png",
@@ -1469,7 +1532,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 63
+        "index": 63,
+        "low_variance": "false"
     },
     "crimson_planks": {
         "texture": "crimson_planks.png",
@@ -1492,7 +1556,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 64
+        "index": 64,
+        "low_variance": "false"
     },
     "crying_obsidian": {
         "texture": "crying_obsidian.png",
@@ -1515,7 +1580,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 65
+        "index": 65,
+        "low_variance": "false"
     },
     "cut_copper": {
         "texture": "cut_copper.png",
@@ -1538,7 +1604,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 66
+        "index": 66,
+        "low_variance": "false"
     },
     "cut_red_sandstone": {
         "texture": "cut_red_sandstone.png",
@@ -1561,7 +1628,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 67
+        "index": 67,
+        "low_variance": "false"
     },
     "cut_sandstone": {
         "texture": "cut_sandstone.png",
@@ -1584,7 +1652,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 68
+        "index": 68,
+        "low_variance": "false"
     },
     "cyan_concrete": {
         "texture": "cyan_concrete.png",
@@ -1607,7 +1676,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 69
+        "index": 69,
+        "low_variance": "true"
     },
     "cyan_concrete_powder": {
         "texture": "cyan_concrete_powder.png",
@@ -1630,7 +1700,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 70
+        "index": 70,
+        "low_variance": "true"
     },
     "cyan_glazed_terracotta": {
         "texture": "cyan_glazed_terracotta.png",
@@ -1653,7 +1724,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 71
+        "index": 71,
+        "low_variance": "false"
     },
     "cyan_stained_glass": {
         "texture": "cyan_stained_glass.png",
@@ -1676,7 +1748,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 72
+        "index": 72,
+        "low_variance": "true"
     },
     "cyan_terracotta": {
         "texture": "cyan_terracotta.png",
@@ -1699,7 +1772,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 73
+        "index": 73,
+        "low_variance": "true"
     },
     "cyan_wool": {
         "texture": "cyan_wool.png",
@@ -1722,7 +1796,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 74
+        "index": 74,
+        "low_variance": "true"
     },
     "dark_oak_planks": {
         "texture": "dark_oak_planks.png",
@@ -1745,7 +1820,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 75
+        "index": 75,
+        "low_variance": "true"
     },
     "dark_oak_wood": {
         "texture": "dark_oak_log.png",
@@ -1768,7 +1844,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 76
+        "index": 76,
+        "low_variance": "true"
     },
     "dark_prismarine": {
         "texture": "dark_prismarine.png",
@@ -1791,7 +1868,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 77
+        "index": 77,
+        "low_variance": "false"
     },
     "dead_brain_coral_block": {
         "texture": "dead_brain_coral_block.png",
@@ -1814,7 +1892,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 78
+        "index": 78,
+        "low_variance": "false"
     },
     "dead_bubble_coral_block": {
         "texture": "dead_bubble_coral_block.png",
@@ -1837,7 +1916,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 79
+        "index": 79,
+        "low_variance": "false"
     },
     "dead_fire_coral_block": {
         "texture": "dead_fire_coral_block.png",
@@ -1860,7 +1940,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 80
+        "index": 80,
+        "low_variance": "false"
     },
     "dead_horn_coral_block": {
         "texture": "dead_horn_coral_block.png",
@@ -1883,7 +1964,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 81
+        "index": 81,
+        "low_variance": "false"
     },
     "dead_tube_coral_block": {
         "texture": "dead_tube_coral_block.png",
@@ -1906,7 +1988,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 82
+        "index": 82,
+        "low_variance": "false"
     },
     "deepslate": {
         "texture": "deepslate.png",
@@ -1929,7 +2012,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 83
+        "index": 83,
+        "low_variance": "false"
     },
     "deepslate_bricks": {
         "texture": "deepslate_bricks.png",
@@ -1952,7 +2036,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 84
+        "index": 84,
+        "low_variance": "false"
     },
     "deepslate_coal_ore": {
         "texture": "deepslate_coal_ore.png",
@@ -1975,7 +2060,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 85
+        "index": 85,
+        "low_variance": "false"
     },
     "deepslate_copper_ore": {
         "texture": "deepslate_copper_ore.png",
@@ -1998,7 +2084,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 86
+        "index": 86,
+        "low_variance": "false"
     },
     "deepslate_diamond_ore": {
         "texture": "deepslate_diamond_ore.png",
@@ -2021,7 +2108,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 87
+        "index": 87,
+        "low_variance": "false"
     },
     "deepslate_emerald_ore": {
         "texture": "deepslate_emerald_ore.png",
@@ -2044,7 +2132,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 88
+        "index": 88,
+        "low_variance": "false"
     },
     "deepslate_gold_ore": {
         "texture": "deepslate_gold_ore.png",
@@ -2067,7 +2156,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 89
+        "index": 89,
+        "low_variance": "false"
     },
     "deepslate_iron_ore": {
         "texture": "deepslate_iron_ore.png",
@@ -2090,7 +2180,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 90
+        "index": 90,
+        "low_variance": "false"
     },
     "deepslate_lapis_ore": {
         "texture": "deepslate_lapis_ore.png",
@@ -2113,7 +2204,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 91
+        "index": 91,
+        "low_variance": "false"
     },
     "deepslate_redstone_ore": {
         "texture": "deepslate_redstone_ore.png",
@@ -2136,7 +2228,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "true",
-        "index": 92
+        "index": 92,
+        "low_variance": "false"
     },
     "deepslate_tiles": {
         "texture": "deepslate_tiles.png",
@@ -2159,7 +2252,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 93
+        "index": 93,
+        "low_variance": "false"
     },
     "diamond_block": {
         "texture": "diamond_block.png",
@@ -2182,7 +2276,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 94
+        "index": 94,
+        "low_variance": "false"
     },
     "diamond_ore": {
         "texture": "diamond_ore.png",
@@ -2205,7 +2300,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 95
+        "index": 95,
+        "low_variance": "false"
     },
     "diorite": {
         "texture": "diorite.png",
@@ -2228,7 +2324,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 96
+        "index": 96,
+        "low_variance": "false"
     },
     "dirt": {
         "texture": "dirt.png",
@@ -2251,7 +2348,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 97
+        "index": 97,
+        "low_variance": "false"
     },
     "dripstone_block": {
         "texture": "dripstone_block.png",
@@ -2274,7 +2372,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 98
+        "index": 98,
+        "low_variance": "false"
     },
     "emerald_block": {
         "texture": "emerald_block.png",
@@ -2297,7 +2396,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 99
+        "index": 99,
+        "low_variance": "false"
     },
     "emerald_ore": {
         "texture": "emerald_ore.png",
@@ -2320,7 +2420,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 100
+        "index": 100,
+        "low_variance": "false"
     },
     "end_stone": {
         "texture": "end_stone.png",
@@ -2343,7 +2444,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 101
+        "index": 101,
+        "low_variance": "false"
     },
     "end_stone_bricks": {
         "texture": "end_stone_bricks.png",
@@ -2366,7 +2468,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 102
+        "index": 102,
+        "low_variance": "false"
     },
     "exposed_copper": {
         "texture": "exposed_copper.png",
@@ -2389,7 +2492,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 103
+        "index": 103,
+        "low_variance": "false"
     },
     "exposed_cut_copper": {
         "texture": "exposed_cut_copper.png",
@@ -2412,7 +2516,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 104
+        "index": 104,
+        "low_variance": "false"
     },
     "fire_coral_block": {
         "texture": "fire_coral_block.png",
@@ -2435,7 +2540,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 105
+        "index": 105,
+        "low_variance": "false"
     },
     "flowering_azalea_leaves": {
         "texture": "flowering_azalea_leaves.png",
@@ -2458,7 +2564,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 106
+        "index": 106,
+        "low_variance": "false"
     },
     "gilded_blackstone": {
         "texture": "gilded_blackstone.png",
@@ -2481,7 +2588,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "true",
-        "index": 107
+        "index": 107,
+        "low_variance": "false"
     },
     "glass": {
         "texture": "glass.png",
@@ -2504,7 +2612,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 108
+        "index": 108,
+        "low_variance": "false"
     },
     "glowstone": {
         "texture": "glowstone.png",
@@ -2527,7 +2636,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 109
+        "index": 109,
+        "low_variance": "false"
     },
     "gold_block": {
         "texture": "gold_block.png",
@@ -2550,7 +2660,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 110
+        "index": 110,
+        "low_variance": "false"
     },
     "gold_ore": {
         "texture": "gold_ore.png",
@@ -2573,7 +2684,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 111
+        "index": 111,
+        "low_variance": "false"
     },
     "granite": {
         "texture": "granite.png",
@@ -2596,7 +2708,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 112
+        "index": 112,
+        "low_variance": "false"
     },
     "gravel": {
         "texture": "gravel.png",
@@ -2619,7 +2732,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 113
+        "index": 113,
+        "low_variance": "false"
     },
     "gray_concrete": {
         "texture": "gray_concrete.png",
@@ -2642,7 +2756,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 114
+        "index": 114,
+        "low_variance": "true"
     },
     "gray_concrete_powder": {
         "texture": "gray_concrete_powder.png",
@@ -2665,7 +2780,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 115
+        "index": 115,
+        "low_variance": "true"
     },
     "gray_glazed_terracotta": {
         "texture": "gray_glazed_terracotta.png",
@@ -2688,7 +2804,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 116
+        "index": 116,
+        "low_variance": "false"
     },
     "gray_stained_glass": {
         "texture": "gray_stained_glass.png",
@@ -2711,7 +2828,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 117
+        "index": 117,
+        "low_variance": "true"
     },
     "gray_terracotta": {
         "texture": "gray_terracotta.png",
@@ -2734,7 +2852,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 118
+        "index": 118,
+        "low_variance": "true"
     },
     "gray_wool": {
         "texture": "gray_wool.png",
@@ -2757,7 +2876,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 119
+        "index": 119,
+        "low_variance": "true"
     },
     "green_concrete": {
         "texture": "green_concrete.png",
@@ -2780,7 +2900,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 120
+        "index": 120,
+        "low_variance": "true"
     },
     "green_concrete_powder": {
         "texture": "green_concrete_powder.png",
@@ -2803,7 +2924,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 121
+        "index": 121,
+        "low_variance": "true"
     },
     "green_glazed_terracotta": {
         "texture": "green_glazed_terracotta.png",
@@ -2826,7 +2948,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 122
+        "index": 122,
+        "low_variance": "false"
     },
     "green_stained_glass": {
         "texture": "green_stained_glass.png",
@@ -2849,7 +2972,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 123
+        "index": 123,
+        "low_variance": "true"
     },
     "green_terracotta": {
         "texture": "green_terracotta.png",
@@ -2872,7 +2996,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 124
+        "index": 124,
+        "low_variance": "true"
     },
     "green_wool": {
         "texture": "green_wool.png",
@@ -2895,7 +3020,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 125
+        "index": 125,
+        "low_variance": "true"
     },
     "hay_block": {
         "texture": "hay_block_side.png",
@@ -2918,7 +3044,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 126
+        "index": 126,
+        "low_variance": "false"
     },
     "honeycomb_block": {
         "texture": "honeycomb_block.png",
@@ -2941,7 +3068,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 127
+        "index": 127,
+        "low_variance": "false"
     },
     "horn_coral_block": {
         "texture": "horn_coral_block.png",
@@ -2964,7 +3092,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 128
+        "index": 128,
+        "low_variance": "false"
     },
     "ice": {
         "texture": "ice.png",
@@ -2987,7 +3116,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 129
+        "index": 129,
+        "low_variance": "true"
     },
     "iron_block": {
         "texture": "iron_block.png",
@@ -3010,7 +3140,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 130
+        "index": 130,
+        "low_variance": "false"
     },
     "iron_ore": {
         "texture": "iron_ore.png",
@@ -3033,7 +3164,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 131
+        "index": 131,
+        "low_variance": "false"
     },
     "jungle_planks": {
         "texture": "jungle_planks.png",
@@ -3056,7 +3188,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 132
+        "index": 132,
+        "low_variance": "false"
     },
     "jungle_wood": {
         "texture": "jungle_log.png",
@@ -3079,7 +3212,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 133
+        "index": 133,
+        "low_variance": "false"
     },
     "lapis_block": {
         "texture": "lapis_block.png",
@@ -3102,7 +3236,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 134
+        "index": 134,
+        "low_variance": "true"
     },
     "lapis_ore": {
         "texture": "lapis_ore.png",
@@ -3125,7 +3260,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 135
+        "index": 135,
+        "low_variance": "false"
     },
     "light_blue_concrete": {
         "texture": "light_blue_concrete.png",
@@ -3148,7 +3284,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 136
+        "index": 136,
+        "low_variance": "true"
     },
     "light_blue_concrete_powder": {
         "texture": "light_blue_concrete_powder.png",
@@ -3171,7 +3308,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 137
+        "index": 137,
+        "low_variance": "true"
     },
     "light_blue_glazed_terracotta": {
         "texture": "light_blue_glazed_terracotta.png",
@@ -3194,7 +3332,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 138
+        "index": 138,
+        "low_variance": "false"
     },
     "light_blue_stained_glass": {
         "texture": "light_blue_stained_glass.png",
@@ -3217,7 +3356,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 139
+        "index": 139,
+        "low_variance": "true"
     },
     "light_blue_terracotta": {
         "texture": "light_blue_terracotta.png",
@@ -3240,7 +3380,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 140
+        "index": 140,
+        "low_variance": "true"
     },
     "light_blue_wool": {
         "texture": "light_blue_wool.png",
@@ -3263,7 +3404,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 141
+        "index": 141,
+        "low_variance": "false"
     },
     "light_gray_concrete": {
         "texture": "light_gray_concrete.png",
@@ -3286,7 +3428,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 142
+        "index": 142,
+        "low_variance": "true"
     },
     "light_gray_concrete_powder": {
         "texture": "light_gray_concrete_powder.png",
@@ -3309,7 +3452,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 143
+        "index": 143,
+        "low_variance": "true"
     },
     "light_gray_glazed_terracotta": {
         "texture": "light_gray_glazed_terracotta.png",
@@ -3332,7 +3476,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 144
+        "index": 144,
+        "low_variance": "false"
     },
     "light_gray_stained_glass": {
         "texture": "light_gray_stained_glass.png",
@@ -3355,7 +3500,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 145
+        "index": 145,
+        "low_variance": "true"
     },
     "light_gray_terracotta": {
         "texture": "light_gray_terracotta.png",
@@ -3378,7 +3524,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 146
+        "index": 146,
+        "low_variance": "true"
     },
     "light_gray_wool": {
         "texture": "light_gray_wool.png",
@@ -3401,7 +3548,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 147
+        "index": 147,
+        "low_variance": "true"
     },
     "lime_concrete": {
         "texture": "lime_concrete.png",
@@ -3424,7 +3572,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 148
+        "index": 148,
+        "low_variance": "true"
     },
     "lime_concrete_powder": {
         "texture": "lime_concrete_powder.png",
@@ -3447,7 +3596,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 149
+        "index": 149,
+        "low_variance": "true"
     },
     "lime_glazed_terracotta": {
         "texture": "lime_glazed_terracotta.png",
@@ -3470,7 +3620,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 150
+        "index": 150,
+        "low_variance": "false"
     },
     "lime_stained_glass": {
         "texture": "lime_stained_glass.png",
@@ -3493,7 +3644,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 151
+        "index": 151,
+        "low_variance": "true"
     },
     "lime_terracotta": {
         "texture": "lime_terracotta.png",
@@ -3516,7 +3668,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 152
+        "index": 152,
+        "low_variance": "true"
     },
     "lime_wool": {
         "texture": "lime_wool.png",
@@ -3539,7 +3692,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 153
+        "index": 153,
+        "low_variance": "true"
     },
     "lodestone": {
         "texture": "lodestone_side.png",
@@ -3562,7 +3716,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "true",
-        "index": 154
+        "index": 154,
+        "low_variance": "false"
     },
     "magenta_concrete": {
         "texture": "magenta_concrete.png",
@@ -3585,7 +3740,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 155
+        "index": 155,
+        "low_variance": "true"
     },
     "magenta_concrete_powder": {
         "texture": "magenta_concrete_powder.png",
@@ -3608,7 +3764,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 156
+        "index": 156,
+        "low_variance": "true"
     },
     "magenta_glazed_terracotta": {
         "texture": "magenta_glazed_terracotta.png",
@@ -3631,7 +3788,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 157
+        "index": 157,
+        "low_variance": "false"
     },
     "magenta_stained_glass": {
         "texture": "magenta_stained_glass.png",
@@ -3654,7 +3812,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 158
+        "index": 158,
+        "low_variance": "true"
     },
     "magenta_terracotta": {
         "texture": "magenta_terracotta.png",
@@ -3677,7 +3836,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 159
+        "index": 159,
+        "low_variance": "true"
     },
     "magenta_wool": {
         "texture": "magenta_wool.png",
@@ -3700,7 +3860,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 160
+        "index": 160,
+        "low_variance": "true"
     },
     "magma_block": {
         "texture": "magma.png",
@@ -3723,7 +3884,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 161
+        "index": 161,
+        "low_variance": "false"
     },
     "mangrove_planks": {
         "texture": "mangrove_planks.png",
@@ -3746,7 +3908,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 162
+        "index": 162,
+        "low_variance": "false"
     },
     "mangrove_wood": {
         "texture": "mangrove_log.png",
@@ -3769,7 +3932,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 163
+        "index": 163,
+        "low_variance": "true"
     },
     "melon": {
         "texture": "melon_side.png",
@@ -3792,7 +3956,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 164
+        "index": 164,
+        "low_variance": "false"
     },
     "mossy_cobblestone": {
         "texture": "mossy_cobblestone.png",
@@ -3815,7 +3980,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 165
+        "index": 165,
+        "low_variance": "false"
     },
     "mossy_stone_bricks": {
         "texture": "mossy_stone_bricks.png",
@@ -3838,7 +4004,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 166
+        "index": 166,
+        "low_variance": "false"
     },
     "moss_block": {
         "texture": "moss_block.png",
@@ -3861,7 +4028,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 167
+        "index": 167,
+        "low_variance": "false"
     },
     "mud": {
         "texture": "mud.png",
@@ -3884,7 +4052,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 168
+        "index": 168,
+        "low_variance": "true"
     },
     "muddy_mangrove_roots": {
         "texture": "muddy_mangrove_roots_side.png",
@@ -3907,7 +4076,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 169
+        "index": 169,
+        "low_variance": "true"
     },
     "mud_bricks": {
         "texture": "mud_bricks.png",
@@ -3930,7 +4100,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 170
+        "index": 170,
+        "low_variance": "false"
     },
     "mushroom_stem": {
         "texture": "mushroom_stem.png",
@@ -3953,7 +4124,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 171
+        "index": 171,
+        "low_variance": "true"
     },
     "netherite_block": {
         "texture": "netherite_block.png",
@@ -3976,7 +4148,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 172
+        "index": 172,
+        "low_variance": "false"
     },
     "netherrack": {
         "texture": "netherrack.png",
@@ -3999,7 +4172,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 173
+        "index": 173,
+        "low_variance": "false"
     },
     "nether_bricks": {
         "texture": "nether_bricks.png",
@@ -4022,7 +4196,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 174
+        "index": 174,
+        "low_variance": "true"
     },
     "nether_gold_ore": {
         "texture": "nether_gold_ore.png",
@@ -4045,7 +4220,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 175
+        "index": 175,
+        "low_variance": "false"
     },
     "nether_quartz_ore": {
         "texture": "nether_quartz_ore.png",
@@ -4068,7 +4244,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "true",
-        "index": 176
+        "index": 176,
+        "low_variance": "false"
     },
     "nether_wart_block": {
         "texture": "nether_wart_block.png",
@@ -4091,7 +4268,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 177
+        "index": 177,
+        "low_variance": "false"
     },
     "note_block": {
         "texture": "note_block.png",
@@ -4114,7 +4292,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 178
+        "index": 178,
+        "low_variance": "false"
     },
     "oak_planks": {
         "texture": "oak_planks.png",
@@ -4137,7 +4316,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 179
+        "index": 179,
+        "low_variance": "false"
     },
     "oak_wood": {
         "texture": "oak_log.png",
@@ -4160,7 +4340,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 180
+        "index": 180,
+        "low_variance": "false"
     },
     "obsidian": {
         "texture": "obsidian.png",
@@ -4183,7 +4364,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 181
+        "index": 181,
+        "low_variance": "false"
     },
     "ochre_froglight": {
         "texture": "ochre_froglight_side.png",
@@ -4206,7 +4388,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 182
+        "index": 182,
+        "low_variance": "false"
     },
     "orange_concrete": {
         "texture": "orange_concrete.png",
@@ -4229,7 +4412,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 183
+        "index": 183,
+        "low_variance": "true"
     },
     "orange_concrete_powder": {
         "texture": "orange_concrete_powder.png",
@@ -4252,7 +4436,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 184
+        "index": 184,
+        "low_variance": "true"
     },
     "orange_glazed_terracotta": {
         "texture": "orange_glazed_terracotta.png",
@@ -4275,7 +4460,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 185
+        "index": 185,
+        "low_variance": "false"
     },
     "orange_stained_glass": {
         "texture": "orange_stained_glass.png",
@@ -4298,7 +4484,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 186
+        "index": 186,
+        "low_variance": "true"
     },
     "orange_terracotta": {
         "texture": "orange_terracotta.png",
@@ -4321,7 +4508,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 187
+        "index": 187,
+        "low_variance": "true"
     },
     "orange_wool": {
         "texture": "orange_wool.png",
@@ -4344,7 +4532,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 188
+        "index": 188,
+        "low_variance": "true"
     },
     "oxidized_copper": {
         "texture": "oxidized_copper.png",
@@ -4367,7 +4556,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 189
+        "index": 189,
+        "low_variance": "false"
     },
     "oxidized_cut_copper": {
         "texture": "oxidized_cut_copper.png",
@@ -4390,7 +4580,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 190
+        "index": 190,
+        "low_variance": "false"
     },
     "packed_ice": {
         "texture": "packed_ice.png",
@@ -4413,7 +4604,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 191
+        "index": 191,
+        "low_variance": "false"
     },
     "packed_mud": {
         "texture": "packed_mud.png",
@@ -4436,7 +4628,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 192
+        "index": 192,
+        "low_variance": "true"
     },
     "pearlescent_froglight": {
         "texture": "pearlescent_froglight_side.png",
@@ -4459,7 +4652,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 193
+        "index": 193,
+        "low_variance": "false"
     },
     "pink_concrete": {
         "texture": "pink_concrete.png",
@@ -4482,7 +4676,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 194
+        "index": 194,
+        "low_variance": "true"
     },
     "pink_concrete_powder": {
         "texture": "pink_concrete_powder.png",
@@ -4505,7 +4700,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 195
+        "index": 195,
+        "low_variance": "false"
     },
     "pink_glazed_terracotta": {
         "texture": "pink_glazed_terracotta.png",
@@ -4528,7 +4724,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 196
+        "index": 196,
+        "low_variance": "false"
     },
     "pink_stained_glass": {
         "texture": "pink_stained_glass.png",
@@ -4551,7 +4748,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 197
+        "index": 197,
+        "low_variance": "true"
     },
     "pink_terracotta": {
         "texture": "pink_terracotta.png",
@@ -4574,7 +4772,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 198
+        "index": 198,
+        "low_variance": "true"
     },
     "pink_wool": {
         "texture": "pink_wool.png",
@@ -4597,7 +4796,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 199
+        "index": 199,
+        "low_variance": "false"
     },
     "polished_andesite": {
         "texture": "polished_andesite.png",
@@ -4620,7 +4820,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 200
+        "index": 200,
+        "low_variance": "false"
     },
     "polished_basalt": {
         "texture": "polished_basalt_side.png",
@@ -4643,7 +4844,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 201
+        "index": 201,
+        "low_variance": "false"
     },
     "polished_blackstone": {
         "texture": "polished_blackstone.png",
@@ -4666,7 +4868,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 202
+        "index": 202,
+        "low_variance": "false"
     },
     "polished_blackstone_bricks": {
         "texture": "polished_blackstone_bricks.png",
@@ -4689,7 +4892,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 203
+        "index": 203,
+        "low_variance": "false"
     },
     "polished_deepslate": {
         "texture": "polished_deepslate.png",
@@ -4712,7 +4916,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 204
+        "index": 204,
+        "low_variance": "false"
     },
     "polished_diorite": {
         "texture": "polished_diorite.png",
@@ -4735,7 +4940,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 205
+        "index": 205,
+        "low_variance": "false"
     },
     "polished_granite": {
         "texture": "polished_granite.png",
@@ -4758,7 +4964,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 206
+        "index": 206,
+        "low_variance": "false"
     },
     "prismarine": {
         "texture": "prismarine.png",
@@ -4781,7 +4988,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 207
+        "index": 207,
+        "low_variance": "false"
     },
     "prismarine_bricks": {
         "texture": "prismarine_bricks.png",
@@ -4804,7 +5012,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 208
+        "index": 208,
+        "low_variance": "false"
     },
     "purple_concrete": {
         "texture": "purple_concrete.png",
@@ -4827,7 +5036,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 209
+        "index": 209,
+        "low_variance": "true"
     },
     "purple_concrete_powder": {
         "texture": "purple_concrete_powder.png",
@@ -4850,7 +5060,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 210
+        "index": 210,
+        "low_variance": "true"
     },
     "purple_glazed_terracotta": {
         "texture": "purple_glazed_terracotta.png",
@@ -4873,7 +5084,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 211
+        "index": 211,
+        "low_variance": "false"
     },
     "purple_stained_glass": {
         "texture": "purple_stained_glass.png",
@@ -4896,7 +5108,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 212
+        "index": 212,
+        "low_variance": "true"
     },
     "purple_terracotta": {
         "texture": "purple_terracotta.png",
@@ -4919,7 +5132,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 213
+        "index": 213,
+        "low_variance": "true"
     },
     "purple_wool": {
         "texture": "purple_wool.png",
@@ -4942,7 +5156,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 214
+        "index": 214,
+        "low_variance": "true"
     },
     "purpur_block": {
         "texture": "purpur_block.png",
@@ -4965,7 +5180,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 215
+        "index": 215,
+        "low_variance": "false"
     },
     "purpur_pillar": {
         "texture": "purpur_pillar.png",
@@ -4988,7 +5204,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 216
+        "index": 216,
+        "low_variance": "false"
     },
     "quartz_block": {
         "texture": "quartz_block_side.png",
@@ -5011,7 +5228,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 217
+        "index": 217,
+        "low_variance": "true"
     },
     "quartz_bricks": {
         "texture": "quartz_bricks.png",
@@ -5034,7 +5252,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 218
+        "index": 218,
+        "low_variance": "true"
     },
     "quartz_pillar": {
         "texture": "quartz_pillar.png",
@@ -5057,7 +5276,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 219
+        "index": 219,
+        "low_variance": "true"
     },
     "raw_copper_block": {
         "texture": "raw_copper_block.png",
@@ -5080,7 +5300,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 220
+        "index": 220,
+        "low_variance": "false"
     },
     "raw_gold_block": {
         "texture": "raw_gold_block.png",
@@ -5103,7 +5324,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 221
+        "index": 221,
+        "low_variance": "false"
     },
     "raw_iron_block": {
         "texture": "raw_iron_block.png",
@@ -5126,7 +5348,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 222
+        "index": 222,
+        "low_variance": "false"
     },
     "redstone_block": {
         "texture": "redstone_block.png",
@@ -5149,7 +5372,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 223
+        "index": 223,
+        "low_variance": "false"
     },
     "redstone_lamp": {
         "texture": "redstone_lamp.png",
@@ -5172,7 +5396,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 224
+        "index": 224,
+        "low_variance": "false"
     },
     "redstone_ore": {
         "texture": "redstone_ore.png",
@@ -5195,7 +5420,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "true",
-        "index": 225
+        "index": 225,
+        "low_variance": "false"
     },
     "red_concrete": {
         "texture": "red_concrete.png",
@@ -5218,7 +5444,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 226
+        "index": 226,
+        "low_variance": "true"
     },
     "red_concrete_powder": {
         "texture": "red_concrete_powder.png",
@@ -5241,7 +5468,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 227
+        "index": 227,
+        "low_variance": "true"
     },
     "red_glazed_terracotta": {
         "texture": "red_glazed_terracotta.png",
@@ -5264,7 +5492,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 228
+        "index": 228,
+        "low_variance": "false"
     },
     "red_mushroom_block": {
         "texture": "red_mushroom_block.png",
@@ -5287,7 +5516,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 229
+        "index": 229,
+        "low_variance": "false"
     },
     "red_nether_bricks": {
         "texture": "red_nether_bricks.png",
@@ -5310,7 +5540,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 230
+        "index": 230,
+        "low_variance": "false"
     },
     "red_sand": {
         "texture": "red_sand.png",
@@ -5333,7 +5564,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 231
+        "index": 231,
+        "low_variance": "true"
     },
     "red_stained_glass": {
         "texture": "red_stained_glass.png",
@@ -5356,7 +5588,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 232
+        "index": 232,
+        "low_variance": "true"
     },
     "red_terracotta": {
         "texture": "red_terracotta.png",
@@ -5379,7 +5612,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 233
+        "index": 233,
+        "low_variance": "true"
     },
     "red_wool": {
         "texture": "red_wool.png",
@@ -5402,7 +5636,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 234
+        "index": 234,
+        "low_variance": "true"
     },
     "rooted_dirt": {
         "texture": "rooted_dirt.png",
@@ -5425,7 +5660,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 235
+        "index": 235,
+        "low_variance": "false"
     },
     "sand": {
         "texture": "sand.png",
@@ -5448,7 +5684,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 236
+        "index": 236,
+        "low_variance": "true"
     },
     "sculk": {
         "texture": "sculk.png",
@@ -5471,7 +5708,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 237
+        "index": 237,
+        "low_variance": "false"
     },
     "sea_lantern": {
         "texture": "sea_lantern.png",
@@ -5494,7 +5732,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 238
+        "index": 238,
+        "low_variance": "false"
     },
     "shroomlight": {
         "texture": "shroomlight.png",
@@ -5517,7 +5756,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 239
+        "index": 239,
+        "low_variance": "false"
     },
     "smooth_basalt": {
         "texture": "smooth_basalt.png",
@@ -5540,7 +5780,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 240
+        "index": 240,
+        "low_variance": "false"
     },
     "smooth_quartz": {
         "texture": "quartz_block_bottom.png",
@@ -5563,7 +5804,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 241
+        "index": 241,
+        "low_variance": "true"
     },
     "smooth_red_sandstone": {
         "texture": "red_sandstone_top.png",
@@ -5586,7 +5828,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 242
+        "index": 242,
+        "low_variance": "true"
     },
     "smooth_sandstone": {
         "texture": "sandstone_top.png",
@@ -5609,7 +5852,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 243
+        "index": 243,
+        "low_variance": "true"
     },
     "smooth_stone": {
         "texture": "smooth_stone.png",
@@ -5632,7 +5876,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 244
+        "index": 244,
+        "low_variance": "false"
     },
     "snow_block": {
         "texture": "snow.png",
@@ -5655,7 +5900,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 245
+        "index": 245,
+        "low_variance": "true"
     },
     "soul_sand": {
         "texture": "soul_sand.png",
@@ -5678,7 +5924,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 246
+        "index": 246,
+        "low_variance": "false"
     },
     "soul_soil": {
         "texture": "soul_soil.png",
@@ -5701,7 +5948,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 247
+        "index": 247,
+        "low_variance": "false"
     },
     "spawner": {
         "texture": "spawner.png",
@@ -5724,7 +5972,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 248
+        "index": 248,
+        "low_variance": "false"
     },
     "sponge": {
         "texture": "sponge.png",
@@ -5747,7 +5996,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 249
+        "index": 249,
+        "low_variance": "false"
     },
     "spruce_planks": {
         "texture": "spruce_planks.png",
@@ -5770,7 +6020,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 250
+        "index": 250,
+        "low_variance": "false"
     },
     "spruce_wood": {
         "texture": "spruce_log.png",
@@ -5793,7 +6044,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 251
+        "index": 251,
+        "low_variance": "true"
     },
     "stone": {
         "texture": "stone.png",
@@ -5816,7 +6068,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 252
+        "index": 252,
+        "low_variance": "true"
     },
     "stone_bricks": {
         "texture": "stone_bricks.png",
@@ -5839,7 +6092,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 253
+        "index": 253,
+        "low_variance": "false"
     },
     "stripped_acacia_wood": {
         "texture": "stripped_acacia_log.png",
@@ -5862,7 +6116,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 254
+        "index": 254,
+        "low_variance": "true"
     },
     "stripped_bamboo_block": {
         "texture": "stripped_bamboo_block.png",
@@ -5885,7 +6140,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 255
+        "index": 255,
+        "low_variance": "false"
     },
     "stripped_birch_wood": {
         "texture": "stripped_birch_log.png",
@@ -5908,7 +6164,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 256
+        "index": 256,
+        "low_variance": "true"
     },
     "stripped_cherry_wood": {
         "texture": "stripped_cherry_log.png",
@@ -5931,7 +6188,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 257
+        "index": 257,
+        "low_variance": "true"
     },
     "stripped_crimson_hyphae": {
         "texture": "stripped_crimson_stem.png",
@@ -5954,7 +6212,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 258
+        "index": 258,
+        "low_variance": "true"
     },
     "stripped_dark_oak_wood": {
         "texture": "stripped_dark_oak_log.png",
@@ -5977,7 +6236,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 259
+        "index": 259,
+        "low_variance": "true"
     },
     "stripped_jungle_wood": {
         "texture": "stripped_jungle_log.png",
@@ -6000,7 +6260,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 260
+        "index": 260,
+        "low_variance": "true"
     },
     "stripped_mangrove_wood": {
         "texture": "stripped_mangrove_log.png",
@@ -6023,7 +6284,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 261
+        "index": 261,
+        "low_variance": "true"
     },
     "stripped_oak_wood": {
         "texture": "stripped_oak_log.png",
@@ -6046,7 +6308,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 262
+        "index": 262,
+        "low_variance": "true"
     },
     "stripped_spruce_wood": {
         "texture": "stripped_spruce_log.png",
@@ -6069,7 +6332,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 263
+        "index": 263,
+        "low_variance": "true"
     },
     "stripped_warped_hyphae": {
         "texture": "stripped_warped_stem.png",
@@ -6092,7 +6356,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 264
+        "index": 264,
+        "low_variance": "true"
     },
     "structure_block": {
         "texture": "structure_block.png",
@@ -6115,7 +6380,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 265
+        "index": 265,
+        "low_variance": "false"
     },
     "target": {
         "texture": "target_side.png",
@@ -6138,7 +6404,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 266
+        "index": 266,
+        "low_variance": "false"
     },
     "terracotta": {
         "texture": "terracotta.png",
@@ -6161,7 +6428,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 267
+        "index": 267,
+        "low_variance": "true"
     },
     "tinted_glass": {
         "texture": "tinted_glass.png",
@@ -6184,7 +6452,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 268
+        "index": 268,
+        "low_variance": "true"
     },
     "tube_coral_block": {
         "texture": "tube_coral_block.png",
@@ -6207,7 +6476,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 269
+        "index": 269,
+        "low_variance": "false"
     },
     "tuff": {
         "texture": "tuff.png",
@@ -6230,7 +6500,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 270
+        "index": 270,
+        "low_variance": "false"
     },
     "verdant_froglight": {
         "texture": "verdant_froglight_side.png",
@@ -6253,7 +6524,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 271
+        "index": 271,
+        "low_variance": "false"
     },
     "warped_hyphae": {
         "texture": "warped_stem.png",
@@ -6276,7 +6548,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 272
+        "index": 272,
+        "low_variance": "false"
     },
     "warped_planks": {
         "texture": "warped_planks.png",
@@ -6299,7 +6572,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 273
+        "index": 273,
+        "low_variance": "false"
     },
     "warped_wart_block": {
         "texture": "warped_wart_block.png",
@@ -6322,7 +6596,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 274
+        "index": 274,
+        "low_variance": "false"
     },
     "weathered_copper": {
         "texture": "weathered_copper.png",
@@ -6345,7 +6620,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 275
+        "index": 275,
+        "low_variance": "false"
     },
     "weathered_cut_copper": {
         "texture": "weathered_cut_copper.png",
@@ -6368,7 +6644,8 @@
         "stone": "true",
         "any": "true",
         "expensive": "false",
-        "index": 276
+        "index": 276,
+        "low_variance": "false"
     },
     "wet_sponge": {
         "texture": "wet_sponge.png",
@@ -6391,7 +6668,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "true",
-        "index": 277
+        "index": 277,
+        "low_variance": "false"
     },
     "white_concrete": {
         "texture": "white_concrete.png",
@@ -6414,7 +6692,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 278
+        "index": 278,
+        "low_variance": "true"
     },
     "white_concrete_powder": {
         "texture": "white_concrete_powder.png",
@@ -6437,7 +6716,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 279
+        "index": 279,
+        "low_variance": "true"
     },
     "white_glazed_terracotta": {
         "texture": "white_glazed_terracotta.png",
@@ -6460,7 +6740,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 280
+        "index": 280,
+        "low_variance": "false"
     },
     "white_stained_glass": {
         "texture": "white_stained_glass.png",
@@ -6483,7 +6764,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 281
+        "index": 281,
+        "low_variance": "true"
     },
     "white_terracotta": {
         "texture": "white_terracotta.png",
@@ -6506,7 +6788,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 282
+        "index": 282,
+        "low_variance": "true"
     },
     "white_wool": {
         "texture": "white_wool.png",
@@ -6529,7 +6812,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 283
+        "index": 283,
+        "low_variance": "true"
     },
     "yellow_concrete": {
         "texture": "yellow_concrete.png",
@@ -6552,7 +6836,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 284
+        "index": 284,
+        "low_variance": "true"
     },
     "yellow_concrete_powder": {
         "texture": "yellow_concrete_powder.png",
@@ -6575,7 +6860,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 285
+        "index": 285,
+        "low_variance": "false"
     },
     "yellow_glazed_terracotta": {
         "texture": "yellow_glazed_terracotta.png",
@@ -6598,7 +6884,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 286
+        "index": 286,
+        "low_variance": "false"
     },
     "yellow_stained_glass": {
         "texture": "yellow_stained_glass.png",
@@ -6621,7 +6908,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 287
+        "index": 287,
+        "low_variance": "true"
     },
     "yellow_terracotta": {
         "texture": "yellow_terracotta.png",
@@ -6644,7 +6932,8 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 288
+        "index": 288,
+        "low_variance": "true"
     },
     "yellow_wool": {
         "texture": "yellow_wool.png",
@@ -6667,6 +6956,7 @@
         "stone": "false",
         "any": "true",
         "expensive": "false",
-        "index": 289
+        "index": 289,
+        "low_variance": "true"
     }
 }

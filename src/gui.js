@@ -116,6 +116,78 @@ function saturation_updateNumber() {
     applyProcessing();
 }
 
+var highlights_slider = document.querySelector('#highlights-slider');
+var highlights_number = document.querySelector('#highlights-number');
+highlights_slider.addEventListener("input", highlights_updateSlider);
+function highlights_updateSlider() {
+    //copying the slider values to the numbers
+    highlights_number.value = highlights_slider.value;
+    applyProcessing();
+}
+highlights_number.addEventListener("change", highlights_updateNumber);
+function highlights_updateNumber() {
+    //change the user text to a number
+    highlights_number.value = parseInt(highlights_number.value) || 0;
+    highlights_number.value = Math.min(highlights_number.max, Math.max(highlights_number.min, highlights_number.value));
+    //copying the number values to the slider
+    highlights_slider.value = highlights_number.value;
+    applyProcessing();
+}
+
+var shadows_slider = document.querySelector('#shadows-slider');
+var shadows_number = document.querySelector('#shadows-number');
+shadows_slider.addEventListener("input", shadows_updateSlider);
+function shadows_updateSlider() {
+    //copying the slider values to the numbers
+    shadows_number.value = shadows_slider.value;
+    applyProcessing();
+}
+shadows_number.addEventListener("change", shadows_updateNumber);
+function shadows_updateNumber() {
+    //change the user text to a number
+    shadows_number.value = parseInt(shadows_number.value) || 0;
+    shadows_number.value = Math.min(shadows_number.max, Math.max(shadows_number.min, shadows_number.value));
+    //copying the number values to the slider
+    shadows_slider.value = shadows_number.value;
+    applyProcessing();
+}
+
+var temperature_slider = document.querySelector('#temperature-slider');
+var temperature_number = document.querySelector('#temperature-number');
+temperature_slider.addEventListener("input", temperature_updateSlider);
+function temperature_updateSlider() {
+    //copying the slider values to the numbers
+    temperature_number.value = temperature_slider.value;
+    applyProcessing();
+}
+temperature_number.addEventListener("change", temperature_updateNumber);
+function temperature_updateNumber() {
+    //change the user text to a number
+    temperature_number.value = parseInt(temperature_number.value) || 0;
+    temperature_number.value = Math.min(temperature_number.max, Math.max(temperature_number.min, temperature_number.value));
+    //copying the number values to the slider
+    temperature_slider.value = temperature_number.value;
+    applyProcessing();
+}
+
+var tint_slider = document.querySelector('#tint-slider');
+var tint_number = document.querySelector('#tint-number');
+tint_slider.addEventListener("input", tint_updateSlider);
+function tint_updateSlider() {
+    //copying the slider values to the numbers
+    tint_number.value = tint_slider.value;
+    applyProcessing();
+}
+tint_number.addEventListener("change", tint_updateNumber);
+function tint_updateNumber() {
+    //change the user text to a number
+    tint_number.value = parseInt(tint_number.value) || 0;
+    tint_number.value = Math.min(tint_number.max, Math.max(tint_number.min, tint_number.value));
+    //copying the number values to the slider
+    tint_slider.value = tint_number.value;
+    applyProcessing();
+}
+
 // var preprocessing_checkbox = document.querySelector('#preprocessing-checkbox');
 // preprocessing_checkbox.addEventListener("change", preprocessing_update);
 // function preprocessing_update() {
@@ -290,3 +362,25 @@ function variance_adjustHighlighting() {
 }
 variance_updateMaxSlider();
 variance_updateMinSlider();
+
+const resetSVG = document.querySelector('.refresh-button');
+resetSVG.addEventListener("click", reset);
+
+function reset() {
+    brightness_slider.value = 0;
+    brightness_number.value = 0;
+    contrast_slider.value = 0;
+    contrast_number.value = 0;
+    saturation_slider.value = 0;
+    saturation_number.value = 0;
+    highlights_slider.value = 0;
+    highlights_number.value = 0;
+    shadows_slider.value = 0;
+    shadows_number.value = 0;
+    temperature_slider.value = 0;
+    temperature_number.value = 0;
+    tint_slider.value = 0;
+    tint_number.value = 0;
+    discretize_checkbox.checked = true;
+    applyProcessing();
+}

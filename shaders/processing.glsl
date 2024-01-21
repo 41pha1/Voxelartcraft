@@ -7,6 +7,10 @@ uniform float u_paletteSize;
 uniform float u_brightness;
 uniform float u_contrast;
 uniform float u_saturation;
+uniform float u_highlights;
+uniform float u_shadows;
+uniform float u_temperature;
+uniform float u_tint;
 
 varying vec2 v_texcoord;
 
@@ -35,25 +39,48 @@ void main() {
         gl_FragColor = vec4(col.rgb, 1.0);
         discard;
     }
-    
-    float contrast = u_contrast;
+
+    float lumR = 0.299;
+    float lumG = 0.587;
+    float lumB = 0.114;
+
+    float luminance = sqrt( lumR*pow(col.r,2.0) + lumG*pow(col.g,2.0) + lumB*pow(col.b,2.0));
+
+    float h = u_highlights * 0.05 * ( pow(8.0, luminance) - 1.0 );
+    float s = u_shadows * 0.05 * ( pow(8.0, 1.0 - luminance) - 1.0 );
+    float b = u_brightness * 0.5;
+
+    col = vec4( col.rgb + h + s + b, col.a );
+
+    // temperature and tint
+    float temp = u_temperature * 0.3;
+    float tint = u_tint * 0.3;
+
+    col = vec4(
+        col.r + temp,
+        col.g + tint,
+        col.b - temp,
+        col.a
+    );
+
+    float contrast = u_contrast * 0.5;
     float saturation = u_saturation;
+
     if(contrast > 0.0)
         contrast = 1.0 / (1.0 - contrast);
     else
         contrast = (1.0 + contrast);
 
     if(saturation > 0.0)
-        saturation = 1.0 / (1.0 - saturation);
+        saturation = 1.0 / (1.0 - saturation * 0.75);
     else
         saturation = (1.0 + saturation);
-    
 
     col.rgb = rgb2hsv(col.rgb);
     col.y = clamp(col.y * saturation, 0., 1.);
     col.rgb = hsv2rgb(col.rgb);
 
-    col.rgb = (col.rgb - 0.5) * contrast + u_brightness + 0.5;
+    col.rgb = mix(vec3(0.5), col.rgb, contrast); // (col.rgb - 0.5) * contrast + 0.5;
 
     gl_FragColor = vec4(col);
 }
