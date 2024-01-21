@@ -285,7 +285,7 @@ canvas {
 .palette-header {
     display: flex;
     flex-direction: row;
-    width: 100%;	
+    width: 100%;
 }
 
 .categories {
@@ -343,8 +343,7 @@ canvas {
     border: 6px transparent solid;
 }
 
-.blockCounter
-{
+.blockCounter {
     margin: 2px;
     text-align: center;
 }
@@ -354,12 +353,12 @@ canvas {
     border-radius: 0.5em;
 }
 
-.activeMaterial .blockSelectorCheckbox:checked+.blockSelectorLabel{
+.activeMaterial .blockSelectorCheckbox:checked+.blockSelectorLabel {
     border: 6px solid var(--secondary) !important;
     border-radius: 0.5em;
 }
 
-.activeMaterial .blockCounter{
+.activeMaterial .blockCounter {
     display: block !important;
 }
 
@@ -382,6 +381,7 @@ canvas {
 th {
     text-align: left;
 }
+
 /* svg refresh button */
 .refresh-button {
     width: 25px;
@@ -392,4 +392,19 @@ th {
 
     float: right;
     transition: fill 0.2s;
+}
+
+/*th[title]:hover {
+    font-size: 30px;
+}*/
+
+b[tooltip]:hover:after {
+    content: attr(tooltip);
+    position: fixed;
+    overflow: hidden;
+    z-index: 100;
+    border: 3px solid var(--div2);
+    border-radius: 1em;
+    background-color: var(--div);
+    font-size: 30px;
 }
