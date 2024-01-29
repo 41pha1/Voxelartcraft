@@ -814,16 +814,15 @@ export { voxelConvert, updateTargetImage, updatePalette, applyProcessing, downlo
 //TODO:
 // FEATURES:
 // - Custom variance function
-// - Fix jagged outlines caused by minVisibility
-// - Custom max depth cutoff metric
-// - Pixel art mode
 
 // DESIGN:
 // - Add progress bar
 // - Fix chrome sliders
 // - Add tooltips
-// - Better gui presets
 // - Fix preview image scaling
+// - Example image with instructions
+// - Show credits and github link
+// - Magnify mode for preview (maginify glass)
 
 // PUBLICATION:
 // - Show case youtube video
