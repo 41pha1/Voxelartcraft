@@ -655,8 +655,8 @@ function setupFramebuffer(type = gl.FLOAT) {
 function loadSettingsFromUI() {
     minDepth = parseFloat(document.querySelector('#depth-min-number').value);
     maxDepth = parseFloat(document.querySelector('#depth-max-number').value);
-    startVariance = parseFloat(document.querySelector('#variance-min-number').value);
-    endVariance = parseFloat(document.querySelector('#variance-max-number').value);
+    startVariance = 10.0;
+    endVariance = parseFloat(document.querySelector('#variance-number').value);
     fov = parseFloat(document.querySelector('#fov-number').value);
     pitch = parseFloat(document.querySelector('#pitch-number').value);
     yaw = parseFloat(document.querySelector('#yaw-number').value);
@@ -848,10 +848,17 @@ export { voxelConvert, updateTargetImage, updatePalette, applyProcessing, downlo
 // - Custom variance function
 
 // DESIGN:
-// - Fix chrome sliders
 // - Add tooltips
 // - Example image with instructions
 // - Show credits and github link
+// - Custom names for property buttons
+// - Adjust used block indicator color
+
+// BUGS:
+// - Fix example image bugs and image disappearing when clicking the upload button
+// - Fix undeterministic voxelization
+// - Unexpected behavior when setting min depth equal to max depth
+// - depth input uses manhattan distance instead of euclidean distance
 
 // PUBLICATION:
 // - Show case youtube video
@@ -862,3 +869,5 @@ export { voxelConvert, updateTargetImage, updatePalette, applyProcessing, downlo
 // - Add crosshair to preview
 // - count placed pixels to terminate early
 // - Mobile support
+// - Block minecraft version
+// - Eastereggs

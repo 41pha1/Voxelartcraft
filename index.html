@@ -9,7 +9,7 @@
   <script src="src/script.js" type="module"></script>
   <script src="src/schematic.js" type="module"></script>
   <script src="src/gui.js" type="module"></script>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style/style.css">
 </head>
 
 <body>
@@ -63,18 +63,28 @@
                 <tr>
                   <th><b>Resolution:</b> </th>
                   <td>
-                    <div class="range-solo">
-                      <input id="resolution-slider" type="range" min="6" max="11" value="9" step="0.5">
+                    <div class="slider">
+                      <div class="range-highlight">
+                        <span class="range-progress" ></span>
+                      </div>
+                      <div class="range-input">
+                        <input id="resolution-slider" type="range" min="7" max="11" value="9" step="0.5">
+                      </div>
                     </div>
                   </td>
-                  <td><input id="resolution-number" class="number-input" type="number" min="64" max="2048" step="1"
+                  <td><input id="resolution-number" class="number-input" type="number" min="128" max="2048" step="1"
                       value="512"></td>
                 </tr>
                 <tr>
                   <th><b>Brightness:</b> </th>
                   <td>
-                    <div class="range-solo">
-                      <input id="brightness-slider" type="range" min="-100" max="100" value="0">
+                    <div class="slider">
+                      <div class="range-highlight">
+                        <span class="range-progress" ></span>
+                      </div>
+                      <div class="range-input">
+                        <input id="brightness-slider" type="range" min="-100" max="100" value="0">
+                      </div>
                     </div>
                   </td>
                   <td><input id="brightness-number" class="number-input" type="number" min="-100" max="100" step="1"
@@ -83,8 +93,13 @@
                 <tr>
                   <th><b>Highlights:</b> </th>
                   <td>
-                    <div class="range-solo">
-                      <input id="highlights-slider" type="range" min="-100" max="100" value="0">
+                    <div class="slider">
+                      <div class="range-highlight">
+                        <span class="range-progress" ></span>
+                      </div>
+                      <div class="range-input">
+                        <input id="highlights-slider" type="range" min="-100" max="100" value="0">
+                      </div>
                     </div>
                   </td>
                   <td><input id="highlights-number" class="number-input" type="number" min="-100" max="100" step="1"
@@ -93,8 +108,13 @@
                 <tr>
                   <th><b>Shadows:</b> </th>
                   <td>
-                    <div class="range-solo">
-                      <input id="shadows-slider" type="range" min="-100" max="100" value="0">
+                    <div class="slider">
+                      <div class="range-highlight">
+                        <span class="range-progress" ></span>
+                      </div>
+                      <div class="range-input">
+                        <input id="shadows-slider" type="range" min="-100" max="100" value="0">
+                      </div>
                     </div>
                   </td>
                   <td><input id="shadows-number" class="number-input" type="number" min="-100" max="100" step="1"
@@ -103,8 +123,13 @@
                 <tr>
                   <th><b>Contrast:</b> </th>
                   <td>
-                    <div class="range-solo">
-                      <input id="contrast-slider" type="range" min="-100" max="100" value="0">
+                    <div class="slider">
+                      <div class="range-highlight">
+                        <span class="range-progress" ></span>
+                      </div>
+                      <div class="range-input">
+                        <input id="contrast-slider" type="range" min="-100" max="100" value="0">
+                      </div>
                     </div>
                   </td>
                   <td><input id="contrast-number" class="number-input" type="number" min="-100" max="100" step="1"
@@ -114,8 +139,13 @@
                 <tr>
                   <th><b>Saturation:</b> </th>
                   <td>
-                    <div class="range-solo">
-                      <input id="saturation-slider" type="range" min="-100" max="100" value="0">
+                    <div class="slider">
+                      <div class="range-highlight">
+                        <span class="range-progress" ></span>
+                      </div>
+                      <div class="range-input">
+                        <input id="saturation-slider" type="range" min="-100" max="100" value="0">
+                      </div>
                     </div>
                   </td>
                   <td><input id="saturation-number" class="number-input" type="number" min="-100" max="100" step="1"
@@ -124,8 +154,13 @@
                 <tr>
                   <th><b>Temperature:</b> </th>
                   <td>
-                    <div class="range-solo">
-                      <input id="temperature-slider" type="range" min="-100" max="100" value="0">
+                    <div class="slider">
+                      <div class="range-highlight">
+                        <span class="range-progress" ></span>
+                      </div>
+                      <div class="range-input">
+                        <input id="temperature-slider" type="range" min="-100" max="100" value="0">
+                      </div>
                     </div>
                   </td>
                   <td><input id="temperature-number" class="number-input" type="number" min="-100" max="100" step="1"
@@ -134,8 +169,13 @@
                 <tr>
                   <th><b>Tint:</b> </th>
                   <td>
-                    <div class="range-solo">
-                      <input id="tint-slider" type="range" min="-100" max="100" value="0">
+                    <div class="slider">
+                      <div class="range-highlight">
+                        <span class="range-progress" ></span>
+                      </div>
+                      <div class="range-input">
+                        <input id="tint-slider" type="range" min="-100" max="100" value="0">
+                      </div>
                     </div>
                   </td>
                   <td><input id="tint-number" class="number-input" type="number" min="-100" max="100" step="1"
@@ -157,8 +197,13 @@
                 <tr>
                   <th><b tooltip="Field of View">FOV:</b></th>
                   <td>
-                    <div class="range-solo">
-                      <input id="fov-slider" type="range" min="10" max="120" value="60">
+                    <div class="slider">
+                      <div class="range-highlight">
+                        <span class="range-progress" ></span>
+                      </div>
+                      <div class="range-input">
+                        <input id="fov-slider" type="range" min="10" max="120" value="60">
+                      </div>
                     </div>
                   </td>
                   <td><input id="fov-number" class="number-input" type="number" min="10" max="120" step="1" value="60">
@@ -167,8 +212,13 @@
                 <tr>
                   <th><b tooltip="Looking Up/Down">Pitch:</b> </th>
                   <td>
-                    <div class="range-solo">
-                      <input id="pitch-slider" type="range" min="-90" max="90" value="35">
+                    <div class="slider">
+                      <div class="range-highlight">
+                        <span class="range-progress" ></span>
+                      </div>
+                      <div class="range-input">
+                        <input id="pitch-slider" type="range" min="-90" max="90" value="35">
+                      </div>
                     </div>
                   </td>
                   <td><input id="pitch-number" class="number-input" type="number" min="-90" max="90" step="1"
@@ -178,8 +228,13 @@
                 <tr>
                   <th><b tooltip="Looking Left/Right">Yaw:</b> </th>
                   <td>
-                    <div class="range-solo">
-                      <input id="yaw-slider" type="range" min="-180" max="180" value="45">
+                    <div class="slider">
+                      <div class="range-highlight">
+                        <span class="range-progress" ></span>
+                      </div>
+                      <div class="range-input">
+                        <input id="yaw-slider" type="range" min="-180" max="180" value="45">
+                      </div>
                     </div>
                   </td>
                   <td><input id="yaw-number" class="number-input" type="number" min="-180" max="180" step="1"
@@ -187,44 +242,45 @@
                   </td>
                 </tr>
                 <tr>
-                  <th height="30px"><b>Depth:</b> </th>
+                  <th height="30px"><b>Min depth:</b> </th>
                   <td width="100px" height="3pt">
-                    <div class="range-highlight">
-                      <span class="range-selected" id="depth-selected"></span>
+                    <div class="slider">
+                      <div class="range-highlight">
+                        <span class="range-progress" ></span>
+                      </div>
+                      <div class="range-input">
+                        <input id="depth-min" type="range" min="5" max="500" value="10" step="1">
+                      </div>
+                    <td><input id="depth-min-number" class="number-input" type="number" min="-180" max="180" step="1"
+                      value="45">
+                  </td>
+                </tr>
+                <tr class="pixelart-disabled-settings">
+                  <th height="30px"><b>Max depth:</b> </th>
+                  <td width="100px" height="3pt">
+                    <div class="slider">
+                      <div class="range-highlight">
+                        <span class="range-progress" ></span>
+                      </div>
+                      <div class="range-input">
+                        <input id="depth-max" type="range" min="5" max="500" value="100" step="1">
                     </div>
-                    <div class="range-input">
-                      <input id="depth-min" type="range" min="5" max="500" value="10" step="1">
-                      <input id="depth-max" type="range" min="5" max="500" value="300" step="1"
-                        class="pixelart-disabled-settings">
-                    </div>
-                  <td>
-                    <div class="minmaxnumber">
-                      <label for="depth-min-number" class="pixelart-disabled-settings">Min</label>
-                      <input id="depth-min-number" class="number-input" type="number" min="5" max="500" value="10"
-                        step="1">
-                      <label for="depth-max-number" class="pixelart-disabled-settings">Max</label>
-                      <input id="depth-max-number" class="number-input pixelart-disabled-settings" type="number" min="5"
-                        max="500" value="300" step="1">
-                    </div>
+                    <td><input id="depth-max-number" class="number-input" type="number" min="-180" max="180" step="1"
+                      value="100">
                   </td>
                 </tr>
                 <tr class="pixelart-disabled-settings">
                   <th height="30px"><b>Variance:</b> </th>
                   <td width="100px" height="3pt">
-                    <div class="range-highlight">
-                      <span class="range-selected" id="variance-selected"></span>
+                    <div class="slider">
+                      <div class="range-highlight">
+                        <span class="range-progress" ></span>
+                      </div>
+                      <div class="range-input">
+                        <input id="variance" type="range" min="5" max="1000" value="100" step="1">
                     </div>
-                    <div class="range-input">
-                      <input id="variance-min" type="range" min="0" max="1000" value="10" step="1">
-                      <input id="variance-max" type="range" min="0" max="1000" value="300" step="10">
-                    </div>
-                  <td>
-                    <div class="minmaxnumber">
-                      <label for="variance-min-number">Min</label>
-                      <input id="variance-min-number" class="number-input" type="number" min="0" max="1000" value="10">
-                      <label for="variance-max-number">Max</label>
-                      <input id="variance-max-number" class="number-input" type="number" min="0" max="1000" value="300">
-                    </div>
+                    <td><input id="variance-number" class="number-input" type="number" min="1" max="1000" step="1"
+                      value="100">
                   </td>
                 </tr>
               </tbody>
