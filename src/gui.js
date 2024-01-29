@@ -9,6 +9,7 @@ image_input.addEventListener("change", image_update);
 function image_update() {
     stopVoxelization();
     const img = document.querySelector('#image-input').files[0];
+    const resolution_number = document.querySelector('#resolution-number');
 
     const image = new Image();
     const resolution = parseInt(resolution_number.value);
@@ -54,7 +55,11 @@ for (var i = 0; i < numberInputs.length; i++) {
         const number = event.target;
         number.value = parseInt(number.value) || Math.max(number.min, 0);
         number.value = Math.min(number.max, Math.max(number.min, number.value));
-        slider.value = number.value;
+
+        if (slider.classList.contains('logarithmic'))
+            slider.value = Math.log2(number.value);
+        else
+            slider.value = number.value;
 
         updateSliderBackground({ target: slider});
         applyProcessing();
@@ -87,7 +92,12 @@ function updateSliderBackground(event) {
 function updateSlider(event) {
     const slider = event.target;
     const number = slider.closest("tr").querySelector('.number-input');
-    number.value = slider.value;
+
+    if (slider.classList.contains('logarithmic'))
+        number.value = Math.floor(Math.pow(2, slider.value));
+    else
+        number.value = slider.value;
+
     applyProcessing();
 }
 
