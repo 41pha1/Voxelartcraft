@@ -27,7 +27,12 @@
         <h1>VoxelartCraft</h1>
       </div>
       <div class = "header-links">
-        <a href="https://discord.gg/y6SQVJCs" target="_blank">Discord</a>
+        <svg class="icon w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="2 2 21 21">
+          <path d="M19 5.6c-1.4-.7-2.8-1.1-4.2-1.3l-.5 1c-1.5-.2-3-.2-4.6 0l-.5-1c-1.4.2-2.8.6-4.1 1.3a17.4 17.4 0 0 0-3 11.6 18 18 0 0 0 5 2.5c.5-.5.8-1.1 1.1-1.7l-1.7-1c.2 0 .3-.2.4-.3a11.7 11.7 0 0 0 10.2 0l.4.3-1.7.9 1 1.7c1.9-.5 3.6-1.4 5.1-2.6.4-4-.6-8.2-3-11.5ZM8.6 14.8a2 2 0 0 1-1.8-2 2 2 0 0 1 1.8-2 2 2 0 0 1 1.8 2 2 2 0 0 1-1.8 2Zm6.6 0a2 2 0 0 1-1.8-2 2 2 0 0 1 1.8-2 2 2 0 0 1 1.8 2 2 2 0 0 1-1.8 2Z"/>
+        </svg>
+        <a href="https://discord.gg/y6SQVJCs" target="_blank">
+          Discord
+        </a>
       </div>
     </div>
     <div class="elements">
@@ -231,16 +236,31 @@
             <input type="file" id="image-input" accept="image/*">
             <label class="image-input-label" for="image-input">
               <div class="canvas-background">
-                <canvas id="glcanvas" width="1" height="1"></canvas>
+                <canvas id="glcanvas" class="processing-preview" width="1" height="1"></canvas>
+                <canvas id="canvas" class="voxel-preview" width="1" height="1" style="display:none;"></canvas>
               </div>
             </label>
-            <button class="buttons" type="button" id="convertButton">Convert</button>
-          </div>
-          <div class="card image voxel">
-            <div class="canvas-background">
-              <canvas id="canvas" class="voxel-preview" width="1" height="1"></canvas>
+            <div class="conversion-control">
+              <button class="buttons progress-button" type="button" id="convertButton">
+                <div class="progress-bar" id="conversion-progress"></div>
+                <div class="button-text">
+                <svg class="icon w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="5 5 14 14">
+                  <path fill="currentColor" fill-opacity="0.3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 12 v6 l5 -3 0 -6 -5 3"/>
+                  <path fill="currentColor" fill-opacity="0.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 12 v6 l-5 -3 0 -6 5 3"/>
+                  <path fill="currentColor" fill-opacity="0.2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M7 9 l5 -3 5 3 l -5 3"/>
+                </svg>
+                CUBIFY
+              </div>
+              </button>
+              <button class="buttons" id="downloadButton" type="button" disabled>
+                <div class="button-text">
+                  <svg class="icon w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13V4M7 14H5a1 1 0 0 0-1 1v4c0 .6.4 1 1 1h14c.6 0 1-.4 1-1v-4c0-.6-.4-1-1-1h-2m-1-5-4 5-4-5m9 8h0"/>
+                  </svg>
+                  DOWNLOAD NBT
+                </div>
+              </button>
             </div>
-            <button class="buttons" id="downloadButton" type="button">Download</button>
           </div>
         </div>
       </div>
@@ -248,11 +268,16 @@
         <div class="card palette-card">
           <div class="palette-header">
             <div class="palette-name">
-              <h3>Block Palette</h3>
+              <h3>Block Palette&nbsp;</h3>
+              <svg class="icon w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M18.8 4H5.2a1 1 0 0 0-.7 1.7l5.3 6 .2.7v4.8c0 .2 0 .4.2.4l3 2.3c.3.2.8 0 .8-.4v-7.1c0-.3 0-.5.2-.7l5.3-6a1 1 0 0 0-.7-1.7Z"/>
+              </svg>
             </div>
             <span class="material-total-count"></span>
           </div>
-          <div class="blockList"></div>
+          <div class="blockList-container">
+            <div class="blockList"></div>
+          </div>
         </div>
       </div>
     </div>

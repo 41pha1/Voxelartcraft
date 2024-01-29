@@ -14,6 +14,8 @@ function image_update() {
     const resolution = parseInt(resolution_number.value);
 
     image.onload = function () {
+        const processingCanvas = document.querySelector('.processing-preview');
+        const voxelCanvas = document.querySelector('.voxel-preview');
         const canvas = document.createElement('canvas');
         const ctx = canvas.getContext('2d');
 

@@ -291,6 +291,8 @@ function render(depth) {
 
 
 function applyProcessing() {
+    setVoxelProgress(0);
+    showProcessingCanvas();
     loadSettingsFromUI();
 
     gl.useProgram(processingShader);
@@ -330,6 +332,13 @@ function applyProcessing() {
 
     if (voxelizing) {
         voxelConvert();
+    }
+
+    if(voxelized) {
+        voxelizing = false;
+        voxelized = false;
+        blocks = [];
+        updateMaterialList();
     }
 }
 
@@ -382,7 +391,9 @@ function updateMaterialList() {
 
     for (const block of blocks) {
         const blockID = selectBlockFromPalette(block);
-        materials.push(blockID);
+        
+        if(!isNaN(blockID))
+            materials.push(blockID);
     }
 
     const materialList = {};
@@ -424,6 +435,8 @@ function updateMaterialList() {
     for (const key in materialList) {
         totalAmount += materialList[key];
     }
+
+    document.querySelector("#downloadButton").disabled = totalAmount == 0;
 
     totalAmountDiv.innerHTML = "Total: " + totalAmount;
     totalAmountDiv.style.display = totalAmount > 0 ? "block" : "none";
@@ -514,7 +527,7 @@ function updatePalette() {
 }
 
 function selectBlockFromPalette(meanColor) {
-    var closestBlock = 0;
+    var closestBlock = NaN;
     var closestDistance = 10000000
 
     for (const block of palette) {
@@ -658,6 +671,21 @@ function loadSettingsFromUI() {
     pixelArtMode = document.querySelector('#pixelart-checkbox').checked;
 }
 
+function showProcessingCanvas() {
+    document.querySelector('.processing-preview').style.display = "block";
+    document.querySelector('.voxel-preview').style.display = "none";
+}
+
+function showVoxelCanvas() {
+    document.querySelector('.processing-preview').style.display = "none";
+    document.querySelector('.voxel-preview').style.display = "block";
+}
+
+function setVoxelProgress(progress) {
+    const display_progess = progress * 100;
+    document.querySelector('#conversion-progress').style.width = display_progess + "%";
+}
+
 function voxelConvert() {
     if (voxelizing) {
         requestStop = true;
@@ -669,6 +697,8 @@ function voxelConvert() {
     voxelizing = true;
 
     blocks = [];
+    setVoxelProgress(0);
+    showVoxelCanvas();
     updateMaterialList();
     loadSettingsFromUI();
     gl.useProgram(voxelShader);
@@ -697,6 +727,7 @@ function voxelConvert() {
 
             console.log("Depth: " + depth);
             depth += depthStep;
+            setVoxelProgress((depth - minDepth) / (maxDepth * 1.75 - minDepth + 2));
 
             if (depth > maxDepth * 1.75 + 2 || requestStop) {
                 voxelizing = false;
@@ -704,6 +735,7 @@ function voxelConvert() {
 
                 if (!requestStop) {
                     voxelized = true;
+                    setVoxelProgress(0);
                     updateMaterialList();
                     applyPreviewDiscretization();
                     console.log("Finished voxelizing: " + blocks.length);
@@ -816,13 +848,10 @@ export { voxelConvert, updateTargetImage, updatePalette, applyProcessing, downlo
 // - Custom variance function
 
 // DESIGN:
-// - Add progress bar
 // - Fix chrome sliders
 // - Add tooltips
-// - Fix preview image scaling
 // - Example image with instructions
 // - Show credits and github link
-// - Magnify mode for preview (maginify glass)
 
 // PUBLICATION:
 // - Show case youtube video
@@ -831,3 +860,5 @@ export { voxelConvert, updateTargetImage, updatePalette, applyProcessing, downlo
 
 // NICE TO HAVE:
 // - Add crosshair to preview
+// - count placed pixels to terminate early
+// - Mobile support
