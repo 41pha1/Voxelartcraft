@@ -98,6 +98,12 @@ function updateSlider(event) {
     else
         number.value = slider.value;
 
+    if (slider.id == 'resolution-slider') {
+        const resolution_number = document.querySelector('#resolution-number');
+        resolution_number.value = number.value;
+        image_update();
+    }
+
     applyProcessing();
 }
 

@@ -658,8 +658,8 @@ function loadSettingsFromUI() {
     startVariance = 10.0;
     endVariance = parseFloat(document.querySelector('#variance-number').value);
     fov = parseFloat(document.querySelector('#fov-number').value);
-    pitch = parseFloat(document.querySelector('#pitch-number').value);
-    yaw = parseFloat(document.querySelector('#yaw-number').value);
+    pitch = -parseFloat(document.querySelector('#pitch-number').value);
+    yaw = -parseFloat(document.querySelector('#yaw-number').value);
     brightness = parseFloat(document.querySelector('#brightness-number').value);
     contrast = parseFloat(document.querySelector('#contrast-number').value);
     saturation = parseFloat(document.querySelector('#saturation-number').value);
@@ -853,6 +853,7 @@ export { voxelConvert, updateTargetImage, updatePalette, applyProcessing, downlo
 // - Show credits and github link
 // - Custom names for property buttons
 // - Adjust used block indicator color
+// - Adjust the font?
 
 // BUGS:
 // - Fix example image bugs and image disappearing when clicking the upload button

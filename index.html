@@ -195,7 +195,14 @@
                 </tr>
                 <tr>
                 <tr>
-                  <th><b tooltip="Field of View">FOV:</b></th>
+                  <th>
+                    <b class="tooltip-label">FOV:</b>
+                    <div class="tooltip" id = "FOV-tooltip">
+                      <b>Field of View</b>
+                      <hr>
+                      <div class="tooltiptext">The viewing angle between the top and the bottom of the image. (Doesn't always translate 1:1 to minecraft fov)</div>
+                    </div>
+                  </th>
                   <td>
                     <div class="slider">
                       <div class="range-highlight">
@@ -210,39 +217,60 @@
                   </td>
                 </tr>
                 <tr>
-                  <th><b tooltip="Looking Up/Down">Pitch:</b> </th>
-                  <td>
-                    <div class="slider">
-                      <div class="range-highlight">
-                        <span class="range-progress" ></span>
-                      </div>
-                      <div class="range-input">
-                        <input id="pitch-slider" type="range" min="-90" max="90" value="35">
-                      </div>
+                  <th>
+                    <b class="tooltip-label">Yaw:</b>
+                    <div class="tooltip" id = "FOV-tooltip">
+                      <b>Yaw</b>
+                      <hr>
+                      <div class="tooltiptext">The sideways rotation of the camera. (-180, -90, 0, 90, 180) is (N E S W N)</div>
                     </div>
-                  </td>
-                  <td><input id="pitch-number" class="number-input" type="number" min="-90" max="90" step="1"
-                      value="35">
-                  </td>
-                </tr>
-                <tr>
-                  <th><b tooltip="Looking Left/Right">Yaw:</b> </th>
+                  </th>
                   <td>
                     <div class="slider">
                       <div class="range-highlight">
                         <span class="range-progress" ></span>
                       </div>
                       <div class="range-input">
-                        <input id="yaw-slider" type="range" min="-180" max="180" value="45">
+                        <input id="yaw-slider" type="range" min="-180" max="180" value="-45">
                       </div>
                     </div>
                   </td>
                   <td><input id="yaw-number" class="number-input" type="number" min="-180" max="180" step="1"
-                      value="45">
+                      value="-45">
                   </td>
                 </tr>
                 <tr>
-                  <th height="30px"><b>Min depth:</b> </th>
+                  <th>
+                    <b class="tooltip-label">Pitch:</b>
+                    <div class="tooltip">
+                      <b>Pitch</b>
+                      <hr>
+                      <div class="tooltiptext">The vertical rotation of the camera. (-90, 0, 90) is (Up, Horizontal, Down)</div>
+                    </div>
+                  </th>
+                  <td>
+                    <div class="slider">
+                      <div class="range-highlight">
+                        <span class="range-progress" ></span>
+                      </div>
+                      <div class="range-input">
+                        <input id="pitch-slider" type="range" min="-90" max="90" value="-35">
+                      </div>
+                    </div>
+                  </td>
+                  <td><input id="pitch-number" class="number-input" type="number" min="-90" max="90" step="1"
+                      value="-35">
+                  </td>
+                </tr>
+                <tr>
+                  <th height="30px">
+                    <b class="tooltip-label">Min height:</b>
+                    <div class="tooltip">
+                      <b>Minimum Height</b>
+                      <hr>
+                      <div class="tooltiptext">The vertical rotation of the camera. (-90, 0, 90) is (Up, Horizontal, Down)</div>
+                    </div>
+                  </th>
                   <td width="100px" height="3pt">
                     <div class="slider">
                       <div class="range-highlight">
