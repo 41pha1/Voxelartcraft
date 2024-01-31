@@ -312,7 +312,6 @@ canvas {
 }
 
 .palette {
-  overflow: scroll;
   grid-area: blocks;
 }
 
