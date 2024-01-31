@@ -1,12 +1,12 @@
 import { updatePalette } from "./script.js";
 
-const categories = ["any", "survival", "renewable", "expensive", "gravity", "randomTickAffected", "lightEmitting", "dyed", "grayscale", "column", "high_variance", "low_variance"];
+const categories = ["any", "survival", "renewable", "expensive", "gravity", "randomTickAffected", "lightEmitting", "dyed", "grayscale", "high_variance", "low_variance"];
+const categoryNames = { "any": "everything", "survival": "survival", "renewable": "renewable", "expensive": "expensive", "gravity": "falling", "randomTickAffected": "unstable", "lightEmitting": "glowing", "dyed": "dyed", "grayscale": "grayscale", "high_variance": "messy", "low_variance": "clean" };
 
 const blockSelectorDiv = document.querySelector(".blockList");
 const blocks = readFile("./blockProperties.json")
 
-function updateSelection()
-{
+function updateSelection() {
     const categoryButtons = document.querySelectorAll(".categoryButton");
     var anyPositive = false;
     for (var i = 0; i < categoryButtons.length; i++) {
@@ -62,14 +62,15 @@ function updateSelection()
     updatePalette();
 }
 
-function selectoHTML(blockID, r, g, b, index){
+function selectoHTML(blockID, r, g, b, index) {
     var title = blockID.replace(/_/g, " ");
-    
+
     title = title.replace(/\w\S*/g, (txt) => {
         return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
     });
 
     var classes = "blockSelectorCheckbox"
+
 
     for (var i = 0; i < categories.length; i++) {
         if (blocks[blockID][categories[i]] == "true")
@@ -143,7 +144,7 @@ categoriesDiv.classList.add("categories");
 
 for (var i = 0; i < categories.length; i++) {
     const categoryButton = document.createElement("button");
-    categoryButton.innerHTML = categories[i];
+    categoryButton.innerHTML = categoryNames[categories[i]];
     categoryButton.classList.add("categoryButton");
     categoryButton.classList.add("neutral");
     categoryButton.classList.add(categories[i]);

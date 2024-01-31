@@ -21,14 +21,16 @@
     </p>
   <![endif]-->
   <div class="main-content">
-    <div class = "header">
-      <div class = "header-title">
+    <div class="header">
+      <div class="header-title">
         <img src="res/logo.png" alt="VoxelartCraft Logo" class="logo">
         <h1>VoxelartCraft</h1>
       </div>
-      <div class = "header-links">
-        <svg class="icon w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="2 2 21 21">
-          <path d="M19 5.6c-1.4-.7-2.8-1.1-4.2-1.3l-.5 1c-1.5-.2-3-.2-4.6 0l-.5-1c-1.4.2-2.8.6-4.1 1.3a17.4 17.4 0 0 0-3 11.6 18 18 0 0 0 5 2.5c.5-.5.8-1.1 1.1-1.7l-1.7-1c.2 0 .3-.2.4-.3a11.7 11.7 0 0 0 10.2 0l.4.3-1.7.9 1 1.7c1.9-.5 3.6-1.4 5.1-2.6.4-4-.6-8.2-3-11.5ZM8.6 14.8a2 2 0 0 1-1.8-2 2 2 0 0 1 1.8-2 2 2 0 0 1 1.8 2 2 2 0 0 1-1.8 2Zm6.6 0a2 2 0 0 1-1.8-2 2 2 0 0 1 1.8-2 2 2 0 0 1 1.8 2 2 2 0 0 1-1.8 2Z"/>
+      <div class="header-links">
+        <svg class="icon w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor" viewBox="2 2 21 21">
+          <path
+            d="M19 5.6c-1.4-.7-2.8-1.1-4.2-1.3l-.5 1c-1.5-.2-3-.2-4.6 0l-.5-1c-1.4.2-2.8.6-4.1 1.3a17.4 17.4 0 0 0-3 11.6 18 18 0 0 0 5 2.5c.5-.5.8-1.1 1.1-1.7l-1.7-1c.2 0 .3-.2.4-.3a11.7 11.7 0 0 0 10.2 0l.4.3-1.7.9 1 1.7c1.9-.5 3.6-1.4 5.1-2.6.4-4-.6-8.2-3-11.5ZM8.6 14.8a2 2 0 0 1-1.8-2 2 2 0 0 1 1.8-2 2 2 0 0 1 1.8 2 2 2 0 0 1-1.8 2Zm6.6 0a2 2 0 0 1-1.8-2 2 2 0 0 1 1.8-2 2 2 0 0 1 1.8 2 2 2 0 0 1-1.8 2Z" />
         </svg>
         <a href="https://discord.gg/y6SQVJCs" target="_blank">
           Discord
@@ -43,7 +45,18 @@
             <table width=100%>
               <tbody>
                 <tr>
-                  <th><label for="discretize-checkbox"><b>Discretize </b></label></th>
+                  <th>
+                    <label for="discretize-checkbox">
+                      <b class="tooltip-label">Discretize</b>
+                      <div class="tooltip">
+                        <b>Color discretization</b>
+                        <hr>
+                        <div class="tooltiptext">Only affects the preprocessing preview image and not the voxelized
+                          result! This option displays the image using only colors from the chosen block pallette. Helps
+                          you to tune the sliders to reduce color banding.</div>
+                      </div>
+                    </label>
+                  </th>
                   <td><input id="discretize-checkbox" type="checkbox" checked></td>
                   <td><svg class="refresh-button" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
                       <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -61,14 +74,23 @@
                   </td>
                 </tr>
                 <tr>
-                  <th><b>Resolution:</b> </th>
+                  <th>
+                    <b class="tooltip-label">Resolution:</b>
+                    <div class="tooltip">
+                      <b>Image Resolution</b>
+                      <hr>
+                      <div class="tooltiptext">The size of the Image. Use a smaller resolution for faster conversion,
+                        and a larger one for more quality on a final product.</div>
+                    </div>
+                  </th>
                   <td>
                     <div class="slider">
                       <div class="range-highlight">
-                        <span class="range-progress" ></span>
+                        <span class="range-progress"></span>
                       </div>
                       <div class="range-input">
-                        <input id="resolution-slider" class="logarithmic" type="range" min="7" max="11" value="9" step="0.5">
+                        <input id="resolution-slider" class="logarithmic" type="range" min="7" max="11" value="9"
+                          step="0.5">
                       </div>
                     </div>
                   </td>
@@ -76,11 +98,18 @@
                       value="512"></td>
                 </tr>
                 <tr>
-                  <th><b>Brightness:</b> </th>
+                  <th>
+                    <b class="tooltip-label">Brightness:</b>
+                    <div class="tooltip">
+                      <b>Brightness</b>
+                      <hr>
+                      <div class="tooltiptext">How white the image is.</div>
+                    </div>
+                  </th>
                   <td>
                     <div class="slider">
                       <div class="range-highlight">
-                        <span class="range-progress" ></span>
+                        <span class="range-progress"></span>
                       </div>
                       <div class="range-input">
                         <input id="brightness-slider" type="range" min="-100" max="100" value="0">
@@ -91,11 +120,18 @@
                       value="0"></td>
                 </tr>
                 <tr>
-                  <th><b>Highlights:</b> </th>
+                  <th><b class="tooltip-label">Highlights:</b>
+                    <div class="tooltip">
+                      <b>Highlights</b>
+                      <hr>
+                      <div class="tooltiptext">Controls the bright regions of the image. Positive values makes them
+                        brighter, negative values make them darker.</div>
+                    </div>
+                  </th>
                   <td>
                     <div class="slider">
                       <div class="range-highlight">
-                        <span class="range-progress" ></span>
+                        <span class="range-progress"></span>
                       </div>
                       <div class="range-input">
                         <input id="highlights-slider" type="range" min="-100" max="100" value="0">
@@ -106,11 +142,18 @@
                       value="0"></td>
                 </tr>
                 <tr>
-                  <th><b>Shadows:</b> </th>
+                  <th><b class="tooltip-label">Shadows:</b>
+                    <div class="tooltip">
+                      <b>Shadows</b>
+                      <hr>
+                      <div class="tooltiptext">Controls the dark regions of the image. Positive values makes them
+                        brighter, negative values make them darker.</div>
+                    </div>
+                  </th>
                   <td>
                     <div class="slider">
                       <div class="range-highlight">
-                        <span class="range-progress" ></span>
+                        <span class="range-progress"></span>
                       </div>
                       <div class="range-input">
                         <input id="shadows-slider" type="range" min="-100" max="100" value="0">
@@ -121,11 +164,20 @@
                       value="0"></td>
                 </tr>
                 <tr>
-                  <th><b>Contrast:</b> </th>
+                  <th><b class="tooltip-label">Contrast:</b>
+                    <div class="tooltip">
+                      <b>Contrast</b>
+                      <hr>
+                      <div class="tooltiptext">Controls the difference between bright and dark parts of the image.
+                        Positive values add contrast (more black and white), negative values remove contrast (more
+                        gray).
+                      </div>
+                    </div>
+                  </th>
                   <td>
                     <div class="slider">
                       <div class="range-highlight">
-                        <span class="range-progress" ></span>
+                        <span class="range-progress"></span>
                       </div>
                       <div class="range-input">
                         <input id="contrast-slider" type="range" min="-100" max="100" value="0">
@@ -137,11 +189,20 @@
                   </td>
                 </tr>
                 <tr>
-                  <th><b>Saturation:</b> </th>
+                  <th><b class="tooltip-label">Saturation:</b>
+                    <div class="tooltip">
+                      <b>Saturation</b>
+                      <hr>
+                      <div class="tooltiptext">Controls the intensity of color. Positive values makes colors stronger,
+                        negative values reduces colors. Negative -100 creates a grayscale image. Consider using a
+                        grayscale pallette with this as well.
+                      </div>
+                    </div>
+                  </th>
                   <td>
                     <div class="slider">
                       <div class="range-highlight">
-                        <span class="range-progress" ></span>
+                        <span class="range-progress"></span>
                       </div>
                       <div class="range-input">
                         <input id="saturation-slider" type="range" min="-100" max="100" value="0">
@@ -152,11 +213,17 @@
                       value="0"></td>
                 </tr>
                 <tr>
-                  <th><b>Temperature:</b> </th>
+                  <th><b class="tooltip-label">Temperature:</b>
+                    <div class="tooltip">
+                      <b>Temperature</b>
+                      <hr>
+                      <div class="tooltiptext">How yellow or blue the image is.
+                      </div>
+                  </th>
                   <td>
                     <div class="slider">
                       <div class="range-highlight">
-                        <span class="range-progress" ></span>
+                        <span class="range-progress"></span>
                       </div>
                       <div class="range-input">
                         <input id="temperature-slider" type="range" min="-100" max="100" value="0">
@@ -167,11 +234,16 @@
                       value="0"></td>
                 </tr>
                 <tr>
-                  <th><b>Tint:</b> </th>
+                  <th><b class="tooltip-label">Tint:</b>
+                    <div class="tooltip">
+                      <b>Tint</b>
+                      <hr>
+                      <div class="tooltiptext">Adds or removes green color.</div>
+                  </th>
                   <td>
                     <div class="slider">
                       <div class="range-highlight">
-                        <span class="range-progress" ></span>
+                        <span class="range-progress"></span>
                       </div>
                       <div class="range-input">
                         <input id="tint-slider" type="range" min="-100" max="100" value="0">
@@ -189,7 +261,16 @@
             <table width=100%>
               <tbody>
                 <tr>
-                  <th><label for="pixelart-checkbox"><b>2D Pixelart</b></label></th>
+                  <th><label for="pixelart-checkbox">
+                      <b class="tooltip-label">2D Pixelart</b>
+                      <div class="tooltip">
+                        <b>Pixelart Mode</b>
+                        <hr>
+                        <div class="tooltiptext">Special Mode where only one plane of blocks is placed. Always creates a
+                          flat build. Can still be rotated freely.</div>
+                      </div>
+                    </label>
+                  </th>
                   <td><input id="pixelart-checkbox" type="checkbox"></td>
                   </td>
                 </tr>
@@ -197,16 +278,17 @@
                 <tr>
                   <th>
                     <b class="tooltip-label">FOV:</b>
-                    <div class="tooltip" id = "FOV-tooltip">
+                    <div class="tooltip" id="FOV-tooltip">
                       <b>Field of View</b>
                       <hr>
-                      <div class="tooltiptext">The viewing angle between the top and the bottom of the image. (Doesn't always translate 1:1 to minecraft fov)</div>
+                      <div class="tooltiptext">The viewing angle between the top and the bottom of the image. (Doesn't
+                        always translate 1:1 to minecraft fov)</div>
                     </div>
                   </th>
                   <td>
                     <div class="slider">
                       <div class="range-highlight">
-                        <span class="range-progress" ></span>
+                        <span class="range-progress"></span>
                       </div>
                       <div class="range-input">
                         <input id="fov-slider" type="range" min="10" max="120" value="60">
@@ -219,16 +301,17 @@
                 <tr>
                   <th>
                     <b class="tooltip-label">Yaw:</b>
-                    <div class="tooltip" id = "FOV-tooltip">
+                    <div class="tooltip" id="FOV-tooltip">
                       <b>Yaw</b>
                       <hr>
-                      <div class="tooltiptext">The sideways rotation of the camera. (-180, -90, 0, 90, 180) is (N E S W N)</div>
+                      <div class="tooltiptext">The sideways rotation of the camera. (-180, -90, 0, 90, 180) is (N E S W
+                        N)</div>
                     </div>
                   </th>
                   <td>
                     <div class="slider">
                       <div class="range-highlight">
-                        <span class="range-progress" ></span>
+                        <span class="range-progress"></span>
                       </div>
                       <div class="range-input">
                         <input id="yaw-slider" type="range" min="-180" max="180" value="-45">
@@ -245,13 +328,14 @@
                     <div class="tooltip">
                       <b>Pitch</b>
                       <hr>
-                      <div class="tooltiptext">The vertical rotation of the camera. (-90, 0, 90) is (Up, Horizontal, Down)</div>
+                      <div class="tooltiptext">The vertical rotation of the camera. (-90, 0, 90) is (Up, Horizontal,
+                        Down)</div>
                     </div>
                   </th>
                   <td>
                     <div class="slider">
                       <div class="range-highlight">
-                        <span class="range-progress" ></span>
+                        <span class="range-progress"></span>
                       </div>
                       <div class="range-input">
                         <input id="pitch-slider" type="range" min="-90" max="90" value="-35">
@@ -264,50 +348,66 @@
                 </tr>
                 <tr>
                   <th height="30px">
-                    <b class="tooltip-label">Min height:</b>
+                    <b class="tooltip-label">Min Depth:</b>
                     <div class="tooltip">
-                      <b>Minimum Height</b>
+                      <b>Minimum Depth</b>
                       <hr>
-                      <div class="tooltiptext">The vertical rotation of the camera. (-90, 0, 90) is (Up, Horizontal, Down)</div>
+                      <div class="tooltiptext">The starting distance where blocks are placed.</div>
                     </div>
                   </th>
                   <td width="100px" height="3pt">
                     <div class="slider">
                       <div class="range-highlight">
-                        <span class="range-progress" ></span>
+                        <span class="range-progress"></span>
                       </div>
                       <div class="range-input">
                         <input id="depth-min" type="range" min="5" max="500" value="10" step="1">
                       </div>
-                    <td><input id="depth-min-number" class="number-input" type="number" min="-180" max="180" step="1"
+                  <td><input id="depth-min-number" class="number-input" type="number" min="-180" max="180" step="1"
                       value="45">
                   </td>
                 </tr>
                 <tr class="pixelart-disabled-settings">
-                  <th height="30px"><b>Max depth:</b> </th>
+                  <th height="30px">
+                    <b class="tooltip-label">Max Depth:</b>
+                    <div class="tooltip">
+                      <b>Maximum Depth</b>
+                      <hr>
+                      <div class="tooltiptext">The final distance until where blocks are placed.</div>
+                    </div>
+                  </th>
                   <td width="100px" height="3pt">
                     <div class="slider">
                       <div class="range-highlight">
-                        <span class="range-progress" ></span>
+                        <span class="range-progress"></span>
                       </div>
                       <div class="range-input">
                         <input id="depth-max" type="range" min="5" max="500" value="100" step="1">
-                    </div>
-                    <td><input id="depth-max-number" class="number-input" type="number" min="-180" max="180" step="1"
+                      </div>
+                  <td><input id="depth-max-number" class="number-input" type="number" min="-180" max="180" step="1"
                       value="100">
                   </td>
                 </tr>
                 <tr class="pixelart-disabled-settings">
-                  <th height="30px"><b>Variance:</b> </th>
+                  <th height="30px">
+                    <b class="tooltip-label">Variance:</b>
+                    <div class="tooltip">
+                      <b>Variance</b>
+                      <hr>
+                      <div class="tooltiptext">The allowed variance in the image where a block is placed. Higher values
+                        lead to cheaper builds, but poorer quality. Lower values lead to more expensive builds with
+                        better detail.</div>
+                    </div>
+                  </th>
                   <td width="100px" height="3pt">
                     <div class="slider">
                       <div class="range-highlight">
-                        <span class="range-progress" ></span>
+                        <span class="range-progress"></span>
                       </div>
                       <div class="range-input">
                         <input id="variance" type="range" min="5" max="1000" value="100" step="1">
-                    </div>
-                    <td><input id="variance-number" class="number-input" type="number" min="1" max="1000" step="1"
+                      </div>
+                  <td><input id="variance-number" class="number-input" type="number" min="1" max="1000" step="1"
                       value="100">
                   </td>
                 </tr>
@@ -328,18 +428,24 @@
               <button class="buttons progress-button" type="button" id="convertButton">
                 <div class="progress-bar" id="conversion-progress"></div>
                 <div class="button-text">
-                <svg class="icon w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="5 5 14 14">
-                  <path fill="currentColor" fill-opacity="0.3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 12 v6 l5 -3 0 -6 -5 3"/>
-                  <path fill="currentColor" fill-opacity="0.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 12 v6 l-5 -3 0 -6 5 3"/>
-                  <path fill="currentColor" fill-opacity="0.2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M7 9 l5 -3 5 3 l -5 3"/>
-                </svg>
-                CUBIFY
-              </div>
+                  <svg class="icon w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="5 5 14 14">
+                    <path fill="currentColor" fill-opacity="0.3" stroke="currentColor" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="1" d="M12 12 v6 l5 -3 0 -6 -5 3" />
+                    <path fill="currentColor" fill-opacity="0.5" stroke="currentColor" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="1" d="M12 12 v6 l-5 -3 0 -6 5 3" />
+                    <path fill="currentColor" fill-opacity="0.2" stroke="currentColor" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="1" d="M7 9 l5 -3 5 3 l -5 3" />
+                  </svg>
+                  CUBIFY
+                </div>
               </button>
               <button class="buttons" id="downloadButton" type="button" disabled>
                 <div class="button-text">
-                  <svg class="icon w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13V4M7 14H5a1 1 0 0 0-1 1v4c0 .6.4 1 1 1h14c.6 0 1-.4 1-1v-4c0-.6-.4-1-1-1h-2m-1-5-4 5-4-5m9 8h0"/>
+                  <svg class="icon w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M12 13V4M7 14H5a1 1 0 0 0-1 1v4c0 .6.4 1 1 1h14c.6 0 1-.4 1-1v-4c0-.6-.4-1-1-1h-2m-1-5-4 5-4-5m9 8h0" />
                   </svg>
                   DOWNLOAD NBT
                 </div>
@@ -353,8 +459,10 @@
           <div class="palette-header">
             <div class="palette-name">
               <h3>Block Palette&nbsp;</h3>
-              <svg class="icon w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M18.8 4H5.2a1 1 0 0 0-.7 1.7l5.3 6 .2.7v4.8c0 .2 0 .4.2.4l3 2.3c.3.2.8 0 .8-.4v-7.1c0-.3 0-.5.2-.7l5.3-6a1 1 0 0 0-.7-1.7Z"/>
+              <svg class="icon w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-width="2"
+                  d="M18.8 4H5.2a1 1 0 0 0-.7 1.7l5.3 6 .2.7v4.8c0 .2 0 .4.2.4l3 2.3c.3.2.8 0 .8-.4v-7.1c0-.3 0-.5.2-.7l5.3-6a1 1 0 0 0-.7-1.7Z" />
               </svg>
             </div>
             <span class="material-total-count"></span>
@@ -365,6 +473,7 @@
         </div>
       </div>
     </div>
+  </div>
 </body>
 
 </html>

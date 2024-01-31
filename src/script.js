@@ -1,6 +1,7 @@
 import { createStructureNBT } from "./schematic.js";
+import { image_update } from "./gui.js";
 
-const DEFAULT_TARGET = './res/test.svg';
+
 const textureAtlas = './atlas.png';
 
 const voxelShaderFile = "./shaders/voxel.glsl";
@@ -334,7 +335,7 @@ function applyProcessing() {
         voxelConvert();
     }
 
-    if(voxelized) {
+    if (voxelized) {
         voxelizing = false;
         voxelized = false;
         blocks = [];
@@ -391,8 +392,8 @@ function updateMaterialList() {
 
     for (const block of blocks) {
         const blockID = selectBlockFromPalette(block);
-        
-        if(!isNaN(blockID))
+
+        if (!isNaN(blockID))
             materials.push(blockID);
     }
 
@@ -833,9 +834,7 @@ async function main() {
     gl.useProgram(voxelShader);
 
     // load default target image
-    const img = new Image();
-    img.src = DEFAULT_TARGET;
-    await updateTargetImage(img);
+    image_update();
 }
 
 main();
@@ -846,17 +845,15 @@ export { voxelConvert, updateTargetImage, updatePalette, applyProcessing, downlo
 //TODO:
 // FEATURES:
 // - Custom variance function
+// - default pallette category selection
+// - shader pipelin with buffered frame array
 
 // DESIGN:
-// - Add tooltips
-// - Example image with instructions
 // - Show credits and github link
-// - Custom names for property buttons
-// - Adjust used block indicator color
 // - Adjust the font?
 
 // BUGS:
-// - Fix example image bugs and image disappearing when clicking the upload button
+// - Fix image disappearing when clicking the upload button (chrome only?)
 // - Fix undeterministic voxelization
 // - Unexpected behavior when setting min depth equal to max depth
 // - depth input uses manhattan distance instead of euclidean distance

@@ -3,10 +3,11 @@ import { voxelConvert, applyProcessing, downloadNBT, updateTargetImage, stopVoxe
 document.getElementById("convertButton").addEventListener("click", voxelConvert, false);
 document.getElementById("downloadButton").addEventListener("click", downloadNBT, false);
 
+const DEFAULT_TARGET = './res/upload.svg';
 const image_input = document.querySelector('#image-input');
 image_input.addEventListener("change", image_update);
 
-function image_update() {
+function image_update(src = null) {
     stopVoxelization();
     const img = document.querySelector('#image-input').files[0];
     const resolution_number = document.querySelector('#resolution-number');
@@ -31,6 +32,26 @@ function image_update() {
             canvas.height = resolution;
         }
 
+        const maxHeight = 600;
+        const maxWidth = 1200;
+
+        if (maxHeight * aspect > maxWidth) {
+            processingCanvas.style.width = maxWidth + "px";
+            processingCanvas.style.height = "auto";
+
+            voxelCanvas.style.width = maxWidth + "px";
+            voxelCanvas.style.height = "auto";
+
+        } else {
+            processingCanvas.style.height = maxHeight + "px";
+            processingCanvas.style.width = "auto";
+
+            voxelCanvas.style.height = maxHeight + "px";
+            voxelCanvas.style.width = "auto";
+        }
+
+
+
         ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
         const dataURL = canvas.toDataURL();
 
@@ -39,7 +60,7 @@ function image_update() {
         scaled.src = dataURL;
     }
 
-    image.src = URL.createObjectURL(img);
+    image.src = img === undefined ? DEFAULT_TARGET : URL.createObjectURL(img);
 }
 
 const sliders = document.getElementsByClassName('slider');
@@ -61,9 +82,9 @@ for (var i = 0; i < numberInputs.length; i++) {
         else
             slider.value = number.value;
 
-        updateSliderBackground({ target: slider});
+        updateSliderBackground({ target: slider });
         applyProcessing();
-    } );
+    });
 }
 
 function updateAllSlidersBackgrounds() {
@@ -201,3 +222,4 @@ function reset() {
     applyProcessing();
     updateAllSlidersBackgrounds();
 }
+export { image_update };

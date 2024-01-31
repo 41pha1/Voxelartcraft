@@ -1,4 +1,6 @@
 @import url(sliders.css);
+@import url(tooltip.css);
+
 
 :root {
     --background: #010210;
@@ -19,7 +21,7 @@ body {
     font-family: 'Courier New', monospace;
     background-color: var(--background);
     color: var(--text);
-    padding: 0px; 
+    padding: 0px;
     margin: 0px;
 }
 
@@ -148,8 +150,8 @@ h3 {
     width: 0%;
     top: 0;
     left: 0;
-    background-image: repeating-linear-gradient(45deg, var(--progressbar), var(--progressbar) 5px, 
-        var(--progressbar-darker) 6px, var(--progressbar-darker) 10px, var(--progressbar) 11px);
+    background-image: repeating-linear-gradient(45deg, var(--progressbar), var(--progressbar) 5px,
+            var(--progressbar-darker) 6px, var(--progressbar-darker) 10px, var(--progressbar) 11px);
     z-index: 0;
 }
 
@@ -198,10 +200,12 @@ button:not(:disabled):hover {
         transform: scale(1.0);
         filter: brightness(1.0);
     }
+
     20% {
         transform: scale(1.05);
         filter: brightness(3.0);
     }
+
     100% {
         transform: scale(1);
         filter: brightness(1.0);
@@ -267,7 +271,6 @@ canvas {
     display: flex;
     margin: 0px;
     padding: 0px;
-    height: 60vh;
 }
 
 .image {
@@ -420,41 +423,3 @@ th {
 /*th[title]:hover {
     font-size: 30px;
 }*/
-
-.tooltip {
-    display: none;
-}
-
-hr {
-    border: 1px solid var(--primary);
-    margin: 0px;
-    margin-bottom: 0.5em;
-    margin-top: 0.1em;
-}
-
-.tooltiptext {
-    font-size: 16px;
-    text-align: left;
-}
-
-.tooltip-label:hover {
-    text-decoration: underline;
-}
-
-.tooltip-label:hover + .tooltip {
-    display: block !important;
-    content: attr(tooltip);
-    position: fixed;
-    overflow: hidden;
-    padding: 10px;
-    z-index: 100;
-    max-width: 400px;
-    border: 5px solid var(--primary);
-    border-radius: 0.5em;
-    background-color: var(--div);
-    font-size: 20px;
-    opacity: 0.96;
-
-    filter: drop-shadow(0px 0px 5px var(--background));
-    transform : translate(10px, 10px);
-}
