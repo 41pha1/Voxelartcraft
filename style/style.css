@@ -1,420 +1,437 @@
 @import url(sliders.css);
 
 :root {
-    --background: #010210;
-    --text: #e5e5fd;
-    --primary: #7e7af3;
-    --highlight: #b3b1f0;
-    --secondary: #9a0e5e;
-    --accent: #ea153a;
-    --div: #0d0e1a;
-    --div2: #1b1b3c;
-    --div3: #11112a;
+  --background: #010210;
+  --text: #e5e5fd;
+  --primary: #7e7af3;
+  --highlight: #b3b1f0;
+  --secondary: #9a0e5e;
+  --accent: #ea153a;
+  --div: #0d0e1a;
+  --div2: #1b1b3c;
+  --div3: #11112a;
 
-    --progressbar: var(--primary);
-    --progressbar-darker: var(--highlight);
+  --progressbar: var(--primary);
+  --progressbar-darker: var(--highlight);
 }
 
 body {
-    font-family: 'Courier New', monospace;
-    background-color: var(--background);
-    color: var(--text);
-    padding: 0px; 
-    margin: 0px;
+  font-family: "Courier New", monospace;
+  background-color: var(--background);
+  color: var(--text);
+  padding: 0px;
+  margin: 0px;
 }
 
 .header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 1em;
-    padding-right: 1em;
-    margin: 0px;
-    margin-bottom: 1em;
-    background-color: var(--div);
-    border-bottom: 3px solid var(--div2);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 1em;
+  padding-right: 1em;
+  margin: 0px;
+  margin-bottom: 1em;
+  background-color: var(--div);
+  border-bottom: 3px solid var(--div2);
 }
 
 .logo {
-    width: 3em;
-    height: 3em;
-    /*center logo*/
-    margin-right: 1em;
-    display: block;
+  width: 3em;
+  height: 3em;
+  /*center logo*/
+  margin-right: 1em;
+  display: block;
 }
 
 .header-title {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .header-links {
-    flex-direction: row;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 1em;
+  flex-direction: row;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1em;
 }
 
 .conversion-control {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 1em;
 }
 
 a {
-    color: var(--text);
-    text-decoration: none;
-    font-size: 1.25em;
-    text-decoration: underline;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1.25em;
+  text-decoration: underline;
 }
 
 table {
-    border: 3px solid var(--div2);
-    border-radius: 1em;
-    margin: 5px;
-    padding: 5px;
-    align-items: center;
+  border: 3px solid var(--div2);
+  border-radius: 1em;
+  margin: 5px;
+  padding: 5px;
+  align-items: center;
 }
 
 .number-input {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .number-input label {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 
 .number-input input {
-    width: 4em;
-    padding: 2px;
+  width: 4em;
+  padding: 2px;
 }
 
 .number-input input:first-of-type {
-    margin-right: 15px;
+  margin-right: 15px;
 }
 
 .card {
-    background-color: var(--div);
-    border-radius: 1em;
-    padding: 1em;
-    margin: 1em;
+  background-color: var(--div);
+  border-radius: 1em;
+  padding: 1em;
+  margin: 1em;
 }
 
 h3 {
-    padding: 0px;
-    margin: 0px;
+  padding: 0px;
+  margin: 0px;
 }
 
 .elements {
-    display: flex;
-    flex-direction: column;
+  display: grid;
+  grid-template-areas:
+    "settings image"
+    "blocks blocks";
+  grid-template-columns: 2fr 3fr;
+  grid-template-rows: 2fr 1fr;
+  align-items: top;
+  height: 100vh;
+  width: 100vw;
+  overflow: scroll;
 }
 
 .settingsGroup {
-    flex: 1;
-    flex-grow: 0;
-    flex-basis: 0%;
-    display: inline-block;
+  grid-area: settings;
+  flex: auto;
+  flex-direction: column;
+  justify-content: space-between;
+  display: flex;
+  justify-self: stretch;
 }
 
 .button-text {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    text-align: center;
-    font-family: 'Courier New';
-    color: var(--text);
-    filter: drop-shadow(0px 0px 5px var(--background));
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  text-align: center;
+  font-family: "Courier New";
+  color: var(--text);
+  filter: drop-shadow(0px 0px 5px var(--background));
 }
 
 .progress-bar {
-    position: absolute;
-    height: 100%;
-    width: 0%;
-    top: 0;
-    left: 0;
-    background-image: repeating-linear-gradient(45deg, var(--progressbar), var(--progressbar) 5px, 
-        var(--progressbar-darker) 6px, var(--progressbar-darker) 10px, var(--progressbar) 11px);
-    z-index: 0;
+  position: absolute;
+  height: 100%;
+  width: 0%;
+  top: 0;
+  left: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--progressbar),
+    var(--progressbar) 5px,
+    var(--progressbar-darker) 6px,
+    var(--progressbar-darker) 10px,
+    var(--progressbar) 11px
+  );
+  z-index: 0;
 }
 
 button:not(:disabled) {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 button:not(:disabled):hover {
-    filter: brightness(1.25);
-    transform: scale(1.05);
+  filter: brightness(1.25);
+  transform: scale(1.05);
 }
 
 .buttons {
-    position: relative;
-    overflow: hidden;
-    border: none;
-    border-radius: 0.5em;
-    padding: 0.5em;
-    margin-left: 0.25em;
-    margin-right: 0.25em;
-    cursor: pointer;
-    background-color: var(--div2);
-    width: 100%;
-    font-size: 1.5em;
-    height: 2em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: relative;
+  overflow: hidden;
+  border: none;
+  border-radius: 0.5em;
+  padding: 0.5em;
+  margin-left: 0.25em;
+  margin-right: 0.25em;
+  cursor: pointer;
+  background-color: var(--div2);
+  width: 100%;
+  font-size: 1.5em;
+  height: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .buttons:disabled {
-    background-color: var(--div3);
-    color: var(--text);
-    cursor: default;
+  background-color: var(--div3);
+  color: var(--text);
+  cursor: default;
 }
 
 #downloadButton:not(:disabled) {
-    animation-name: pop;
-    animation-duration: 1.0s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: 1;
+  animation-name: pop;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
 }
 
 @keyframes pop {
-    0% {
-        transform: scale(1.0);
-        filter: brightness(1.0);
-    }
-    20% {
-        transform: scale(1.05);
-        filter: brightness(3.0);
-    }
-    100% {
-        transform: scale(1);
-        filter: brightness(1.0);
-    }
+  0% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  20% {
+    transform: scale(1.05);
+    filter: brightness(3);
+  }
+  100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
 }
 
 .icon {
-    width: 1em;
-    height: 1em;
-    margin: 0.25em;
-    flex-shrink: 0;
-    transition: fill 0.2s;
+  width: 1em;
+  height: 1em;
+  margin: 0.25em;
+  flex-shrink: 0;
+  transition: fill 0.2s;
 }
 
 .number-input {
-    background-color: var(--div2);
-    color: var(--text);
-    width: 5rem;
-    border: none;
-    border-radius: 1em;
-    padding: 5px;
-    font-family: 'Courier New';
-    font-size: 1.25em;
-    text-align: center;
+  background-color: var(--div2);
+  color: var(--text);
+  width: 5rem;
+  border: none;
+  border-radius: 1em;
+  padding: 5px;
+  font-family: "Courier New";
+  font-size: 1.25em;
+  text-align: center;
 }
 
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 /* Firefox */
-input[type=number] {
-    -moz-appearance: textfield;
-}
-
-.main-conversion {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
 .images {
-    display: flex;
-    flex-direction: auto;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: auto;
+  grid-area: image;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-self: stretch;
+  width: auto;
 }
 
 .image {
-    flex-direction: column;
-    padding: 5px;
-    display: block;
-    flex-grow: 1;
-    flex-shrink: 1;
-    height: fit-content;
+  flex-direction: column;
+  padding: 5px;
+  display: block;
+  flex-grow: 1;
+  flex-shrink: 1;
+  height: fit-content;
 }
 
 canvas {
-    display: flex;
-    margin: 0px;
-    padding: 0px;
-    height: 60vh;
+  display: flex;
+  margin: 0px;
+  padding: 0px;
+  height: 60vh;
 }
 
 .image {
-    max-width: fit-content;
+  max-width: fit-content;
 }
 
 #glcanvas {
-    transform: scaleY(-1);
+  transform: scaleY(-1);
 }
 
 .canvas-background {
-    margin: 10px;
-    background: repeating-conic-gradient(#1f1f1f 0% 25%, #141414 0% 50%) 50% / 20px 20px;
-    max-width: fit-content;
+  margin: 10px;
+  background: repeating-conic-gradient(#1f1f1f 0% 25%, #141414 0% 50%) 50% /
+    20px 20px;
+  max-width: fit-content;
 }
 
 .blockList-container {
-    align-items: center;
+  align-items: center;
 }
 
 .blockList {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    background: var(--div2);
-    margin: 5px;
-    padding: 10px;
-    border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: var(--div2);
+  margin: 5px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.palette {
+  overflow: scroll;
+  grid-area: blocks;
 }
 
 .palette-name {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .palette-header {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }
 
 .categories {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-left: 2em;
-    margin-top: -0.5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-left: 2em;
+  margin-top: -0.5em;
 }
 
 .categoryButton {
-    border: none;
-    border-radius: 0.5em;
-    font-size: 1em;
-    color: var(--text);
-    font-family: 'Courier New';
-    font-size: 1.25em;
-    text-align: center;
-    padding: 5px;
-    margin: 5px;
+  border: none;
+  border-radius: 0.5em;
+  font-size: 1em;
+  color: var(--text);
+  font-family: "Courier New";
+  font-size: 1.25em;
+  text-align: center;
+  padding: 5px;
+  margin: 5px;
 }
 
 .categoryButton.positive {
-    background: var(--primary);
-    color: var(--text);
+  background: var(--primary);
+  color: var(--text);
 }
 
 .categoryButton.negative {
-    background: var(--secondary);
-    color: var(--text);
+  background: var(--secondary);
+  color: var(--text);
 }
 
 .categoryButton.neutral {
-    background: var(--div2);
-    color: var(--text);
+  background: var(--div2);
+  color: var(--text);
 }
 
 .material-total-count {
-    align-self: right;
-    margin-left: auto;
+  align-self: right;
+  margin-left: auto;
 }
 
 .blockSelectorCheckbox {
-    display: none;
+  display: none;
 }
 
 .blockSelectorLabel {
-    display: block;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    margin: 2px;
-    border: 6px transparent solid;
+  display: block;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  margin: 2px;
+  border: 6px transparent solid;
 }
 
 .blockCounter {
-    margin: 2px;
-    text-align: center;
+  margin: 2px;
+  text-align: center;
 }
 
-.blockSelectorCheckbox:checked+.blockSelectorLabel {
-    border: 6px solid var(--highlight);
-    border-radius: 0.5em;
+.blockSelectorCheckbox:checked + .blockSelectorLabel {
+  border: 6px solid var(--highlight);
+  border-radius: 0.5em;
 }
 
-.activeMaterial .blockSelectorCheckbox:checked+.blockSelectorLabel {
-    border: 6px solid var(--secondary) !important;
-    border-radius: 0.5em;
+.activeMaterial .blockSelectorCheckbox:checked + .blockSelectorLabel {
+  border: 6px solid var(--secondary) !important;
+  border-radius: 0.5em;
 }
 
 .activeMaterial .blockCounter {
-    display: block !important;
+  display: block !important;
 }
 
 .blockSelectorImage {
-    width: 100%;
-    height: 100%;
-    padding: 0px;
-    object-fit: cover;
-    image-rendering: pixelated;
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  object-fit: cover;
+  image-rendering: pixelated;
 }
 
 #image-input {
-    display: none;
+  display: none;
 }
 
 .image-input-label {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 th {
-    text-align: left;
+  text-align: left;
 }
 
 /* svg refresh button */
 .refresh-button {
-    width: 25px;
-    cursor: pointer;
+  width: 25px;
+  cursor: pointer;
 
-    stroke: var(--highlight);
-    stroke-width: 1.5px;
+  stroke: var(--highlight);
+  stroke-width: 1.5px;
 
-    float: right;
-    transition: fill 0.2s;
+  float: right;
+  transition: fill 0.2s;
 }
 
 /*th[title]:hover {
@@ -422,39 +439,39 @@ th {
 }*/
 
 .tooltip {
-    display: none;
+  display: none;
 }
 
 hr {
-    border: 1px solid var(--primary);
-    margin: 0px;
-    margin-bottom: 0.5em;
-    margin-top: 0.1em;
+  border: 1px solid var(--primary);
+  margin: 0px;
+  margin-bottom: 0.5em;
+  margin-top: 0.1em;
 }
 
 .tooltiptext {
-    font-size: 16px;
-    text-align: left;
+  font-size: 16px;
+  text-align: left;
 }
 
 .tooltip-label:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .tooltip-label:hover + .tooltip {
-    display: block !important;
-    content: attr(tooltip);
-    position: fixed;
-    overflow: hidden;
-    padding: 10px;
-    z-index: 100;
-    max-width: 400px;
-    border: 5px solid var(--primary);
-    border-radius: 0.5em;
-    background-color: var(--div);
-    font-size: 20px;
-    opacity: 0.96;
+  display: block !important;
+  content: attr(tooltip);
+  position: fixed;
+  overflow: hidden;
+  padding: 10px;
+  z-index: 100;
+  max-width: 400px;
+  border: 5px solid var(--primary);
+  border-radius: 0.5em;
+  background-color: var(--div);
+  font-size: 20px;
+  opacity: 0.96;
 
-    filter: drop-shadow(0px 0px 5px var(--background));
-    transform : translate(10px, 10px);
+  filter: drop-shadow(0px 0px 5px var(--background));
+  transform: translate(10px, 10px);
 }
