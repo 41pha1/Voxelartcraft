@@ -434,3 +434,25 @@ th {
     padding: 0 !important;
     transform: scale(0.8);
 }
+
+/* scrollbar */
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+/* Track */
+::-webkit-scrollbar-track {
+background: #424242; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: #686868; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #7b7b7b; 
+}
