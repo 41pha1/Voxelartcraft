@@ -423,3 +423,14 @@ th {
 /*th[title]:hover {
     font-size: 30px;
 }*/
+
+
+/* Ko-fi button */
+.btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: scale(0.8);
+}
