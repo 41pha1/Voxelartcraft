@@ -844,13 +844,12 @@ export { voxelConvert, updateTargetImage, updatePalette, applyProcessing, downlo
 
 //TODO:
 // FEATURES:
+// - Mobile support
 // - Custom variance function
-// - default pallette category selection
-// - shader pipelin with buffered frame array
+// - shader pipeline with buffered frame array
 
 // DESIGN:
 // - Show credits and github link
-// - Adjust the font?
 
 // BUGS:
 // - Fix image disappearing when clicking the upload button (chrome only?)
@@ -859,13 +858,11 @@ export { voxelConvert, updateTargetImage, updatePalette, applyProcessing, downlo
 // - depth input uses manhattan distance instead of euclidean distance
 
 // PUBLICATION:
-// - Show case youtube video
+// - Show case youtube video (with music) like: https://www.youtube.com/shorts/aUDYWYqtAR4
 // - Reddit post
-// - buy domain
 
 // NICE TO HAVE:
 // - Add crosshair to preview
-// - count placed pixels to terminate early
-// - Mobile support
 // - Block minecraft version
 // - Eastereggs
+// - default pallette category selection

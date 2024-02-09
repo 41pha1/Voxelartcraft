@@ -248,6 +248,8 @@ input[type=number] {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    
+    flex-wrap: wrap;
 }
 
 .images {
@@ -418,6 +420,20 @@ th {
 
     float: right;
     transition: fill 0.2s;
+}
+
+.main-title {
+    margin: 0.1em;
+}
+
+.title-subtext {
+    margin: 0.1em;
+}
+
+.title-container
+{
+    padding: 0px;
+    margin: 0px;
 }
 
 /*th[title]:hover {
