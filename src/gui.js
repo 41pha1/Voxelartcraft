@@ -35,22 +35,37 @@ function image_update(src = null) {
         const maxHeight = 600;
         const maxWidth = 1200;
 
-        if (maxHeight * aspect > maxWidth) {
-            processingCanvas.style.width = maxWidth + "px";
-            processingCanvas.style.height = "auto";
 
-            voxelCanvas.style.width = maxWidth + "px";
-            voxelCanvas.style.height = "auto";
+        const mainConversionDiv = document.querySelector('.main-conversion');
+        const parenteWidth = mainConversionDiv.clientWidth;
+        const parentHeight = mainConversionDiv.clientHeight;
 
-        } else {
-            processingCanvas.style.height = maxHeight + "px";
-            processingCanvas.style.width = "auto";
+        const settingsDiv = document.querySelector('.settingsGroup');
+        const settingsWidth = settingsDiv.clientWidth;
+        const settingsHeight = settingsDiv.clientHeight;
 
-            voxelCanvas.style.height = maxHeight + "px";
-            voxelCanvas.style.width = "auto";
+        var imagesWidth = parenteWidth - settingsWidth;
+        const imagesHeight = settingsHeight - 133;
+
+        if (imagesWidth < settingsWidth) {
+            imagesWidth = parenteWidth;
         }
 
+        if (imagesHeight * aspect > imagesWidth) {
+            processingCanvas.style.width = imagesWidth - 100 + "px";
+            processingCanvas.style.height = "auto";
 
+            voxelCanvas.style.width = imagesWidth - 100 + "px";
+            voxelCanvas.style.height = "auto";
+            console.log("Limiting width")
+        } else {
+            processingCanvas.style.width = "auto";
+            processingCanvas.style.height = imagesHeight + "px";
+
+            voxelCanvas.style.width = "auto";
+            voxelCanvas.style.height = imagesHeight + "px";
+            console.log("Limiting height")
+        }
 
         ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
         const dataURL = canvas.toDataURL();

@@ -257,7 +257,6 @@ input[type=number] {
     flex-direction: auto;
     flex-wrap: wrap;
     justify-content: center;
-    width: auto;
 }
 
 .image {
