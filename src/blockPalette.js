@@ -2,6 +2,7 @@ import { updatePalette } from "./script.js";
 
 const categories = ["any", "survival", "renewable", "expensive", "gravity", "randomTickAffected", "lightEmitting", "dyed", "grayscale", "high_variance", "low_variance"];
 const categoryNames = { "any": "everything", "survival": "survival", "renewable": "renewable", "expensive": "expensive", "gravity": "falling", "randomTickAffected": "unstable", "lightEmitting": "glowing", "dyed": "dyed", "grayscale": "grayscale", "high_variance": "messy", "low_variance": "clean" };
+const defaultValues = { "any": "positive", "survival": "positive", "renewable": "neutral", "expensive": "negative", "gravity": "negative", "randomTickAffected": "negative", "lightEmitting": "neutral", "dyed": "neutral", "grayscale": "neutral", "high_variance": "negative", "low_variance": "neutral" };
 
 const blockSelectorDiv = document.querySelector(".blockList");
 const blocks = readFile("./blockProperties.json")
@@ -70,7 +71,6 @@ function selectoHTML(blockID, r, g, b, index) {
     });
 
     var classes = "blockSelectorCheckbox"
-
 
     for (var i = 0; i < categories.length; i++) {
         if (blocks[blockID][categories[i]] == "true")
@@ -146,7 +146,7 @@ for (var i = 0; i < categories.length; i++) {
     const categoryButton = document.createElement("button");
     categoryButton.innerHTML = categoryNames[categories[i]];
     categoryButton.classList.add("categoryButton");
-    categoryButton.classList.add("neutral");
+    categoryButton.classList.add(defaultValues[categories[i]]);
     categoryButton.classList.add(categories[i]);
     categoryButton.id = categories[i] + "Button";
     categoryButton.addEventListener("click", (e) => {
@@ -171,3 +171,4 @@ for (var i = 0; i < categories.length; i++) {
 }
 
 paletteHeader.insertBefore(categoriesDiv, paletteHeader.childNodes[2]);
+updateSelection();
