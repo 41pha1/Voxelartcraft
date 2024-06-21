@@ -1,75 +1,101 @@
 import { image_update } from "./gui.js";
 import { voxelConvert } from "./script.js";
 
+import Animator from "./animator.js";
 
-function lerp (start, end, amt){
-    return (1-amt)*start+amt*end
+const FRAMERATE = 15;
+const DOWNLOAD_ZIP = false;
+const DOWNLOAD_GIF = true;
+const KEYFRAME_FILE = 'keyframes/badApple.json';
+
+var animator = null;
+
+function init() {
+    animator = new Animator(KEYFRAME_FILE);
+    
+    const values = animator.initialValues;
+
+    for (let property in values) {
+        const input = document.getElementById(property + '-number');
+        input.value = values[property];
+        input.dispatchEvent(new Event('change'));
+    }
 }
 
-async function setupViewParams(frame, frameCount) {
-    // const fov_number_input = document.getElementById('fov-number');
+async function updateViewParams(frame) {
+    const values = animator.getValuesAtFrame(frame);
+    console.log(values);
 
-    // const INIT_FOV = 60;
-    // const MAX_FOV = 30;
-
-    // const newFov = lerp(INIT_FOV, MAX_FOV, frame / frameCount);
-
-    // fov_number_input.value = newFov;
-    // fov_number_input.dispatchEvent(new Event('change'));
-
-    // const yaw_number_input = document.getElementById('yaw-number');
-
-    // const INIT_YAW = 0;
-    // const MAX_YAW = 360;
-
-    // const newYaw = lerp(INIT_YAW, MAX_YAW, frame / frameCount);
-
-    // yaw_number_input.value = (newYaw + 180) % 360 - 180;
-    // yaw_number_input.dispatchEvent(new Event('change'));
+    for (let property in values) {
+        const input = document.getElementById(property + '-number');
+        input.value = values[property];
+        input.dispatchEvent(new Event('change'));
+    }
 
     await new Promise(r => setTimeout(r, 20));
 }
 
 function processBatch() {
+    init();
+
     var files = document.getElementById('image-input').files;
+    var startFrame = parseInt(files[0].name.replace(/\.[^/.]+$/, ""));
     var filesLength = files.length;
+    console.log("Start frame: " + startFrame);
 
     var output_ZIP = new window.JSZip();
-
-    console.log(output_ZIP);
+    var output_GIF = new window.GIF({
+        workers: 2,
+        quality: 10
+    });
 
     var i = 0;
-
     const callback = async function() {
         if (i >= filesLength)
         {
-            // Generate the zip file asynchronously
-            output_ZIP.generateAsync({type:"blob"})
-            .then(function(content) {
-                var promise = null;
-                if (JSZip.support.uint8array) {
-                    promise = output_ZIP.generateAsync({type : "uint8array"});
-                } else {
-                    promise = output_ZIP.generateAsync({type : "string"});
-                }
+            if(DOWNLOAD_ZIP)
+                output_ZIP.generateAsync({type:"blob"})
+                .then(function(content) {
+                    var promise = null;
+                    if (JSZip.support.uint8array) {
+                        promise = output_ZIP.generateAsync({type : "uint8array"});
+                    } else {
+                        promise = output_ZIP.generateAsync({type : "string"});
+                    }
 
-                // Download the zip file
-                promise.then(function(content) {
-                    var blob = new Blob([content], {type: "application/zip"});
+                    // Download the zip file
+                    promise.then(function(content) {
+                        var blob = new Blob([content], {type: "application/zip"});
+                        var url = window.URL.createObjectURL(blob);
+                        var a = document.createElement('a');
+                        a.href = url;
+                        a.download = 'batch.zip';
+                        a.click();
+                        window.URL.revokeObjectURL(url);
+                    });
+                    
+                });
+
+            if(DOWNLOAD_GIF){
+                output_GIF.render();
+
+                // Download the gif file
+                output_GIF.on('finished', function(blob) {
                     var url = window.URL.createObjectURL(blob);
                     var a = document.createElement('a');
                     a.href = url;
-                    a.download = 'batch.zip';
+                    a.download = 'batch.gif';
                     a.click();
                     window.URL.revokeObjectURL(url);
                 });
                 
-            });
+            }
             return;
         }
 
         // VOXELIZE
-        await setupViewParams(i, filesLength);
+        await updateViewParams(i + startFrame);
+
         voxelConvert().then(() => {
 
             // EXPORT SCREENSHOT
@@ -80,8 +106,8 @@ function processBatch() {
             console.log(fileName);
 
             output_ZIP.file(fileName, resultImage.substr(resultImage.indexOf(',') + 1), {base64: true});
+            output_GIF.addFrame(resultCanvas, {copy: true, delay: 1000 / FRAMERATE});
 
-            // EXPORT BLUEPRINT
             if (i++ < filesLength) {
                 setTimeout(() => { 
                     image_update(i, callback); 

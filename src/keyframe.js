@@ -1,4 +1,4 @@
-class Keyframe {
+export default class Keyframe {
     constructor (timeStamp, property, value, easing) {
         this.timeStamp = timeStamp;
         this.property = property;

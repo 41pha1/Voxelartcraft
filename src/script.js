@@ -732,8 +732,6 @@ function voxelConvert() {
         } else {
             var timer = setInterval(() => {
                 placeBlocks(occlusionMask, output, depth, blocks, outputCtx);
-
-                console.log("Depth: " + depth);
                 depth += depthStep;
                 setVoxelProgress((depth - minDepth) / (maxDepth * 1.75 - minDepth + 2));
 

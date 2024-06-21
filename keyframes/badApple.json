@@ -1,0 +1,28 @@
+{
+    "initialValues": { 
+        "fov": 60,
+        "yaw": -45,
+        "pitch": -35,
+        "brightness": 0,
+        "highlights": 0,
+        "shadows": 0,
+        "saturation": 0,
+        "contrast": 0,
+        "temperature": 0,
+        "tint": -100
+    },
+    "info": "TimeStamp is in seconds. Easing can be INSTANT, LINEAR, EASE_IN, EASE_OUT, EASE_IN_OUT",
+    "keyframes": 
+    [
+        { "timeStamp": 318, "property": "yaw", "value": -45, "easing": "INSTANT" },
+        { "timeStamp": 334, "property": "yaw", "value": -180, "easing": "EASE_IN_OUT" },
+
+        { "timeStamp": 395, "property": "pitch", "value": -35, "easing": "INSTANT" },
+        { "timeStamp": 425, "property": "pitch", "value": 89, "easing": "EASE_IN" },
+        { "timeStamp": 465, "property": "pitch", "value": 0, "easing": "EASE_IN_OUT" },
+
+        { "timeStamp": 510, "property": "fov", "value": 60, "easing": "INSTANT" },
+        { "timeStamp": 540, "property": "fov", "value": 30, "easing": "EASE_IN_OUT" },
+        { "timeStamp": 555, "property": "fov", "value": 60, "easing": "EASE_IN_OUT" }
+    ]
+}
