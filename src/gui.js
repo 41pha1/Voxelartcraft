@@ -7,9 +7,12 @@ const DEFAULT_TARGET = './res/upload.svg';
 const image_input = document.querySelector('#image-input');
 image_input.addEventListener("change", image_update);
 
-function image_update(src = null) {
+function image_update(frame = 0, onDone = () => {}) {
     stopVoxelization();
-    const img = document.querySelector('#image-input').files[0];
+
+    frame = (typeof frame === 'object') ? 0 : frame;
+    const img = document.querySelector('#image-input').files[frame];
+
     const resolution_number = document.querySelector('#resolution-number');
 
     const image = new Image();
@@ -34,7 +37,6 @@ function image_update(src = null) {
 
         const maxHeight = 600;
         const maxWidth = 1200;
-
 
         const mainConversionDiv = document.querySelector('.main-conversion');
         const parenteWidth = mainConversionDiv.clientWidth;
@@ -71,7 +73,7 @@ function image_update(src = null) {
         const dataURL = canvas.toDataURL();
 
         const scaled = new Image();
-        scaled.onload = function () { updateTargetImage(scaled); }
+        scaled.onload = function () { updateTargetImage(scaled, onDone); }
         scaled.src = dataURL;
     }
 

@@ -5,10 +5,12 @@
   <meta charset="utf-8" />
   <title>VoxelartCraft | The free Minecraft Perspective Art Generator</title>
   <link rel="stylesheet" href="style/style.css">
+  <script src = "https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
   <script src="src/blockPalette.js" type="module"></script>
   <script src="src/script.js" type="module"></script>
   <script src="src/schematic.js" type="module"></script>
   <script src="src/gui.js" type="module"></script>
+  <script src="src/batchMode.js" type="module"></script>
   <script src='https://git.io/glm-js.min.js'></script>
 
   <!-- Google Tag Manager -->
@@ -428,7 +430,7 @@
         </div>
         <div class="images">
           <div class="card image preview">
-            <input type="file" id="image-input" accept="image/*">
+            <input type="file" id="image-input" accept="image/*" multiple>
             <label class="image-input-label" for="image-input">
               <div class="canvas-background">
                 <canvas id="glcanvas" class="processing-preview" width="1" height="1"></canvas>

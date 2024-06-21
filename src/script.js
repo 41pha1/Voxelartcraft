@@ -1,6 +1,9 @@
 import { createStructureNBT } from "./schematic.js";
 import { image_update } from "./gui.js";
+import { processBatch } from "./batchMode.js";
 
+window.image_update = image_update;
+window.processBatch = processBatch;
 
 const textureAtlas = './atlas.png';
 
@@ -443,7 +446,7 @@ function updateMaterialList() {
     totalAmountDiv.style.display = totalAmount > 0 ? "block" : "none";
 }
 
-function applyPreviewDiscretization() {
+function applyPreviewDiscretization(callbackResolve = () => { }) {
     gl.useProgram(discretizeShader);
     gl.viewport(0, 0, canvas.width, canvas.height);
 
@@ -480,6 +483,7 @@ function applyPreviewDiscretization() {
         var UAC = new Uint8ClampedArray(voxel_preview, canvas.width, canvas.height);
         var imageData = new ImageData(UAC, canvas.width, canvas.height);
         outputCtx.putImageData(imageData, 0, 0);
+        callbackResolve();
     });
 }
 
@@ -688,64 +692,68 @@ function setVoxelProgress(progress) {
 }
 
 function voxelConvert() {
-    if (voxelizing) {
-        requestStop = true;
-        setTimeout(() => { voxelConvert(); }, 100);
-        return;
-    }
-    requestStop = false;
-    voxelized = false;
-    voxelizing = true;
+    return new Promise((resolve, reject) => {
 
-    blocks = [];
-    setVoxelProgress(0);
-    showVoxelCanvas();
-    updateMaterialList();
-    loadSettingsFromUI();
-    gl.useProgram(voxelShader);
-    var tex = null;
-    [framebuffer, tex] = setupFramebuffer();
-    setUniforms(canvas.width, canvas.height, depthStep, camPos, pitch, yaw, fov, maxDepth);
+        if (voxelizing) {
+            requestStop = true;
+            setTimeout(() => { voxelConvert(); }, 100);
+            reject("Voxelization already in progress");
+            return;
+        }
+        requestStop = false;
+        voxelized = false;
+        voxelizing = true;
 
-    output = new Float32Array(canvas.width * canvas.height * 4);
-    var occlusionMask = new Int8Array(canvas.width * canvas.height * 1);
-    pixelData = new Float32Array(canvas.width * canvas.height * 4);
-    voxel_preview = new Uint8Array(canvas.width * canvas.height * 4);
-    outputCtx.clearRect(0, 0, canvas.width, canvas.height);
-
-    var depth = minDepth;
-
-    if (pixelArtMode == 1) {
-        placeBlocks(occlusionMask, output, depth, blocks, outputCtx);
-        voxelizing = false;
-        voxelized = true;
+        blocks = [];
+        setVoxelProgress(0);
+        showVoxelCanvas();
         updateMaterialList();
-        applyPreviewDiscretization();
-        console.log("Finished voxelizing: " + blocks.length);
-    } else {
-        var timer = setInterval(() => {
+        loadSettingsFromUI();
+        gl.useProgram(voxelShader);
+        var tex = null;
+        [framebuffer, tex] = setupFramebuffer();
+        setUniforms(canvas.width, canvas.height, depthStep, camPos, pitch, yaw, fov, maxDepth);
+
+        output = new Float32Array(canvas.width * canvas.height * 4);
+        var occlusionMask = new Int8Array(canvas.width * canvas.height * 1);
+        pixelData = new Float32Array(canvas.width * canvas.height * 4);
+        voxel_preview = new Uint8Array(canvas.width * canvas.height * 4);
+        outputCtx.clearRect(0, 0, canvas.width, canvas.height);
+
+        var depth = minDepth;
+
+        if (pixelArtMode == 1) {
             placeBlocks(occlusionMask, output, depth, blocks, outputCtx);
+            voxelizing = false;
+            voxelized = true;
+            updateMaterialList();
+            applyPreviewDiscretization();
+            console.log("Finished voxelizing: " + blocks.length);
+        } else {
+            var timer = setInterval(() => {
+                placeBlocks(occlusionMask, output, depth, blocks, outputCtx);
 
-            console.log("Depth: " + depth);
-            depth += depthStep;
-            setVoxelProgress((depth - minDepth) / (maxDepth * 1.75 - minDepth + 2));
+                console.log("Depth: " + depth);
+                depth += depthStep;
+                setVoxelProgress((depth - minDepth) / (maxDepth * 1.75 - minDepth + 2));
 
-            if (depth > maxDepth * 1.75 + 2 || requestStop) {
-                voxelizing = false;
-                clearInterval(timer);
+                if (depth > maxDepth * 1.75 + 2 || requestStop) {
+                    voxelizing = false;
+                    clearInterval(timer);
 
-                if (!requestStop) {
-                    voxelized = true;
-                    setVoxelProgress(0);
-                    updateMaterialList();
-                    applyPreviewDiscretization();
-                    console.log("Finished voxelizing: " + blocks.length);
-                } else {
-                    blocks = [];
+                    if (!requestStop) {
+                        voxelized = true;
+                        setVoxelProgress(0);
+                        updateMaterialList();
+                        applyPreviewDiscretization(resolve);
+                        console.log("Finished voxelizing: " + blocks.length);
+                    } else {
+                        blocks = [];
+                    }
                 }
-            }
-        }, 0);
-    }
+            }, 0);
+        }
+    });
 }
 
 async function downloadNBT() {
@@ -766,7 +774,7 @@ async function downloadNBT() {
     URL.revokeObjectURL(url);
 }
 
-async function updateTargetImage(image_obj) {
+async function updateTargetImage(image_obj, onDone = () => { }) {
     const img = await loadTexture(image_obj);
     console.log("Loaded image: " + img.width + "x" + img.height);
 
@@ -801,6 +809,8 @@ async function updateTargetImage(image_obj) {
     updateMaterialList();
     updatePalette();
     voxelized = false;
+
+    onDone();
 }
 
 function stopVoxelization() {
@@ -834,7 +844,7 @@ async function main() {
     gl.useProgram(voxelShader);
 
     // load default target image
-    image_update();
+    image_update(0);
 }
 
 main();
