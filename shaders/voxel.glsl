@@ -10,6 +10,7 @@ uniform vec3 u_camPos;
 uniform float u_fov;
 uniform float u_pitch;
 uniform float u_yaw;
+uniform float u_roll;
 
 uniform mat4 u_projection;
 uniform mat4 u_view;
@@ -250,6 +251,7 @@ void main( )
     float fov = u_fov * PI / 180.;
     float pitch = u_pitch * PI / 180.;
     float yaw = u_yaw * PI / 180.;
+    float roll = u_roll * PI / 180.;
 
     float zoom = 1. / tan(fov / 2.);
     vec3 cameraPos = u_camPos;
@@ -260,10 +262,16 @@ void main( )
     );
 
     mat4 viewProjection = u_projection * u_view;
-    vec3 globalup = vec3(0., 1., 0.);
     vec3 forward = normalize(lookingAt - cameraPos);
+    vec3 globalup = vec3(0., 1., 0.);
+
     vec3 right = normalize(cross(forward, globalup));
     vec3 up = normalize(cross(forward, right));
+
+    // Apply Roll
+    right = (cos(roll) * right + sin(roll) * up);
+    up = cross(forward, right);
+
     vec3 rayOrigin = cameraPos;// + rayDirection * (depth - 3.0);
     vec3 rayDirection = vec3(0.);
     

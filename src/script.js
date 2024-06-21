@@ -56,6 +56,7 @@ const camPos = [0.7, 1.62, 0.7];
 var fov = 60.;
 var pitch = Math.asin(1 / Math.sqrt(3)) * 180 / Math.PI;
 var yaw = 45.;
+var roll = 0.;
 
 // QUALITY SETTINGS
 var minDepth = 10;
@@ -231,7 +232,7 @@ function createShaderProgram(vertexShaderFile, voxelShaderFile) {
     return voxelShader;
 }
 
-function setUniforms(w, h, depthStep, camPos, pitch, yaw, fov, maxDepth) {
+function setUniforms(w, h, depthStep, camPos, pitch, yaw, roll, fov, maxDepth) {
 
     var maxDepthUniformLocation = gl.getUniformLocation(voxelShader, "u_maxDepth");
     gl.uniform1f(maxDepthUniformLocation, maxDepth);
@@ -257,6 +258,9 @@ function setUniforms(w, h, depthStep, camPos, pitch, yaw, fov, maxDepth) {
     var yawUniformLocation = gl.getUniformLocation(voxelShader, "u_yaw");
     gl.uniform1f(yawUniformLocation, yaw);
 
+    var rollUniformLocation = gl.getUniformLocation(voxelShader, "u_roll");
+    gl.uniform1f(rollUniformLocation, roll);
+
     var fovUniformLocation = gl.getUniformLocation(voxelShader, "u_fov");
     gl.uniform1f(fovUniformLocation, fov);
 
@@ -278,6 +282,12 @@ function setUniforms(w, h, depthStep, camPos, pitch, yaw, fov, maxDepth) {
     lookAt = glm.vec3(lookAt);
     camPos = glm.vec3(camPos);
     var view = glm.lookAt(camPos, lookAt, glm.vec3(0, 1, 0));
+    const forward = glm.normalize(lookAt.sub(camPos));
+
+    // apply roll to view matrix
+    view = glm.rotate(view, glm.radians(-roll), forward);
+
+
     view = new Float32Array(view.elements);
     gl.uniformMatrix4fv(viewUniformLocation, false, view);
 
@@ -665,6 +675,7 @@ function loadSettingsFromUI() {
     fov = parseFloat(document.querySelector('#fov-number').value);
     pitch = -parseFloat(document.querySelector('#pitch-number').value);
     yaw = -parseFloat(document.querySelector('#yaw-number').value);
+    roll = parseFloat(document.querySelector('#roll-number').value);
     brightness = parseFloat(document.querySelector('#brightness-number').value);
     contrast = parseFloat(document.querySelector('#contrast-number').value);
     saturation = parseFloat(document.querySelector('#saturation-number').value);
@@ -712,7 +723,7 @@ function voxelConvert() {
         gl.useProgram(voxelShader);
         var tex = null;
         [framebuffer, tex] = setupFramebuffer();
-        setUniforms(canvas.width, canvas.height, depthStep, camPos, pitch, yaw, fov, maxDepth);
+        setUniforms(canvas.width, canvas.height, depthStep, camPos, pitch, yaw, roll, fov, maxDepth);
 
         output = new Float32Array(canvas.width * canvas.height * 4);
         var occlusionMask = new Int8Array(canvas.width * canvas.height * 1);

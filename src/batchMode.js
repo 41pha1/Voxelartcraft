@@ -28,7 +28,21 @@ async function updateViewParams(frame) {
 
     for (let property in values) {
         const input = document.getElementById(property + '-number');
-        input.value = values[property];
+        let targetValue = values[property];
+
+        if (property === 'yaw') {
+            targetValue = (targetValue + 180) % 360 - 180;
+        }
+
+        if (property === 'pitch') {
+            targetValue = (targetValue + 90) % 180 - 90;
+        }
+
+        if (property === 'roll') {
+            targetValue = (targetValue + 180) % 360 - 180;
+        }
+
+        input.value = targetValue;
         input.dispatchEvent(new Event('change'));
     }
 

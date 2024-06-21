@@ -3,6 +3,7 @@
         "fov": 60,
         "yaw": -45,
         "pitch": -35,
+        "roll": 0,
         "brightness": 0,
         "highlights": 0,
         "shadows": 0,
@@ -23,6 +24,31 @@
 
         { "timeStamp": 510, "property": "fov", "value": 60, "easing": "INSTANT" },
         { "timeStamp": 540, "property": "fov", "value": 30, "easing": "EASE_IN_OUT" },
-        { "timeStamp": 555, "property": "fov", "value": 60, "easing": "EASE_IN_OUT" }
+        { "timeStamp": 555, "property": "fov", "value": 60, "easing": "EASE_IN_OUT" },
+
+        { "timeStamp": 527, "property": "fov", "value": 60, "easing": "INSTANT" },
+        { "timeStamp": 542, "property": "fov", "value": 30, "easing": "EASE_IN_OUT" },
+        { "timeStamp": 555, "property": "fov", "value": 60, "easing": "EASE_IN_OUT" },
+
+        { "timeStamp": 536, "property": "yaw", "value": -180, "easing": "INSTANT" },
+        { "timeStamp": 559, "property": "yaw", "value": -90, "easing": "EASE_IN_OUT" },
+
+        { "timeStamp": 574, "property": "yaw", "value": -90, "easing": "INSTANT" },
+        { "timeStamp": 597, "property": "yaw", "value": -180, "easing": "EASE_IN_OUT" },
+
+        { "timeStamp": 600, "property": "fov", "value": 60, "easing": "INSTANT" },
+        { "timeStamp": 620, "property": "fov", "value": 30, "easing": "EASE_IN_OUT" },
+        { "timeStamp": 606, "property": "pitch", "value": 0, "easing": "INSTANT" },
+        { "timeStamp": 632, "property": "pitch", "value": 89, "easing": "EASE_IN" },
+        { "timeStamp": 632, "property": "fov", "value": 60, "easing": "INSTANT" },
+
+        { "timeStamp": 656, "property": "fov", "value": 30, "easing": "INSTANT" },
+        { "timeStamp": 672, "property": "fov", "value": 90, "easing": "EASE_IN_OUT" },
+        { "timeStamp": 682, "property": "fov", "value": 60, "easing": "EASE_IN_OUT" },
+        { "timeStamp": 656, "property": "roll", "value": 0, "easing": "INSTANT" },
+        { "timeStamp": 682, "property": "roll", "value": 900, "easing": "EASE_IN_OUT" },
+
+        { "timeStamp": 678, "property": "pitch", "value": 89, "easing": "INSTANT" },
+        { "timeStamp": 686, "property": "pitch", "value": 30, "easing": "EASE_IN_OUT" }
     ]
 }
