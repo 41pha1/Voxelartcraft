@@ -808,6 +808,8 @@ function stopVoxelization() {
 }
 
 async function main() {
+    console.log("Starting voxelizer");
+
     // Only continue if WebGL is available and working
     if (!gl) {
         alert("need WebGL2");

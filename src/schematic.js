@@ -1,5 +1,5 @@
-import * as NBT from "https://cdn.jsdelivr.net/npm/nbtify/dist/index.min.js";
-import { NBTData, Int32 } from "https://cdn.jsdelivr.net/npm/nbtify/dist/index.min.js";
+import * as NBT from "https://cdn.jsdelivr.net/npm/nbtify@2.0.0/+esm";
+import { NBTData, Int32 } from "https://cdn.jsdelivr.net/npm/nbtify@2.0.0/+esm";
 
 function addAlignmentBlocks(blocks, palette, materials){
     const alignementBlockType = "target";
@@ -128,7 +128,7 @@ async function createStructureNBT(blocks, palette, materials){
         palette: paletteArray,
         blocks: blocksArray,
         entities: [],
-    },{ rootName: "", endian: "big", compression: "gzip", bedrockLevel: null });
+    },{ rootName: "", endian: "big", compression: "gzip", bedrockLevel: false });
     
     const nbtBuffer = await NBT.write(nbt);
     const file = new File([nbtBuffer], "structure.nbt");
