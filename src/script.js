@@ -47,12 +47,14 @@ var voxelizedTexture = null;
 
 // Uniforms
 var depth_uniform = null;
+var enforceBoundary_uniform = null;
 
 // Settings
 const camPos = [0.7, 1.62, 0.7];
 var fov = 60.;
 var pitch = Math.asin(1 / Math.sqrt(3)) * 180 / Math.PI;
 var yaw = 45.;
+var enforceBoundary = false;
 
 // QUALITY SETTINGS
 var minDepth = 10;
@@ -279,6 +281,7 @@ function setUniforms(w, h, depthStep, camPos, pitch, yaw, fov, maxDepth) {
     gl.uniformMatrix4fv(viewUniformLocation, false, view);
 
     depth_uniform = gl.getUniformLocation(voxelShader, "u_depth");
+    enforceBoundary_uniform = gl.getUniformLocation(voxelShader, "u_enforceBoundary");
 }
 
 function render(depth) {
@@ -287,6 +290,7 @@ function render(depth) {
     gl.bindTexture(gl.TEXTURE_2D, texture);
     gl.bindFramebuffer(gl.FRAMEBUFFER, framebuffer);
     gl.uniform1f(depth_uniform, depth);
+    gl.uniform1f(enforceBoundary_uniform, enforceBoundary ? 1.0 : 0.0);
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 }
 
@@ -362,7 +366,7 @@ function meanAndVariance(pixels) {
         variance[1] += Math.pow(processedImage[pixel + 1] - meanColor[1], 2);
         variance[2] += Math.pow(processedImage[pixel + 2] - meanColor[2], 2);
     }
-    const maxVariance = Math.max(variance[0], variance[1], variance[2]) / pixels.length;
+    const maxVariance = (variance[0] + variance[1] + variance[2]) / pixels.length;
 
     return [meanColor, maxVariance];
 }
@@ -634,7 +638,8 @@ async function placeBlocks(occlusionMask, output, depth, blocks, outputCtx) {
     // outputCtx.putImageData(imageData, 0, 0);
 
     const foundBlocks = hashPixels(pixelData, occlusionMask);
-    var allowedVariance = (endVariance - startVariance) * Math.pow((depth - minDepth) / (maxDepth - minDepth), 2.0) + startVariance;
+
+    var allowedVariance = Math.pow(1.15, endVariance) * Math.pow((depth - minDepth) / (maxDepth - minDepth), 2.0);
 
     analyzeBlocks(foundBlocks, pixelData, occlusionMask, allowedVariance, output, blocks, outputCtx);
 }
@@ -656,8 +661,8 @@ function setupFramebuffer(type = gl.FLOAT) {
 function loadSettingsFromUI() {
     minDepth = parseFloat(document.querySelector('#depth-min-number').value);
     maxDepth = parseFloat(document.querySelector('#depth-max-number').value);
-    startVariance = 10.0;
-    endVariance = parseFloat(document.querySelector('#variance-number').value);
+    startVariance = 1.0;
+    endVariance = 101 - parseFloat(document.querySelector('#detail-number').value); // 1 - 100 -> 100 - 1
     fov = parseFloat(document.querySelector('#fov-number').value);
     pitch = -parseFloat(document.querySelector('#pitch-number').value);
     yaw = -parseFloat(document.querySelector('#yaw-number').value);
@@ -670,6 +675,7 @@ function loadSettingsFromUI() {
     temperature = parseFloat(document.querySelector('#temperature-number').value);
     tint = parseFloat(document.querySelector('#tint-number').value);
     pixelArtMode = document.querySelector('#pixelart-checkbox').checked;
+    enforceBoundary = document.querySelector('#enforce-boundary-checkbox').checked;
 }
 
 function showProcessingCanvas() {

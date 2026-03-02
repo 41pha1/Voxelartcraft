@@ -213,28 +213,51 @@ function depth_updateMaxNumber() {
 depth_updateMaxSlider();
 depth_updateMinSlider();
 
-const resetSVG = document.querySelector('.refresh-button');
-resetSVG.addEventListener("click", reset);
+document.querySelector('#reset-image').addEventListener("click", resetImage);
+document.querySelector('#reset-3d').addEventListener("click", reset3D);
 
-function reset() {
-    document.querySelector('#brightness-slider').value = 0;
-    document.querySelector('#highlights-slider').value = 0;
-    document.querySelector('#shadows-slider').value = 0;
-    document.querySelector('#contrast-slider').value = 0;
-    document.querySelector('#saturation-slider').value = 0;
-    document.querySelector('#temperature-slider').value = 0;
-    document.querySelector('#tint-slider').value = 0;
+function resetImage() {
+    
+    const numbers = document.querySelectorAll('#settings-image input[type="number"]');
+    numbers.forEach(number => {
+        number.value = number.defaultValue;
+    });
 
-    document.querySelector('#brightness-number').value = 0;
-    document.querySelector('#highlights-number').value = 0;
-    document.querySelector('#shadows-number').value = 0;
-    document.querySelector('#contrast-number').value = 0;
-    document.querySelector('#saturation-number').value = 0;
-    document.querySelector('#temperature-number').value = 0;
-    document.querySelector('#tint-number').value = 0;
+    const sliders = document.querySelectorAll('#settings-image input[type="range"]');
+    sliders.forEach(slider => {
+        slider.value = slider.defaultValue;
+        updateSliderBackground({ target: slider });
+    });
 
-    discretize_checkbox.checked = true;
+    const checkboxes = document.querySelectorAll('#settings-image input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+        checkbox.checked = checkbox.defaultChecked;
+    });
+
+
     applyProcessing();
     updateAllSlidersBackgrounds();
 }
+
+function reset3D() {
+    const numbers = document.querySelectorAll('#settings-3d input[type="number"]');
+    numbers.forEach(number => {
+        number.value = number.defaultValue;
+    });
+
+    const sliders = document.querySelectorAll('#settings-3d input[type="range"]');
+    sliders.forEach(slider => {
+        slider.value = slider.defaultValue;
+        updateSliderBackground({ target: slider });
+    });
+
+    const checkboxes = document.querySelectorAll('#settings-3d input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+        checkbox.checked = checkbox.defaultChecked;
+    });
+
+    pixelart_update();
+    applyProcessing();
+}
+
 export { image_update };

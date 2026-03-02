@@ -37,12 +37,18 @@
         </div>
       </div>
       <div class="header-links">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-github text-gray-800 dark:text-white" viewBox="0 0 16 16" style="margin-right:5px">
+          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+        </svg>
+
+        <a href="https://github.com/41pha1/Voxelartcraft" style="text-decoration:none; margin-right: 1em;">GitHub ☆</a>
+
         <svg class="icon w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
           fill="currentColor" viewBox="2 2 21 21">
           <path
             d="M19 5.6c-1.4-.7-2.8-1.1-4.2-1.3l-.5 1c-1.5-.2-3-.2-4.6 0l-.5-1c-1.4.2-2.8.6-4.1 1.3a17.4 17.4 0 0 0-3 11.6 18 18 0 0 0 5 2.5c.5-.5.8-1.1 1.1-1.7l-1.7-1c.2 0 .3-.2.4-.3a11.7 11.7 0 0 0 10.2 0l.4.3-1.7.9 1 1.7c1.9-.5 3.6-1.4 5.1-2.6.4-4-.6-8.2-3-11.5ZM8.6 14.8a2 2 0 0 1-1.8-2 2 2 0 0 1 1.8-2 2 2 0 0 1 1.8 2 2 2 0 0 1-1.8 2Zm6.6 0a2 2 0 0 1-1.8-2 2 2 0 0 1 1.8-2 2 2 0 0 1 1.8 2 2 2 0 0 1-1.8 2Z" />
         </svg>
-        <a href="https://discord.gg/shzeYBKpGZ" target="_blank">
+        <a href="https://discord.gg/shzeYBKpGZ" target="_blank" style="text-decoration:none">
           Discord
         </a>
         <!-- <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#202240', 'O5O7U6IQ7');kofiwidget2.draw();</script>  -->
@@ -51,8 +57,12 @@
     <div class="elements">
       <div class="main-conversion">
         <div class="settingsGroup">
-          <div class="card">
-            <h3>Image Preprocessing</h3>
+          <div class="card" id = "settings-image">
+            <h3>Image Preprocessing
+
+              <svg id ="reset-image" class="refresh-button" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>    <g id="SVGRepo_iconCarrier">      <g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"        transform="matrix(0 1 1 0 2.5 2.5)">        <path          d="m3.98652376 1.07807068c-2.38377179 1.38514556-3.98652376 3.96636605-3.98652376 6.92192932 0 4.418278 3.581722 8 8 8s8-3.581722 8-8-3.581722-8-8-8">        </path>        <path d="m4 1v4h-4" transform="matrix(1 0 0 -1 0 6)"></path>      </g>    </g>  </svg>
+                 
+            </h3>
             <table width=100%>
               <tbody>
                 <tr>
@@ -69,20 +79,7 @@
                     </label>
                   </th>
                   <td><input id="discretize-checkbox" type="checkbox" checked></td>
-                  <td><svg class="refresh-button" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
-                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                      <g id="SVGRepo_iconCarrier">
-                        <g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"
-                          transform="matrix(0 1 1 0 2.5 2.5)">
-                          <path
-                            d="m3.98652376 1.07807068c-2.38377179 1.38514556-3.98652376 3.96636605-3.98652376 6.92192932 0 4.418278 3.581722 8 8 8s8-3.581722 8-8-3.581722-8-8-8">
-                          </path>
-                          <path d="m4 1v4h-4" transform="matrix(1 0 0 -1 0 6)"></path>
-                        </g>
-                      </g>
-                    </svg>
-                  </td>
+                  <td>
                 </tr>
                 <tr>
                   <th>
@@ -267,18 +264,20 @@
               </tbody>
             </table>
           </div>
-          <div class="card">
-            <h3>3D Settings</h3>
+          <div class="card" id = "settings-3d">
+            <h3>3D Settings
+              <svg id = "reset-3d" class="refresh-button" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>  <g id="SVGRepo_iconCarrier">    <g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"      transform="matrix(0 1 1 0 2.5 2.5)">      <path        d="m3.98652376 1.07807068c-2.38377179 1.38514556-3.98652376 3.96636605-3.98652376 6.92192932 0 4.418278 3.581722 8 8 8s8-3.581722 8-8-3.581722-8-8-8">      </path>      <path d="m4 1v4h-4" transform="matrix(1 0 0 -1 0 6)"></path>    </g>  </g></svg>
+            </h3>
             <table width=100%>
-              <tbody>
-                <tr>
+                <tbody>
+                  <tr>
                   <th><label for="pixelart-checkbox">
                       <b class="tooltip-label">2D Pixelart</b>
                       <div class="tooltip">
                         <b>Pixelart Mode</b>
                         <hr>
                         <div class="tooltiptext">Special Mode where only one plane of blocks is placed. Always creates a
-                          flat build. Can still be rotated freely.</div>
+                          flat build. Can still be rotated freely. Allows creating diagonal or tilted pixelart in Minecraft.</div>
                       </div>
                     </label>
                   </th>
@@ -286,6 +285,25 @@
                   </td>
                 </tr>
                 <tr>
+                  <tr>
+                  <th><label for="enforce-boundary-checkbox">
+                      <b class="tooltip-label">Enforce Boundary</b>
+                      <div class="tooltip">
+                        <b>Enforce Boundary</b>
+                        <hr>
+                        <div class="tooltiptext">If enabled, blocks are not allowed to go outside of the image boundaries. This creates a clean edge, but can also increase the amount of blocks needed.
+                      </div>
+                    </label>
+                  </th>
+                  <td><input id="enforce-boundary-checkbox" type="checkbox"></td>
+                  </td>
+                </tr>
+                <tr>
+                </tbody>
+            </table>
+
+            <table width=100%>
+              <tbody>
                 <tr>
                   <th>
                     <b class="tooltip-label">FOV:</b>
@@ -401,13 +419,12 @@
                 </tr>
                 <tr class="pixelart-disabled-settings">
                   <th height="30px">
-                    <b class="tooltip-label">Variance:</b>
+                    <b class="tooltip-label">Detail:</b>
                     <div class="tooltip">
-                      <b>Variance</b>
+                      <b>Detail</b>
                       <hr>
-                      <div class="tooltiptext">The allowed variance in the image where a block is placed. Higher values
-                        lead to cheaper builds, but poorer quality. Lower values lead to more expensive builds with
-                        better detail.</div>
+                      <div class="tooltiptext">The allowed detail in the image where a block is placed. Higher values
+                        lead to more expensive builds with better detail quality. Lower values lead to cheaper builds, but poorer quality.</div>
                     </div>
                   </th>
                   <td width="100px" height="3pt">
@@ -416,10 +433,9 @@
                         <span class="range-progress"></span>
                       </div>
                       <div class="range-input">
-                        <input id="variance" type="range" min="5" max="1000" value="100" step="1">
+                        <input id="detail" type="range" min="1" max="100" value="50" step="1">
                       </div>
-                  <td><input id="variance-number" class="number-input" type="number" min="1" max="1000" step="1"
-                      value="100">
+                  <td><input id="detail-number" class="number-input" type="number" min="1" max="100" step="1" value="50">
                   </td>
                 </tr>
               </tbody>

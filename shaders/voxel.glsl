@@ -4,6 +4,7 @@ uniform float u_depth;
 uniform float u_depthStep;
 uniform float u_aspect;
 uniform float u_maxDepth;
+uniform float u_enforceBoundary;
 
 uniform vec2 u_resolution;
 uniform vec3 u_camPos;
@@ -91,7 +92,7 @@ bool blockOverlapsAlpha(vec3 currentBlock, mat4 viewProjection)
         vec3 blockPos = currentBlock + checkAlphaOffsets[i];
         vec2 uv = worldToUV(blockPos, viewProjection);
 
-        if (uv.x < 0. || uv.x > 1. || uv.y < 0. || uv.y > 1.)
+        if (u_enforceBoundary > 0.5 && (uv.x < 0. || uv.x > 1. || uv.y < 0. || uv.y > 1.))
             return true;
         
         vec4 alpha = texture2D(u_alphaMask, uv);
