@@ -14,27 +14,41 @@ function dither(blockKeyImage, width, height, palette, blocks)
     for(var blockKey of sortedBlocks) {
         var targetColor = [blocks[blockKey][0], blocks[blockKey][1], blocks[blockKey][2]];
         const block = blockGraph.get(blockKey);
-        const blockError = block.error;
+        const blockError = block.error;                 // error: [r, g, b] / per Block
 
         for (var c = 0; c < 3; c++) {
-            targetColor[c] -= blockError[c] / block.pixelCount;
+            targetColor[c] -= blockError[c]  / block.pixelCount;
             targetColor[c] = Math.max(0, Math.min(255, targetColor[c]));
         }
 
-        const {material, error} = _selectBestMaterial(palette, targetColor);
+        const material = _selectBestMaterial(palette, targetColor);   // error: [r, g, b] / per Pixel
+        var remainingError = [0.0, 0.0, 0.0];  
+
+        for (var c = 0; c < 3; c++) {
+            remainingError[c] = (blocks[blockKey][c] - blockError[c] / block.pixelCount) - palette[material][c + 1];
+        }
+
         materials[blockKey] = material;
 
         const neighborSet = block.neighbors;
 
+        const distanceScaling = 20.0;
+        const errorDecay = 0.75;
+
+
         for(var neighborKey of neighborSet) {
-            var neighborError = blockGraph.get(neighborKey).error;
+            const neighborBlock = blockGraph.get(neighborKey);
+            var neighborError =neighborBlock.error;
             console.assert(materials[neighborKey] == -1);
 
+            //  Math.exp(-_distance(block, neighborBlock) / distanceScaling) 
+            const weight = errorDecay / neighborSet.size;
+
             for (var c = 0; c < 3; c++) {
-                neighborError[c] += error[c] * block.pixelCount / (neighborSet.size + 1);
+                neighborError[c] -= weight * (remainingError[c] * block.pixelCount);
             }
 
-            blockGraph.get(neighborKey).error = neighborError;
+            neighborBlock.error = neighborError;
         }
     }
     console.assert(materials.every(m => m != -1));
@@ -44,14 +58,17 @@ function dither(blockKeyImage, width, height, palette, blocks)
     return materials;
 }
 
+function _distance(block1, block2) {
+    var xdis = block1.position[0] - block2.position[0];
+    var ydis = block1.position[1] - block2.position[1];
+    
+    return xdis * xdis + ydis * ydis;
+}   
+
 // return palette[4], error (r, g, b)
 function _selectBestMaterial(palette, targetColor) {
     var closestBlock = NaN;
     var closestDistance = 10000000
-
-    var closest_rdis;
-    var closest_gdis;
-    var closest_bdis;
 
     for (const paletteEntry of palette) {
         const rdis = paletteEntry[1] - targetColor[0];
@@ -63,13 +80,10 @@ function _selectBestMaterial(palette, targetColor) {
         if (distance < closestDistance) {
             closestBlock = paletteEntry[4];
             closestDistance = distance;
-            closest_rdis = rdis;
-            closest_gdis = gdis;
-            closest_bdis = bdis;
         }
     }
 
-    return {material: closestBlock, error: [closest_rdis, closest_gdis, closest_bdis]};
+    return closestBlock;
 }
 
 function _maybeAddNeighbor(x, y, width, height, blockKey, blockKeyImage, neighborSet) {
@@ -100,12 +114,15 @@ function _findNeighbors(blockKeyImage, width, height, numBlocks){
             if (blockKey < 0) continue; // Skip transparent pixels
 
             if (!blockGraph.has(blockKey)) {
-                blockGraph.set(blockKey, { pixelCount: 1, error: [0.0, 0.0, 0.0], neighbors: new Set() });
+                blockGraph.set(blockKey, { pixelCount: 1, position: [x, y], error: [0.0, 0.0, 0.0], neighbors: new Set() });
         
                 foundOrderLookup[blockKey] = foundCount;
                 sortedBlocks[foundCount++] = blockKey;
             }else {
-                blockGraph.get(blockKey).pixelCount++;
+                block = blockGraph.get(blockKey);
+                block.pixelCount++;
+                block.position[0] + x;
+                block.position[1] + y;
             }
 
             var neighborSet = blockGraph.get(blockKey).neighbors;
@@ -116,6 +133,13 @@ function _findNeighbors(blockKeyImage, width, height, numBlocks){
                 }
             }
         }
+
+    }
+    for(var i = 0; i < foundCount; i++) {
+        var blockKey = sortedBlocks[i];
+        var block = blockGraph.get(blockKey);
+        block.position[0] /= block.pixelCount;
+        block.position[1] /= block.pixelCount;
     }
 }
 

@@ -406,6 +406,12 @@ function hashPixels(pixels, occlusionMask) {
     return foundBlocks;
 }
 
+function updateBlockTotal(amount) {
+    const totalAmountDiv = document.querySelector(".material-total-count");
+    totalAmountDiv.innerHTML = "Total: " + amount;
+    totalAmountDiv.style.display = amount > 0 ? "block" : "none";
+}
+
 function updateMaterialList() {
     loadSettingsFromUI();
 
@@ -454,7 +460,6 @@ function updateMaterialList() {
         toSort[i].children[2].innerHTML = "x" + (materialList[toSort[i].children[0].id] || 0);
         blockList.appendChild(toSort[i]);
     }
-    const totalAmountDiv = document.querySelector(".material-total-count");
 
     var totalAmount = 0;
     for (const key in materialList) {
@@ -462,10 +467,7 @@ function updateMaterialList() {
     }
 
     document.querySelector("#downloadButton").disabled = totalAmount == 0;
-
-    totalAmountDiv.innerHTML = "Total: " + totalAmount;
-    totalAmountDiv.style.display = totalAmount > 0 ? "block" : "none";
-
+    updateBlockTotal(totalAmount);
 
     if (!materials || materials.length == 0)
         return;
@@ -775,6 +777,7 @@ function voxelConvert() {
     } else {
         var timer = setInterval(() => {
             placeBlocks(occlusionMask, output, depth, blocks, outputCtx);
+            updateBlockTotal(blocks.length);
 
             depth += depthStep;
             setVoxelProgress((depth - minDepth) / (maxDepth * 1.75 - minDepth + 2));
