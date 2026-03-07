@@ -11,6 +11,9 @@
   <script src="src/gui.js" type="module"></script>
   <script src='https://git.io/glm-js.min.js'></script>
 
+  <!-- Adsense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3405708991470158"crossorigin="anonymous"></script>
+
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MC7FB2MH');</script>
   <!-- End Google Tag Manager -->
@@ -298,6 +301,21 @@
                   <td><input id="enforce-boundary-checkbox" type="checkbox"></td>
                   </td>
                 </tr>
+
+                <tr>
+                <tr>
+                  <th><label for="dither-checkbox">
+                      <b class="tooltip-label">Dither</b>
+                      <div class="tooltip">
+                        <b>Dither</b>
+                        <hr>
+                        <div class="tooltiptext">If enabled, dithering will be applied to the block types, reducing color banding.
+                      </div>
+                    </label>
+                  </th>
+                  <td><input id="dither-checkbox" type="checkbox"></td>
+                  </td>
+                </tr>
                 <tr>
                 </tbody>
             </table>
@@ -499,7 +517,23 @@
           </div>
         </div>
       </div>
+
+      <div class="footer" style ="text-align: center; padding: 1em; font-size: 0.9em; color: #555;">
+        <p>Made with ❤️. Check out the <a href="https://github.com/41pha1/PerspectiveArt">GitHub repository</a> for more info and to give suggestions! | <a href="impressum.html" target="_self" style="text-decoration:none">Impressum</a></p>
+      </div>
+
+      <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+      <script>
+        kofiWidgetOverlay.draw('voxelartcraft', {
+          'type': 'floating-chat',
+          'floating-chat.donateButton.text': 'Support us',
+          'floating-chat.donateButton.background-color': '#323842',
+          'floating-chat.donateButton.text-color': '#fff'
+        });
+      </script>
+
     </div>
+    
   </div>
 </body>
 

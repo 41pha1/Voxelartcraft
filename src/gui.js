@@ -1,4 +1,4 @@
-import { voxelConvert, applyProcessing, downloadNBT, updateTargetImage, stopVoxelization } from "./script.js";
+import { voxelConvert, applyProcessing, updatePalette, downloadNBT, updateTargetImage, stopVoxelization } from "./script.js";
 
 document.getElementById("convertButton").addEventListener("click", voxelConvert, false);
 document.getElementById("downloadButton").addEventListener("click", downloadNBT, false);
@@ -212,6 +212,8 @@ function depth_updateMaxNumber() {
 
 depth_updateMaxSlider();
 depth_updateMinSlider();
+
+document.querySelector('#dither-checkbox').addEventListener("change", updatePalette);
 
 document.querySelector('#reset-image').addEventListener("click", resetImage);
 document.querySelector('#reset-3d').addEventListener("click", reset3D);

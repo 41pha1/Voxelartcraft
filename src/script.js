@@ -1,5 +1,6 @@
 import { createStructureNBT } from "./schematic.js";
 import { image_update } from "./gui.js";
+import { dither, resetDither } from "./dither.js";
 
 
 const textureAtlas = './atlas.png';
@@ -49,12 +50,14 @@ var voxelizedTexture = null;
 var depth_uniform = null;
 var enforceBoundary_uniform = null;
 
+
 // Settings
 const camPos = [0.7, 1.62, 0.7];
 var fov = 60.;
 var pitch = Math.asin(1 / Math.sqrt(3)) * 180 / Math.PI;
 var yaw = 45.;
 var enforceBoundary = false;
+var enableDither = false;
 
 // QUALITY SETTINGS
 var minDepth = 10;
@@ -73,6 +76,7 @@ var voxelized = false;
 // Voxelization
 var blocks = null;
 var materials = null;
+var blockKeyImage = null;
 
 function loadShader(shaderFile) {
     var shaderSource;
@@ -128,7 +132,7 @@ function createTexture(w, h, type = gl.FLOAT, data = null) {
     const width = w;
     const height = h;
     const border = 0;
-    const format = gl.RGBA;
+    var format = gl.RGBA;
     var internalFormat = null;
 
     if (type == gl.FLOAT) {
@@ -137,13 +141,23 @@ function createTexture(w, h, type = gl.FLOAT, data = null) {
     } else if (type == gl.UNSIGNED_BYTE) {
         data = data || new Uint8Array(w * h * 4);
         internalFormat = gl.RGBA8;
+    } else if (type == "INT32") {
+        data = data || new Uint8Array(w * h * 4);
+        type = gl.UNSIGNED_BYTE;
+        if (data instanceof Int32Array)
+            data = new Uint8Array(data.buffer);
 
-    } else
+        internalFormat = gl.RGBA;
+    }else if (type == "FLOAT") {
+        data = data || new Float32Array(w * h);
+        type = gl.FLOAT;
+        internalFormat = gl.R32F;
+        format = gl.RED;
+    }
+    else
         throw "Invalid framebuffer type";
 
-    gl.texImage2D(gl.TEXTURE_2D, level, internalFormat, width, height, border,
-        format, type, data);
-
+    gl.texImage2D(gl.TEXTURE_2D, level, internalFormat, width, height, border, format, type, data);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
 
@@ -333,8 +347,6 @@ function applyProcessing() {
     readPixelsAsync(gl.UNSIGNED_BYTE, canvas.width, canvas.height, processedImage);
     gl.bindFramebuffer(gl.FRAMEBUFFER, null);
 
-    applyPreviewDiscretization();
-
     if (voxelizing) {
         voxelConvert();
     }
@@ -343,8 +355,11 @@ function applyProcessing() {
         voxelizing = false;
         voxelized = false;
         blocks = [];
+        resetDither();
         updateMaterialList();
     }
+
+    applyPreviewDiscretization();
 }
 
 function meanAndVariance(pixels) {
@@ -392,13 +407,18 @@ function hashPixels(pixels, occlusionMask) {
 }
 
 function updateMaterialList() {
+    loadSettingsFromUI();
+
     materials = [];
 
-    for (const block of blocks) {
-        const blockID = selectBlockFromPalette(block);
+    if (enableDither)  materials = dither(blockKeyImage, canvas.width, canvas.height, palette, blocks);
+    else if (blocks) {
+        for (const block of blocks) {
+            const blockID = selectBlockFromPalette(block);
 
-        if (!isNaN(blockID))
-            materials.push(blockID);
+            if (!isNaN(blockID))
+                materials.push(blockID);
+        }
     }
 
     const materialList = {};
@@ -445,6 +465,22 @@ function updateMaterialList() {
 
     totalAmountDiv.innerHTML = "Total: " + totalAmount;
     totalAmountDiv.style.display = totalAmount > 0 ? "block" : "none";
+
+
+    if (!materials || materials.length == 0)
+        return;
+
+    // Create material lookup texture
+    var materialLookup = new Float32Array(canvas.width * canvas.height);
+    for (var i = 0; i < canvas.width * canvas.height; i++) {
+        materialLookup[i] = materials[blockKeyImage[i]];
+    }
+
+    gl.useProgram(discretizeShader);
+    gl.activeTexture(gl.TEXTURE3);
+    createTexture(canvas.width, canvas.height, "FLOAT", materialLookup);
+    gl.uniform1i(gl.getUniformLocation(discretizeShader, "u_materialLookup"), 3);
+    gl.activeTexture(gl.TEXTURE0);
 }
 
 function applyPreviewDiscretization() {
@@ -453,6 +489,9 @@ function applyPreviewDiscretization() {
 
     const discretizeUniform = gl.getUniformLocation(discretizeShader, "u_discretize");
     gl.uniform1i(discretizeUniform, discretize);
+
+    const enableDitherUniform = gl.getUniformLocation(discretizeShader, "u_enableDither");
+    gl.uniform1i(enableDitherUniform, enableDither ? 1 : 0);
 
     const applyTextureUniform = gl.getUniformLocation(discretizeShader, "u_applyTexture");
     gl.uniform1i(applyTextureUniform, 0);
@@ -527,8 +566,8 @@ function updatePalette() {
     const palleteSizeUniform = gl.getUniformLocation(discretizeShader, "u_paletteSize");
     gl.uniform1f(palleteSizeUniform, palette.length);
 
-    applyPreviewDiscretization();
     updateMaterialList();
+    applyPreviewDiscretization();
 }
 
 function selectBlockFromPalette(meanColor) {
@@ -605,11 +644,13 @@ function analyzeBlocks(foundBlocks, pixels, occlusionMask, allowedVariance, outp
         const g = meanColor[1] / 255.0;
         const b = meanColor[2] / 255.0;
 
+
         for (const pixel of blockPixels) {
             const shade = (Math.floor((pixels[pixel + 3] - 1.0) / 256.0) + 6) * 0.1;
             const texelUV = Math.floor((pixels[pixel + 3] - 1.0) % 256);
 
             occlusionMask[pixel / 4] = 1;
+            blockKeyImage[pixel / 4] = blocks.length;
             output[pixel] = r;
             output[pixel + 1] = g;
             output[pixel + 2] = b;
@@ -619,7 +660,7 @@ function analyzeBlocks(foundBlocks, pixels, occlusionMask, allowedVariance, outp
             outputCtx.fillStyle = "rgb(" + meanColor[0] * shade + ", " + meanColor[1] * shade + ", " + meanColor[2] * shade + ")";
             outputCtx.fillRect(pixel / 4 % canvas.width, Math.floor(pixel / 4 / canvas.width), 1, 1);
         }
-
+        
         blocks.push([meanColor[0], meanColor[1], meanColor[2], x, y, z]);
     }
 }
@@ -676,6 +717,7 @@ function loadSettingsFromUI() {
     tint = parseFloat(document.querySelector('#tint-number').value);
     pixelArtMode = document.querySelector('#pixelart-checkbox').checked;
     enforceBoundary = document.querySelector('#enforce-boundary-checkbox').checked;
+    enableDither = document.querySelector('#dither-checkbox').checked;
 }
 
 function showProcessingCanvas() {
@@ -702,8 +744,9 @@ function voxelConvert() {
     requestStop = false;
     voxelized = false;
     voxelizing = true;
-
     blocks = [];
+
+    resetDither();
     setVoxelProgress(0);
     showVoxelCanvas();
     updateMaterialList();
@@ -717,6 +760,7 @@ function voxelConvert() {
     var occlusionMask = new Int8Array(canvas.width * canvas.height * 1);
     pixelData = new Float32Array(canvas.width * canvas.height * 4);
     voxel_preview = new Uint8Array(canvas.width * canvas.height * 4);
+    blockKeyImage = new Int32Array(canvas.width * canvas.height).fill(-1);
     outputCtx.clearRect(0, 0, canvas.width, canvas.height);
 
     var depth = minDepth;
@@ -732,7 +776,6 @@ function voxelConvert() {
         var timer = setInterval(() => {
             placeBlocks(occlusionMask, output, depth, blocks, outputCtx);
 
-            console.log("Depth: " + depth);
             depth += depthStep;
             setVoxelProgress((depth - minDepth) / (maxDepth * 1.75 - minDepth + 2));
 
@@ -748,6 +791,7 @@ function voxelConvert() {
                     console.log("Finished voxelizing: " + blocks.length);
                 } else {
                     blocks = [];
+                    resetDither();
                 }
             }
         }, 0);
@@ -802,7 +846,7 @@ async function updateTargetImage(image_obj) {
     [discreteVoxelizedFrameBuffer, temp] = setupFramebuffer(gl.UNSIGNED_BYTE);
 
     blocks = [];
-
+    resetDither();
     applyProcessing();
     updateMaterialList();
     updatePalette();

@@ -321,7 +321,7 @@ void main( )
         
         vec2 uv = blockUV(block, rayOrigin, rayDirection, face);      
         float pixel = floor(uv.x * 16.) * 16. + floor(uv.y * 16.);
-        float alpha = 1. + pixel + shade * 256.;
+        float alpha = 1. + pixel + shade * 256.;  //  UV | shade
 
         gl_FragColor = vec4(cube , alpha);
     }

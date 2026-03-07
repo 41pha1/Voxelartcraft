@@ -1,16 +1,24 @@
 precision mediump float;
+precision highp int;
 
 uniform sampler2D u_targetImage;
 uniform sampler2D u_palette;
 uniform sampler2D u_textureAtlas;
+uniform sampler2D u_materialLookup;
 uniform float u_paletteSize;
 
 uniform vec2 u_textureAtlasSize;
 
 uniform int u_discretize;
+uniform int u_enableDither;
 uniform int u_applyTexture;
 
 varying vec2 v_texcoord;
+
+vec4 getPallete(float index)
+{
+    return texture2D(u_palette, vec2((index + 0.5) / u_paletteSize, 0.5));
+}
 
 vec4 discretize(vec3 c) {
     float minDist = 1000000.0;
@@ -23,7 +31,7 @@ vec4 discretize(vec3 c) {
         if(i >= u_paletteSize)
             break;
 
-        vec4 col = texture2D(u_palette, vec2(i / u_paletteSize, 0.5));
+        vec4 col = getPallete(i);
         float dist = distance(c, col.rgb);
 
         if(dist < minDist) {
@@ -51,8 +59,12 @@ void main() {
         vec4 result = discretize(col.rgb);
         col.rgb = result.rgb;
 
-
         if (u_applyTexture > 0) {
+            if(u_enableDither > 0) {
+                float paletteIndex = texture2D(u_materialLookup, uv).r;
+                result.a = getPallete(paletteIndex).a;
+            }
+
             float textureIndex = floor(result.a);
             float row = floor(mod(textureIndex, 16.0));
             float column = floor(textureIndex / 16.0);
@@ -61,12 +73,16 @@ void main() {
             float pixelX = floor(mod(pixelIndex, 16.0));
             float pixelY = floor(pixelIndex / 16.0);
 
-            vec4 texCol = texture2D(u_textureAtlas, vec2((0.5 + row * 16. + pixelX) / u_textureAtlasSize.x, (0.5 + column * 16. + pixelY) / u_textureAtlasSize.y));
+            vec2 texCoord = vec2((0.5 + row * 16.0 + pixelX) / u_textureAtlasSize.x, (0.5 + column * 16.0 + pixelY) / u_textureAtlasSize.y);
+            vec4 texCol = texture2D(u_textureAtlas, texCoord);
             col.rgb = texCol.rgb;
 
             float shade = (floor(col.a / 256.) + 6.) * 0.1;
 
             col.rgb *= shade;
+
+            // col.rgb = vec3(pixelX / 15.0, pixelY / 15.0, 0.0);
+            // col.rgb =  texture2D(u_textureAtlas, uv).rgb;
         }
 
 
